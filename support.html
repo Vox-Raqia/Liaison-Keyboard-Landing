@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Command Center | Liaison Keyboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            color: #e2e8f0;
+            background:
+                radial-gradient(circle at 20% 10%, rgba(34, 211, 238, 0.2), transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(56, 189, 248, 0.18), transparent 35%),
+                linear-gradient(180deg, #020617 0%, #000 100%);
+        }
+        .grid-overlay {
+            background-image:
+                linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .panel { border: 1px solid rgba(34, 211, 238, 0.28); box-shadow: 0 0 24px rgba(34, 211, 238, 0.12); }
+    </style>
+</head>
+<body class="min-h-screen grid-overlay px-4 py-8 sm:px-6">
+    <main class="mx-auto max-w-4xl panel rounded-2xl bg-slate-950/80 backdrop-blur-md p-6 sm:p-10">
+        <header class="mb-8 border-b border-slate-800 pb-6">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                <h1 class="text-3xl sm:text-4xl font-black text-cyan-300">Support Command Center</h1>
+                <a href="/index.html" class="text-sm text-slate-300 hover:text-cyan-300">Back to Home</a>
+            </div>
+            <p class="mt-3 text-sm text-slate-400">Mission Control for billing, account help, and compliance requests.</p>
+            <nav class="mt-4 flex flex-wrap gap-3 text-sm">
+                <a href="/privacy.html" class="text-slate-300 hover:text-cyan-300">Privacy</a>
+                <a href="/terms.html" class="text-slate-300 hover:text-cyan-300">Terms</a>
+            </nav>
+        </header>
+
+        <section class="grid gap-4 sm:grid-cols-2 mb-8">
+            <article class="rounded-xl border border-cyan-900/60 bg-slate-900/70 p-5">
+                <h2 class="text-lg font-bold text-cyan-200">Primary Contact</h2>
+                <p class="mt-2 text-slate-300">Email the support team directly for technical or account assistance.</p>
+                <a href="mailto:support@liaisonkeyboard.com" class="mt-4 inline-flex rounded-lg bg-cyan-600 px-4 py-2 text-sm font-semibold text-white hover:bg-cyan-500">support@liaisonkeyboard.com</a>
+            </article>
+
+            <article class="rounded-xl border border-cyan-900/60 bg-slate-900/70 p-5">
+                <h2 class="text-lg font-bold text-cyan-200">Subscription Control</h2>
+                <p class="mt-2 text-slate-300">Manage payment methods, invoices, and cancellation using the Stripe Billing Portal.</p>
+                <a href="https://liaisonkeyboard.com/chat" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-500">Open Stripe Billing Portal</a>
+            </article>
+        </section>
+
+        <section class="rounded-xl border border-slate-800 bg-black/40 p-5">
+            <h2 class="text-lg font-bold text-cyan-200">Response SLA</h2>
+            <p class="mt-2 text-slate-300 text-sm sm:text-base">Standard response target is within 24 hours. High-priority billing and access issues are triaged continuously.</p>
+        </section>
+    </main>
+</body>
+</html>
