@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="196" height="40" viewBox="0 0 196 40" role="img" aria-labelledby="stripeTitle stripeDesc">
+  <title id="stripeTitle">Stripe Verified Badge</title>
+  <desc id="stripeDesc">Badge indicating checkout payments are verified by Stripe.</desc>
+  <defs>
+    <linearGradient id="badgeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a172f" />
+      <stop offset="100%" stop-color="#11254a" />
+    </linearGradient>
+    <linearGradient id="iconBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#635bff" />
+      <stop offset="100%" stop-color="#0ea5e9" />
+    </linearGradient>
+  </defs>
+  <rect x="0.75" y="0.75" width="194.5" height="38.5" rx="10" fill="url(#badgeBg)" stroke="#20406e" />
+  <rect x="7" y="7" width="26" height="26" rx="8" fill="url(#iconBg)" />
+  <path d="M14.5 20.3l4.1 4.4 7.7-9.4" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="40" y="17" fill="#9bd2ff" font-family="Arial, Helvetica, sans-serif" font-size="10" letter-spacing="1.1">PAYMENTS SECURED BY</text>
+  <text x="40" y="29" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">Stripe Verified</text>
+</svg>
