@@ -11,14 +11,44 @@
     </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-6 text-center">
-    <div class="glow-border p-10 rounded-3xl bg-black/60 backdrop-blur-xl max-w-lg w-full">
-        <h1 class="text-5xl font-extrabold mb-4 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">LIAISON KEYBOARD</h1>
-        <p class="text-gray-400 text-lg mb-8">The first AI strategist for your private messages. Master the art of the reply.</p>
-        <div class="flex flex-col gap-3">
-            <a href="https://app.liaisonkeyboard.com/auth/login" class="w-full py-4 bg-cyan-600 hover:bg-cyan-500 rounded-xl font-bold transition-all transform hover:scale-105 block">Login/Sign-up</a>
-            <p class="text-[10px] uppercase tracking-widest text-gray-600">Encrypted by Supabase • Powered by Claude 3.5</p>
-        </div>
-    </div>
+    <main class="glow-border p-8 sm:p-10 rounded-3xl bg-black/60 backdrop-blur-xl max-w-4xl w-full">
+        <p class="text-cyan-300 text-xs uppercase tracking-[0.2em] mb-4">Liaison Keyboard</p>
+        <h1 class="text-4xl sm:text-5xl font-extrabold mb-3 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Master the art of the reply</h1>
+        <p class="text-gray-300 text-base sm:text-lg mb-2">The AI strategist for your private messages.</p>
+        <p class="text-cyan-200 font-semibold text-sm sm:text-base mb-8">Start with <span class="text-white">15 Free Generations</span> to experience the value before upgrading.</p>
+
+        <a href="https://app.liaisonkeyboard.com/auth/register" class="w-full sm:w-auto inline-block py-4 px-8 bg-cyan-600 hover:bg-cyan-500 rounded-xl font-bold transition-all transform hover:scale-105 mb-8">Try for Free</a>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+            <article class="rounded-2xl border border-slate-700 bg-slate-950/70 p-5">
+                <p class="text-xs uppercase tracking-wider text-slate-400">Free Taste</p>
+                <h2 class="text-2xl font-black mt-2">$0</h2>
+                <p class="text-sm text-slate-300 mt-2">15 Free Generations</p>
+                <p class="text-xs text-slate-400 mt-2">Perfect to test quality and workflow.</p>
+                <a href="https://app.liaisonkeyboard.com/auth/register" class="mt-4 inline-block w-full text-center py-3 rounded-lg bg-slate-700 hover:bg-slate-600 font-semibold">Get Started Free</a>
+            </article>
+
+            <article class="rounded-2xl border border-cyan-700 bg-slate-950/80 p-5">
+                <p class="text-xs uppercase tracking-wider text-cyan-300">Pro Monthly</p>
+                <h2 class="text-2xl font-black mt-2">$7.99<span class="text-base font-semibold text-slate-300"> / month</span></h2>
+                <p class="text-sm text-slate-300 mt-2">Unlimited generations</p>
+                <p class="text-sm text-slate-300">Unlocks all personas</p>
+                <a href="https://app.liaisonkeyboard.com/auth/register" class="mt-4 inline-block w-full text-center py-3 rounded-lg bg-cyan-600 hover:bg-cyan-500 font-semibold">Choose Monthly</a>
+            </article>
+
+            <article class="rounded-2xl border border-purple-700 bg-slate-950/80 p-5 relative">
+                <span class="absolute -top-3 right-3 text-[10px] uppercase tracking-wider bg-purple-500 text-white px-2 py-1 rounded-full">2 Months Free</span>
+                <p class="text-xs uppercase tracking-wider text-purple-300">Pro Annual</p>
+                <h2 class="text-2xl font-black mt-2">$79.99<span class="text-base font-semibold text-slate-300"> / year</span></h2>
+                <p class="text-sm text-slate-300 mt-2">Unlimited generations</p>
+                <p class="text-sm text-slate-300">Unlocks all personas</p>
+                <p class="text-xs text-purple-200 mt-2">~16% savings vs monthly billing</p>
+                <a href="https://app.liaisonkeyboard.com/auth/register" class="mt-4 inline-block w-full text-center py-3 rounded-lg bg-purple-600 hover:bg-purple-500 font-semibold">Choose Annual</a>
+            </article>
+        </section>
+
+        <p class="text-[10px] uppercase tracking-widest text-gray-600 mt-8">Encrypted by Supabase • Powered by Claude 3.5</p>
+    </main>
     <footer class="mt-10 text-gray-500 text-xs">
         <div class="flex items-center justify-center gap-3 mb-3">
             <a href="/privacy.html" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400">Privacy</a><span>|</span>
