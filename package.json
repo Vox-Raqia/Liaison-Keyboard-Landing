@@ -1,5 +1,12 @@
 {
+  "scripts": {
+    "build:css": "tailwindcss -i ./tailwind.input.css -o ./output.css --content ./index.html --minify",
+    "watch:css": "tailwindcss -i ./tailwind.input.css -o ./output.css --content ./index.html --watch"
+  },
   "dependencies": {
     "@vercel/analytics": "^1.6.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
   }
 }
