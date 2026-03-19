@@ -4,47 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | Liaison Keyboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background: radial-gradient(circle at top, #0f172a 0%, #020617 55%, #000 100%); color: #e2e8f0; }
-        .panel { border: 1px solid rgba(56, 189, 248, 0.25); box-shadow: 0 0 24px rgba(56, 189, 248, 0.12); }
-    </style>
+    <meta
+        name="description"
+        content="Privacy information for Liaison Keyboard covering account data, generated reply context, saved conversation history, and support requests."
+    >
+    <link rel="stylesheet" href="./site.css">
 </head>
-<body class="min-h-screen px-4 py-8 sm:px-6">
-    <main class="mx-auto max-w-4xl panel rounded-2xl bg-slate-950/70 backdrop-blur-md p-6 sm:p-10">
-        <header class="mb-8 border-b border-slate-800 pb-6">
-            <div class="flex flex-wrap items-center justify-between gap-4">
-                <h1 class="text-3xl sm:text-4xl font-black text-cyan-300">Privacy Policy</h1>
-                <a href="/index.html" class="text-sm text-slate-300 hover:text-cyan-300">Back to Home</a>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <div class="topbar-inner">
+                <div class="brand-lockup">
+                    <a class="brand-name" href="./index.html">Liaison Keyboard</a>
+                    <span class="brand-note">Privacy details for the current web and app experience.</span>
+                </div>
+                <div class="topbar-actions">
+                    <a href="https://app.liaisonkeyboard.com/auth/login" class="button button-secondary">Login</a>
+                    <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-primary">Start 15 Free Generations</a>
+                </div>
             </div>
-            <p class="mt-3 text-sm text-slate-400">Last Updated: February 23, 2026</p>
-            <nav class="mt-4 flex flex-wrap gap-3 text-sm">
-                <a href="/terms.html" class="text-slate-300 hover:text-cyan-300">Terms</a>
-                <a href="/support.html" class="text-slate-300 hover:text-cyan-300">Support</a>
-            </nav>
         </header>
 
-        <section class="space-y-6 text-sm sm:text-base leading-7 text-slate-200">
-            <div>
-                <h2 class="text-xl font-bold text-cyan-200">1. No Data Persistence</h2>
-                <p class="mt-2">Liaison Keyboard processes your submitted message context in volatile memory for generation only. Session context is deleted after generation unless you explicitly enable Pro history features.</p>
-            </div>
+        <main class="legal-main">
+            <div class="content-wrap">
+                <div class="legal-hero section-head">
+                    <span class="eyebrow">Privacy</span>
+                    <h1 class="section-title">How Liaison Keyboard handles user data.</h1>
+                    <p class="section-copy">
+                        Last updated: March 19, 2026. This summary reflects the currently shipped product surfaces,
+                        including authentication, billing, generated replies, and saved conversation history.
+                    </p>
+                </div>
 
-            <div>
-                <h2 class="text-xl font-bold text-cyan-200">2. Data Sovereignty and Infrastructure Security</h2>
-                <p class="mt-2">Our cloud stack operates across AWS and Supabase Tier-IV aligned facilities with encryption in transit, encryption at rest, and strict Row-Level Security (RLS) enforcement for user-scoped records.</p>
-            </div>
+                <div class="legal-panel legal-card">
+                    <section class="legal-section">
+                        <h2 class="legal-title">1. What we process</h2>
+                        <p class="legal-copy">
+                            Liaison Keyboard processes account details needed for authentication, subscription status,
+                            and support. When you use the product, message context is sent to the generation service so
+                            reply suggestions can be created for your selected persona.
+                        </p>
+                    </section>
 
-            <div>
-                <h2 class="text-xl font-bold text-cyan-200">3. CCPA and GDPR 2026 Compliance</h2>
-                <p class="mt-2">You may request access, correction, portability, or deletion of your personal data by emailing <a href="mailto:support@liaisonkeyboard.com" class="text-cyan-300 hover:text-cyan-200">support@liaisonkeyboard.com</a>. Verified deletion requests are processed in accordance with CCPA and GDPR 2026 obligations.</p>
-            </div>
+                    <section class="legal-section">
+                        <h2 class="legal-title">2. Saved conversation data</h2>
+                        <p class="legal-copy">
+                            The current product includes saved threads and conversation history for signed-in users.
+                            That means the service is not a strict zero-retention system. We store the data needed to
+                            support chat history, plan entitlements, and product operations, and we limit access to the
+                            authenticated user scope used by the app.
+                        </p>
+                    </section>
 
-            <div>
-                <h2 class="text-xl font-bold text-cyan-200">4. Contact</h2>
-                <p class="mt-2">Privacy and compliance inquiries: <a href="mailto:support@liaisonkeyboard.com" class="text-cyan-300 hover:text-cyan-200">support@liaisonkeyboard.com</a>.</p>
+                    <section class="legal-section">
+                        <h2 class="legal-title">3. Billing and infrastructure</h2>
+                        <p class="legal-copy">
+                            Subscription checkout and billing management are handled through Stripe. Authentication,
+                            product data, and server-side functions run through the app stack described in the current
+                            product brief, including user-scoped access controls for account data.
+                        </p>
+                    </section>
+
+                    <section class="legal-section">
+                        <h2 class="legal-title">4. Requests and support</h2>
+                        <p class="legal-copy">
+                            If you need help with privacy, billing, or account data, email
+                            <a class="helper-link" href="mailto:support@liaisonkeyboard.com">support@liaisonkeyboard.com</a>.
+                            We use support conversations only to address the request you submit.
+                        </p>
+                    </section>
+                </div>
             </div>
-        </section>
-    </main>
+        </main>
+
+        <footer class="footer">
+            <div class="content-wrap footer-row">
+                <div>
+                    <div class="brand-name">Liaison Keyboard</div>
+                    <p class="footer-copy">Product, billing, and support information aligned to the current release.</p>
+                </div>
+                <nav class="footer-links" aria-label="Footer">
+                    <a class="footer-link" href="./index.html">Home</a>
+                    <a class="footer-link" href="./terms.html">Terms</a>
+                    <a class="footer-link" href="./support.html">Support</a>
+                </nav>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

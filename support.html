@@ -3,45 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support Command Center | Liaison Keyboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background: radial-gradient(circle at top, #0f172a 0%, #020617 55%, #000 100%); color: #e2e8f0; }
-        .panel { border: 1px solid rgba(56, 189, 248, 0.25); box-shadow: 0 0 24px rgba(56, 189, 248, 0.12); }
-    </style>
+    <title>Support | Liaison Keyboard</title>
+    <meta
+        name="description"
+        content="Support resources for Liaison Keyboard covering billing, account help, and product access."
+    >
+    <link rel="stylesheet" href="./site.css">
 </head>
-<body class="min-h-screen px-4 py-8 sm:px-6">
-    <main class="mx-auto max-w-4xl panel rounded-2xl bg-slate-950/80 backdrop-blur-md p-6 sm:p-10">
-        <header class="mb-8 border-b border-slate-800 pb-6">
-            <div class="flex flex-wrap items-center justify-between gap-4">
-                <h1 class="text-3xl sm:text-4xl font-black text-cyan-300">Support Command Center</h1>
-                <a href="/index.html" class="text-sm text-slate-300 hover:text-cyan-300">Back to Home</a>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <div class="topbar-inner">
+                <div class="brand-lockup">
+                    <a class="brand-name" href="./index.html">Liaison Keyboard</a>
+                    <span class="brand-note">Account, billing, and product support for the current release.</span>
+                </div>
+                <div class="topbar-actions">
+                    <a href="https://app.liaisonkeyboard.com/auth/login" class="button button-secondary">Login</a>
+                    <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-primary">Start 15 Free Generations</a>
+                </div>
             </div>
-            <p class="mt-3 text-sm text-slate-400">Mission Control for billing, account help, and compliance requests.</p>
-            <nav class="mt-4 flex flex-wrap gap-3 text-sm">
-                <a href="/privacy.html" class="text-slate-300 hover:text-cyan-300">Privacy</a>
-                <a href="/terms.html" class="text-slate-300 hover:text-cyan-300">Terms</a>
-            </nav>
         </header>
 
-        <section class="grid gap-4 sm:grid-cols-2 mb-8">
-            <article class="rounded-xl border border-cyan-900/60 bg-slate-900/70 p-5">
-                <h2 class="text-lg font-bold text-cyan-200">Primary Contact</h2>
-                <p class="mt-2 text-slate-300">Email the support team directly for technical or account assistance.</p>
-                <a href="mailto:support@liaisonkeyboard.com" class="mt-4 inline-flex rounded-lg bg-cyan-600 px-4 py-2 text-sm font-semibold text-white hover:bg-cyan-500">support@liaisonkeyboard.com</a>
-            </article>
+        <main class="legal-main">
+            <div class="content-wrap">
+                <div class="legal-hero section-head">
+                    <span class="eyebrow">Support</span>
+                    <h1 class="section-title">Need help with access, billing, or the product?</h1>
+                    <p class="section-copy">
+                        Use the channels below for the current web and app experience. If you are already a user,
+                        logging in first usually gives you the fastest path to plan and account actions.
+                    </p>
+                </div>
 
-            <article class="rounded-xl border border-cyan-900/60 bg-slate-900/70 p-5">
-                <h2 class="text-lg font-bold text-cyan-200">Subscription Control</h2>
-                <p class="mt-2 text-slate-300">Manage payment methods, invoices, and cancellation using the Stripe Billing Portal.</p>
-                <a href="https://liaisonkeyboard.com/chat" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-500">Open Stripe Billing Portal</a>
-            </article>
-        </section>
+                <div class="legal-grid">
+                    <article class="legal-card">
+                        <h2 class="legal-title">Primary support</h2>
+                        <p class="legal-copy">
+                            Contact the team directly for account issues, billing questions, or product help.
+                        </p>
+                        <p class="legal-copy">
+                            <a class="helper-link" href="mailto:support@liaisonkeyboard.com">support@liaisonkeyboard.com</a>
+                        </p>
+                    </article>
 
-        <section class="rounded-xl border border-slate-800 bg-black/40 p-5">
-            <h2 class="text-lg font-bold text-cyan-200">Response SLA</h2>
-            <p class="mt-2 text-slate-300 text-sm sm:text-base">Standard response target is within 24 hours. High-priority billing and access issues are triaged continuously.</p>
-        </section>
-    </main>
+                    <article class="legal-card">
+                        <h2 class="legal-title">Billing portal</h2>
+                        <p class="legal-copy">
+                            Manage payment methods, invoices, cancellations, and subscription status through Stripe.
+                        </p>
+                        <p class="legal-copy">
+                            <a class="helper-link" href="https://billing.stripe.com/p/login/28E7sL3uUgOp35GeVSbfO00" target="_blank" rel="noopener noreferrer">
+                                Open Stripe Billing Portal
+                            </a>
+                        </p>
+                    </article>
+                </div>
+
+                <div class="legal-panel legal-card" style="margin-top: 20px;">
+                    <section class="legal-section">
+                        <h2 class="legal-title">Helpful entry points</h2>
+                        <ul class="legal-list">
+                            <li><a class="helper-link" href="https://app.liaisonkeyboard.com/auth/login">Log in</a> if you already have an account.</li>
+                            <li><a class="helper-link" href="https://app.liaisonkeyboard.com/auth/register">Create an account</a> to start the free tier.</li>
+                            <li>Use the in-app settings flow for plan visibility, legal links, and billing management once signed in.</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="content-wrap footer-row">
+                <div>
+                    <div class="brand-name">Liaison Keyboard</div>
+                    <p class="footer-copy">Support copy kept in sync with the current app experience and billing flow.</p>
+                </div>
+                <nav class="footer-links" aria-label="Footer">
+                    <a class="footer-link" href="./index.html">Home</a>
+                    <a class="footer-link" href="./privacy.html">Privacy</a>
+                    <a class="footer-link" href="./terms.html">Terms</a>
+                </nav>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

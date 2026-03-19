@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="t d">
+  <title id="t">Connected geometry orb</title>
+  <desc id="d">Abstract brand illustration with orbiting forms in teal, blue, and violet.</desc>
+  <defs>
+    <radialGradient id="g" cx="0" cy="0" r="1" gradientTransform="translate(600 600) rotate(90) scale(520)">
+      <stop offset="0" stop-color="#2dd4f0" stop-opacity=".24"/>
+      <stop offset=".52" stop-color="#8b5cf6" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line" x1="240" y1="240" x2="960" y2="960">
+      <stop offset="0" stop-color="#2dd4f0"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1200" rx="64" fill="#020617"/>
+  <circle cx="600" cy="600" r="520" fill="url(#g)"/>
+  <circle cx="600" cy="600" r="300" fill="none" stroke="url(#line)" stroke-width="6" stroke-dasharray="20 18" opacity=".8"/>
+  <circle cx="600" cy="600" r="210" fill="none" stroke="#2dd4f0" stroke-opacity=".3" stroke-width="4"/>
+  <circle cx="600" cy="600" r="108" fill="#2dd4f0" fill-opacity=".18"/>
+  <circle cx="600" cy="600" r="72" fill="#0b1422" stroke="#2dd4f0" stroke-opacity=".5" stroke-width="2"/>
+  <path d="M600 324C738 324 848 434 848 572C848 710 738 820 600 820C462 820 352 710 352 572C352 434 462 324 600 324Z" stroke="#8b5cf6" stroke-opacity=".22" stroke-width="4"/>
+  <path d="M410 462H790" stroke="#2dd4f0" stroke-opacity=".32" stroke-width="4"/><path d="M382 668L818 404" stroke="#8b5cf6" stroke-opacity=".24" stroke-width="4"/><path d="M382 404L818 668" stroke="#2dd4f0" stroke-opacity=".2" stroke-width="4"/>
+  <circle cx="600" cy="300" r="10" fill="#2dd4f0"/><circle cx="873" cy="472" r="10" fill="#8b5cf6"/><circle cx="786" cy="806" r="10" fill="#2dd4f0"/><circle cx="414" cy="806" r="10" fill="#8b5cf6"/><circle cx="327" cy="472" r="10" fill="#2dd4f0"/>
+  <rect x="458" y="548" width="284" height="104" rx="26" fill="#101826" stroke="#28405b"/>
+  <text x="600" y="590" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="24" font-weight="800" text-anchor="middle">Liaison</text>
+  <text x="600" y="622" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" text-anchor="middle">Connected communication geometry</text>
+</svg>
