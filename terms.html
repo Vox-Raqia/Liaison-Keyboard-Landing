@@ -4,47 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | Liaison Keyboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background: radial-gradient(circle at top, #0b1220 0%, #020617 60%, #000 100%); color: #e2e8f0; }
-        .panel { border: 1px solid rgba(125, 211, 252, 0.25); box-shadow: 0 0 24px rgba(14, 165, 233, 0.1); }
-    </style>
+    <meta
+        name="description"
+        content="Terms of service for Liaison Keyboard covering AI-generated content, billing, cancellations, and support."
+    >
+    <link rel="stylesheet" href="./site.css">
 </head>
-<body class="min-h-screen px-4 py-8 sm:px-6">
-    <main class="mx-auto max-w-4xl panel rounded-2xl bg-slate-950/70 backdrop-blur-md p-6 sm:p-10">
-        <header class="mb-8 border-b border-slate-800 pb-6">
-            <div class="flex flex-wrap items-center justify-between gap-4">
-                <h1 class="text-3xl sm:text-4xl font-black text-sky-300">Terms of Service</h1>
-                <a href="/index.html" class="text-sm text-slate-300 hover:text-sky-300">Back to Home</a>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <div class="topbar-inner">
+                <div class="brand-lockup">
+                    <a class="brand-name" href="./index.html">Liaison Keyboard</a>
+                    <span class="brand-note">Terms aligned to the current pricing and product capabilities.</span>
+                </div>
+                <div class="topbar-actions">
+                    <a href="https://app.liaisonkeyboard.com/auth/login" class="button button-secondary">Login</a>
+                    <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-primary">Start 15 Free Generations</a>
+                </div>
             </div>
-            <p class="mt-3 text-sm text-slate-400">Last Updated: February 23, 2026</p>
-            <nav class="mt-4 flex flex-wrap gap-3 text-sm">
-                <a href="/privacy.html" class="text-slate-300 hover:text-sky-300">Privacy</a>
-                <a href="/support.html" class="text-slate-300 hover:text-sky-300">Support</a>
-            </nav>
         </header>
 
-        <section class="space-y-6 text-sm sm:text-base leading-7 text-slate-200">
-            <div>
-                <h2 class="text-xl font-bold text-sky-200">1. AI Hallucination Disclaimer</h2>
-                <p class="mt-2">Liaison Keyboard provides AI-generated communication suggestions. You are solely responsible for reviewing, verifying, and deciding whether to use any output. We are not liable for social, professional, financial, or reputational outcomes resulting from generated content.</p>
-            </div>
+        <main class="legal-main">
+            <div class="content-wrap">
+                <div class="legal-hero section-head">
+                    <span class="eyebrow">Terms</span>
+                    <h1 class="section-title">Terms for using Liaison Keyboard.</h1>
+                    <p class="section-copy">
+                        Last updated: March 19, 2026. These terms reflect the current standalone product experience,
+                        not the future roadmap for native keyboard extensions.
+                    </p>
+                </div>
 
-            <div>
-                <h2 class="text-xl font-bold text-sky-200">2. Subscription and Refund Policy</h2>
-                <p class="mt-2">Liaison Keyboard Pro is billed at $7.99/month or $70.99/annual through Stripe. You can manage payment methods, cancellations, and invoices through the Stripe Billing Portal linked on the Support page.</p>
-            </div>
+                <div class="legal-panel legal-card">
+                    <section class="legal-section">
+                        <h2 class="legal-title">1. AI-generated assistance</h2>
+                        <p class="legal-copy">
+                            Liaison Keyboard provides AI-generated reply suggestions. You are responsible for reviewing
+                            and deciding whether to use any output. Generated content should be treated as assistance,
+                            not guaranteed advice or factual verification.
+                        </p>
+                    </section>
 
-            <div>
-                <h2 class="text-xl font-bold text-sky-200">3. Digital Goods Finality</h2>
-                <p class="mt-2">No refunds are issued for digital products or subscriptions. You may cancel your subscription through the Stripe Billing Portal before the next billing date to avoid future charges.</p>
-            </div>
+                    <section class="legal-section">
+                        <h2 class="legal-title">2. Plans and billing</h2>
+                        <p class="legal-copy">
+                            The current product offers a free tier with 15 generations and one Pro plan with monthly and
+                            yearly billing. Current published pricing is $7.99 per month or $70.99 per year. Stripe
+                            manages checkout, invoices, payment methods, and subscription updates.
+                        </p>
+                    </section>
 
-            <div>
-                <h2 class="text-xl font-bold text-sky-200">4. Support Contact</h2>
-                <p class="mt-2">Terms and billing support: <a href="mailto:support@liaisonkeyboard.com" class="text-sky-300 hover:text-sky-200">support@liaisonkeyboard.com</a>.</p>
+                    <section class="legal-section">
+                        <h2 class="legal-title">3. Cancellation and renewals</h2>
+                        <p class="legal-copy">
+                            Pro subscriptions renew according to the interval you choose until canceled. You can manage
+                            or cancel a subscription through the Stripe customer portal made available from the product
+                            settings flow and support page.
+                        </p>
+                    </section>
+
+                    <section class="legal-section">
+                        <h2 class="legal-title">4. Contact</h2>
+                        <p class="legal-copy">
+                            Questions about billing, terms, or support can be sent to
+                            <a class="helper-link" href="mailto:support@liaisonkeyboard.com">support@liaisonkeyboard.com</a>.
+                        </p>
+                    </section>
+                </div>
             </div>
-        </section>
-    </main>
+        </main>
+
+        <footer class="footer">
+            <div class="content-wrap footer-row">
+                <div>
+                    <div class="brand-name">Liaison Keyboard</div>
+                    <p class="footer-copy">Clear billing and usage expectations for the current product release.</p>
+                </div>
+                <nav class="footer-links" aria-label="Footer">
+                    <a class="footer-link" href="./index.html">Home</a>
+                    <a class="footer-link" href="./privacy.html">Privacy</a>
+                    <a class="footer-link" href="./support.html">Support</a>
+                </nav>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

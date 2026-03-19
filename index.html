@@ -3,214 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liaison Keyboard | Your Own Personal AI Conversation Strategist</title>
-    <link rel="stylesheet" href="./output.css">
-    <style>
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation: none !important;
-                transition: none !important;
-                transform: none !important;
-            }
-        }
-    </style>
+    <title>Liaison Keyboard | Strategic AI Replies For Private Messages</title>
+    <meta
+        name="description"
+        content="Paste a message, choose a persona, and generate strategic replies with Liaison Keyboard. Start with 15 free generations, then unlock Pro for premium personas, deep memory, and priority support."
+    >
+    <link rel="stylesheet" href="./site.css">
 </head>
-<body class="min-h-screen bg-[radial-gradient(circle_at_20%_0%,#0a0a1a_0%,#000_50%,#000_100%)] text-white antialiased">
-    <header class="fixed top-0 w-full z-50 bg-black/95 border-b border-white/10">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <p class="text-sm sm:text-base font-semibold tracking-wide text-slate-200">Liaison Keyboard</p>
-            <a href="https://app.liaisonkeyboard.com/auth/register" class="inline-flex items-center justify-center rounded-lg border border-cyan-400/30 bg-cyan-500/15 px-4 py-2 text-sm font-semibold text-cyan-200 transition-colors duration-300 hover:bg-cyan-400/20 hover:border-cyan-300/60">Start 15 Free Generations</a>
-        </div>
-    </header>
-
-    <main class="pt-20">
-        <section class="relative py-16 sm:py-20 lg:py-28">
-            <div class="max-w-6xl mx-auto px-6 text-center">
-                <p class="text-cyan-300 text-xs uppercase tracking-[0.24em] mb-5">Liaison Keyboard</p>
-                <h1 class="mx-auto max-w-5xl text-balance text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight bg-gradient-to-r from-cyan-300 via-cyan-400 to-purple-400 bg-clip-text text-transparent">Master the art of the reply</h1>
-                <p class="mx-auto mt-7 max-w-2xl text-base sm:text-xl text-slate-300">The AI strategist for your private messages.</p>
-                <p class="mx-auto mt-3 max-w-2xl text-cyan-200 font-semibold text-sm sm:text-base">Start with <span class="text-white">15 Free Generations</span> to experience the value before upgrading.</p>
-                <a href="https://app.liaisonkeyboard.com/auth/register" class="mt-10 inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-cyan-600 px-9 py-4 text-base font-bold text-white transition-transform transition-colors duration-300 hover:-translate-y-0.5 hover:bg-cyan-500">Start 15 Free Generations</a>
-
-                <div class="w-full max-w-4xl mx-auto aspect-[16/9] rounded-2xl border border-cyan-500/20 bg-slate-950/80 shadow-sm shadow-cyan-500/10 mt-12 sm:mt-14 flex items-center justify-center">
-                    <p class="text-slate-500 font-mono text-sm tracking-widest">APP INTERFACE PREVIEW</p>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <div class="topbar-inner">
+                <div class="brand-lockup">
+                    <a class="brand-name" href="./index.html">Liaison Keyboard</a>
+                    <span class="brand-note">Manual copy and paste workflow now. Native keyboards remain on the roadmap.</span>
                 </div>
-
-                <div class="mt-6 rounded-xl border border-cyan-500/20 bg-cyan-500/10 px-5 py-3">
-                    <p class="text-sm sm:text-base text-cyan-100">Built for founders, freelancers, and high-stakes communicators.</p>
-                </div>
-
-                <div class="mt-8 rounded-xl border border-white/10 bg-white/[0.02] px-6 py-4">
-                    <p class="text-sm sm:text-base text-slate-300">Designed for professionals navigating high-stakes conversations.</p>
+                <div class="topbar-actions">
+                    <a href="https://app.liaisonkeyboard.com/auth/login" class="button button-secondary">Login</a>
+                    <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-primary">Start 15 Free Generations</a>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <section class="py-14 sm:py-20 lg:py-24">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="text-center mb-14">
-                    <p class="text-xs uppercase tracking-[0.2em] text-cyan-300">How it Works</p>
-                    <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-white">Your best reply in three moves</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <article class="rounded-2xl border border-slate-800 bg-slate-950/60 p-6 transition-transform transition-colors duration-300 hover:-translate-y-1 hover:border-cyan-500/50 hover:bg-slate-900/80">
-                        <p class="text-[11px] uppercase tracking-widest text-cyan-300">Step 1</p>
-                        <h3 class="text-xl font-bold mt-3 text-white">Paste the Message</h3>
-                        <p class="text-sm text-slate-300 mt-3">Drop in that tricky text from your boss, your date, or your client.</p>
-                    </article>
-                    <article class="rounded-2xl border border-slate-800 bg-slate-950/60 p-6 transition-transform transition-colors duration-300 hover:-translate-y-1 hover:border-cyan-500/50 hover:bg-slate-900/80">
-                        <p class="text-[11px] uppercase tracking-widest text-cyan-300">Step 2</p>
-                        <h3 class="text-xl font-bold mt-3 text-white">Choose Your Vibe</h3>
-                        <p class="text-sm text-slate-300 mt-3">Select from our custom-tuned AI personas—from hyper-professional to casually witty.</p>
-                    </article>
-                    <article class="rounded-2xl border border-slate-800 bg-slate-950/60 p-6 transition-transform transition-colors duration-300 hover:-translate-y-1 hover:border-cyan-500/50 hover:bg-slate-900/80">
-                        <p class="text-[11px] uppercase tracking-widest text-cyan-300">Step 3</p>
-                        <h3 class="text-xl font-bold mt-3 text-white">Send with Confidence</h3>
-                        <p class="text-sm text-slate-300 mt-3">Get the perfect response instantly. Just copy, paste, and communicate with clarity.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-14 sm:py-20 lg:py-24 bg-white/[0.015] border-y border-white/5">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="text-center mb-14">
-                    <p class="text-xs uppercase tracking-[0.2em] text-purple-300">Meet Your AI Strategists</p>
-                    <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-white">Premium personas for high-stakes conversations</h2>
-                    <p class="mt-4 text-slate-300 max-w-3xl mx-auto">Unlock Pro to access specialist voices designed for specific social and business scenarios.</p>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 transition-transform transition-colors duration-300 hover:-translate-y-1 hover:border-cyan-500/50 hover:bg-slate-900/80">
-                        <h3 class="text-lg font-bold text-cyan-300">The Diplomat</h3>
-                        <p class="mt-3 text-sm text-slate-300">For navigating workplace politics, difficult feedback, and delicate professional situations.</p>
-                    </article>
-                    <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 transition-transform transition-colors duration-300 hover:-translate-y-1 hover:border-cyan-500/50 hover:bg-slate-900/80">
-                        <h3 class="text-lg font-bold text-pink-300">The Charmer</h3>
-                        <p class="mt-3 text-sm text-slate-300">For dating and casual banter that feels natural, warm, and effortlessly confident.</p>
-                    </article>
-                    <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 transition-transform transition-colors duration-300 hover:-translate-y-1 hover:border-cyan-500/50 hover:bg-slate-900/80">
-                        <h3 class="text-lg font-bold text-emerald-300">The Closer</h3>
-                        <p class="mt-3 text-sm text-slate-300">For sealing the deal, moving conversations toward decisions, and landing clear next steps.</p>
-                    </article>
-                    <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 transition-transform transition-colors duration-300 hover:-translate-y-1 hover:border-cyan-500/50 hover:bg-slate-900/80">
-                        <h3 class="text-lg font-bold text-violet-300">The Cool Head</h3>
-                        <p class="mt-3 text-sm text-slate-300">For de-escalating tense chats and replying with calm, clarity, and strategic restraint.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-14 sm:py-20 lg:py-24">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="text-center mb-14">
-                    <p class="text-xs uppercase tracking-[0.2em] text-cyan-300">Product Roadmap</p>
-                    <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-white">What's Next for Liaison Keyboard</h2>
-                </div>
-
-                <div class="max-w-4xl mx-auto space-y-6">
-                    <article class="rounded-2xl border border-cyan-500/30 bg-slate-950/70 p-6 sm:p-7">
-                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                            <h3 class="text-xl font-bold text-white">Phase 1: The Strategist Hub</h3>
-                            <span class="inline-flex w-fit items-center rounded-full border border-cyan-400/40 bg-cyan-500/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-cyan-200">Live Beta</span>
+        <main>
+            <section class="hero">
+                <div class="content-wrap hero-grid">
+                    <div>
+                        <span class="eyebrow">Phase 1 Live</span>
+                        <h1 class="hero-title gradient-text">Strategic replies for private conversations.</h1>
+                        <p class="hero-copy">
+                            Liaison Keyboard helps you handle high-stakes messages with more clarity and control.
+                            Paste the message into the web app, choose the persona that fits the moment, and
+                            generate three sendable reply directions in seconds.
+                        </p>
+                        <div class="hero-callout">
+                            <span class="pill">15 free generations to start</span>
+                            <span class="pill">Authenticated web app with Chat, Threads, Marketplace, and Settings</span>
+                            <span class="pill">Pro unlocks premium personas, deep memory, and priority support</span>
                         </div>
-                        <p class="mt-4 text-slate-300">Access Liaison Keyboard from any device. Paste your tricky messages, select your persona, and generate the perfect reply.</p>
-                    </article>
-
-                    <article class="rounded-2xl border border-purple-500/30 bg-slate-950/70 p-6 sm:p-7">
-                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                            <h3 class="text-xl font-bold text-white">Phase 2: Native OS Keyboards</h3>
-                            <span class="inline-flex w-fit items-center rounded-full border border-purple-400/40 bg-purple-500/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-purple-200">Coming Soon</span>
+                        <div class="hero-actions">
+                            <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-primary">Start 15 Free Generations</a>
+                            <a href="https://app.liaisonkeyboard.com/auth/login" class="button button-ghost">Log In To Your Workspace</a>
                         </div>
-                        <p class="mt-4 text-slate-300">Reply directly inside iMessage, WhatsApp, and Slack without ever leaving the app. iOS & Android extensions in active development.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-24 sm:py-28 bg-black">
-            <div class="max-w-6xl mx-auto px-6">
-                <p class="text-xs uppercase tracking-[0.2em] text-purple-300">Why Choose Liaison</p>
-                <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-white">Built for professionals who value precision</h2>
-                <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-                        <h3 class="text-lg font-bold text-white">AI-Powered Strategy</h3>
-                        <p class="mt-3 text-sm text-slate-300">Get context-aware reply suggestions that match your voice and objectives.</p>
+                        <p class="hero-caption">
+                            Built for founders, freelancers, operators, and anyone who has to get the reply right.
+                        </p>
                     </div>
-                    <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-                        <h3 class="text-lg font-bold text-white">Tone Calibration</h3>
-                        <p class="mt-3 text-sm text-slate-300">Choose from professional, friendly, diplomatic, or direct—match the moment.</p>
+
+                    <div class="hero-visual">
+                        <div class="visual-frame">
+                            <img
+                                src="./assets/previews/chat-shell.svg"
+                                alt="Preview of the Liaison Keyboard chat workspace showing message input, persona selection, and generated replies."
+                                class="preview-img"
+                            >
+                        </div>
+                        <div class="floating-card top">
+                            <img
+                                src="./assets/previews/marketplace-pro.svg"
+                                alt="Preview of premium persona and Pro pricing visuals."
+                                class="preview-img"
+                            >
+                        </div>
+                        <div class="floating-card bottom">
+                            <img
+                                src="./assets/illustrations/connected-geometry-orb.svg"
+                                alt="Connected geometry brand illustration."
+                                class="preview-img"
+                            >
+                        </div>
                     </div>
-                    <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-                        <h3 class="text-lg font-bold text-white">Privacy First</h3>
-                        <p class="mt-3 text-sm text-slate-300">Your conversations stay private. No data retention or third-party sharing.</p>
+                </div>
+
+                <div class="content-wrap stat-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">reply options generated for each request</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">4</div>
+                        <div class="metric-label">premium personas currently aligned across landing and app</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">$7.99</div>
+                        <div class="metric-label">monthly Pro entry point, with $70.99 yearly billing available</div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="py-14 sm:py-20 lg:py-24">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="text-center mb-14">
-                    <p class="text-xs uppercase tracking-[0.2em] text-cyan-300">Pricing</p>
-                    <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-white">Pick your advantage</h2>
+            <section class="section-tight">
+                <div class="content-wrap two-column">
+                    <div class="section-head">
+                        <span class="eyebrow">How It Works</span>
+                        <h2 class="section-title">A focused workflow instead of an imaginary magic keyboard.</h2>
+                        <p class="section-copy">
+                            Liaison Keyboard is live today as a standalone web and app experience. The current
+                            product is intentionally simple: paste the incoming message, select the tone you want,
+                            and copy the reply that fits best.
+                        </p>
+                        <div class="list">
+                            <div class="list-item">
+                                <strong>1. Paste the incoming message</strong>
+                                <span class="list-copy">Use the composer to drop in the message you received and set the context.</span>
+                            </div>
+                            <div class="list-item">
+                                <strong>2. Choose the persona</strong>
+                                <span class="list-copy">Switch between available tones and unlock premium strategists with Pro.</span>
+                            </div>
+                            <div class="list-item">
+                                <strong>3. Generate and copy the best fit</strong>
+                                <span class="list-copy">Review three reply styles, copy one, or copy them all for fast iteration.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="visual-frame">
+                            <img
+                                src="./assets/previews/auth-login.svg"
+                            alt="Preview of the Liaison Keyboard login screen."
+                            class="preview-img"
+                        >
+                    </div>
                 </div>
+            </section>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                    <article class="rounded-2xl border border-slate-700 bg-slate-950/70 p-6">
-                        <p class="text-xs uppercase tracking-wider text-slate-400">Free Taste</p>
-                        <h3 class="text-3xl font-black mt-3">$0</h3>
-                        <p class="text-sm text-slate-300 mt-3">15 Free Generations</p>
-                        <p class="text-xs text-slate-400 mt-2">Perfect to test quality and workflow.</p>
-                        <a href="https://app.liaisonkeyboard.com/auth/register" class="mt-6 inline-flex w-full justify-center rounded-lg bg-slate-700 py-3 font-semibold text-white transition-colors duration-300 hover:bg-slate-600">Start 15 Free Generations</a>
-                    </article>
-
-                    <article class="rounded-2xl border border-cyan-700/70 bg-slate-950/80 p-6">
-                        <p class="text-xs uppercase tracking-wider text-cyan-300">Pro Monthly</p>
-                        <h3 class="text-3xl font-black mt-3">$7.99<span class="text-base font-semibold text-slate-300"> / month</span></h3>
-                        <p class="text-sm text-slate-300 mt-3">Unlimited generations</p>
-                        <p class="text-sm text-slate-300">Unlocks all personas</p>
-                        <a href="https://app.liaisonkeyboard.com/auth/register" class="mt-6 inline-flex w-full justify-center rounded-lg bg-cyan-600 py-3 font-semibold text-white transition-colors duration-300 hover:bg-cyan-500">Start 15 Free Generations</a>
-                    </article>
-
-                    <article class="relative rounded-2xl border border-purple-600/80 bg-slate-950/85 p-6 shadow-sm shadow-purple-500/10">
-                        <span class="absolute -top-3 right-4 text-[10px] uppercase tracking-wider bg-purple-500 text-white px-2 py-1 rounded-full">2 Months Free</span>
-                        <p class="text-xs uppercase tracking-wider text-purple-300">Pro Annual</p>
-                        <h3 class="text-3xl font-black mt-3">$79.99<span class="text-base font-semibold text-slate-300"> / year</span></h3>
-                        <p class="text-sm text-slate-300 mt-3">Unlimited generations</p>
-                        <p class="text-sm text-slate-300">Unlocks all personas</p>
-                        <p class="text-xs text-purple-200 mt-2">~16% savings vs monthly billing</p>
-                        <a href="https://app.liaisonkeyboard.com/auth/register" class="mt-6 inline-flex w-full justify-center rounded-lg bg-purple-600 py-3 font-semibold text-white transition-colors duration-300 hover:bg-purple-500">Start 15 Free Generations</a>
-                    </article>
+            <section class="section">
+                <div class="content-wrap">
+                    <div class="section-head">
+                        <span class="eyebrow">Current Personas</span>
+                        <h2 class="section-title">Specialist voices for professional, social, and delicate moments.</h2>
+                        <p class="section-copy">
+                            The current Pro lineup is synchronized between the marketing site and the app data model.
+                            Free users can start with the base workflow, then upgrade when they need the full persona library.
+                        </p>
+                    </div>
+                    <div class="persona-grid">
+                        <article class="card persona-card">
+                            <span class="persona-chip chip-teal">The Diplomat</span>
+                            <p class="card-copy">For workplace politics, difficult feedback, and delicate professional situations that need tact without sounding weak.</p>
+                        </article>
+                        <article class="card persona-card">
+                            <span class="persona-chip chip-blue">The Charmer</span>
+                            <p class="card-copy">For dating, flirting, and casual banter that should feel warm, natural, and quietly confident.</p>
+                        </article>
+                        <article class="card persona-card">
+                            <span class="persona-chip chip-gold">The Closer</span>
+                            <p class="card-copy">For moving conversations toward decisions, securing next steps, and keeping momentum when outcomes matter.</p>
+                        </article>
+                        <article class="card persona-card">
+                            <span class="persona-chip chip-violet">The Cool Head</span>
+                            <p class="card-copy">For tense exchanges, conflict de-escalation, and measured replies that keep emotion from driving the outcome.</p>
+                        </article>
+                    </div>
                 </div>
+            </section>
 
-                <div class="mt-8 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-5 py-3 text-center">
-                    <p class="text-sm sm:text-base text-emerald-100">Secure checkout powered by Stripe. Cancel anytime.</p>
+            <section class="section-tight">
+                <div class="content-wrap">
+                    <div class="section-head">
+                        <span class="eyebrow">Product Surfaces</span>
+                        <h2 class="section-title">The live app already covers the full reply workflow.</h2>
+                        <p class="section-copy">
+                            The authenticated experience is not just one generator screen. It includes conversation history,
+                            premium persona discovery, and billing/account controls that keep the product coherent after sign-up.
+                        </p>
+                    </div>
+                    <div class="visual-frame" style="margin-bottom: 18px; max-width: 420px;">
+                            <img
+                                src="./assets/illustrations/feature-grid-accent.svg"
+                            alt="Decorative illustration connecting feature previews across the Liaison product ecosystem."
+                            class="preview-img"
+                        >
+                    </div>
+                    <div class="feature-grid">
+                        <article class="surface-panel">
+                            <h3 class="card-title">Threads and conversation memory</h3>
+                            <p class="card-copy">Saved conversation threads help users return to ongoing exchanges instead of starting from scratch every time.</p>
+                            <img
+                                src="./assets/previews/threads-history.svg"
+                                alt="Preview of thread history in the Liaison Keyboard app."
+                                class="preview-img"
+                            >
+                        </article>
+                        <article class="surface-panel">
+                            <h3 class="card-title">Marketplace and shared Pro paywall</h3>
+                            <p class="card-copy">Premium personas are unlocked through one Pro subscription, not one-off persona purchases.</p>
+                            <img
+                                src="./assets/previews/marketplace-pro.svg"
+                                alt="Preview of the Marketplace screen with premium personas and Pro pricing."
+                                class="preview-img"
+                            >
+                        </article>
+                        <article class="surface-panel">
+                            <h3 class="card-title">Settings and billing controls</h3>
+                            <p class="card-copy">Users can manage preferences, legal links, plan status, and Stripe subscription controls from one settings surface.</p>
+                            <img
+                                src="./assets/previews/settings-billing.svg"
+                                alt="Preview of the settings and billing area in Liaison Keyboard."
+                                class="preview-img"
+                            >
+                        </article>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
 
-    <footer class="border-t border-white/10 bg-black/40">
-        <div class="max-w-6xl mx-auto px-6 py-12">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+            <section class="section-tight">
+                <div class="content-wrap two-column">
+                    <div class="visual-frame">
+                            <img
+                                src="./assets/previews/auth-register.svg"
+                            alt="Preview of the Liaison Keyboard registration and email verification flow."
+                            class="preview-img"
+                        >
+                    </div>
+                    <div class="stack">
+                        <span class="eyebrow">Roadmap</span>
+                        <h2 class="section-title">What is live today versus what is still planned.</h2>
+                        <div class="roadmap">
+                            <div class="roadmap-item">
+                                <div class="roadmap-meta">
+                                    <h3 class="timeline-title">Phase 1: Strategist Hub</h3>
+                                    <span class="status-badge status-live">Live</span>
+                                </div>
+                                <p class="card-copy">
+                                    The current release is a standalone web and app experience with manual copy and paste workflow,
+                                    persona selection, saved threads, Stripe billing, and authenticated account controls.
+                                </p>
+                            </div>
+                            <div class="roadmap-item">
+                                <div class="roadmap-meta">
+                                    <h3 class="timeline-title">Phase 2: Native keyboard extensions</h3>
+                                    <span class="status-badge status-planned">Planned</span>
+                                </div>
+                                <p class="card-copy">
+                                    Native iOS and Android keyboard integrations remain roadmap work. They are not part of the current shipped product
+                                    and should be understood as future expansion rather than present-day functionality.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="content-wrap">
+                    <div class="section-head">
+                        <span class="eyebrow">Pricing</span>
+                        <h2 class="section-title">Start free, then upgrade when you need more range.</h2>
+                        <p class="section-copy">
+                            Liaison uses a free tier for validation and one Pro plan with monthly or yearly billing.
+                            The same pricing story appears in Chat, Marketplace, and Settings inside the app.
+                        </p>
+                    </div>
+
+                    <div class="pricing-grid">
+                        <article class="pricing-card">
+                            <div class="pricing-badge">Free</div>
+                            <h3 class="pricing-title">Get a real feel for the workflow.</h3>
+                            <div class="price-line">
+                                <span class="price-value">$0</span>
+                            </div>
+                            <ul class="pricing-list">
+                                <li>15 free generations</li>
+                                <li>Core reply workflow</li>
+                                <li>Upgrade only when you need more capacity</li>
+                            </ul>
+                            <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-secondary">Start 15 Free Generations</a>
+                        </article>
+
+                        <article class="pricing-card featured">
+                            <div class="pricing-badge">Pro Monthly</div>
+                            <h3 class="pricing-title">Flexible month-to-month access.</h3>
+                            <div class="price-line">
+                                <span class="price-value">$7.99</span>
+                                <span class="price-term">/ month</span>
+                            </div>
+                            <ul class="pricing-list">
+                                <li>Unlimited AI generations</li>
+                                <li>All premium personas unlocked</li>
+                                <li>Deep memory and full conversation history</li>
+                                <li>Priority support</li>
+                            </ul>
+                            <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-primary">Start 15 Free Generations</a>
+                        </article>
+
+                        <article class="pricing-card">
+                            <div class="pricing-badge">Pro Yearly</div>
+                            <h3 class="pricing-title">Lower yearly cost, same full capability.</h3>
+                            <div class="price-line">
+                                <span class="price-value">$70.99</span>
+                                <span class="price-term">/ year</span>
+                            </div>
+                            <ul class="pricing-list">
+                                <li>Everything in Pro monthly</li>
+                                <li>Lower annual effective cost than paying monthly</li>
+                                <li>Stripe checkout and customer portal management</li>
+                            </ul>
+                            <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-ghost">Choose Yearly Pro</a>
+                        </article>
+                    </div>
+
+                    <div class="banner">
+                        Secure checkout is powered by Stripe, and account billing can be managed through the customer portal.
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="content-wrap footer-row">
                 <div>
-                    <p class="text-sm font-semibold text-slate-200">Liaison Keyboard</p>
-                    <p class="mt-2 text-xs uppercase tracking-widest text-slate-500">Secure by design • Powered by Claude 3.5</p>
+                    <div class="brand-name">Liaison Keyboard</div>
+                    <p class="footer-copy">AI-assisted communication for people who need a sharper reply, not more noise.</p>
                 </div>
-
-                <div class="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
-                    <nav class="flex items-center gap-4 text-sm text-slate-400">
-                        <a href="/privacy.html" target="_blank" rel="noopener noreferrer" class="transition-colors duration-300 hover:text-cyan-300">Privacy</a>
-                        <a href="/terms.html" target="_blank" rel="noopener noreferrer" class="transition-colors duration-300 hover:text-cyan-300">Terms</a>
-                        <a href="/support.html" target="_blank" rel="noopener noreferrer" class="transition-colors duration-300 hover:text-cyan-300">Support</a>
-                    </nav>
-                    <a href="https://stripe.com" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center rounded-lg border border-white/10 bg-white/5 px-4 py-2 transition-colors duration-300 hover:bg-white/10">
-                        <img src="/assets/stripe-verified-badge.svg" alt="Stripe Verified" class="h-8 w-auto">
-                    </a>
-                </div>
+                <nav class="footer-links" aria-label="Footer">
+                    <a class="footer-link" href="./privacy.html">Privacy</a>
+                    <a class="footer-link" href="./terms.html">Terms</a>
+                    <a class="footer-link" href="./support.html">Support</a>
+                    <a class="footer-link" href="https://app.liaisonkeyboard.com/auth/login">Login</a>
+                </nav>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 </body>
 </html>

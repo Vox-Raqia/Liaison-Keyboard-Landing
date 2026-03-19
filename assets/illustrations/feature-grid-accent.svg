@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="t d">
+  <title id="t">Feature grid accent</title>
+  <desc id="d">Abstract accent art for feature sections using the Liaison brand palette.</desc>
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1080" y2="720">
+      <stop offset="0" stop-color="#07111d"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="line" x1="180" y1="120" x2="1020" y2="680">
+      <stop offset="0" stop-color="#2dd4f0"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="52" fill="url(#bg)"/>
+  <rect x="132" y="116" width="936" height="568" rx="36" fill="#0b1422" stroke="#24364a"/>
+  <path d="M180 228H1020" stroke="url(#line)" stroke-width="4"/>
+  <path d="M180 356H1020" stroke="#24364a" stroke-width="2"/><path d="M180 484H1020" stroke="#24364a" stroke-width="2"/><path d="M180 612H1020" stroke="#24364a" stroke-width="2"/>
+  <path d="M300 180V620" stroke="#24364a" stroke-width="2"/><path d="M520 180V620" stroke="#24364a" stroke-width="2"/><path d="M760 180V620" stroke="#24364a" stroke-width="2"/><path d="M940 180V620" stroke="#24364a" stroke-width="2"/>
+  <g>
+    <rect x="220" y="252" width="180" height="86" rx="22" fill="#101826" stroke="#2dd4f0" stroke-opacity=".28"/>
+    <rect x="444" y="252" width="180" height="86" rx="22" fill="#101826" stroke="#24364a"/>
+    <rect x="668" y="252" width="180" height="86" rx="22" fill="#101826" stroke="#24364a"/>
+    <rect x="892" y="252" width="120" height="86" rx="22" fill="#101826" stroke="#24364a"/>
+    <rect x="220" y="380" width="180" height="86" rx="22" fill="#101826" stroke="#24364a"/>
+    <rect x="444" y="380" width="180" height="86" rx="22" fill="#101826" stroke="#8b5cf6" stroke-opacity=".28"/>
+    <rect x="668" y="380" width="180" height="86" rx="22" fill="#101826" stroke="#24364a"/>
+    <rect x="892" y="380" width="120" height="86" rx="22" fill="#101826" stroke="#24364a"/>
+    <rect x="220" y="508" width="180" height="86" rx="22" fill="#101826" stroke="#24364a"/>
+    <rect x="444" y="508" width="180" height="86" rx="22" fill="#101826" stroke="#24364a"/>
+    <rect x="668" y="508" width="180" height="86" rx="22" fill="#101826" stroke="#2dd4f0" stroke-opacity=".24"/>
+    <rect x="892" y="508" width="120" height="86" rx="22" fill="#101826" stroke="#24364a"/>
+  </g>
+  <circle cx="180" cy="136" r="14" fill="#2dd4f0"/><circle cx="1020" cy="136" r="14" fill="#8b5cf6"/><circle cx="600" cy="712" r="24" fill="#2dd4f0" fill-opacity=".2"/>
+</svg>
