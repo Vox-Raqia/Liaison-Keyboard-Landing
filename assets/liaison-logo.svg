@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Liaison Keyboard Logo
+  Concept: Abstract geometric fusion of chat bubble and keyboard key
+  Uses Gestalt principles - negative space creates the dual meaning
+  Scalable vector logo optimized for all brand touchpoints
+-->
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background: Deep Space Navy Blue -->
+  <rect width="512" height="512" fill="#101826"/>
+  
+  <!-- 
+    Main geometric composition:
+    - Outer rounded square suggests a keyboard key
+    - Inner L-shaped negative space forms the chat bubble
+    - The fusion represents communication through keyboard input
+  -->
+  
+  <!-- Outer keyboard key frame -->
+  <rect x="64" y="64" width="384" height="384" rx="72" fill="#101826" stroke="#2dd4f0" stroke-width="32"/>
+  
+  <!-- Inner elevated surface -->
+  <rect x="112" y="112" width="288" height="288" rx="48" fill="#101826"/>
+  
+  <!-- Chat bubble / L shape in Electric Neon Cyan -->
+  <!-- Vertical stroke -->
+  <rect x="160" y="160" width="64" height="192" rx="32" fill="#2dd4f0"/>
+  
+  <!-- Horizontal stroke -->
+  <rect x="160" y="288" width="192" height="64" rx="32" fill="#2dd4f0"/>
+  
+  <!-- Chat bubble indicator dot -->
+  <circle cx="320" cy="192" r="24" fill="#2dd4f0"/>
+  
+  <!-- Subtle inner accent line for depth -->
+  <rect x="160" y="160" width="192" height="192" rx="24" stroke="#2dd4f0" stroke-width="4" opacity="0.25"/>
+</svg>

@@ -85,8 +85,29 @@ a {
 
 .brand-lockup {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 36px;
+  width: auto;
+}
+
+.brand-logo-footer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.logo-img-footer {
+  height: 28px;
+  width: auto;
 }
 
 .brand-name {

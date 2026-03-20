@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background: Deep Space Navy Blue -->
+  <rect width="1024" height="1024" fill="#101826"/>
+  
+  <!-- 
+    Concept: Abstract geometric fusion of chat bubble and keyboard key
+    Using Gestalt principles - negative space creates the dual meaning
+    The outer shape suggests a keyboard key, while the inner negative space forms a chat bubble
+  -->
+  
+  <!-- Main keyboard key shape - rounded square with cyan border -->
+  <rect x="176" y="176" width="672" height="672" rx="120" fill="#101826" stroke="#2dd4f0" stroke-width="64"/>
+  
+  <!-- Inner elevated key surface -->
+  <rect x="240" y="240" width="544" height="544" rx="80" fill="#101826"/>
+  
+  <!-- Chat bubble negative space - creates the "L" shape for Liaison -->
+  <!-- Left vertical stroke of L - forms left side of chat bubble -->
+  <rect x="304" y="304" width="128" height="416" rx="64" fill="#2dd4f0"/>
+  
+  <!-- Bottom horizontal stroke of L - forms bottom of chat bubble -->
+  <rect x="304" y="592" width="416" height="128" rx="64" fill="#2dd4f0"/>
+  
+  <!-- Chat bubble tail indicator - small accent that suggests the bubble -->
+  <circle cx="656" cy="384" r="48" fill="#2dd4f0"/>
+  
+  <!-- 
+    The negative space between the cyan elements creates the illusion of a chat bubble
+    emerging from a keyboard key - the core concept of the app
+  -->
+  
+  <!-- Inner glow accent for depth -->
+  <rect x="304" y="304" width="416" height="416" rx="48" stroke="#2dd4f0" stroke-width="8" opacity="0.3"/>
+</svg>
