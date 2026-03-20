@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" role="img" aria-labelledby="t d">
+  <title id="t">Liaison hero product preview</title>
+  <desc id="d">Readable product preview showing a just-in-time reply workflow with an incoming message, persona selection, and three clear response options.</desc>
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1480" y2="1020">
+      <stop offset="0" stop-color="#08111d"/>
+      <stop offset="1" stop-color="#030913"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="250" y1="150" x2="1370" y2="930">
+      <stop offset="0" stop-color="#122033"/>
+      <stop offset="1" stop-color="#0b1422"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="1080" y1="700" x2="1300" y2="930">
+      <stop offset="0" stop-color="#2dd4f0"/>
+      <stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1100" rx="56" fill="url(#bg)"/>
+  <circle cx="280" cy="180" r="220" fill="#2dd4f0" fill-opacity=".08"/>
+  <circle cx="1320" cy="210" r="180" fill="#60a5fa" fill-opacity=".08"/>
+
+  <rect x="120" y="110" width="1360" height="880" rx="40" fill="url(#panel)" stroke="#28405b" stroke-width="2"/>
+
+  <rect x="160" y="150" width="1280" height="64" rx="20" fill="#101826" stroke="#24364a"/>
+  <circle cx="198" cy="182" r="8" fill="#2dd4f0"/>
+  <circle cx="222" cy="182" r="8" fill="#60a5fa"/>
+  <circle cx="246" cy="182" r="8" fill="#334155"/>
+  <text x="280" y="189" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" font-weight="800">Liaison</text>
+  <rect x="1148" y="164" width="248" height="34" rx="17" fill="#122033" stroke="#2dd4f0" stroke-opacity=".22"/>
+  <text x="1272" y="186" fill="#d5f7fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="700" text-anchor="middle">Fast free help | Upgrade for Pro</text>
+
+  <rect x="160" y="252" width="360" height="680" rx="28" fill="#0e1724" stroke="#24364a"/>
+  <text x="196" y="302" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="800" letter-spacing="2">CHOOSE YOUR EDGE</text>
+
+  <rect x="196" y="332" width="288" height="76" rx="20" fill="#122033" stroke="#2dd4f0" stroke-opacity=".4"/>
+  <text x="224" y="365" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" font-weight="800">The Diplomat</text>
+  <text x="224" y="392" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">Tactful, calm, and hard to misread.</text>
+
+  <rect x="196" y="426" width="288" height="76" rx="20" fill="#101826" stroke="#24364a"/>
+  <text x="224" y="459" fill="#dbe7f3" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="700">The Charmer</text>
+  <text x="224" y="486" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">Warm, playful, and natural.</text>
+
+  <rect x="196" y="520" width="288" height="76" rx="20" fill="#101826" stroke="#24364a"/>
+  <text x="224" y="553" fill="#dbe7f3" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="700">The Closer</text>
+  <text x="224" y="580" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">Direct, strategic, and outcome-focused.</text>
+
+  <rect x="196" y="614" width="288" height="76" rx="20" fill="#101826" stroke="#24364a"/>
+  <text x="224" y="647" fill="#dbe7f3" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="700">The Cool Head</text>
+  <text x="224" y="674" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">Measured replies for tense moments.</text>
+
+  <rect x="196" y="734" width="288" height="154" rx="24" fill="#101826" stroke="#24364a"/>
+  <text x="224" y="774" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="800" letter-spacing="2">WHY PEOPLE UPGRADE</text>
+  <text x="224" y="818" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700">Sharper wording</text>
+  <text x="224" y="846" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700">Full conversation memory</text>
+  <text x="224" y="874" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700">Every Pro persona</text>
+
+  <rect x="560" y="252" width="880" height="680" rx="28" fill="#0b1422" stroke="#24364a"/>
+  <text x="604" y="304" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="36" font-weight="800">Handle the next text with confidence</text>
+
+  <rect x="604" y="338" width="252" height="36" rx="18" fill="#122033" stroke="#2dd4f0" stroke-opacity=".3"/>
+  <text x="630" y="361" fill="#2dd4f0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="800" letter-spacing="1.4">INCOMING MESSAGE</text>
+
+  <rect x="604" y="396" width="792" height="142" rx="24" fill="#101826" stroke="#28405b"/>
+  <text x="638" y="446" fill="#e5eef8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="24" font-weight="700">Hey, can you send the updated proposal and a quick note on next steps?</text>
+  <text x="638" y="486" fill="#9db0c5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18">Need it to feel clear, calm, and easy to forward.</text>
+
+  <text x="604" y="602" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="800" letter-spacing="1.4">YOUR NEXT MOVE</text>
+
+  <rect x="604" y="626" width="242" height="144" rx="22" fill="#111b2b" stroke="#2dd4f0" stroke-opacity=".38"/>
+  <text x="632" y="664" fill="#2dd4f0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800">Natural</text>
+  <text x="632" y="702" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">Absolutely — I’ll send the</text>
+  <text x="632" y="726" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">updated proposal now and</text>
+  <text x="632" y="750" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">include a short next-steps note.</text>
+
+  <rect x="879" y="626" width="242" height="144" rx="22" fill="#111b2b" stroke="#24364a"/>
+  <text x="907" y="664" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800">Keep it going</text>
+  <text x="907" y="702" fill="#dbe7f3" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">Yes — I can send that over</text>
+  <text x="907" y="726" fill="#dbe7f3" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">today, plus a clean summary</text>
+  <text x="907" y="750" fill="#dbe7f3" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">of the recommended next steps.</text>
+
+  <rect x="1154" y="626" width="242" height="144" rx="22" fill="#111b2b" stroke="#24364a"/>
+  <text x="1182" y="664" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800">Quick</text>
+  <text x="1182" y="702" fill="#dbe7f3" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">Sending it now, with</text>
+  <text x="1182" y="726" fill="#dbe7f3" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">next steps right below.</text>
+
+  <rect x="604" y="812" width="792" height="84" rx="22" fill="#101826" stroke="#24364a"/>
+  <rect x="632" y="828" width="560" height="52" rx="16" fill="#0b1422" stroke="#2dd4f0" stroke-opacity=".22"/>
+  <text x="660" y="860" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18">Paste your message here…</text>
+  <rect x="1220" y="828" width="146" height="52" rx="16" fill="url(#accent)"/>
+  <text x="1293" y="861" fill="#04111d" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800" text-anchor="middle">Get reply</text>
+</svg>
