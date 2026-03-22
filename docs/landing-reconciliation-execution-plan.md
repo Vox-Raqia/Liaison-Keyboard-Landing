@@ -133,3 +133,19 @@ If lightweight SVG construction is sufficient, keep the assets web-friendly and 
 - The support page points to the correct billing portal destination.
 - Native keyboard support is represented as roadmap-only content.
 - The docs in this folder clearly explain what changed, why it changed, and what remains dependent on assets or visuals.
+
+## Progress Update
+
+### 2026-03-21
+
+- Header brand lockup was updated in `index.html` to add `LIAISON KEYBOARD` beside the existing topbar logo.
+- Shared topbar CSS in `site.css` was adjusted so the new brand label, supporting note, and `Login` / `Start Free` buttons coexist without crowding each other.
+- Removed the unofficial `Stripe Verified` storefront badge from the landing trust panel and replaced it with neutral Stripe Checkout billing copy.
+- Deleted the fake badge asset so it cannot be reused accidentally.
+- Desktop and mobile visual QA was completed locally against the landing repo using a static preview server.
+- Verified locally:
+  - wide desktop topbar keeps the note readable without pushing into the CTA group
+  - mobile topbar stacks the lockup and CTAs cleanly without overlap
+- Not yet done:
+  - deploy the updated landing repo
+  - mirror the same topbar lockup treatment to `privacy.html`, `terms.html`, and `support.html` if visual consistency across static pages is desired

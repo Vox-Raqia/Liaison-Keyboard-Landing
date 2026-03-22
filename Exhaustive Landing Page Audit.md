@@ -137,7 +137,7 @@ Findings:
 ### C. Trust signal audit
 Current trust cues:
 - Footer text [`Encrypted by Supabase • Powered by Claude 3.5`](index.html:161)
-- Stripe badge graphic [`stripe-verified-badge.svg`](assets/stripe-verified-badge.svg)
+- Unofficial Stripe storefront badge graphic was removed on 2026-03-21 and should not be restored without Stripe-approved usage guidance.
 
 Findings:
 - Trust proof is too weak and too low on page.
