@@ -77,7 +77,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  gap: 24px;
 }
 
 .topbar-inner {
@@ -88,11 +88,22 @@ a {
   display: flex;
   align-items: center;
   gap: 14px;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
+}
+
+.brand-copy {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .logo-img {
@@ -112,10 +123,20 @@ a {
 }
 
 .brand-name {
-  font-size: 0.98rem;
+  color: var(--teal-300);
+  font-size: 0.9rem;
   font-weight: 900;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.brand-copy .brand-note {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 42rem;
+  font-size: 0.98rem;
 }
 
 .brand-note,
@@ -140,6 +161,11 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.topbar-actions {
+  flex-shrink: 0;
+  justify-content: flex-end;
 }
 
 .button {
@@ -652,8 +678,18 @@ a {
   font-weight: 800;
 }
 
-.stripe-badge {
-  width: 140px;
+.trust-billing-note {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
 .ui-chip {
@@ -738,6 +774,16 @@ a {
 }
 
 @media (max-width: 1080px) {
+  .brand-copy {
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+
+  .brand-copy .brand-note {
+    flex-basis: 100%;
+    max-width: none;
+  }
+
   body {
     background:
       radial-gradient(circle at top left, rgba(157, 224, 212, 0.1), transparent 28%),
@@ -772,6 +818,22 @@ a {
     padding: 14px 0;
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .brand-lockup {
+    width: 100%;
+  }
+
+  .brand-copy {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .brand-copy .brand-note {
+    flex-basis: auto;
+    width: 100%;
   }
 
   .topbar-actions,
