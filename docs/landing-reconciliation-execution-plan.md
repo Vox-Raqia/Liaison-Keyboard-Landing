@@ -142,6 +142,7 @@ If lightweight SVG construction is sufficient, keep the assets web-friendly and 
 - Shared topbar CSS in `site.css` was adjusted so the new brand label, supporting note, and `Login` / `Start Free` buttons coexist without crowding each other.
 - Removed the unofficial `Stripe Verified` storefront badge from the landing trust panel and replaced it with neutral Stripe Checkout billing copy.
 - Deleted the fake badge asset so it cannot be reused accidentally.
+- Stripe brand guidance was reviewed before replacement work; no homepage badge was reintroduced because the official Stripe badge program is checkout-page oriented, not a general landing-page trust seal.
 - Desktop and mobile visual QA was completed locally against the landing repo using a static preview server.
 - Verified locally:
   - wide desktop topbar keeps the note readable without pushing into the CTA group
