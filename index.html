@@ -96,9 +96,9 @@
         </header>
 
         <main id="main-content">
-            <section class="hero">
-                <div class="content-wrap hero-grid">
-                    <div class="hero-copy-column">
+            <section class="hero-intro">
+                <div class="content-wrap hero-intro-grid">
+                    <div class="hero-intro-copy">
                         <span class="eyebrow">Manual reply help for messages that matter</span>
                         <h1 class="hero-title">Paste a message. Get three reply options in seconds.</h1>
                         <p class="hero-copy">
@@ -109,7 +109,6 @@
                         <div class="trust-inline">
                             <span class="pill">15 free generations to try the workflow</span>
                             <span class="pill">Nothing sends automatically. You stay in control.</span>
-                            <span class="pill">Current release: web app today</span>
                         </div>
 
                         <div class="hero-actions">
@@ -117,27 +116,19 @@
                             <a href="#pricing" class="button button-ghost">Compare Plans</a>
                         </div>
 
-                        <nav class="section-links" aria-label="Jump to sections">
-                            <a class="footer-link" href="#how-it-works">How it works</a>
-                            <a class="footer-link" href="#pricing">Pricing</a>
-                            <a class="footer-link" href="#faq">FAQ</a>
-                            <a class="footer-link" href="./privacy.html">Privacy</a>
-                        </nav>
-
-                        <div class="hero-proof-grid">
-                            <div class="proof-card">
-                                <div class="proof-label">Free</div>
-                                <div class="proof-title">Try the workflow</div>
-                                <p class="proof-copy">Use 15 free generations to test the paste, tone, and review flow before you commit.</p>
-                            </div>
-                            <div class="proof-card proof-card-accent">
-                                <div class="proof-label">Pro</div>
-                                <div class="proof-title">Upgrade for more depth</div>
-                                <p class="proof-copy">Unlimited generations, premium personas, full conversation memory, and priority support when the thread needs more context.</p>
-                            </div>
-                        </div>
                     </div>
+                </div>
+            </section>
 
+            <section class="section hero hero-demo-section">
+                <div class="content-wrap hero-grid">
+                    <div class="hero-copy-column">
+                        <span class="eyebrow">Interactive Demo</span>
+                        <h2 class="section-title" id="landing-demo-title">See how Liaison handles the message before you send anything.</h2>
+                        <p class="hero-copy">
+                            The live demo mirrors the current workflow: paste the message, choose the tone, review three reply options, and copy one back when it sounds right.
+                        </p>
+                    </div>
                     <div class="hero-visual">
                         <div class="hero-stage">
                             <div class="hero-demo workflow-demo" data-scene="1" data-section="landing-demo" aria-labelledby="landing-demo-title">
@@ -146,6 +137,9 @@
                                         <div class="workflow-glow workflow-glow-one" aria-hidden="true"></div>
                                         <div class="workflow-glow workflow-glow-two" aria-hidden="true"></div>
 
+                                        <div class="workflow-device-shell">
+                                            <span class="workflow-device-speaker" aria-hidden="true"></span>
+                                            <span class="workflow-device-camera" aria-hidden="true"></span>
                                         <div class="workflow-viewport" aria-hidden="true">
                                             <div class="workflow-layer message-layer">
                                                 <div class="message-statusbar" aria-hidden="true">
@@ -191,6 +185,16 @@
                                                 </div>
 
                                                 <div class="delivery-pill">Delivered</div>
+                                                <div class="message-keyboard" aria-hidden="true">
+                                                    <div class="keyboard-toolbar">
+                                                        <div class="keyboard-paste-pill">
+                                                            <span class="keyboard-paste-icon">&#128203;</span>
+                                                            <span>Paste</span>
+                                                        </div>
+                                                        <span class="keyboard-close">&#10005;</span>
+                                                    </div>
+                                                    <div class="keyboard-surface"></div>
+                                                </div>
                                             </div>
 
                                             <div class="workflow-layer liaison-layer">
@@ -272,6 +276,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        </div>
                                         <figcaption class="visually-hidden">Demo showing how Liaison turns one incoming message into three tone-aware reply options. The user reviews the options, copies the one they want, and pastes it back manually.</figcaption>
                                     </figure>
 
@@ -281,7 +286,7 @@
                                             <button class="demo-replay" type="button" aria-label="Replay demo" data-action="replay-demo">Replay demo</button>
                                         </div>
 
-                                        <h2 class="workflow-panel-title" id="landing-demo-title">Turn one message into three send-ready replies.</h2>
+                                        <h3 class="workflow-panel-title">Turn one message into three send-ready replies.</h3>
                                         <p class="workflow-panel-copy">Paste the message, choose the tone, and get three reply options you can review, edit, and send on your terms.</p>
 
                                         <ol class="workflow-step-rail" aria-label="Workflow steps">
@@ -310,26 +315,6 @@
                     </div>
                 </div>
 
-                <div class="content-wrap credibility-grid">
-                    <article class="credibility-card">
-                        <div class="credibility-title">Try it without extra access</div>
-                        <p class="card-copy">
-                            You can try the current web app without giving it full keyboard access.
-                        </p>
-                    </article>
-                    <article class="credibility-card">
-                        <div class="credibility-title">You stay in control</div>
-                        <p class="card-copy">
-                            Liaison drafts options for you. Nothing sends automatically, and you review every reply before it leaves.
-                        </p>
-                    </article>
-                    <article class="credibility-card">
-                        <div class="credibility-title">Clear support and billing</div>
-                        <p class="card-copy">
-                            Billing goes through Stripe. Privacy, terms, and support links are available before you sign up.
-                        </p>
-                    </article>
-                </div>
             </section>
 
             <section class="section section-light">
