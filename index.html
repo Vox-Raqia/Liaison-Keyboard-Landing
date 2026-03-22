@@ -140,17 +140,13 @@
 
                     <div class="hero-visual">
                         <div class="hero-stage">
-                            <div class="hero-stage-head">
-                                <p class="stage-kicker">See Liaison in action</p>
-                            </div>
-
-                            <div class="hero-demo workflow-demo" data-scene="1">
+                            <div class="hero-demo workflow-demo" data-scene="1" data-section="landing-demo" aria-labelledby="landing-demo-title">
                                 <div class="workflow-demo-shell">
-                                    <div class="workflow-showcase" aria-hidden="true">
+                                    <figure class="workflow-showcase">
                                         <div class="workflow-glow workflow-glow-one" aria-hidden="true"></div>
                                         <div class="workflow-glow workflow-glow-two" aria-hidden="true"></div>
 
-                                        <div class="workflow-viewport">
+                                        <div class="workflow-viewport" aria-hidden="true">
                                             <div class="workflow-layer message-layer">
                                                 <div class="message-statusbar" aria-hidden="true">
                                                     <span class="message-status-time">9:12</span>
@@ -175,20 +171,20 @@
                                                 <div class="message-stage">
                                                     <div class="message-time">Today &middot; 6:41 PM</div>
                                                     <div class="message-bubble-outbound">
-                                                        Can you send the revised agenda before the meeting?
+                                                        Hey, I know I have been quiet. I do want to see you, but I need a little space this week.
                                                     </div>
                                                     <div class="partner-bubble">
-                                                        I can get it to you, but I need the latest version. Can you keep it concise and send it soon?
+                                                        Thanks for telling me. I can give you some space this week. Reach out when you are ready.
                                                     </div>
                                                     <div class="copy-callout">Copy</div>
-                                                    <div class="clipboard-toast">Copied to clipboard</div>
+                                                    <div class="clipboard-toast">Copied</div>
                                                 </div>
 
                                                 <div class="message-compose-shell">
                                                     <div class="message-compose-field">
-                                                        <span class="message-compose-placeholder">RCS message</span>
+                                                        <span class="message-compose-placeholder">Reply</span>
                                                         <span class="message-compose-text">
-                                                            Absolutely. I'll send the latest agenda in the next few minutes and keep it concise.
+                                                            Thanks for being direct. I understand, and I will give you some space this week. Let me know when you want to reconnect.
                                                         </span>
                                                     </div>
                                                     <span class="message-send-btn" aria-hidden="true">Send</span>
@@ -199,19 +195,19 @@
 
                                             <div class="workflow-layer liaison-layer">
                                                 <div class="workflow-app-bar workflow-app-bar-liaison">
-                                                    <span class="workflow-app-pill workflow-app-pill-cyan">Chat</span>
-                                                    <span class="workflow-app-status">Liaison Keyboard</span>
+                                                    <span class="workflow-app-pill workflow-app-pill-cyan">Reply help</span>
+                                                    <span class="workflow-app-status">Liaison</span>
                                                 </div>
 
                                                 <div class="liaison-workspace">
                                                     <div class="liaison-context-row">
                                                         <div class="liaison-context-card">
-                                                            <span class="context-label">Thread</span>
-                                                            <span class="context-value">Drafting a reply</span>
+                                                            <span class="context-label">Message</span>
+                                                            <span class="context-value">Personal conversation</span>
                                                         </div>
                                                         <div class="liaison-context-card">
-                                                            <span class="context-label">Usage</span>
-                                                            <span class="context-value">Manual copy-paste workflow</span>
+                                                            <span class="context-label">Goal</span>
+                                                            <span class="context-value">Reply clearly and kindly</span>
                                                         </div>
                                                     </div>
 
@@ -219,9 +215,9 @@
                                                         <span class="liaison-section-label">PASTE THEIR MESSAGE</span>
                                                         <div class="liaison-composer-card">
                                                             <span class="liaison-paste-btn" aria-hidden="true">Paste</span>
-                                                            <p class="liaison-composer-placeholder">Paste the message you received...</p>
+                                                            <p class="liaison-composer-placeholder">Paste the message you need help replying to...</p>
                                                             <p class="liaison-composer-content">
-                                                                Can you send the revised agenda before the meeting?
+                                                                Hey, I know I have been quiet. I do want to see you, but I need a little space this week.
                                                             </p>
                                                         </div>
                                                     </div>
@@ -230,127 +226,83 @@
                                                         <span class="liaison-section-label">CHOOSE YOUR TONE</span>
                                                         <div class="persona-row">
                                                             <span class="persona-chip persona-chip-selected" aria-hidden="true">Warm</span>
-                                                            <span class="persona-chip" aria-hidden="true">Direct</span>
-                                                            <span class="persona-chip" aria-hidden="true">Diplomatic</span>
+                                                            <span class="persona-chip" aria-hidden="true">Clear</span>
+                                                            <span class="persona-chip" aria-hidden="true">Brief</span>
                                                         </div>
-                                                        <p class="persona-hint">Pick the tone that fits the moment</p>
+                                                        <p class="persona-hint">Pick the reply style that fits the moment</p>
                                                     </div>
 
                                                     <span class="liaison-generate-btn" aria-hidden="true">
-                                                        <span class="generate-idle">GET MY REPLY</span>
-                                                        <span class="generate-loading">BUILDING YOUR REPLY...</span>
+                                                        <span class="generate-idle">GET MY REPLIES</span>
+                                                        <span class="generate-loading">WRITING YOUR OPTIONS...</span>
                                                     </span>
 
                                                     <div class="liaison-response-panel">
                                                         <div class="liaison-response-head">
-                                                            <span class="liaison-section-label">YOUR NEXT MOVE</span>
+                                                            <span class="liaison-section-label">THREE REPLY OPTIONS</span>
                                                             <span class="liaison-response-note">Tap to copy</span>
                                                         </div>
 
                                                         <div class="reply-card" data-reply="1">
                                                             <div class="reply-card-head">
                                                                 <span class="reply-label">Warm</span>
-                                                                <span class="reply-state">Best balance</span>
+                                                                <span class="reply-state">Most thoughtful</span>
                                                             </div>
-                                                            <p class="reply-text">Absolutely. I will send the latest agenda in the next few minutes and keep it concise.</p>
+                                                            <p class="reply-text">Thanks for telling me. I appreciate the honesty, and I can give you some space this week. Reach out when you are ready.</p>
                                                         </div>
 
                                                         <div class="reply-card reply-card-selected" data-reply="2">
                                                             <div class="reply-card-head">
-                                                                <span class="reply-label">Direct</span>
+                                                                <span class="reply-label">Clear</span>
                                                                 <span class="reply-state reply-state-copied">Copied</span>
                                                             </div>
-                                                            <p class="reply-text">Yes. I am sending the latest agenda now and will keep the update short.</p>
+                                                            <p class="reply-text">Thanks for being direct. I understand, and I will give you some space this week. Let me know when you want to reconnect.</p>
                                                         </div>
 
                                                         <div class="reply-card" data-reply="3">
                                                             <div class="reply-card-head">
                                                                 <span class="reply-label">Brief</span>
-                                                                <span class="reply-state">Fastest</span>
+                                                                <span class="reply-state">Shortest</span>
                                                             </div>
-                                                            <p class="reply-text">Yes. I will send the latest agenda shortly.</p>
+                                                            <p class="reply-text">Thanks for saying that. I understand, and I will give you space this week.</p>
                                                         </div>
 
                                                         <p class="reply-copy-hint">Copied. Paste it back into your chat.</p>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div class="workflow-switch-layer" aria-hidden="true">
-                                                <div class="switcher-statusbar" aria-hidden="true">
-                                                    <span class="switcher-status-time">9:14</span>
-                                                    <div class="switcher-status-icons">
-                                                        <span class="status-glyph"></span>
-                                                        <span class="status-glyph status-glyph-wide"></span>
-                                                        <span class="status-dot"></span>
-                                                        <span class="status-battery">55</span>
-                                                    </div>
-                                                </div>
-                                                <div class="switcher-topbar">
-                                                    <div class="switcher-status-pill">2 active apps</div>
-                                                    <div class="switcher-menu" aria-hidden="true">&#8942;</div>
-                                                </div>
-                                                <div class="switcher-canvas">
-                                                    <div class="switch-card-window switch-card-window-message">
-                                                        <span class="switch-card-icon switch-card-icon-message">&#128172;</span>
-                                                        <div class="switch-card-header">Messages</div>
-                                                        <div class="switch-card-preview switch-card-preview-light"></div>
-                                                    </div>
-                                                    <div class="clipboard-transfer">Clipboard ready</div>
-                                                    <div class="switch-card-window switch-card-window-liaison">
-                                                        <span class="switch-card-icon switch-card-icon-liaison">
-                                                            <img src="./assets/liaison-icon-16.png" alt="" class="switch-card-logo">
-                                                        </span>
-                                                        <div class="switch-card-header">Liaison</div>
-                                                        <div class="switch-card-preview switch-card-preview-dark"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="switcher-close-pill">Close all</div>
-                                            </div>
                                         </div>
-                                    </div>
+                                        <figcaption class="visually-hidden">Demo showing how Liaison turns one incoming message into three tone-aware reply options. The user reviews the options, copies the one they want, and pastes it back manually.</figcaption>
+                                    </figure>
 
                                     <div class="workflow-panel">
                                         <div class="workflow-panel-head">
-                                            <p class="workflow-panel-kicker">Current web app walkthrough</p>
-                                            <button class="demo-replay" type="button" aria-label="Replay Liaison demo">Replay</button>
+                                            <p class="workflow-panel-kicker">See how Liaison helps</p>
+                                            <button class="demo-replay" type="button" aria-label="Replay demo" data-action="replay-demo">Replay demo</button>
                                         </div>
 
-                                        <h3 class="workflow-panel-title">Paste the message. Pick the tone. Copy the reply.</h3>
-                                        <p class="workflow-panel-copy">The walkthrough mirrors the current web app flow, start to finish: paste the message, generate three options, review the best one, and copy it back yourself.</p>
+                                        <h2 class="workflow-panel-title" id="landing-demo-title">Turn one message into three send-ready replies.</h2>
+                                        <p class="workflow-panel-copy">Paste the message, choose the tone, and get three reply options you can review, edit, and send on your terms.</p>
 
-                                        <div class="workflow-step-rail" aria-label="Workflow steps">
-                                            <span class="workflow-step-pill" data-step="1">1 Receive</span>
-                                            <span class="workflow-step-pill" data-step="2">2 Copy</span>
-                                            <span class="workflow-step-pill" data-step="3">3 Switch</span>
-                                            <span class="workflow-step-pill" data-step="4">4 Paste</span>
-                                            <span class="workflow-step-pill" data-step="5">5 Tone</span>
-                                            <span class="workflow-step-pill" data-step="6">6 Generate</span>
-                                            <span class="workflow-step-pill" data-step="7">7 Review</span>
-                                            <span class="workflow-step-pill" data-step="8">8 Copy reply</span>
-                                            <span class="workflow-step-pill" data-step="9">9 Return</span>
-                                            <span class="workflow-step-pill" data-step="10">10 Send</span>
-                                        </div>
+                                        <ol class="workflow-step-rail" aria-label="Workflow steps">
+                                            <li class="workflow-step-pill" data-step="1">1 Paste</li>
+                                            <li class="workflow-step-pill" data-step="2">2 Choose tone</li>
+                                            <li class="workflow-step-pill" data-step="3">3 Copy reply</li>
+                                        </ol>
 
                                         <div class="workflow-scene-copy">
-                                            <article class="workflow-scene-title" data-copy="1"><h3 class="scene-title">Incoming message lands.</h3></article>
-                                            <article class="workflow-scene-title" data-copy="2"><h3 class="scene-title">Copy the message.</h3></article>
-                                            <article class="workflow-scene-title" data-copy="3"><h3 class="scene-title">Switch into Liaison.</h3></article>
-                                            <article class="workflow-scene-title" data-copy="4"><h3 class="scene-title">Paste their message.</h3></article>
-                                            <article class="workflow-scene-title" data-copy="5"><h3 class="scene-title">Choose the tone.</h3></article>
-                                            <article class="workflow-scene-title" data-copy="6"><h3 class="scene-title">Generate three options.</h3></article>
-                                            <article class="workflow-scene-title" data-copy="7"><h3 class="scene-title">Review the best next move.</h3></article>
-                                            <article class="workflow-scene-title" data-copy="8"><h3 class="scene-title">Copy the strongest reply.</h3></article>
-                                            <article class="workflow-scene-title" data-copy="9"><h3 class="scene-title">Return to your chat.</h3></article>
-                                            <article class="workflow-scene-title" data-copy="10"><h3 class="scene-title">Paste and send.</h3></article>
+                                            <article class="workflow-scene-title" data-copy="1"><h3 class="scene-title">Paste the message that needs the right tone.</h3></article>
+                                            <article class="workflow-scene-title" data-copy="2"><h3 class="scene-title">Review three reply options and pick the best fit.</h3></article>
+                                            <article class="workflow-scene-title" data-copy="3"><h3 class="scene-title">Copy the reply back when you are ready to send.</h3></article>
                                         </div>
 
-                                        <p class="workflow-trust-line">Three reply options. Nothing sends automatically. You stay in control.</p>
+                                        <p class="workflow-trust-line">Nothing sends automatically. You choose what gets copied back.</p>
 
                                         <div class="demo-inline-cta">
-                                            <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-primary">Start Free</a>
-                                            <a href="#pricing" class="button button-ghost">Compare Plans</a>
+                                            <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-primary" data-cta="primary">Start Free</a>
+                                            <a href="#pricing" class="button button-ghost" data-cta="secondary">See pricing</a>
                                         </div>
+                                        <p class="demo-cta-support">15 free generations</p>
                                     </div>
                                 </div>
                             </div>
