@@ -1,623 +1,945 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Liaison Keyboard | AI reply help for messages that matter</title>
     <meta
-        name="description"
-        content="Paste a message, choose the tone, and get three AI reply options in the current web app. Nothing sends automatically. Start free, then upgrade to Pro for unlimited generations, deeper memory, premium personas, and priority support."
-    >
-    <meta name="robots" content="index,follow">
-    <link rel="canonical" href="https://liaisonkeyboard.com/">
-    <meta property="og:title" content="Liaison Keyboard | AI reply help for messages that matter">
+      name="description"
+      content="Paste a message, choose the tone, and get three AI reply options in the current web app. Nothing sends automatically. Start free, then upgrade to Pro for unlimited generations, deeper memory, premium personas, and priority support."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://liaisonkeyboard.com/" />
     <meta
-        property="og:description"
-        content="Manual copy-and-paste reply help for the messages you do not want to mishandle. Start free in the current web app, then upgrade to Pro for unlimited generations and deeper memory."
-    >
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://liaisonkeyboard.com/">
-    <meta property="og:image" content="https://liaisonkeyboard.com/assets/og-image.png">
-    <meta property="og:image:alt" content="Liaison Keyboard landing page preview showing the web app reply workflow.">
-    <meta property="og:site_name" content="Liaison Keyboard">
-    <meta property="og:locale" content="en_US">
-    <meta name="twitter:title" content="Liaison Keyboard | AI reply help for messages that matter">
+      property="og:title"
+      content="Liaison Keyboard | AI reply help for messages that matter"
+    />
     <meta
-        name="twitter:description"
-        content="Paste a message, choose the tone, and get three AI reply options in the current web app. Nothing sends automatically."
-    >
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://liaisonkeyboard.com/assets/og-image.png">
-    <meta name="twitter:image:alt" content="Liaison Keyboard landing page preview showing the web app reply workflow.">
-    <meta name="theme-color" content="#0f172a">
-    <link rel="icon" type="image/png" href="./assets/liaison-icon-16.png">
-    <link rel="apple-touch-icon" href="./assets/liaison-icon-180.png">
-    <link rel="stylesheet" href="./site.css">
+      property="og:description"
+      content="Manual copy-and-paste reply help for the messages you do not want to mishandle. Start free in the current web app, then upgrade to Pro for unlimited generations and deeper memory."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://liaisonkeyboard.com/" />
+    <meta
+      property="og:image"
+      content="https://liaisonkeyboard.com/assets/og-image.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="Liaison Keyboard landing page preview showing the web app reply workflow."
+    />
+    <meta property="og:site_name" content="Liaison Keyboard" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      name="twitter:title"
+      content="Liaison Keyboard | AI reply help for messages that matter"
+    />
+    <meta
+      name="twitter:description"
+      content="Paste a message, choose the tone, and get three AI reply options in the current web app. Nothing sends automatically."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://liaisonkeyboard.com/assets/og-image.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Liaison Keyboard landing page preview showing the web app reply workflow."
+    />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" type="image/png" href="./assets/liaison-icon-16.png" />
+    <link rel="apple-touch-icon" href="./assets/liaison-icon-180.png" />
+    <link rel="stylesheet" href="./site.css" />
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "name": "Liaison Keyboard",
-          "url": "https://liaisonkeyboard.com/",
-          "logo": "https://liaisonkeyboard.com/assets/liaison-logo.svg"
-        },
-        {
-          "@type": "WebSite",
-          "name": "Liaison Keyboard",
-          "url": "https://liaisonkeyboard.com/",
-          "description": "AI reply help for messages that matter."
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "Liaison Keyboard",
-          "applicationCategory": "CommunicationApplication",
-          "operatingSystem": "Web",
-          "url": "https://liaisonkeyboard.com/",
-          "offers": [
-            {
-              "@type": "Offer",
-              "name": "Free",
-              "price": "0",
-              "priceCurrency": "USD"
-            },
-            {
-              "@type": "Offer",
-              "name": "Pro",
-              "price": "7.99",
-              "priceCurrency": "USD"
-            }
-          ]
-        }
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "Liaison Keyboard",
+            "url": "https://liaisonkeyboard.com/",
+            "logo": "https://liaisonkeyboard.com/assets/liaison-logo.svg"
+          },
+          {
+            "@type": "WebSite",
+            "name": "Liaison Keyboard",
+            "url": "https://liaisonkeyboard.com/",
+            "description": "AI reply help for messages that matter."
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "Liaison Keyboard",
+            "applicationCategory": "CommunicationApplication",
+            "operatingSystem": "Web",
+            "url": "https://liaisonkeyboard.com/",
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Free",
+                "price": "0",
+                "priceCurrency": "USD"
+              },
+              {
+                "@type": "Offer",
+                "name": "Pro",
+                "price": "7.99",
+                "priceCurrency": "USD"
+              }
+            ]
+          }
+        ]
+      }
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="page-shell">
-        <header class="topbar">
-            <div class="topbar-inner">
-                <div class="brand-lockup">
-                    <a class="brand-logo" href="./index.html">
-                        <img src="./assets/liaison-logo.svg" alt="Liaison Keyboard Logo" class="logo-img">
-                    </a>
-                    <div class="brand-copy">
-                        <span class="brand-name">LIAISON KEYBOARD</span>
-                        <span class="brand-note">Current release: manual copy-and-paste reply help in the web app. Free lets you test the workflow first, and Pro adds unlimited generations, full conversation memory, and premium personas.</span>
-                    </div>
-                </div>
-                <nav class="topbar-actions" aria-label="Primary">
-                    <a href="https://app.liaisonkeyboard.com/auth/login" class="button button-secondary">Login</a>
-                    <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-primary">Start Free</a>
-                </nav>
+      <header class="topbar">
+        <div class="topbar-inner">
+          <div class="brand-lockup">
+            <a class="brand-logo" href="./index.html">
+              <img
+                src="./assets/liaison-logo.svg"
+                alt="Liaison Keyboard Logo"
+                class="logo-img"
+              />
+            </a>
+            <div class="brand-copy">
+              <span class="brand-name">LIAISON KEYBOARD</span>
+              <span class="brand-note"
+                >Current release: manual copy-and-paste reply help in the web
+                app. Free lets you test the workflow first, and Pro adds
+                unlimited generations, full conversation memory, and premium
+                personas.</span
+              >
             </div>
-        </header>
+          </div>
+          <nav class="topbar-actions" aria-label="Primary">
+            <a
+              href="https://app.liaisonkeyboard.com/auth/login"
+              class="button button-secondary"
+              >Login</a
+            >
+            <a
+              href="https://app.liaisonkeyboard.com/auth/register"
+              class="button button-primary"
+              >Start Free</a
+            >
+          </nav>
+        </div>
+      </header>
 
-        <main id="main-content">
-            <section class="hero-intro">
-                <div class="content-wrap hero-intro-grid">
-                    <div class="hero-intro-copy">
-                        <span class="eyebrow">Manual reply help for messages that matter</span>
-                        <h1 class="hero-title">Paste a message. Get three reply options in seconds.</h1>
-                        <p class="hero-copy">
-                            Liaison helps you answer difficult messages without freezing or overthinking. Use the current web app to paste the message,
-                            choose the tone, and review three reply options before you copy one back yourself. Nothing sends automatically.
+      <main id="main-content">
+        <section class="hero-intro">
+          <div class="content-wrap hero-intro-grid">
+            <div class="hero-intro-copy">
+              <span class="eyebrow"
+                >Manual reply help for messages that matter</span
+              >
+              <h1 class="hero-title">
+                Paste a message. Get three reply options in seconds.
+              </h1>
+              <p class="hero-copy">
+                Liaison helps you answer difficult messages without freezing or
+                overthinking. Use the current web app to paste the message,
+                choose the tone, and review three reply options before you copy
+                one back yourself. Nothing sends automatically.
+              </p>
+
+              <div class="trust-inline">
+                <span class="pill"
+                  >15 free generations to try the workflow</span
+                >
+                <span class="pill"
+                  >Nothing sends automatically. You stay in control.</span
+                >
+              </div>
+
+              <div class="hero-actions">
+                <a
+                  href="https://app.liaisonkeyboard.com/auth/register"
+                  class="button button-primary"
+                  >Start Free</a
+                >
+                <a href="#pricing" class="button button-ghost">Compare Plans</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section hero hero-demo-section">
+          <div class="content-wrap hero-grid">
+            <div class="hero-copy-column">
+              <span class="eyebrow">Interactive Demo</span>
+              <h2 class="section-title" id="landing-demo-title">
+                See how Liaison handles the message before you send anything.
+              </h2>
+              <p class="hero-copy">
+                The live demo mirrors the current workflow: paste the message,
+                choose the tone, review three reply options, and copy one back
+                when it sounds right.
+              </p>
+            </div>
+            <div class="hero-visual">
+              <div class="hero-stage">
+                <div
+                  class="hero-demo workflow-demo"
+                  data-scene="1"
+                  data-section="landing-demo"
+                  aria-labelledby="landing-demo-title"
+                >
+                  <div class="workflow-demo-shell">
+                    <div class="workflow-panel">
+                      <div class="workflow-panel-head">
+                        <p class="workflow-panel-kicker">
+                          See how Liaison helps
                         </p>
+                        <button
+                          class="demo-replay"
+                          type="button"
+                          aria-label="Replay demo"
+                          data-action="replay-demo"
+                        >
+                          Replay demo
+                        </button>
+                      </div>
 
-                        <div class="trust-inline">
-                            <span class="pill">15 free generations to try the workflow</span>
-                            <span class="pill">Nothing sends automatically. You stay in control.</span>
-                        </div>
+                      <h3 class="workflow-panel-title">
+                        Turn one message into three send-ready replies.
+                      </h3>
+                      <p class="workflow-panel-copy">
+                        Paste the message, choose the tone, and get three reply
+                        options you can review, edit, and send on your terms.
+                      </p>
 
-                        <div class="hero-actions">
-                            <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-primary">Start Free</a>
-                            <a href="#pricing" class="button button-ghost">Compare Plans</a>
-                        </div>
+                      <ol
+                        class="workflow-step-rail"
+                        aria-label="Workflow steps"
+                      >
+                        <li class="workflow-step-pill" data-step="1">
+                          1 Paste
+                        </li>
+                        <li class="workflow-step-pill" data-step="2">
+                          2 Choose tone
+                        </li>
+                        <li class="workflow-step-pill" data-step="3">
+                          3 Copy reply
+                        </li>
+                      </ol>
 
-                    </div>
-                </div>
-            </section>
-
-            <section class="section hero hero-demo-section">
-                <div class="content-wrap hero-grid">
-                    <div class="hero-copy-column">
-                        <span class="eyebrow">Interactive Demo</span>
-                        <h2 class="section-title" id="landing-demo-title">See how Liaison handles the message before you send anything.</h2>
-                        <p class="hero-copy">
-                            The live demo mirrors the current workflow: paste the message, choose the tone, review three reply options, and copy one back when it sounds right.
-                        </p>
-                    </div>
-                    <div class="hero-visual">
-                        <div class="hero-stage">
-                            <div class="hero-demo workflow-demo" data-scene="1" data-section="landing-demo" aria-labelledby="landing-demo-title">
-                                <div class="workflow-demo-shell">
-                                    <figure class="workflow-showcase">
-                                        <div class="workflow-glow workflow-glow-one" aria-hidden="true"></div>
-                                        <div class="workflow-glow workflow-glow-two" aria-hidden="true"></div>
-
-                                        <div class="workflow-device-shell">
-                                            <span class="workflow-device-speaker" aria-hidden="true"></span>
-                                            <span class="workflow-device-camera" aria-hidden="true"></span>
-                                        <div class="workflow-viewport" aria-hidden="true">
-                                            <div class="workflow-layer message-layer">
-                                                <div class="message-statusbar" aria-hidden="true">
-                                                    <span class="message-status-time">9:12</span>
-                                                    <div class="message-status-icons">
-                                                        <span class="status-glyph"></span>
-                                                        <span class="status-glyph status-glyph-wide"></span>
-                                                        <span class="status-dot"></span>
-                                                        <span class="status-battery">55</span>
-                                                    </div>
-                                                </div>
-                                                <div class="message-header">
-                                                    <span class="message-header-back" aria-hidden="true">&larr;</span>
-                                                    <span class="message-avatar">J</span>
-                                                    <div class="message-contact">
-                                                        <span class="message-contact-name">Jordan</span>
-                                                        <span class="message-contact-meta">Text message</span>
-                                                    </div>
-                                                    <span class="message-header-action" aria-hidden="true">&#9742;</span>
-                                                    <span class="message-header-action" aria-hidden="true">&#8942;</span>
-                                                </div>
-
-                                                <div class="message-stage">
-                                                    <div class="message-time">Today &middot; 6:41 PM</div>
-                                                    <div class="message-bubble-outbound">
-                                                        Hey, I know I have been quiet. I do want to see you, but I need a little space this week.
-                                                    </div>
-                                                    <div class="partner-bubble">
-                                                        Thanks for telling me. I can give you some space this week. Reach out when you are ready.
-                                                    </div>
-                                                    <div class="copy-callout">Copy</div>
-                                                    <div class="clipboard-toast">Copied</div>
-                                                </div>
-
-                                                <div class="message-compose-shell">
-                                                    <div class="message-compose-field">
-                                                        <span class="message-compose-placeholder">Reply</span>
-                                                        <span class="message-compose-text">
-                                                            Thanks for being direct. I understand, and I will give you some space this week. Let me know when you want to reconnect.
-                                                        </span>
-                                                    </div>
-                                                    <span class="message-send-btn" aria-hidden="true">Send</span>
-                                                </div>
-
-                                                <div class="delivery-pill">Delivered</div>
-                                                <div class="message-keyboard" aria-hidden="true">
-                                                    <div class="keyboard-toolbar">
-                                                        <div class="keyboard-paste-pill">
-                                                            <span class="keyboard-paste-icon">&#128203;</span>
-                                                            <span>Paste</span>
-                                                        </div>
-                                                        <span class="keyboard-close">&#10005;</span>
-                                                    </div>
-                                                    <div class="keyboard-surface"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="workflow-layer liaison-layer">
-                                                <div class="workflow-app-bar workflow-app-bar-liaison">
-                                                    <span class="workflow-app-pill workflow-app-pill-cyan">Reply help</span>
-                                                    <span class="workflow-app-status">Liaison</span>
-                                                </div>
-
-                                                <div class="liaison-workspace">
-                                                    <div class="liaison-context-row">
-                                                        <div class="liaison-context-card">
-                                                            <span class="context-label">Message</span>
-                                                            <span class="context-value">Personal conversation</span>
-                                                        </div>
-                                                        <div class="liaison-context-card">
-                                                            <span class="context-label">Goal</span>
-                                                            <span class="context-value">Reply clearly and kindly</span>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="liaison-section">
-                                                        <span class="liaison-section-label">PASTE THEIR MESSAGE</span>
-                                                        <div class="liaison-composer-card">
-                                                            <span class="liaison-paste-btn" aria-hidden="true">Paste</span>
-                                                            <p class="liaison-composer-placeholder">Paste the message you need help replying to...</p>
-                                                            <p class="liaison-composer-content">
-                                                                Hey, I know I have been quiet. I do want to see you, but I need a little space this week.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="liaison-section">
-                                                        <span class="liaison-section-label">CHOOSE YOUR TONE</span>
-                                                        <div class="persona-row">
-                                                            <span class="persona-chip persona-chip-selected" aria-hidden="true">Warm</span>
-                                                            <span class="persona-chip" aria-hidden="true">Clear</span>
-                                                            <span class="persona-chip" aria-hidden="true">Brief</span>
-                                                        </div>
-                                                        <p class="persona-hint">Pick the reply style that fits the moment</p>
-                                                    </div>
-
-                                                    <span class="liaison-generate-btn" aria-hidden="true">
-                                                        <span class="generate-idle">GET MY REPLIES</span>
-                                                        <span class="generate-loading">WRITING YOUR OPTIONS...</span>
-                                                    </span>
-
-                                                    <div class="liaison-response-panel">
-                                                        <div class="liaison-response-head">
-                                                            <span class="liaison-section-label">THREE REPLY OPTIONS</span>
-                                                            <span class="liaison-response-note">Tap to copy</span>
-                                                        </div>
-
-                                                        <div class="reply-card" data-reply="1">
-                                                            <div class="reply-card-head">
-                                                                <span class="reply-label">Warm</span>
-                                                                <span class="reply-state">Most thoughtful</span>
-                                                            </div>
-                                                            <p class="reply-text">Thanks for telling me. I appreciate the honesty, and I can give you some space this week. Reach out when you are ready.</p>
-                                                        </div>
-
-                                                        <div class="reply-card reply-card-selected" data-reply="2">
-                                                            <div class="reply-card-head">
-                                                                <span class="reply-label">Clear</span>
-                                                                <span class="reply-state reply-state-copied">Copied</span>
-                                                            </div>
-                                                            <p class="reply-text">Thanks for being direct. I understand, and I will give you some space this week. Let me know when you want to reconnect.</p>
-                                                        </div>
-
-                                                        <div class="reply-card" data-reply="3">
-                                                            <div class="reply-card-head">
-                                                                <span class="reply-label">Brief</span>
-                                                                <span class="reply-state">Shortest</span>
-                                                            </div>
-                                                            <p class="reply-text">Thanks for saying that. I understand, and I will give you space this week.</p>
-                                                        </div>
-
-                                                        <p class="reply-copy-hint">Copied. Paste it back into your chat.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <figcaption class="visually-hidden">Demo showing how Liaison turns one incoming message into three tone-aware reply options. The user reviews the options, copies the one they want, and pastes it back manually.</figcaption>
-                                    </figure>
-
-                                    <div class="workflow-panel">
-                                        <div class="workflow-panel-head">
-                                            <p class="workflow-panel-kicker">See how Liaison helps</p>
-                                            <button class="demo-replay" type="button" aria-label="Replay demo" data-action="replay-demo">Replay demo</button>
-                                        </div>
-
-                                        <h3 class="workflow-panel-title">Turn one message into three send-ready replies.</h3>
-                                        <p class="workflow-panel-copy">Paste the message, choose the tone, and get three reply options you can review, edit, and send on your terms.</p>
-
-                                        <ol class="workflow-step-rail" aria-label="Workflow steps">
-                                            <li class="workflow-step-pill" data-step="1">1 Paste</li>
-                                            <li class="workflow-step-pill" data-step="2">2 Choose tone</li>
-                                            <li class="workflow-step-pill" data-step="3">3 Copy reply</li>
-                                        </ol>
-
-                                        <div class="workflow-scene-copy">
-                                            <article class="workflow-scene-title" data-copy="1"><h3 class="scene-title">Paste the message that needs the right tone.</h3></article>
-                                            <article class="workflow-scene-title" data-copy="2"><h3 class="scene-title">Review three reply options and pick the best fit.</h3></article>
-                                            <article class="workflow-scene-title" data-copy="3"><h3 class="scene-title">Copy the reply back when you are ready to send.</h3></article>
-                                        </div>
-
-                                        <p class="workflow-trust-line">Nothing sends automatically. You choose what gets copied back.</p>
-
-                                        <div class="demo-inline-cta">
-                                            <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-primary" data-cta="primary">Start Free</a>
-                                            <a href="#pricing" class="button button-ghost" data-cta="secondary">See pricing</a>
-                                        </div>
-                                        <p class="demo-cta-support">15 free generations</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-
-            <section class="section section-light">
-                <div class="content-wrap">
-                    <div class="section-head">
-                        <span class="eyebrow eyebrow-dark">Why People Upgrade</span>
-                        <h2 class="section-title section-title-dark">Start free for quick replies. Upgrade when the message matters more.</h2>
-                        <p class="section-copy section-copy-dark">
-                            Free helps you answer quickly. Pro adds unlimited generations, all premium personas, full conversation memory,
-                            and priority support when the conversation carries more weight.
-                        </p>
-                    </div>
-
-                    <div class="aha-grid">
-                        <article class="aha-card">
-                            <span class="aha-kicker">Fast</span>
-                            <h3 class="card-title card-title-dark">Free is for quick answers</h3>
-                            <p class="card-copy card-copy-dark">
-                                Use Liaison to get unstuck, keep the conversation moving, and avoid staring at a blank reply box.
-                            </p>
-                            <div class="compare-stack">
-                                <div class="compare-row">
-                                    <span class="compare-label">Free</span>
-                                    <span class="compare-copy">15 generations to test the workflow</span>
-                                </div>
-                                <div class="compare-row compare-row-accent">
-                                    <span class="compare-label">Pro</span>
-                                    <span class="compare-copy">Unlimited generations for heavier use</span>
-                                </div>
-                            </div>
+                      <div class="workflow-scene-copy">
+                        <article class="workflow-scene-title" data-copy="1">
+                          <h3 class="scene-title">
+                            Paste the message that needs the right tone.
+                          </h3>
                         </article>
-
-                        <article class="aha-card">
-                            <span class="aha-kicker">Tone</span>
-                            <h3 class="card-title card-title-dark">Pro gives you a better read on tone</h3>
-                            <p class="card-copy card-copy-dark">
-                                Pro helps you sound warmer, calmer, or more direct without rewriting from scratch.
-                            </p>
-                            <div class="compare-stack">
-                                <div class="compare-row">
-                                    <span class="compare-label">Free</span>
-                                    <span class="compare-copy">Basic tone help</span>
-                                </div>
-                                <div class="compare-row compare-row-accent">
-                                    <span class="compare-label">Pro</span>
-                                <span class="compare-copy">Premium personas and stronger tone control</span>
-                                </div>
-                            </div>
+                        <article class="workflow-scene-title" data-copy="2">
+                          <h3 class="scene-title">
+                            Review three reply options and pick the best fit.
+                          </h3>
                         </article>
-
-                        <article class="aha-card">
-                            <span class="aha-kicker">Context</span>
-                            <h3 class="card-title card-title-dark">Pro keeps the thread in view</h3>
-                            <p class="card-copy card-copy-dark">
-                                Pro remembers the conversation, which helps you avoid repeating yourself when the thread keeps moving.
-                            </p>
-                            <div class="compare-stack">
-                                <div class="compare-row">
-                                    <span class="compare-label">Free</span>
-                                    <span class="compare-copy">Lightweight context for quick use</span>
-                                </div>
-                                <div class="compare-row compare-row-accent">
-                                    <span class="compare-label">Pro</span>
-                                    <span class="compare-copy">Full conversation memory</span>
-                                </div>
-                            </div>
+                        <article class="workflow-scene-title" data-copy="3">
+                          <h3 class="scene-title">
+                            Copy the reply back when you are ready to send.
+                          </h3>
                         </article>
-                    </div>
-                </div>
-            </section>
+                      </div>
 
-            <section class="section" id="how-it-works">
-                <div class="content-wrap two-column split-feature">
-                    <div class="stack">
-                        <span class="eyebrow">How It Works</span>
-                        <h2 class="section-title">A simple workflow for difficult messages.</h2>
-                        <p class="section-copy">
-                            Liaison is a manual reply assistant in the current web app. Paste the incoming message, choose the tone,
-                            and copy the answer that fits your situation.
-                        </p>
-                        <div class="list">
-                            <div class="list-item">
-                                <strong>1. Paste the incoming message</strong>
-                                <span class="list-copy">Drop in the text you received and the context that matters.</span>
-                            </div>
-                            <div class="list-item">
-                                <strong>2. Choose the tone that fits</strong>
-                                <span class="list-copy">Start free, then upgrade when you want more nuance, stronger tone control, and deeper memory.</span>
-                            </div>
-                            <div class="list-item">
-                                <strong>3. Copy the reply that fits the moment</strong>
-                                <span class="list-copy">Nothing sends automatically, so you keep control over every word.</span>
-                            </div>
-                        </div>
+                      <p class="workflow-trust-line">
+                        Nothing sends automatically. You choose what gets copied
+                        back.
+                      </p>
+
+                      <div class="demo-inline-cta">
+                        <a
+                          href="https://app.liaisonkeyboard.com/auth/register"
+                          class="button button-primary"
+                          data-cta="primary"
+                          >Start Free</a
+                        >
+                        <a
+                          href="#pricing"
+                          class="button button-ghost"
+                          data-cta="secondary"
+                          >See pricing</a
+                        >
+                      </div>
+                      <p class="demo-cta-support">15 free generations</p>
                     </div>
-                    <div class="visual-stack">
-                        <div class="visual-frame">
-                            <img
-                                src="./assets/previews/auth-login.svg"
-                                alt="Preview of the Liaison Keyboard web app login and reply workspace."
-                                class="preview-img"
+
+                    <figure class="workflow-showcase">
+                      <div
+                        class="workflow-glow workflow-glow-one"
+                        aria-hidden="true"
+                      ></div>
+                      <div
+                        class="workflow-glow workflow-glow-two"
+                        aria-hidden="true"
+                      ></div>
+
+                      <div class="workflow-device-shell">
+                        <span
+                          class="workflow-device-speaker"
+                          aria-hidden="true"
+                        ></span>
+                        <span
+                          class="workflow-device-camera"
+                          aria-hidden="true"
+                        ></span>
+                        <div class="workflow-viewport" aria-hidden="true">
+                          <div class="workflow-layer message-layer">
+                            <div class="message-statusbar" aria-hidden="true">
+                              <span class="message-status-time">9:12</span>
+                              <div class="message-status-icons">
+                                <span class="status-glyph"></span>
+                                <span
+                                  class="status-glyph status-glyph-wide"
+                                ></span>
+                                <span class="status-dot"></span>
+                                <span class="status-battery">55</span>
+                              </div>
+                            </div>
+                            <div class="message-header">
+                              <span
+                                class="message-header-back"
+                                aria-hidden="true"
+                                >&larr;</span
+                              >
+                              <span class="message-avatar">J</span>
+                              <div class="message-contact">
+                                <span class="message-contact-name">Jordan</span>
+                                <span class="message-contact-meta"
+                                  >Text message</span
+                                >
+                              </div>
+                              <span
+                                class="message-header-action"
+                                aria-hidden="true"
+                                >&#9742;</span
+                              >
+                              <span
+                                class="message-header-action"
+                                aria-hidden="true"
+                                >&#8942;</span
+                              >
+                            </div>
+
+                            <div class="message-stage">
+                              <div class="message-time">
+                                Today &middot; 6:41 PM
+                              </div>
+                              <div class="message-bubble-outbound">
+                                Hey, I know I have been quiet. I do want to see
+                                you, but I need a little space this week.
+                              </div>
+                              <div class="partner-bubble">
+                                Thanks for telling me. I can give you some space
+                                this week. Reach out when you are ready.
+                              </div>
+                              <div class="copy-callout">Copy</div>
+                              <div class="clipboard-toast">Copied</div>
+                            </div>
+
+                            <div class="message-compose-shell">
+                              <div class="message-compose-field">
+                                <span class="message-compose-placeholder"
+                                  >Reply</span
+                                >
+                                <span class="message-compose-text">
+                                  Thanks for being direct. I understand, and I
+                                  will give you some space this week. Let me
+                                  know when you want to reconnect.
+                                </span>
+                              </div>
+                              <span class="message-send-btn" aria-hidden="true"
+                                >Send</span
+                              >
+                            </div>
+
+                            <div class="delivery-pill">Delivered</div>
+                            <div class="message-keyboard" aria-hidden="true">
+                              <div class="keyboard-toolbar">
+                                <div class="keyboard-paste-pill">
+                                  <span class="keyboard-paste-icon"
+                                    >&#128203;</span
+                                  >
+                                  <span>Paste</span>
+                                </div>
+                                <span class="keyboard-close">&#10005;</span>
+                              </div>
+                              <div class="keyboard-surface"></div>
+                            </div>
+                          </div>
+
+                          <div class="workflow-layer liaison-layer">
+                            <div
+                              class="workflow-app-bar workflow-app-bar-liaison"
                             >
-                        </div>
-                        <div class="micro-trust-panel">
-                            <div class="micro-trust-title">Why people feel safe trying it</div>
-                            <p class="micro-trust-copy">
-                                You can start without full keyboard access. Review every draft yourself, keep control over every word,
-                                and upgrade only if you want unlimited generations, deeper memory, and premium personas.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section section-light" id="pricing">
-                <div class="content-wrap">
-                    <div class="section-head">
-                        <span class="eyebrow eyebrow-dark">Plans</span>
-                        <h2 class="section-title section-title-dark">Start free for quick replies. Upgrade for the full Pro experience.</h2>
-                        <p class="section-copy section-copy-dark">
-                            Free gives you a simple way to test the workflow. Pro adds unlimited generations, all premium personas,
-                            full conversation memory, priority support, and self-serve billing through Stripe.
-                        </p>
-                    </div>
-
-                    <div class="pricing-grid pricing-grid-duo">
-                        <article class="pricing-card pricing-card-light">
-                            <div class="pricing-badge pricing-badge-dark">Free</div>
-                            <h3 class="pricing-title pricing-title-dark">Reply help when you need it now</h3>
-                            <div class="price-line">
-                                <span class="price-value price-value-dark">$0</span>
+                              <span
+                                class="workflow-app-pill workflow-app-pill-cyan"
+                                >Reply help</span
+                              >
+                              <span class="workflow-app-status">Liaison</span>
                             </div>
-                            <ul class="pricing-list pricing-list-dark">
-                                <li>15 free generations</li>
-                                <li>Core paste-and-reply workflow</li>
-                                <li>Best for quick replies and first-time trying</li>
-                            </ul>
-                            <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-secondary button-inline">Start Free</a>
-                        </article>
 
-                        <article class="pricing-card featured">
-                            <div class="pricing-badge">Pro</div>
-                            <h3 class="pricing-title">More depth for higher-stakes conversations</h3>
-                            <div class="price-line">
-                                <span class="price-value">$7.99</span>
-                                <span class="price-term">/ month</span>
+                            <div class="liaison-workspace">
+                              <div class="liaison-context-row">
+                                <div class="liaison-context-card">
+                                  <span class="context-label">Message</span>
+                                  <span class="context-value"
+                                    >Personal conversation</span
+                                  >
+                                </div>
+                                <div class="liaison-context-card">
+                                  <span class="context-label">Goal</span>
+                                  <span class="context-value"
+                                    >Reply clearly and kindly</span
+                                  >
+                                </div>
+                              </div>
+
+                              <div class="liaison-section">
+                                <span class="liaison-section-label"
+                                  >PASTE THEIR MESSAGE</span
+                                >
+                                <div class="liaison-composer-card">
+                                  <span
+                                    class="liaison-paste-btn"
+                                    aria-hidden="true"
+                                    >Paste</span
+                                  >
+                                  <p class="liaison-composer-placeholder">
+                                    Paste the message you need help replying
+                                    to...
+                                  </p>
+                                  <p class="liaison-composer-content">
+                                    Hey, I know I have been quiet. I do want to
+                                    see you, but I need a little space this
+                                    week.
+                                  </p>
+                                </div>
+                              </div>
+
+                              <div class="liaison-section">
+                                <span class="liaison-section-label"
+                                  >CHOOSE YOUR TONE</span
+                                >
+                                <div class="persona-row">
+                                  <span
+                                    class="persona-chip persona-chip-selected"
+                                    aria-hidden="true"
+                                    >Warm</span
+                                  >
+                                  <span class="persona-chip" aria-hidden="true"
+                                    >Clear</span
+                                  >
+                                  <span class="persona-chip" aria-hidden="true"
+                                    >Brief</span
+                                  >
+                                </div>
+                                <p class="persona-hint">
+                                  Pick the reply style that fits the moment
+                                </p>
+                              </div>
+
+                              <span
+                                class="liaison-generate-btn"
+                                aria-hidden="true"
+                              >
+                                <span class="generate-idle"
+                                  >GET MY REPLIES</span
+                                >
+                                <span class="generate-loading"
+                                  >WRITING YOUR OPTIONS...</span
+                                >
+                              </span>
+
+                              <div class="liaison-response-panel">
+                                <div class="liaison-response-head">
+                                  <span class="liaison-section-label"
+                                    >THREE REPLY OPTIONS</span
+                                  >
+                                  <span class="liaison-response-note"
+                                    >Tap to copy</span
+                                  >
+                                </div>
+
+                                <div class="reply-card" data-reply="1">
+                                  <div class="reply-card-head">
+                                    <span class="reply-label">Warm</span>
+                                    <span class="reply-state"
+                                      >Most thoughtful</span
+                                    >
+                                  </div>
+                                  <p class="reply-text">
+                                    Thanks for telling me. I appreciate the
+                                    honesty, and I can give you some space this
+                                    week. Reach out when you are ready.
+                                  </p>
+                                </div>
+
+                                <div
+                                  class="reply-card reply-card-selected"
+                                  data-reply="2"
+                                >
+                                  <div class="reply-card-head">
+                                    <span class="reply-label">Clear</span>
+                                    <span class="reply-state reply-state-copied"
+                                      >Copied</span
+                                    >
+                                  </div>
+                                  <p class="reply-text">
+                                    Thanks for being direct. I understand, and I
+                                    will give you some space this week. Let me
+                                    know when you want to reconnect.
+                                  </p>
+                                </div>
+
+                                <div class="reply-card" data-reply="3">
+                                  <div class="reply-card-head">
+                                    <span class="reply-label">Brief</span>
+                                    <span class="reply-state">Shortest</span>
+                                  </div>
+                                  <p class="reply-text">
+                                    Thanks for saying that. I understand, and I
+                                    will give you space this week.
+                                  </p>
+                                </div>
+
+                                <p class="reply-copy-hint">
+                                  Copied. Paste it back into your chat.
+                                </p>
+                              </div>
                             </div>
-                            <p class="pricing-support-copy">Yearly billing is $70.99 and saves about 26% versus monthly.</p>
-                            <ul class="pricing-list">
-                                <li>Unlimited generations</li>
-                                <li>All premium personas unlocked</li>
-                                <li>Full conversation memory</li>
-                                <li>Priority support</li>
-                            </ul>
-                            <p class="pricing-support-copy">Upgrade to Pro inside the app after sign-up. Manage billing and cancellations through Stripe.</p>
-                            <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-primary button-inline">Create Account</a>
-                        </article>
-                    </div>
+                          </div>
+                        </div>
+                      </div>
+                      <figcaption class="visually-hidden">
+                        Demo showing how Liaison turns one incoming message into
+                        three tone-aware reply options. The user reviews the
+                        options, copies the one they want, and pastes it back
+                        manually.
+                      </figcaption>
+                    </figure>
+                  </div>
                 </div>
-            </section>
-
-            <section class="section trust-section" id="trust">
-                <div class="content-wrap two-column trust-layout">
-                    <div class="stack">
-                        <h2 class="section-title">Know what you are using before you sign up.</h2>
-                        <p class="section-copy">
-                            Liaison is built for private messages. You can try the current web app without full keyboard access,
-                            nothing sends automatically, and billing goes through Stripe with self-serve subscription management.
-                        </p>
-                        <div class="trust-points">
-                            <div class="trust-point">
-                                <span class="trust-point-title">Before you start:</span>
-                                <span class="trust-point-copy">Try the web app without full keyboard access.</span>
-                            </div>
-                            <div class="trust-point">
-                                <span class="trust-point-title">While you use it:</span>
-                                <span class="trust-point-copy">Replies are drafted for you to review and copy yourself, never auto-sent.</span>
-                            </div>
-                            <div class="trust-point">
-                                <span class="trust-point-title">If you upgrade:</span>
-                                <span class="trust-point-copy">Stripe handles checkout, invoices, and subscription management.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="trust-panel">
-                        <div class="trust-panel-head">
-                            <h3 class="card-title">Before you commit</h3>
-                            <span class="trust-billing-note">Subscriptions are billed through Stripe Checkout and managed in the Stripe Customer Portal.</span>
-                        </div>
-                        <div class="trust-ui-card">
-                            <span class="ui-chip">Easy to try</span>
-                            <p class="ui-microcopy">No Full Access needed to start. Review every reply before you copy it.</p>
-                        </div>
-                        <div class="trust-ui-card">
-                            <span class="ui-chip">Current release</span>
-                            <p class="ui-microcopy">Manual copy-and-paste reply help in the web app today.</p>
-                        </div>
-                        <div class="trust-ui-card">
-                            <span class="ui-chip">Billing</span>
-                            <p class="ui-microcopy">Manage subscriptions in Stripe after you sign up.</p>
-                        </div>
-                        <div class="trust-links">
-                            <a class="footer-link" href="./privacy.html">Privacy</a>
-                            <a class="footer-link" href="./terms.html">Terms</a>
-                            <a class="footer-link" href="./support.html">Support</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section" id="faq">
-                <div class="content-wrap">
-                    <div class="section-head">
-                        <span class="eyebrow">FAQ</span>
-                        <h2 class="section-title">Questions people ask before they sign up.</h2>
-                        <p class="section-copy">
-                            Clear answers reduce friction. Here is the short version of how Liaison works, what Free includes,
-                            and how Pro billing and cancellations are handled.
-                        </p>
-                    </div>
-
-                    <div class="legal-grid faq-grid">
-                        <article class="legal-card">
-                            <h3 class="legal-title">What does Liaison do?</h3>
-                            <p class="legal-copy">
-                                It helps you paste a message, choose a tone, and generate three reply options you review yourself.
-                            </p>
-                        </article>
-                        <article class="legal-card">
-                            <h3 class="legal-title">Does anything send automatically?</h3>
-                            <p class="legal-copy">
-                                No. Liaison drafts replies for you to review and copy back yourself.
-                            </p>
-                        </article>
-                        <article class="legal-card">
-                            <h3 class="legal-title">What is included in Free?</h3>
-                            <p class="legal-copy">
-                                Free includes 15 generations and the core paste-and-reply workflow so you can try the product first.
-                            </p>
-                        </article>
-                        <article class="legal-card">
-                            <h3 class="legal-title">What does Pro include?</h3>
-                            <p class="legal-copy">
-                                Pro includes unlimited generations, all premium personas, full conversation memory, and priority support.
-                            </p>
-                        </article>
-                        <article class="legal-card">
-                            <h3 class="legal-title">How is billing handled?</h3>
-                            <p class="legal-copy">
-                                Checkout and subscription management go through Stripe, including invoices, payment methods, and cancellations.
-                            </p>
-                        </article>
-                        <article class="legal-card">
-                            <h3 class="legal-title">Can I cancel Pro later?</h3>
-                            <p class="legal-copy">
-                                Yes. You can manage or cancel your subscription through the Stripe customer portal.
-                            </p>
-                        </article>
-                        <article class="legal-card">
-                            <h3 class="legal-title">Do I need full keyboard access?</h3>
-                            <p class="legal-copy">
-                                No. You can try the current web app without granting full keyboard access.
-                            </p>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section final-cta">
-                <div class="content-wrap final-cta-card">
-                    <div>
-                        <h2 class="section-title section-title-dark">Start free for quick replies. Upgrade when the conversation needs more nuance.</h2>
-                        <p class="section-copy section-copy-dark">
-                            Liaison helps you move faster without sending until you are ready.
-                        </p>
-                    </div>
-                    <div class="topbar-actions">
-                        <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-primary">Start Free</a>
-                        <a href="#pricing" class="button button-secondary">Compare Plans</a>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <div class="content-wrap footer-row">
-                <div>
-                    <div class="brand-logo-footer">
-                        <img src="./assets/liaison-logo.svg" alt="Liaison Keyboard Logo" class="logo-img-footer">
-                    </div>
-                    <p class="footer-copy">AI reply help for people who need a clear response before the moment slips away.</p>
-                </div>
-                <nav class="footer-links" aria-label="Footer">
-                    <a class="footer-link" href="./privacy.html">Privacy</a>
-                    <a class="footer-link" href="./terms.html">Terms</a>
-                    <a class="footer-link" href="./support.html">Support</a>
-                    <a class="footer-link" href="https://app.liaisonkeyboard.com/auth/login">Login</a>
-                </nav>
+              </div>
             </div>
-        </footer>
+          </div>
+        </section>
+
+        <section class="section section-light">
+          <div class="content-wrap">
+            <div class="section-head">
+              <span class="eyebrow eyebrow-dark">Why People Upgrade</span>
+              <h2 class="section-title section-title-dark">
+                Start free for quick replies. Upgrade when the message matters
+                more.
+              </h2>
+              <p class="section-copy section-copy-dark">
+                Free helps you answer quickly. Pro adds unlimited generations,
+                all premium personas, full conversation memory, and priority
+                support when the conversation carries more weight.
+              </p>
+            </div>
+
+            <div class="aha-grid">
+              <article class="aha-card">
+                <span class="aha-kicker">Fast</span>
+                <h3 class="card-title card-title-dark">
+                  Free is for quick answers
+                </h3>
+                <p class="card-copy card-copy-dark">
+                  Use Liaison to get unstuck, keep the conversation moving, and
+                  avoid staring at a blank reply box.
+                </p>
+                <div class="compare-stack">
+                  <div class="compare-row">
+                    <span class="compare-label">Free</span>
+                    <span class="compare-copy"
+                      >15 generations to test the workflow</span
+                    >
+                  </div>
+                  <div class="compare-row compare-row-accent">
+                    <span class="compare-label">Pro</span>
+                    <span class="compare-copy"
+                      >Unlimited generations for heavier use</span
+                    >
+                  </div>
+                </div>
+              </article>
+
+              <article class="aha-card">
+                <span class="aha-kicker">Tone</span>
+                <h3 class="card-title card-title-dark">
+                  Pro gives you a better read on tone
+                </h3>
+                <p class="card-copy card-copy-dark">
+                  Pro helps you sound warmer, calmer, or more direct without
+                  rewriting from scratch.
+                </p>
+                <div class="compare-stack">
+                  <div class="compare-row">
+                    <span class="compare-label">Free</span>
+                    <span class="compare-copy">Basic tone help</span>
+                  </div>
+                  <div class="compare-row compare-row-accent">
+                    <span class="compare-label">Pro</span>
+                    <span class="compare-copy"
+                      >Premium personas and stronger tone control</span
+                    >
+                  </div>
+                </div>
+              </article>
+
+              <article class="aha-card">
+                <span class="aha-kicker">Context</span>
+                <h3 class="card-title card-title-dark">
+                  Pro keeps the thread in view
+                </h3>
+                <p class="card-copy card-copy-dark">
+                  Pro remembers the conversation, which helps you avoid
+                  repeating yourself when the thread keeps moving.
+                </p>
+                <div class="compare-stack">
+                  <div class="compare-row">
+                    <span class="compare-label">Free</span>
+                    <span class="compare-copy"
+                      >Lightweight context for quick use</span
+                    >
+                  </div>
+                  <div class="compare-row compare-row-accent">
+                    <span class="compare-label">Pro</span>
+                    <span class="compare-copy">Full conversation memory</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="how-it-works">
+          <div class="content-wrap two-column split-feature">
+            <div class="stack">
+              <span class="eyebrow">How It Works</span>
+              <h2 class="section-title">
+                A simple workflow for difficult messages.
+              </h2>
+              <p class="section-copy">
+                Liaison is a manual reply assistant in the current web app.
+                Paste the incoming message, choose the tone, and copy the answer
+                that fits your situation.
+              </p>
+              <div class="list">
+                <div class="list-item">
+                  <strong>1. Paste the incoming message</strong>
+                  <span class="list-copy"
+                    >Drop in the text you received and the context that
+                    matters.</span
+                  >
+                </div>
+                <div class="list-item">
+                  <strong>2. Choose the tone that fits</strong>
+                  <span class="list-copy"
+                    >Start free, then upgrade when you want more nuance,
+                    stronger tone control, and deeper memory.</span
+                  >
+                </div>
+                <div class="list-item">
+                  <strong>3. Copy the reply that fits the moment</strong>
+                  <span class="list-copy"
+                    >Nothing sends automatically, so you keep control over every
+                    word.</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="visual-stack">
+              <div class="visual-frame">
+                <img
+                  src="./assets/previews/auth-login.svg"
+                  alt="Preview of the Liaison Keyboard web app login and reply workspace."
+                  class="preview-img"
+                />
+              </div>
+              <div class="micro-trust-panel">
+                <div class="micro-trust-title">
+                  Why people feel safe trying it
+                </div>
+                <p class="micro-trust-copy">
+                  You can start without full keyboard access. Review every draft
+                  yourself, keep control over every word, and upgrade only if
+                  you want unlimited generations, deeper memory, and premium
+                  personas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section-light" id="pricing">
+          <div class="content-wrap">
+            <div class="section-head">
+              <span class="eyebrow eyebrow-dark">Plans</span>
+              <h2 class="section-title section-title-dark">
+                Start free for quick replies. Upgrade for the full Pro
+                experience.
+              </h2>
+              <p class="section-copy section-copy-dark">
+                Free gives you a simple way to test the workflow. Pro adds
+                unlimited generations, all premium personas, full conversation
+                memory, priority support, and self-serve billing through Stripe.
+              </p>
+            </div>
+
+            <div class="pricing-grid pricing-grid-duo">
+              <article class="pricing-card pricing-card-light">
+                <div class="pricing-badge pricing-badge-dark">Free</div>
+                <h3 class="pricing-title pricing-title-dark">
+                  Reply help when you need it now
+                </h3>
+                <div class="price-line">
+                  <span class="price-value price-value-dark">$0</span>
+                </div>
+                <ul class="pricing-list pricing-list-dark">
+                  <li>15 free generations</li>
+                  <li>Core paste-and-reply workflow</li>
+                  <li>Best for quick replies and first-time trying</li>
+                </ul>
+                <a
+                  href="https://app.liaisonkeyboard.com/auth/register"
+                  class="button button-secondary button-inline"
+                  >Start Free</a
+                >
+              </article>
+
+              <article class="pricing-card featured">
+                <div class="pricing-badge">Pro</div>
+                <h3 class="pricing-title">
+                  More depth for higher-stakes conversations
+                </h3>
+                <div class="price-line">
+                  <span class="price-value">$7.99</span>
+                  <span class="price-term">/ month</span>
+                </div>
+                <p class="pricing-support-copy">
+                  Yearly billing is $70.99 and saves about 26% versus monthly.
+                </p>
+                <ul class="pricing-list">
+                  <li>Unlimited generations</li>
+                  <li>All premium personas unlocked</li>
+                  <li>Full conversation memory</li>
+                  <li>Priority support</li>
+                </ul>
+                <p class="pricing-support-copy">
+                  Upgrade to Pro inside the app after sign-up. Manage billing
+                  and cancellations through Stripe.
+                </p>
+                <a
+                  href="https://app.liaisonkeyboard.com/auth/register"
+                  class="button button-primary button-inline"
+                  >Create Account</a
+                >
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section trust-section" id="trust">
+          <div class="content-wrap two-column trust-layout">
+            <div class="stack">
+              <h2 class="section-title">
+                Know what you are using before you sign up.
+              </h2>
+              <p class="section-copy">
+                Liaison is built for private messages. You can try the current
+                web app without full keyboard access, nothing sends
+                automatically, and billing goes through Stripe with self-serve
+                subscription management.
+              </p>
+              <div class="trust-points">
+                <div class="trust-point">
+                  <span class="trust-point-title">Before you start:</span>
+                  <span class="trust-point-copy"
+                    >Try the web app without full keyboard access.</span
+                  >
+                </div>
+                <div class="trust-point">
+                  <span class="trust-point-title">While you use it:</span>
+                  <span class="trust-point-copy"
+                    >Replies are drafted for you to review and copy yourself,
+                    never auto-sent.</span
+                  >
+                </div>
+                <div class="trust-point">
+                  <span class="trust-point-title">If you upgrade:</span>
+                  <span class="trust-point-copy"
+                    >Stripe handles checkout, invoices, and subscription
+                    management.</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="trust-panel">
+              <div class="trust-panel-head">
+                <h3 class="card-title">Before you commit</h3>
+                <span class="trust-billing-note"
+                  >Subscriptions are billed through Stripe Checkout and managed
+                  in the Stripe Customer Portal.</span
+                >
+              </div>
+              <div class="trust-ui-card">
+                <span class="ui-chip">Easy to try</span>
+                <p class="ui-microcopy">
+                  No Full Access needed to start. Review every reply before you
+                  copy it.
+                </p>
+              </div>
+              <div class="trust-ui-card">
+                <span class="ui-chip">Current release</span>
+                <p class="ui-microcopy">
+                  Manual copy-and-paste reply help in the web app today.
+                </p>
+              </div>
+              <div class="trust-ui-card">
+                <span class="ui-chip">Billing</span>
+                <p class="ui-microcopy">
+                  Manage subscriptions in Stripe after you sign up.
+                </p>
+              </div>
+              <div class="trust-links">
+                <a class="footer-link" href="./privacy.html">Privacy</a>
+                <a class="footer-link" href="./terms.html">Terms</a>
+                <a class="footer-link" href="./support.html">Support</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="faq">
+          <div class="content-wrap">
+            <div class="section-head">
+              <span class="eyebrow">FAQ</span>
+              <h2 class="section-title">
+                Questions people ask before they sign up.
+              </h2>
+              <p class="section-copy">
+                Clear answers reduce friction. Here is the short version of how
+                Liaison works, what Free includes, and how Pro billing and
+                cancellations are handled.
+              </p>
+            </div>
+
+            <div class="legal-grid faq-grid">
+              <article class="legal-card">
+                <h3 class="legal-title">What does Liaison do?</h3>
+                <p class="legal-copy">
+                  It helps you paste a message, choose a tone, and generate
+                  three reply options you review yourself.
+                </p>
+              </article>
+              <article class="legal-card">
+                <h3 class="legal-title">Does anything send automatically?</h3>
+                <p class="legal-copy">
+                  No. Liaison drafts replies for you to review and copy back
+                  yourself.
+                </p>
+              </article>
+              <article class="legal-card">
+                <h3 class="legal-title">What is included in Free?</h3>
+                <p class="legal-copy">
+                  Free includes 15 generations and the core paste-and-reply
+                  workflow so you can try the product first.
+                </p>
+              </article>
+              <article class="legal-card">
+                <h3 class="legal-title">What does Pro include?</h3>
+                <p class="legal-copy">
+                  Pro includes unlimited generations, all premium personas, full
+                  conversation memory, and priority support.
+                </p>
+              </article>
+              <article class="legal-card">
+                <h3 class="legal-title">How is billing handled?</h3>
+                <p class="legal-copy">
+                  Checkout and subscription management go through Stripe,
+                  including invoices, payment methods, and cancellations.
+                </p>
+              </article>
+              <article class="legal-card">
+                <h3 class="legal-title">Can I cancel Pro later?</h3>
+                <p class="legal-copy">
+                  Yes. You can manage or cancel your subscription through the
+                  Stripe customer portal.
+                </p>
+              </article>
+              <article class="legal-card">
+                <h3 class="legal-title">Do I need full keyboard access?</h3>
+                <p class="legal-copy">
+                  No. You can try the current web app without granting full
+                  keyboard access.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section final-cta">
+          <div class="content-wrap final-cta-card">
+            <div>
+              <h2 class="section-title section-title-dark">
+                Start free for quick replies. Upgrade when the conversation
+                needs more nuance.
+              </h2>
+              <p class="section-copy section-copy-dark">
+                Liaison helps you move faster without sending until you are
+                ready.
+              </p>
+            </div>
+            <div class="topbar-actions">
+              <a
+                href="https://app.liaisonkeyboard.com/auth/register"
+                class="button button-primary"
+                >Start Free</a
+              >
+              <a href="#pricing" class="button button-secondary"
+                >Compare Plans</a
+              >
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="content-wrap footer-row">
+          <div>
+            <div class="brand-logo-footer">
+              <img
+                src="./assets/liaison-logo.svg"
+                alt="Liaison Keyboard Logo"
+                class="logo-img-footer"
+              />
+            </div>
+            <p class="footer-copy">
+              AI reply help for people who need a clear response before the
+              moment slips away.
+            </p>
+          </div>
+          <nav class="footer-links" aria-label="Footer">
+            <a class="footer-link" href="./privacy.html">Privacy</a>
+            <a class="footer-link" href="./terms.html">Terms</a>
+            <a class="footer-link" href="./support.html">Support</a>
+            <a
+              class="footer-link"
+              href="https://app.liaisonkeyboard.com/auth/login"
+              >Login</a
+            >
+          </nav>
+        </div>
+      </footer>
     </div>
     <script src="./site.js"></script>
-</body>
+  </body>
 </html>
-
