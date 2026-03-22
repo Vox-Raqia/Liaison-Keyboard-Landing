@@ -6,13 +6,57 @@
     <title>Privacy Policy | Liaison Keyboard</title>
     <meta
         name="description"
-        content="Privacy information for Liaison Keyboard covering account data, generated reply context, saved conversation history, and support requests."
+        content="Privacy information for Liaison Keyboard covering account data, reply context, saved conversation history, and support requests."
     >
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://liaisonkeyboard.com/privacy.html">
+    <meta property="og:title" content="Privacy Policy | Liaison Keyboard">
+    <meta
+        property="og:description"
+        content="Privacy information for Liaison Keyboard covering account data, reply context, saved conversation history, and support requests."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://liaisonkeyboard.com/privacy.html">
+    <meta property="og:image" content="https://liaisonkeyboard.com/assets/og-image.png">
+    <meta property="og:image:alt" content="Liaison Keyboard landing page preview">
+    <meta property="og:site_name" content="Liaison Keyboard">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Privacy Policy | Liaison Keyboard">
+    <meta
+        name="twitter:description"
+        content="Privacy information for Liaison Keyboard covering account data, reply context, saved conversation history, and support requests."
+    >
+    <meta name="twitter:image" content="https://liaisonkeyboard.com/assets/og-image.png">
+    <meta name="theme-color" content="#0f172a">
     <link rel="icon" type="image/png" href="./assets/liaison-icon-16.png">
     <link rel="apple-touch-icon" href="./assets/liaison-icon-180.png">
     <link rel="stylesheet" href="./site.css">
+    <style>
+        html {
+            scroll-padding-top: 92px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 16px;
+            top: -48px;
+            z-index: 1000;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: #f4c86a;
+            color: #10213f;
+            font-weight: 800;
+            text-decoration: none;
+            transition: top 160ms ease;
+        }
+
+        .skip-link:focus {
+            top: 12px;
+        }
+    </style>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="page-shell">
         <header class="topbar">
             <div class="topbar-inner">
@@ -22,20 +66,20 @@
                     </a>
                     <span class="brand-note">Privacy details for the current web and app experience.</span>
                 </div>
-                <div class="topbar-actions">
+                <nav class="topbar-actions" aria-label="Primary">
                     <a href="https://app.liaisonkeyboard.com/auth/login" class="button button-secondary">Login</a>
                     <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-primary">Start Free</a>
-                </div>
+                </nav>
             </div>
         </header>
 
-        <main class="legal-main">
+        <main class="legal-main" id="main-content">
             <div class="content-wrap">
                 <div class="legal-hero section-head">
                     <span class="eyebrow">Privacy</span>
                     <h1 class="section-title">How Liaison Keyboard handles user data.</h1>
                     <p class="section-copy">
-                        Last updated: March 19, 2026. This summary reflects the currently shipped product surfaces,
+                        Last updated: March 22, 2026. This summary reflects the currently shipped product surfaces,
                         including authentication, billing, generated replies, and saved conversation history.
                     </p>
                 </div>
@@ -46,8 +90,8 @@
                         <p class="legal-copy">
                             Liaison Keyboard processes account details needed for authentication, subscription status,
                             billing support, and product operations. When you use the product, the message context you
-                            submit is processed so the service can generate reply suggestions for the persona and plan
-                            experience attached to your account.
+                            submit is processed so the service can generate reply suggestions for the selected plan and
+                            persona experience attached to your account.
                         </p>
                     </section>
 
@@ -55,9 +99,9 @@
                         <h2 class="legal-title">2. Saved conversation data</h2>
                         <p class="legal-copy">
                             The current product includes saved threads and conversation history for signed-in users.
-                            That means the service is not a strict zero-retention system. We store the data needed to
-                            support chat history, plan entitlements, analytics, and product operations, and we limit
-                            access to the authenticated user scope used by the app.
+                            That means the service is not a zero-retention system. We store the data needed to support
+                            chat history, plan entitlements, and product operations, and we limit access to the
+                            authenticated user scope used by the app.
                         </p>
                     </section>
 
@@ -97,9 +141,5 @@
             </div>
         </footer>
     </div>
-    <script>
-        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>

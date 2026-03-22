@@ -1,4 +1,96 @@
 (() => {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const topbar = document.querySelector('.topbar');
+
+  function getStickyOffset() {
+    const topbarHeight = topbar?.getBoundingClientRect().height ?? 0;
+    return Math.max(0, Math.ceil(topbarHeight + 16));
+  }
+
+  function getHashTarget(hash) {
+    if (!hash || hash === '#') {
+      return null;
+    }
+
+    try {
+      return document.getElementById(decodeURIComponent(hash.slice(1)));
+    } catch {
+      return document.getElementById(hash.slice(1));
+    }
+  }
+
+  function scrollToHash(hash, behavior = reducedMotion.matches ? 'auto' : 'smooth') {
+    const target = getHashTarget(hash);
+
+    if (!target) {
+      return false;
+    }
+
+    const targetTop = target.getBoundingClientRect().top + window.scrollY - getStickyOffset();
+
+    window.scrollTo({
+      top: Math.max(0, targetTop),
+      behavior,
+    });
+
+    if (!target.hasAttribute('tabindex')) {
+      target.setAttribute('tabindex', '-1');
+    }
+
+    target.focus({ preventScroll: true });
+    return true;
+  }
+
+  function handleAnchorClick(event) {
+    if (event.defaultPrevented) {
+      return;
+    }
+
+    const link = event.target.closest('a[href^="#"]');
+
+    if (!link) {
+      return;
+    }
+
+    const url = new URL(link.href, window.location.href);
+    const samePage = url.pathname === window.location.pathname && url.search === window.location.search;
+
+    if (!samePage || !url.hash || url.hash === '#') {
+      return;
+    }
+
+    const target = getHashTarget(url.hash);
+
+    if (!target) {
+      return;
+    }
+
+    event.preventDefault();
+    window.history.pushState(null, '', url.hash);
+    scrollToHash(url.hash);
+  }
+
+  function handleHashNavigation() {
+    if (!window.location.hash) {
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        scrollToHash(window.location.hash, 'auto');
+      });
+    });
+  }
+
+  document.addEventListener('click', handleAnchorClick);
+  window.addEventListener('hashchange', handleHashNavigation);
+
+  if (document.readyState === 'complete') {
+    handleHashNavigation();
+  } else {
+    window.addEventListener('load', handleHashNavigation, { once: true });
+  }
+
   const heroDemo = document.querySelector('.workflow-demo');
 
   if (!heroDemo) {
@@ -21,12 +113,23 @@
     10: 6500,
   };
   const finalHoldMs = 3000;
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   let timerId = null;
   let observer = null;
   let currentIndex = 0;
   let isVisible = false;
+
+  function makeDecorativeControl(control) {
+    control.classList.add('is-decorative-control');
+    control.setAttribute('aria-hidden', 'true');
+    control.setAttribute('tabindex', '-1');
+  }
+
+  Array.from(heroDemo.querySelectorAll('button')).forEach((control) => {
+    if (control !== replayButton) {
+      makeDecorativeControl(control);
+    }
+  });
 
   function syncScenePills(scene) {
     scenePills.forEach((pill) => {
@@ -123,7 +226,9 @@
 
   if (replayButton) {
     replayButton.hidden = reducedMotion.matches;
-    replayButton.addEventListener('click', () => {
+    replayButton.addEventListener('click', (event) => {
+      event.preventDefault();
+
       if (!reducedMotion.matches) {
         startPlayback();
       }
