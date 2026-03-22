@@ -267,8 +267,34 @@ a {
   width: 100%;
 }
 
+.hero-intro {
+  padding: 56px 0 22px;
+}
+
+.hero-intro-grid {
+  display: grid;
+}
+
+.hero-intro-copy {
+  max-width: 46rem;
+}
+
+.hero-intro .hero-title {
+  max-width: 10.5ch;
+}
+
+.hero-intro .hero-copy {
+  max-width: 36rem;
+}
+
+.hero-intro .trust-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .hero {
-  padding: 64px 0 56px;
+  padding: 22px 0 56px;
 }
 
 .hero-grid,
@@ -288,6 +314,22 @@ a {
 
 .hero-copy-column {
   max-width: 540px;
+}
+
+.hero-demo-section .hero-grid {
+  grid-template-columns: minmax(280px, 0.46fr) minmax(0, 0.54fr);
+  align-items: start;
+  gap: 36px;
+}
+
+.hero-demo-section .section-title {
+  margin-top: 12px;
+  font-size: clamp(2rem, 3.8vw, 3.15rem);
+  max-width: 12ch;
+}
+
+.hero-demo-section .hero-copy {
+  max-width: 31rem;
 }
 
 .eyebrow {
@@ -1188,66 +1230,131 @@ a {
 .workflow-demo-shell {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-  gap: 18px;
-  align-items: stretch;
+  grid-template-columns: minmax(300px, 0.98fr) minmax(0, 0.82fr);
+  gap: 28px;
+  align-items: center;
 }
 
 .workflow-showcase,
 .workflow-panel {
   position: relative;
   min-width: 0;
-  overflow: hidden;
-  border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .workflow-showcase {
+  order: 2;
   margin: 0;
-  min-height: 720px;
-  padding: 16px;
+  min-height: 0;
+  padding: 10px 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
   background:
-    radial-gradient(circle at 18% 18%, rgba(45, 212, 240, 0.18), transparent 30%),
-    radial-gradient(circle at 86% 18%, rgba(244, 200, 106, 0.12), transparent 22%),
-    linear-gradient(180deg, rgba(5, 14, 27, 0.98), rgba(7, 16, 28, 0.92));
+    radial-gradient(circle at 48% 18%, rgba(45, 212, 240, 0.1), transparent 34%),
+    radial-gradient(circle at 50% 86%, rgba(244, 200, 106, 0.08), transparent 24%);
 }
 
 .workflow-glow {
   position: absolute;
   border-radius: 999px;
-  filter: blur(10px);
-  opacity: 0.7;
+  filter: blur(22px);
+  opacity: 0.42;
 }
 
 .workflow-glow-one {
-  width: 170px;
-  height: 170px;
-  top: 36px;
-  left: 12px;
-  background: radial-gradient(circle, rgba(45, 212, 240, 0.32), rgba(45, 212, 240, 0));
+  width: 210px;
+  height: 74px;
+  top: auto;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(45, 212, 240, 0.18), rgba(45, 212, 240, 0));
 }
 
 .workflow-glow-two {
-  width: 220px;
-  height: 220px;
-  right: -34px;
-  bottom: 24px;
-  background: radial-gradient(circle, rgba(244, 200, 106, 0.2), rgba(244, 200, 106, 0));
+  width: 170px;
+  height: 170px;
+  right: 18px;
+  top: 46px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
+}
+
+.workflow-device-shell {
+  position: relative;
+  width: min(100%, 286px);
+  aspect-ratio: 9 / 19.5;
+  padding: 12px 8px 10px;
+  border-radius: 38px;
+  background:
+    linear-gradient(160deg, rgba(28, 34, 44, 0.98), rgba(4, 8, 14, 1));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.46),
+    0 10px 18px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  transform: rotate(-1deg);
+}
+
+.workflow-device-shell::before,
+.workflow-device-shell::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  width: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.workflow-device-shell::before {
+  top: 110px;
+  height: 58px;
+}
+
+.workflow-device-shell::after {
+  top: 182px;
+  height: 78px;
+}
+
+.workflow-device-speaker,
+.workflow-device-camera {
+  position: absolute;
+  z-index: 2;
+  top: 16px;
+}
+
+.workflow-device-speaker {
+  left: 50%;
+  width: 74px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(7, 10, 16, 0.92);
+  transform: translateX(-50%);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.06);
+}
+
+.workflow-device-camera {
+  right: 92px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 35%, rgba(83, 175, 255, 0.85), rgba(7, 10, 16, 0.9) 60%);
 }
 
 .workflow-viewport {
   position: relative;
   z-index: 1;
-  min-height: 684px;
-  border-radius: 30px;
+  height: 100%;
+  min-height: 0;
+  border-radius: 31px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   background:
-    linear-gradient(180deg, rgba(12, 18, 29, 0.98), rgba(7, 13, 23, 0.96)),
-    radial-gradient(circle at top, rgba(45, 212, 240, 0.08), transparent 35%);
+    linear-gradient(180deg, #f7f8fb 0%, #eef1f6 100%);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 36px 86px rgba(0, 0, 0, 0.42);
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .workflow-layer,
@@ -1257,7 +1364,7 @@ a {
 }
 
 .workflow-layer {
-  padding: 18px;
+  padding: 14px 14px 16px;
   visibility: hidden;
   opacity: 0;
   transform: scale(0.985) translateY(10px);
@@ -1309,7 +1416,7 @@ a {
 }
 
 .message-layer {
-  background: linear-gradient(180deg, #f3f4f8 0%, #eef1f6 100%);
+  background: linear-gradient(180deg, #f7f8fb 0%, #eef1f6 100%);
 }
 
 .message-statusbar,
@@ -1323,8 +1430,8 @@ a {
 .message-statusbar,
 .switcher-statusbar {
   margin-bottom: 10px;
-  color: #535967;
-  font-size: 0.8rem;
+  color: #626774;
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.01em;
 }
@@ -1374,26 +1481,26 @@ a {
   display: grid;
   grid-template-columns: auto auto minmax(0, 1fr) auto auto;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
+  gap: 10px;
+  margin-bottom: 12px;
   color: #373d48;
 }
 
 .message-header-back,
 .message-header-action {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   line-height: 1;
 }
 
 .message-avatar {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
   color: #ffffff;
-  font-size: 1.35rem;
+  font-size: 1.05rem;
   background: linear-gradient(135deg, #ffb579, #ff8b99);
 }
 
@@ -1404,7 +1511,7 @@ a {
 }
 
 .message-contact-name {
-  font-size: 1.02rem;
+  font-size: 0.94rem;
   font-weight: 800;
   color: #343a46;
   white-space: nowrap;
@@ -1413,7 +1520,7 @@ a {
 }
 
 .message-contact-meta {
-  font-size: 0.76rem;
+  font-size: 0.64rem;
   color: #7a8292;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -1423,13 +1530,14 @@ a {
 .message-stage {
   position: relative;
   min-height: 292px;
-  padding: 20px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(12, 18, 29, 0.06);
+  overflow: hidden;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(12, 18, 29, 0.05);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
@@ -1439,12 +1547,15 @@ a {
 
 .message-bubble-outbound,
 .partner-bubble {
-  max-width: 82%;
-  margin-top: 18px;
-  padding: 18px 20px;
-  border-radius: 24px;
+  max-width: 85%;
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 20px;
   color: #ffffff;
-  line-height: 1.58;
+  font-size: 0.88rem;
+  line-height: 1.46;
+  overflow-wrap: anywhere;
+  word-break: break-word;
   box-shadow: 0 18px 36px rgba(44, 58, 92, 0.08);
   transition: border-color 260ms ease, box-shadow 260ms ease, transform 260ms ease;
 }
@@ -1494,8 +1605,8 @@ a {
 
 .copy-callout {
   position: absolute;
-  bottom: 124px;
-  right: 20px;
+  bottom: 108px;
+  right: 16px;
   color: var(--gold-200);
   background: rgba(244, 200, 106, 0.14);
   border: 1px solid rgba(244, 200, 106, 0.22);
@@ -1514,23 +1625,23 @@ a {
 
 .clipboard-toast {
   position: absolute;
-  bottom: 82px;
-  right: 20px;
+  bottom: 72px;
+  right: 16px;
 }
 
 .message-compose-shell {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 10px;
-  margin-top: 16px;
+  gap: 8px;
+  margin-top: 12px;
   align-items: end;
 }
 
 .message-compose-field {
-  min-height: 88px;
-  padding: 16px 18px;
-  border-radius: 22px;
-  background: rgba(225, 230, 241, 0.9);
+  min-height: 72px;
+  padding: 14px 16px;
+  border-radius: 20px;
+  background: rgba(229, 233, 242, 0.96);
   border: 1px solid rgba(12, 18, 29, 0.06);
 }
 
@@ -1583,8 +1694,8 @@ a {
 }
 
 .message-send-btn {
-  min-width: 88px;
-  min-height: 48px;
+  min-width: 74px;
+  min-height: 42px;
   color: #ffffff;
   background: #6277b1;
   border: 1px solid rgba(98, 119, 177, 0.24);
@@ -1595,6 +1706,64 @@ a {
 .delivery-pill {
   margin-top: 12px;
   margin-left: auto;
+}
+
+.message-keyboard {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding-top: 8px;
+  background: linear-gradient(180deg, rgba(243, 245, 249, 0), rgba(232, 235, 242, 0.96) 24%);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 320ms ease, transform 320ms cubic-bezier(0.2, 0.82, 0.2, 1);
+}
+
+.keyboard-toolbar {
+  min-height: 42px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(27, 29, 35, 0.96);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.keyboard-paste-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.keyboard-paste-icon,
+.keyboard-close {
+  opacity: 0.86;
+}
+
+.keyboard-surface {
+  height: 128px;
+  position: relative;
+  background:
+    radial-gradient(circle at 50% 118%, rgba(255, 255, 255, 0.08) 0 18%, transparent 19%),
+    linear-gradient(180deg, #1d1f25 0%, #111317 100%);
+}
+
+.keyboard-surface::before {
+  content: "";
+  position: absolute;
+  inset: 14px 12px 18px;
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, transparent 0 24px, rgba(255, 255, 255, 0.02) 24px 25px, transparent 25px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0 24px, transparent 24px 31px);
+  opacity: 0.85;
 }
 
 .liaison-workspace {
@@ -1933,13 +2102,14 @@ a {
 }
 
 .workflow-panel {
+  order: 1;
   display: grid;
   align-content: start;
   gap: 16px;
-  padding: 18px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(7, 16, 28, 0.76)),
-    radial-gradient(circle at top right, rgba(244, 200, 106, 0.08), transparent 30%);
+  padding: 12px 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
 }
 
 .workflow-panel-head {
@@ -1985,20 +2155,17 @@ a {
   }
 
   .workflow-demo-shell {
-    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+    grid-template-columns: minmax(300px, 0.98fr) minmax(0, 0.82fr);
+    gap: 36px;
   }
 
   .workflow-showcase {
-    min-height: 720px;
-    padding: 16px;
-  }
-
-  .workflow-viewport {
-    min-height: 684px;
+    min-height: 620px;
+    padding: 10px 0 18px;
   }
 
   .workflow-layer {
-    padding: 16px;
+    padding: 14px 14px 16px;
   }
 
   .workflow-app-bar {
@@ -2055,16 +2222,11 @@ a {
 
   .workflow-panel {
     position: relative;
-    top: auto;
-    right: auto;
-    z-index: auto;
-    padding: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(7, 16, 28, 0.76)),
-      radial-gradient(circle at top right, rgba(244, 200, 106, 0.08), transparent 30%);
+    padding: 12px 0;
+    border: 0;
+    background: transparent;
     box-shadow: none;
-    overflow: hidden;
+    overflow: visible;
     display: grid !important;
   }
 
@@ -2127,6 +2289,7 @@ a {
 .workflow-demo[data-scene="1"] .clipboard-toast,
 .workflow-demo[data-scene="2"] .reply-copy-hint,
 .workflow-demo[data-scene="3"] .delivery-pill,
+.workflow-demo[data-scene="3"] .message-keyboard,
 .workflow-demo[data-scene="3"] .message-send-btn,
 .workflow-demo[data-scene="3"] .message-compose-text,
 .workflow-demo[data-scene="2"] .liaison-composer-content {
@@ -2209,6 +2372,10 @@ a {
 
 .workflow-demo.is-playing[data-scene="3"] .message-send-btn {
   animation: workflowSendLift 0.56s cubic-bezier(0.18, 0.86, 0.28, 1) both;
+}
+
+.workflow-demo.is-playing[data-scene="3"] .message-keyboard {
+  animation: suggestionLift 540ms cubic-bezier(0.2, 0.82, 0.2, 1) 0.08s both;
 }
 
 .workflow-demo.is-playing[data-scene="3"] .delivery-pill {
