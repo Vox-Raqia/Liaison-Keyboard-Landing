@@ -6,13 +6,57 @@
     <title>Support | Liaison Keyboard</title>
     <meta
         name="description"
-        content="Support resources for Liaison Keyboard covering billing, account help, and product access."
+        content="Support resources for Liaison Keyboard covering account access, billing help, and product questions."
     >
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://liaisonkeyboard.com/support.html">
+    <meta property="og:title" content="Support | Liaison Keyboard">
+    <meta
+        property="og:description"
+        content="Support resources for Liaison Keyboard covering account access, billing help, and product questions."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://liaisonkeyboard.com/support.html">
+    <meta property="og:image" content="https://liaisonkeyboard.com/assets/og-image.png">
+    <meta property="og:image:alt" content="Liaison Keyboard landing page preview">
+    <meta property="og:site_name" content="Liaison Keyboard">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Support | Liaison Keyboard">
+    <meta
+        name="twitter:description"
+        content="Support resources for Liaison Keyboard covering account access, billing help, and product questions."
+    >
+    <meta name="twitter:image" content="https://liaisonkeyboard.com/assets/og-image.png">
+    <meta name="theme-color" content="#0f172a">
     <link rel="icon" type="image/png" href="./assets/liaison-icon-16.png">
     <link rel="apple-touch-icon" href="./assets/liaison-icon-180.png">
     <link rel="stylesheet" href="./site.css">
+    <style>
+        html {
+            scroll-padding-top: 92px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 16px;
+            top: -48px;
+            z-index: 1000;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: #f4c86a;
+            color: #10213f;
+            font-weight: 800;
+            text-decoration: none;
+            transition: top 160ms ease;
+        }
+
+        .skip-link:focus {
+            top: 12px;
+        }
+    </style>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="page-shell">
         <header class="topbar">
             <div class="topbar-inner">
@@ -22,14 +66,14 @@
                     </a>
                     <span class="brand-note">Account, billing, and product support for the current release.</span>
                 </div>
-                <div class="topbar-actions">
+                <nav class="topbar-actions" aria-label="Primary">
                     <a href="https://app.liaisonkeyboard.com/auth/login" class="button button-secondary">Login</a>
                     <a href="https://app.liaisonkeyboard.com/auth/register" class="button button-primary">Start Free</a>
-                </div>
+                </nav>
             </div>
         </header>
 
-        <main class="legal-main">
+        <main class="legal-main" id="main-content">
             <div class="content-wrap">
                 <div class="legal-hero section-head">
                     <span class="eyebrow">Support</span>
@@ -70,7 +114,7 @@
                         <ul class="legal-list">
                             <li><a class="helper-link" href="https://app.liaisonkeyboard.com/auth/login">Log in</a> if you already have an account.</li>
                             <li><a class="helper-link" href="https://app.liaisonkeyboard.com/auth/register">Create an account</a> to start free with fast AI reply help.</li>
-                            <li>Upgrade to Pro when you want premium AI, full memory, and every Pro persona.</li>
+                            <li>Upgrade to Pro when you want premium AI, full conversation memory, and Pro personas.</li>
                             <li>Use the in-app settings flow for plan visibility, legal links, and billing management once signed in.</li>
                         </ul>
                     </section>
@@ -92,9 +136,5 @@
             </div>
         </footer>
     </div>
-    <script>
-        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
