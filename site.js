@@ -99,18 +99,11 @@
 
   const replayButton = heroDemo.querySelector('.demo-replay');
   const scenePills = Array.from(heroDemo.querySelectorAll('.workflow-step-pill'));
-  const sceneSequence = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const sceneSequence = [1, 2, 3];
   const sceneDurationsMs = {
-    1: 3500,
-    2: 1800,
-    3: 1200,
-    4: 2200,
-    5: 1800,
-    6: 2500,
-    7: 3500,
-    8: 2200,
-    9: 1200,
-    10: 6500,
+    1: 2600,
+    2: 3600,
+    3: 4200,
   };
   const finalHoldMs = 3000;
 
@@ -172,8 +165,8 @@
       setScene(scene);
       armSceneAnimation();
 
-      const duration = sceneDurationsMs[scene] ?? sceneDurationsMs[10];
-      const nextDelay = scene === 10 ? duration + finalHoldMs : duration;
+      const duration = sceneDurationsMs[scene] ?? sceneDurationsMs[3];
+      const nextDelay = scene === 3 ? duration + finalHoldMs : duration;
       scheduleNext(nextDelay);
     }, delay);
   }
@@ -181,7 +174,7 @@
   function startPlayback() {
     if (reducedMotion.matches) {
       clearPlayback();
-      setScene(10);
+      setScene(3);
       return;
     }
 
@@ -197,7 +190,7 @@
     isVisible = Boolean(entry?.isIntersecting);
 
     if (reducedMotion.matches) {
-      setScene(10);
+      setScene(3);
       return;
     }
 
@@ -215,14 +208,14 @@
     }
 
     clearPlayback();
-    setScene(event.matches ? 10 : 1);
+    setScene(event.matches ? 3 : 1);
 
     if (!event.matches && isVisible) {
       startPlayback();
     }
   }
 
-  setScene(reducedMotion.matches ? 10 : 1);
+  setScene(reducedMotion.matches ? 3 : 1);
 
   if (replayButton) {
     replayButton.hidden = reducedMotion.matches;
