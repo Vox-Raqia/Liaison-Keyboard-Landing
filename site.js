@@ -1,6 +1,6 @@
 (() => {
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const topbar = document.querySelector('.topbar');
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const topbar = document.querySelector(".topbar");
 
   function getStickyOffset() {
     const topbarHeight = topbar?.getBoundingClientRect().height ?? 0;
@@ -8,7 +8,7 @@
   }
 
   function getHashTarget(hash) {
-    if (!hash || hash === '#') {
+    if (!hash || hash === "#") {
       return null;
     }
 
@@ -19,22 +19,26 @@
     }
   }
 
-  function scrollToHash(hash, behavior = reducedMotion.matches ? 'auto' : 'smooth') {
+  function scrollToHash(
+    hash,
+    behavior = reducedMotion.matches ? "auto" : "smooth",
+  ) {
     const target = getHashTarget(hash);
 
     if (!target) {
       return false;
     }
 
-    const targetTop = target.getBoundingClientRect().top + window.scrollY - getStickyOffset();
+    const targetTop =
+      target.getBoundingClientRect().top + window.scrollY - getStickyOffset();
 
     window.scrollTo({
       top: Math.max(0, targetTop),
       behavior,
     });
 
-    if (!target.hasAttribute('tabindex')) {
-      target.setAttribute('tabindex', '-1');
+    if (!target.hasAttribute("tabindex")) {
+      target.setAttribute("tabindex", "-1");
     }
 
     target.focus({ preventScroll: true });
@@ -53,9 +57,11 @@
     }
 
     const url = new URL(link.href, window.location.href);
-    const samePage = url.pathname === window.location.pathname && url.search === window.location.search;
+    const samePage =
+      url.pathname === window.location.pathname &&
+      url.search === window.location.search;
 
-    if (!samePage || !url.hash || url.hash === '#') {
+    if (!samePage || !url.hash || url.hash === "#") {
       return;
     }
 
@@ -66,7 +72,7 @@
     }
 
     event.preventDefault();
-    window.history.pushState(null, '', url.hash);
+    window.history.pushState(null, "", url.hash);
     scrollToHash(url.hash);
   }
 
@@ -77,35 +83,37 @@
 
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
-        scrollToHash(window.location.hash, 'auto');
+        scrollToHash(window.location.hash, "auto");
       });
     });
   }
 
-  document.addEventListener('click', handleAnchorClick);
-  window.addEventListener('hashchange', handleHashNavigation);
+  document.addEventListener("click", handleAnchorClick);
+  window.addEventListener("hashchange", handleHashNavigation);
 
-  if (document.readyState === 'complete') {
+  if (document.readyState === "complete") {
     handleHashNavigation();
   } else {
-    window.addEventListener('load', handleHashNavigation, { once: true });
+    window.addEventListener("load", handleHashNavigation, { once: true });
   }
 
-  const heroDemo = document.querySelector('.workflow-demo');
+  const heroDemo = document.querySelector(".workflow-demo");
 
   if (!heroDemo) {
     return;
   }
 
-  const replayButton = heroDemo.querySelector('.demo-replay');
-  const scenePills = Array.from(heroDemo.querySelectorAll('.workflow-step-pill'));
+  const replayButton = heroDemo.querySelector(".demo-replay");
+  const scenePills = Array.from(
+    heroDemo.querySelectorAll(".workflow-step-pill"),
+  );
   const sceneSequence = [1, 2, 3];
   const sceneDurationsMs = {
-    1: 2600,
-    2: 3600,
-    3: 4200,
+    1: 2200,
+    2: 3200,
+    3: 3000,
   };
-  const finalHoldMs = 3000;
+  const finalHoldMs = 1800;
 
   let timerId = null;
   let observer = null;
@@ -113,12 +121,12 @@
   let isVisible = false;
 
   function makeDecorativeControl(control) {
-    control.classList.add('is-decorative-control');
-    control.setAttribute('aria-hidden', 'true');
-    control.setAttribute('tabindex', '-1');
+    control.classList.add("is-decorative-control");
+    control.setAttribute("aria-hidden", "true");
+    control.setAttribute("tabindex", "-1");
   }
 
-  Array.from(heroDemo.querySelectorAll('button')).forEach((control) => {
+  Array.from(heroDemo.querySelectorAll("button")).forEach((control) => {
     if (control !== replayButton) {
       makeDecorativeControl(control);
     }
@@ -126,7 +134,10 @@
 
   function syncScenePills(scene) {
     scenePills.forEach((pill) => {
-      pill.setAttribute('aria-current', pill.dataset.step === String(scene) ? 'true' : 'false');
+      pill.setAttribute(
+        "aria-current",
+        pill.dataset.step === String(scene) ? "true" : "false",
+      );
     });
   }
 
@@ -141,15 +152,15 @@
       timerId = null;
     }
 
-    heroDemo.classList.remove('is-playing');
+    heroDemo.classList.remove("is-playing");
   }
 
   function armSceneAnimation() {
-    heroDemo.classList.remove('is-playing');
+    heroDemo.classList.remove("is-playing");
 
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
-        heroDemo.classList.add('is-playing');
+        heroDemo.classList.add("is-playing");
       });
     });
   }
@@ -219,7 +230,7 @@
 
   if (replayButton) {
     replayButton.hidden = reducedMotion.matches;
-    replayButton.addEventListener('click', (event) => {
+    replayButton.addEventListener("click", (event) => {
       event.preventDefault();
 
       if (!reducedMotion.matches) {
@@ -228,9 +239,9 @@
     });
   }
 
-  if (typeof reducedMotion.addEventListener === 'function') {
-    reducedMotion.addEventListener('change', handleReducedMotionChange);
-  } else if (typeof reducedMotion.addListener === 'function') {
+  if (typeof reducedMotion.addEventListener === "function") {
+    reducedMotion.addEventListener("change", handleReducedMotionChange);
+  } else if (typeof reducedMotion.addListener === "function") {
     reducedMotion.addListener(handleReducedMotionChange);
   }
 
