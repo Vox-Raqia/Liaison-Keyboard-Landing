@@ -161,7 +161,7 @@ a {
 .brand-copy {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 18px;
   flex: 1 1 auto;
   min-width: 0;
 }
@@ -184,9 +184,9 @@ a {
 
 .brand-name {
   color: var(--teal-300);
-  font-size: 0.84rem;
+  font-size: clamp(1rem, 1.15vw, 1.18rem);
   font-weight: 900;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   white-space: nowrap;
   flex-shrink: 0;
@@ -197,6 +197,20 @@ a {
   min-width: 0;
   max-width: 42rem;
   font-size: 0.92rem;
+}
+
+.topbar-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+.topbar-links .footer-link {
+  min-height: 36px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.92rem;
+  font-weight: 700;
 }
 
 .brand-note,
@@ -1327,7 +1341,7 @@ a {
   position: relative;
   display: grid;
   grid-template-areas: "panel phone";
-  grid-template-columns: minmax(340px, 1fr) minmax(250px, 0.78fr);
+  grid-template-columns: minmax(0, 1.42fr) minmax(300px, 0.78fr);
   gap: 28px;
   align-items: center;
 }
@@ -2371,7 +2385,7 @@ a {
   display: grid;
   align-content: start;
   gap: 16px;
-  max-width: 400px;
+  max-width: 620px;
   padding: 12px 0;
   background: transparent;
   border: 0;
@@ -2382,30 +2396,35 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
 }
 
 .workflow-panel-kicker {
   margin: 0;
   color: var(--gold-200);
+  font-size: clamp(0.82rem, 0.95vw, 0.96rem);
 }
 
 .workflow-panel-title {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.45rem, 1.7vw, 1.95rem);
-  line-height: 1.04;
-  letter-spacing: -0.04em;
+  max-width: 16ch;
+  font-size: clamp(2rem, 2.8vw, 3.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
 }
 
 .workflow-panel-copy {
   margin: 0;
+  max-width: 42ch;
+  font-size: clamp(1.08rem, 1.2vw, 1.34rem);
+  line-height: 1.7;
 }
 
 .demo-cta-support {
   margin: -4px 0 0;
   color: rgba(255, 255, 255, 0.72);
-  font-size: 0.88rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
@@ -2422,7 +2441,7 @@ a {
 
   .workflow-demo-shell {
     grid-template-areas: "panel phone";
-    grid-template-columns: minmax(340px, 1fr) minmax(250px, 0.78fr);
+    grid-template-columns: minmax(0, 1.42fr) minmax(300px, 0.78fr);
     gap: 36px;
   }
 
@@ -3230,7 +3249,7 @@ a {
     width: auto;
     flex-direction: row;
     align-items: flex-start;
-    gap: 0;
+    gap: 10px;
   }
 
   .brand-copy .brand-note {
@@ -3459,8 +3478,8 @@ a {
   }
 
   .brand-name {
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
+    font-size: 0.88rem;
+    letter-spacing: 0.11em;
   }
 
   .topbar-actions {
