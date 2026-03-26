@@ -1,0 +1,80 @@
+{
+    "mcpServers": {
+        "liaison-supabase-db": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-postgres",
+                "postgresql://postgres:0pZXEOmVf4jMiwXu@db.qgjfmxentwrzgecfqgbs.supabase.co:5432/postgres"
+            ],
+            "description": "PPEE Database Access: Used to verify the 'Truth-in-Memory' loop. Allows the AI to query the message_array JSONB and thread_links tables directly to ensure data integrity without user intervention."
+        },
+        "liaison-visual-auditor": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-puppeteer"
+            ],
+            "description": "PPEE Vision Engine: Allows the AI to autonomously launch a headless browser, navigate to localhost:3000, and capture screenshots for the Midnight Guard design spec audit."
+        },
+        "liaison-file-system": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-filesystem",
+                "./visual_audit_logs",
+                "./.kilocode/rules",
+                "./.google"
+            ],
+            "description": "PPEE Core Memory: Grants the AI explicit read/write access to the Visual Audit Logs and MBRD rulesets so it can cross-reference code changes against the product spec."
+        },
+        "liaison-git-ops": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-github"
+            ],
+            "description": "PPEE Deployment Ops: Enables the AI to stage, commit, and push atomic commits matching the Mjolnir-Certified structure."
+        },
+        "liaison-knowledge-graph": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-memory"
+            ],
+            "description": "PPEE Permanent Memory: Stores entities, relations, and architectural decisions permanently. Use this to remember the MBRD rules, user preferences, and cross-repo dependencies without needing the user to repeat them."
+        },
+        "liaison-doc-fetcher": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-fetch"
+            ],
+            "description": "PPEE Live Context: Allows the AI to fetch and read raw HTML/Markdown from live web URLs. Use this to read the latest Supabase, Stripe, or Expo documentation when implementing new API methods."
+        },
+        "liaison-stripe-ops": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "mcp-server-curl"
+            ],
+            "description": "PPEE Revenue Verification: Allows the AI to execute authenticated cURL requests to the Stripe API (using local env vars) to verify webhook events, customer states, and Path E paywall conversions."
+        },
+        "liaison-logic-engine": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-sequential-thinking"
+            ],
+            "description": "PPEE Deep Logic: Use this for complex architectural refactors. It provides a dynamic scratchpad for the AI to think through multi-step logic, evaluate alternatives, and self-correct before executing code."
+        }
+    },
+    "agentConfig": {
+        "defaultPersona": "Liaison Staff Engineer",
+        "strictMode": true,
+        "requireApprovalFor": [
+            "liaison-supabase-db:write",
+            "liaison-git-ops:push"
+        ]
+    }
+}
