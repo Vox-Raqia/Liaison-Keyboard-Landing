@@ -1,253 +1,191 @@
 (() => {
+  const APP_ORIGIN = "https://app.liaisonkeyboard.com";
+  const ATTR_STORAGE_KEY = "lk_deeplink";
+  const AUTH_HINT_KEY = "liaison_auth_hint";
+  const ROOT_COOKIE_DOMAIN = ".liaisonkeyboard.com";
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const topbar = document.querySelector(".topbar");
 
-  function getStickyOffset() {
-    const topbarHeight = topbar?.getBoundingClientRect().height ?? 0;
-    return Math.max(0, Math.ceil(topbarHeight + 16));
+  function safeGet(key) {
+    try {
+      return window.localStorage.getItem(key);
+    } catch {
+      return null;
+    }
   }
 
-  function getHashTarget(hash) {
-    if (!hash || hash === "#") {
-      return null;
+  function safeSet(key, value) {
+    try {
+      window.localStorage.setItem(key, value);
+    } catch {
+      // Ignore storage failures.
+    }
+  }
+
+  function readCookie(name) {
+    const cookie = document.cookie
+      .split("; ")
+      .find((entry) => entry.startsWith(`${name}=`));
+    return cookie ? decodeURIComponent(cookie.split("=").slice(1).join("=")) : "";
+  }
+
+  function writeCookie(name, value, days = 30) {
+    const expires = new Date(Date.now() + days * 86400000).toUTCString();
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; domain=${ROOT_COOKIE_DOMAIN}; SameSite=Lax; secure`;
+  }
+
+  function currentAttribution() {
+    const stored = safeGet(ATTR_STORAGE_KEY) || readCookie(ATTR_STORAGE_KEY);
+    if (!stored) {
+      return {};
     }
 
     try {
-      return document.getElementById(decodeURIComponent(hash.slice(1)));
+      return JSON.parse(stored);
     } catch {
-      return document.getElementById(hash.slice(1));
+      return {};
     }
   }
 
-  function scrollToHash(
-    hash,
-    behavior = reducedMotion.matches ? "auto" : "smooth",
-  ) {
-    const target = getHashTarget(hash);
+  function captureAttribution() {
+    const params = new URLSearchParams(window.location.search);
+    const existing = currentAttribution();
+    const next = { ...existing };
 
-    if (!target) {
+    ["utm_source", "ref_id", "scenario_id", "prefill"].forEach((key) => {
+      const value = params.get(key);
+      if (value) {
+        next[key] = value;
+      }
+    });
+
+    if (Object.keys(next).length > 0) {
+      const serialized = JSON.stringify(next);
+      safeSet(ATTR_STORAGE_KEY, serialized);
+      writeCookie(ATTR_STORAGE_KEY, serialized, 30);
+    }
+  }
+
+  function hasSessionHint() {
+    const params = new URLSearchParams(window.location.search);
+    const session = params.get("session");
+
+    if (session === "1") {
+      safeSet(AUTH_HINT_KEY, "1");
+      writeCookie(AUTH_HINT_KEY, "1", 14);
+      return true;
+    }
+
+    if (session === "0") {
+      safeSet(AUTH_HINT_KEY, "0");
+      writeCookie(AUTH_HINT_KEY, "0", 1);
       return false;
     }
 
-    const targetTop =
-      target.getBoundingClientRect().top + window.scrollY - getStickyOffset();
-
-    window.scrollTo({
-      top: Math.max(0, targetTop),
-      behavior,
-    });
-
-    if (!target.hasAttribute("tabindex")) {
-      target.setAttribute("tabindex", "-1");
-    }
-
-    target.focus({ preventScroll: true });
-    return true;
+    return safeGet(AUTH_HINT_KEY) === "1" || readCookie(AUTH_HINT_KEY) === "1";
   }
 
-  function handleAnchorClick(event) {
-    if (event.defaultPrevented) {
-      return;
-    }
-
-    const link = event.target.closest('a[href^="#"]');
-
-    if (!link) {
-      return;
-    }
-
-    const url = new URL(link.href, window.location.href);
-    const samePage =
-      url.pathname === window.location.pathname &&
-      url.search === window.location.search;
-
-    if (!samePage || !url.hash || url.hash === "#") {
-      return;
-    }
-
-    const target = getHashTarget(url.hash);
-
-    if (!target) {
-      return;
-    }
-
-    event.preventDefault();
-    window.history.pushState(null, "", url.hash);
-    scrollToHash(url.hash);
-  }
-
-  function handleHashNavigation() {
-    if (!window.location.hash) {
-      return;
-    }
-
-    window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-        scrollToHash(window.location.hash, "auto");
-      });
-    });
-  }
-
-  document.addEventListener("click", handleAnchorClick);
-  window.addEventListener("hashchange", handleHashNavigation);
-
-  if (document.readyState === "complete") {
-    handleHashNavigation();
-  } else {
-    window.addEventListener("load", handleHashNavigation, { once: true });
-  }
-
-  const heroDemo = document.querySelector(".workflow-demo");
-
-  if (!heroDemo) {
-    return;
-  }
-
-  const replayButton = heroDemo.querySelector(".demo-replay");
-  const scenePills = Array.from(
-    heroDemo.querySelectorAll(".workflow-step-pill"),
-  );
-  const sceneSequence = [1, 2, 3];
-  const sceneDurationsMs = {
-    1: 2200,
-    2: 3200,
-    3: 3000,
-  };
-  const finalHoldMs = 1800;
-
-  let timerId = null;
-  let observer = null;
-  let currentIndex = 0;
-  let isVisible = false;
-
-  function makeDecorativeControl(control) {
-    control.classList.add("is-decorative-control");
-    control.setAttribute("aria-hidden", "true");
-    control.setAttribute("tabindex", "-1");
-  }
-
-  Array.from(heroDemo.querySelectorAll("button")).forEach((control) => {
-    if (control !== replayButton) {
-      makeDecorativeControl(control);
-    }
-  });
-
-  function syncScenePills(scene) {
-    scenePills.forEach((pill) => {
-      pill.setAttribute(
-        "aria-current",
-        pill.dataset.step === String(scene) ? "true" : "false",
-      );
-    });
-  }
-
-  function setScene(scene) {
-    heroDemo.dataset.scene = String(scene);
-    syncScenePills(scene);
-  }
-
-  function clearPlayback() {
-    if (timerId) {
-      window.clearTimeout(timerId);
-      timerId = null;
-    }
-
-    heroDemo.classList.remove("is-playing");
-  }
-
-  function armSceneAnimation() {
-    heroDemo.classList.remove("is-playing");
-
-    window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-        heroDemo.classList.add("is-playing");
-      });
-    });
-  }
-
-  function scheduleNext(delay) {
-    timerId = window.setTimeout(() => {
-      if (!isVisible || reducedMotion.matches) {
-        return;
+  function buildAppUrl(path, extraParams = {}) {
+    const url = new URL(path, APP_ORIGIN);
+    const merged = { ...currentAttribution(), ...extraParams };
+    Object.entries(merged).forEach(([key, value]) => {
+      if (value) {
+        url.searchParams.set(key, String(value));
       }
-
-      currentIndex = (currentIndex + 1) % sceneSequence.length;
-      const scene = sceneSequence[currentIndex];
-      setScene(scene);
-      armSceneAnimation();
-
-      const duration = sceneDurationsMs[scene] ?? sceneDurationsMs[3];
-      const nextDelay = scene === 3 ? duration + finalHoldMs : duration;
-      scheduleNext(nextDelay);
-    }, delay);
+    });
+    return url.toString();
   }
 
-  function startPlayback() {
-    if (reducedMotion.matches) {
-      clearPlayback();
-      setScene(3);
-      return;
-    }
+  function hydrateSessionButtons() {
+    const active = hasSessionHint();
 
-    clearPlayback();
-    currentIndex = 0;
-    setScene(sceneSequence[currentIndex]);
-    armSceneAnimation();
-    scheduleNext(sceneDurationsMs[1]);
-  }
+    document.querySelectorAll("[data-session-primary]").forEach((link) => {
+      const authText = link.getAttribute("data-auth-text") || "Start Free Generation";
+      const sessionText = link.getAttribute("data-session-text") || "Back to Dashboard";
+      const authPath = link.getAttribute("data-auth-path") || "/auth/register";
+      const sessionPath = link.getAttribute("data-session-path") || "/chat";
+      link.textContent = active ? sessionText : authText;
+      link.setAttribute("href", buildAppUrl(active ? sessionPath : authPath));
+    });
 
-  function handleVisibilityChange(entries) {
-    const [entry] = entries;
-    isVisible = Boolean(entry?.isIntersecting);
-
-    if (reducedMotion.matches) {
-      setScene(3);
-      return;
-    }
-
-    if (isVisible) {
-      startPlayback();
-      return;
-    }
-
-    clearPlayback();
-  }
-
-  function handleReducedMotionChange(event) {
-    if (replayButton) {
-      replayButton.hidden = event.matches;
-    }
-
-    clearPlayback();
-    setScene(event.matches ? 3 : 1);
-
-    if (!event.matches && isVisible) {
-      startPlayback();
-    }
-  }
-
-  setScene(reducedMotion.matches ? 3 : 1);
-
-  if (replayButton) {
-    replayButton.hidden = reducedMotion.matches;
-    replayButton.addEventListener("click", (event) => {
-      event.preventDefault();
-
-      if (!reducedMotion.matches) {
-        startPlayback();
+    document.querySelectorAll("[data-session-secondary]").forEach((link) => {
+      if (active) {
+        const sessionPath = link.getAttribute("data-session-path") || "/chat?new_thread=1";
+        link.classList.remove("is-hidden");
+        link.setAttribute("href", buildAppUrl(sessionPath));
+      } else {
+        link.classList.add("is-hidden");
       }
     });
   }
 
-  if (typeof reducedMotion.addEventListener === "function") {
-    reducedMotion.addEventListener("change", handleReducedMotionChange);
-  } else if (typeof reducedMotion.addListener === "function") {
-    reducedMotion.addListener(handleReducedMotionChange);
+  function hydrateAppPathLinks() {
+    document.querySelectorAll("[data-app-path]").forEach((link) => {
+      const path = link.getAttribute("data-app-path");
+      if (path) {
+        link.setAttribute("href", buildAppUrl(path));
+      }
+    });
   }
 
-  observer = new IntersectionObserver(handleVisibilityChange, {
-    threshold: 0.45,
-  });
+  function startSimulator() {
+    const simulator = document.querySelector(".triage-simulator");
+    if (!simulator) {
+      return;
+    }
 
-  observer.observe(heroDemo);
+    const cards = Array.from(simulator.querySelectorAll(".reveal-card"));
+
+    if (reducedMotion.matches) {
+      simulator.classList.add("is-revealed");
+      cards.forEach((card) => card.classList.add("is-visible"));
+      return;
+    }
+
+    window.setTimeout(() => {
+      simulator.classList.add("is-thinking");
+    }, 900);
+
+    window.setTimeout(() => {
+      simulator.classList.remove("is-thinking");
+      simulator.classList.add("is-revealed");
+      cards.forEach((card, index) => {
+        window.setTimeout(() => {
+          card.classList.add("is-visible");
+        }, index * 140);
+      });
+    }, 2200);
+  }
+
+  function wireCopyButtons() {
+    document.querySelectorAll(".copy-button").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const targetId = button.getAttribute("data-copy-target");
+        const target = targetId ? document.getElementById(targetId) : null;
+        const text = target?.textContent?.trim();
+
+        if (!text) {
+          return;
+        }
+
+        try {
+          await navigator.clipboard.writeText(text);
+          const previous = button.textContent;
+          button.textContent = "Copied";
+          button.classList.add("is-copied");
+          window.setTimeout(() => {
+            button.textContent = previous || "Copy to Clipboard";
+            button.classList.remove("is-copied");
+          }, 1400);
+        } catch {
+          // Clipboard can fail in some browsers or contexts.
+        }
+      });
+    });
+  }
+
+  captureAttribution();
+  hydrateSessionButtons();
+  hydrateAppPathLinks();
+  startSimulator();
+  wireCopyButtons();
 })();
