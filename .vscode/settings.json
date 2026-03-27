@@ -1,0 +1,6 @@
+{
+    "files.autoSave": "onFocusChange",
+    "editor.defaultFormatter": "denoland.vscode-deno",
+    "editor.mouseWheelZoom": true,
+    "editor.formatOnPaste": true
+}
