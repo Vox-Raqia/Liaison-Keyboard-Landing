@@ -188,4 +188,45 @@
   hydrateAppPathLinks();
   startSimulator();
   wireCopyButtons();
+
+  // Mobile menu toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileMenu = document.querySelector('.nav-mobile');
+  const mobileClose = document.querySelector('.nav-mobile-close');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.add('is-open');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      mobileClose?.focus();
+    });
+  }
+
+  if (mobileClose && mobileMenu) {
+    mobileClose.addEventListener('click', () => {
+      mobileMenu.classList.remove('is-open');
+      menuToggle?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      menuToggle?.focus();
+    });
+  }
+
+  // Close mobile menu function for use by onclick handlers
+  // Exposed to global scope for inline onclick attributes
+  window.closeMobileMenu = function() {
+    if (mobileMenu && mobileMenu.classList.contains('is-open')) {
+      mobileMenu.classList.remove('is-open');
+      menuToggle?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      menuToggle?.focus();
+    }
+  };
+
+  // Close mobile menu on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu?.classList.contains('is-open')) {
+      closeMobileMenu();
+    }
+  });
 })();
