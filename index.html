@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -47,50 +47,56 @@
     <link rel="apple-touch-icon" href="./assets/liaison-icon-180.png" />
     <link rel="stylesheet" href="./site.css" />
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Organization",
-            "name": "Liaison Keyboard",
-            "url": "https://liaisonkeyboard.com",
-            "logo": "https://liaisonkeyboard.com/assets/liaison-logo.svg"
-          },
-          {
-            "@type": "SoftwareApplication",
-            "name": "Liaison Keyboard",
-            "applicationCategory": "CommunicationApplication",
-            "operatingSystem": "Web, iOS, Android",
-            "url": "https://liaisonkeyboard.com",
-            "description": "Liaison is the world's first Communication Prosthetic, an AI texting tool and relationship AI layer for difficult digital exchanges.",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Liaison Keyboard",
+          "url": "https://liaisonkeyboard.com",
+          "logo": "https://liaisonkeyboard.com/assets/liaison-icon.svg"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Liaison Keyboard",
+          "applicationCategory": "CommunicationApplication",
+          "operatingSystem": "Web, iOS, Android",
+          "url": "https://liaisonkeyboard.com",
+          "description": "Liaison is the world's first Communication Prosthetic, an AI texting tool and relationship AI layer for difficult digital exchanges.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
           }
-        ]
-      }
+        }
+      ]
+    }
     </script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="topbar">
       <div class="shell topbar-inner">
-        <a class="brand-lockup" href="./index.html" aria-label="Liaison Keyboard home">
+        <a
+          class="brand-lockup"
+          href="./index.html"
+          aria-label="Liaison Keyboard home"
+        >
           <img
-            src="./assets/liaison-logo.svg"
+            src="./assets/liaison-icon.svg"
             alt="Liaison Keyboard"
             class="brand-logo"
           />
-          <span class="brand-name">Liaison <span class="brand-name-accent">Keyboard</span></span>
+          <span class="brand-name">Liaison <span class="brand-name-accent"
+            >Keyboard</span></span>
         </a>
 
         <!-- Desktop Navigation -->
         <nav class="nav-desktop" aria-label="Main navigation">
           <a class="nav-link" href="#features">Features</a>
           <a class="nav-link" href="#plans">Pricing</a>
-          <a class="nav-link" href="https://app.liaisonkeyboard.com/auth/login">Login</a>
+          <a class="nav-link" href="https://app.liaisonkeyboard.com/auth/login"
+          >Login</a>
         </nav>
 
         <div class="topbar-actions">
@@ -102,12 +108,26 @@
             data-session-text="Dashboard"
             data-auth-path="/auth/register"
             data-session-path="/chat"
-            >Get Started</a
-          >
+          >Get Started</a>
           <!-- Mobile Hamburger Menu Toggle -->
-          <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          <button
+            class="menu-toggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           </button>
         </div>
@@ -117,15 +137,33 @@
     <!-- Mobile Navigation Overlay -->
     <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile navigation">
       <button class="nav-mobile-close" aria-label="Close menu">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
         </svg>
       </button>
-      <a class="nav-link" href="#features" onclick="closeMobileMenu()">Features</a>
+      <a class="nav-link" href="#features" onclick="closeMobileMenu()"
+      >Features</a>
       <a class="nav-link" href="#plans" onclick="closeMobileMenu()">Pricing</a>
-      <a class="nav-link" href="https://app.liaisonkeyboard.com/auth/login" onclick="closeMobileMenu()">Login</a>
+      <a
+        class="nav-link"
+        href="https://app.liaisonkeyboard.com/auth/login"
+        onclick="closeMobileMenu()"
+      >Login</a>
       <div class="nav-mobile-actions">
-        <a class="button button-primary" href="https://app.liaisonkeyboard.com/auth/register">Get Started Free</a>
+        <a
+          class="button button-primary"
+          href="https://app.liaisonkeyboard.com/auth/register"
+        >Get Started Free</a>
         <a class="button button-outline" href="#features">See Features</a>
       </div>
     </nav>
@@ -135,18 +173,33 @@
       <section class="hero-section" id="features">
         <div class="shell hero-grid">
           <div class="hero-copy">
-            <p class="hero-eyebrow">YOUR SECRET WEAPON FOR DIGITAL COMMUNICATION</p>
-            <h1>Master every difficult message with strategic, confident replies.</h1>
+            <p class="hero-eyebrow">
+              YOUR SECRET WEAPON FOR DIGITAL COMMUNICATION
+            </p>
+            <h1>
+              Master every difficult message with strategic, confident replies.
+            </h1>
             <p class="hero-subcopy">
-              Liaison empowers you to craft thoughtful responses that protect your boundaries, 
-              maintain your voice, and achieve your communication goals—whether it's romantic, 
-              professional, or high-stakes conversations. Paste a message. Get three calibrated options. Choose with confidence.
+              Liaison empowers you to craft thoughtful responses that protect
+              your boundaries, maintain your voice, and achieve your
+              communication goals—whether it's romantic, professional, or
+              high-stakes conversations. Paste a message. Get three calibrated
+              options. Choose with confidence.
             </p>
 
             <ul class="hero-checkmarks" aria-label="Key benefits">
-              <li><span class="check-icon" aria-hidden="true">✓</span> Intelligent tone analysis for any situation</li>
-              <li><span class="check-icon" aria-hidden="true">✓</span> Three calibrated response options ready in seconds</li>
-              <li><span class="check-icon" aria-hidden="true">✓</span> You're always in control—no auto-sends, ever</li>
+              <li>
+                <span class="check-icon" aria-hidden="true">✓</span> Intelligent
+                tone analysis for any situation
+              </li>
+              <li>
+                <span class="check-icon" aria-hidden="true">✓</span> Three
+                calibrated response options ready in seconds
+              </li>
+              <li>
+                <span class="check-icon" aria-hidden="true">✓</span> You're
+                always in control—no auto-sends, ever
+              </li>
             </ul>
 
             <div class="cta-row hero-actions">
@@ -158,13 +211,11 @@
                 data-session-text="Back to Dashboard"
                 data-auth-path="/auth/register"
                 data-session-path="/chat"
-                >Start Free — No Credit Card</a
-              >
+              >Start Free — No Credit Card</a>
               <a
                 class="button button-outline"
                 href="#plans"
-                >See Pricing</a
-              >
+              >See Pricing</a>
             </div>
           </div>
 
@@ -204,32 +255,42 @@
             <div class="demo-feature">
               <div class="demo-feature-label">1. PASTE</div>
               <p>
-                Drop in the message you received—any conversation, from dating apps to demanding bosses. Add context about your relationship and goals.
+                Drop in the message you received—any conversation, from dating
+                apps to demanding bosses. Add context about your relationship
+                and goals.
               </p>
             </div>
 
             <div class="demo-feature">
               <div class="demo-feature-label">2. ANALYZE</div>
               <p>
-                Liaison reads the tone, dynamics, and social cues. It understands what you're working with before suggesting anything.
+                Liaison reads the tone, dynamics, and social cues. It
+                understands what you're working with before suggesting anything.
               </p>
             </div>
 
             <div class="demo-feature">
               <div class="demo-feature-label">3. CHOOSE</div>
               <p>
-                Pick from Natural, Keep it going, or Short. Edit if needed. Copy the one that feels right. You control every word.
+                Pick from Natural, Keep it going, or Short. Edit if needed. Copy
+                the one that feels right. You control every word.
               </p>
             </div>
 
-            <div class="cta-row" style="margin-top:2rem">
-              <a class="button button-primary" href="https://app.liaisonkeyboard.com/auth/register">Try It Free</a>
+            <div class="cta-row" style="margin-top: 2rem">
+              <a
+                class="button button-primary"
+                href="https://app.liaisonkeyboard.com/auth/register"
+              >Try It Free</a>
               <a class="button button-outline" href="#plans">View Plans</a>
             </div>
             <p class="demo-note">15 free generations included</p>
           </div>
 
-          <div class="demo-visual" aria-label="Reply demo showing The demanding boss scenario">
+          <div
+            class="demo-visual"
+            aria-label="Reply demo showing The demanding boss scenario"
+          >
             <div class="phone-mockup phone-mockup-demo">
               <div class="phone-screen">
                 <div class="phone-status-bar"></div>
@@ -241,12 +302,16 @@
                 </div>
                 <div class="phone-message-in">
                   <div class="phone-bubble-in">
-                    Thanks for hitting the deadline but next time I need earlier notice to do this properly.
+                    Thanks for hitting the deadline but next time I need earlier
+                    notice to do this properly.
                   </div>
                 </div>
                 <div class="phone-triage">
                   <p class="phone-triage-label">Reply options</p>
-                  <div class="phone-reply-card">Understood. I can get this done tonight, but I need you to know Friday-night requests should stay exceptional.</div>
+                  <div class="phone-reply-card">
+                    Understood. I can get this done tonight, but I need you to
+                    know Friday-night requests should stay exceptional.
+                  </div>
                   <div class="phone-reply-card phone-reply-short">Copy</div>
                 </div>
               </div>
@@ -260,10 +325,13 @@
         <div class="shell">
           <div class="section-header">
             <p class="section-kicker">WHY PEOPLE UPGRADE</p>
-            <h2>Start free for quick replies.<br>Upgrade when it really matters.</h2>
+            <h2>
+              Start free for quick replies.<br>Upgrade when it really matters.
+            </h2>
             <p>
-              The free tier is perfect for testing the waters. Pro unlocks unlimited generations, 
-              deeper conversation memory, premium personas, and priority support—so you're never caught off-guard 
+              The free tier is perfect for testing the waters. Pro unlocks
+              unlimited generations, deeper conversation memory, premium
+              personas, and priority support—so you're never caught off-guard
               when stakes are high.
             </p>
           </div>
@@ -273,7 +341,8 @@
               <p class="upgrade-tier">FREE</p>
               <h3>Perfect for getting started</h3>
               <p>
-                Test the workflow, handle quick exchanges, and get comfortable with crafting better replies.
+                Test the workflow, handle quick exchanges, and get comfortable
+                with crafting better replies.
               </p>
               <ul class="upgrade-list">
                 <li>15 generations included</li>
@@ -287,8 +356,9 @@
               <p class="upgrade-tier">PRO</p>
               <h3>For serious communication</h3>
               <p>
-                When messages carry weight—romantic, professional, or confrontational—Pro gives you unlimited 
-                firepower to calibrate your response perfectly.
+                When messages carry weight—romantic, professional, or
+                confrontational—Pro gives you unlimited firepower to calibrate
+                your response perfectly.
               </p>
               <ul class="upgrade-list">
                 <li>Unlimited generations</li>
@@ -303,8 +373,9 @@
               <p class="upgrade-tier">SECURE</p>
               <h3>Your data stays private</h3>
               <p>
-                Only the replies you explicitly save are stored. Nothing auto-sends, and your conversation context 
-                is protected with enterprise-grade encryption.
+                Only the replies you explicitly save are stored. Nothing
+                auto-sends, and your conversation context is protected with
+                enterprise-grade encryption.
               </p>
               <ul class="upgrade-list">
                 <li>Encrypted by Supabase</li>
@@ -323,8 +394,9 @@
             <p class="section-kicker-dark">HOW IT WORKS</p>
             <h2>A simple workflow for difficult messages.</h2>
             <p>
-              Liaison is a manual reply assistant for the current web app. Paste the incoming
-              message, choose the tone that fits for your situation.
+              Liaison is a manual reply assistant for the current web app. Paste
+              the incoming message, choose the tone that fits for your
+              situation.
             </p>
 
             <ol class="steps-list">
@@ -332,21 +404,29 @@
                 <span class="step-num">1</span>
                 <div>
                   <strong>Paste the incoming message</strong>
-                  <p>Drop in the text you received and paste the context clues.</p>
+                  <p>
+                    Drop in the text you received and paste the context clues.
+                  </p>
                 </div>
               </li>
               <li>
                 <span class="step-num">2</span>
                 <div>
                   <strong>Choose the tone that fits</strong>
-                  <p>Pick Natural, Proactive, or Short — whatever fits the conversation, tone control, and dynamics.</p>
+                  <p>
+                    Pick Natural, Proactive, or Short — whatever fits the
+                    conversation, tone control, and dynamics.
+                  </p>
                 </div>
               </li>
               <li>
                 <span class="step-num">3</span>
                 <div>
                   <strong>Copy the reply for the moment</strong>
-                  <p>Nothing sends automatically, so you always review every word.</p>
+                  <p>
+                    Nothing sends automatically, so you always review every
+                    word.
+                  </p>
                 </div>
               </li>
             </ol>
@@ -368,7 +448,11 @@
               </div>
               <aside class="app-mockup-aside">
                 <p class="aside-label">WHY PEOPLE FIND THIS EXCITING</p>
-                <p>Read each word yourself. Decide what gets sent. Upgrade visits if you want unlimited generations, deeper memory, and better conversation control.</p>
+                <p>
+                  Read each word yourself. Decide what gets sent. Upgrade visits
+                  if you want unlimited generations, deeper memory, and better
+                  conversation control.
+                </p>
               </aside>
             </div>
           </div>
@@ -382,14 +466,20 @@
             <span class="security-icon">🔒</span>
             <div>
               <p class="security-title">Secure & Private</p>
-              <p class="security-text">Encrypted by Supabase. Billing via Stripe. Nothing sends without your approval.</p>
+              <p class="security-text">
+                Encrypted by Supabase. Billing via Stripe. Nothing sends without
+                your approval.
+              </p>
             </div>
           </div>
           <div class="security-badge">
             <span class="security-icon">💳</span>
             <div>
               <p class="security-title">Cancel Anytime</p>
-              <p class="security-text">Manage or cancel your subscription through Stripe Customer Portal.</p>
+              <p class="security-text">
+                Manage or cancel your subscription through Stripe Customer
+                Portal.
+              </p>
             </div>
           </div>
         </div>
@@ -402,8 +492,9 @@
             <p class="section-kicker">TRANSPARENT PRICING</p>
             <h2>Start free. Upgrade when you're ready.</h2>
             <p>
-              No hidden fees, no surprise charges. Start with 15 free generations to experience the full 
-              workflow. Upgrade to Pro for unlimited access and deeper conversation memory.
+              No hidden fees, no surprise charges. Start with 15 free
+              generations to experience the full workflow. Upgrade to Pro for
+              unlimited access and deeper conversation memory.
             </p>
           </div>
 
@@ -419,7 +510,10 @@
                 <li>Core triage response options</li>
                 <li>Perfect for trying before you commit</li>
               </ul>
-              <a class="button button-primary pricing-cta" href="https://app.liaisonkeyboard.com/auth/register">Get Started Free</a>
+              <a
+                class="button button-primary pricing-cta"
+                href="https://app.liaisonkeyboard.com/auth/register"
+              >Get Started Free</a>
             </article>
 
             <article class="pricing-card pricing-card-pro">
@@ -429,7 +523,9 @@
                 <span class="pricing-period">/mo</span>
               </div>
               <p class="pricing-save">Billed annually at $63.99 — save 33%</p>
-              <p class="pricing-tagline">For those who communicate strategically</p>
+              <p class="pricing-tagline">
+                For those who communicate strategically
+              </p>
               <ul class="pricing-list">
                 <li>Unlimited generations, always</li>
                 <li>All premium personas unlocked</li>
@@ -437,7 +533,10 @@
                 <li>Priority email support</li>
                 <li>Cancel anytime, no questions asked</li>
               </ul>
-              <a class="button button-cta-pro pricing-cta" href="https://app.liaisonkeyboard.com/auth/register">Start Pro Trial</a>
+              <a
+                class="button button-cta-pro pricing-cta"
+                href="https://app.liaisonkeyboard.com/auth/register"
+              >Start Pro Trial</a>
             </article>
           </div>
         </div>
@@ -450,14 +549,17 @@
             <p class="section-kicker-dark">FAQ</p>
             <h2>Know what you are using before you sign up.</h2>
             <p>
-              Liaison is built for private messages. You run the current web app without full keyboard access,
-              and start using, running analysis, and billing goes through Stripe on
-              your subscription management.
+              Liaison is built for private messages. You run the current web app
+              without full keyboard access, and start using, running analysis,
+              and billing goes through Stripe on your subscription management.
             </p>
 
             <div class="knowbefore-detail">
               <p class="knowbefore-label">MANAGE YOUR PLAN</p>
-              <p>Manage subscriptions in Stripe after you sign up. Message billing and cancellations through Stripe.</p>
+              <p>
+                Manage subscriptions in Stripe after you sign up. Message
+                billing and cancellations through Stripe.
+              </p>
             </div>
 
             <div class="knowbefore-detail">
@@ -475,11 +577,13 @@
             <div class="before-signup-card">
               <p class="before-signup-label">Before you sign up</p>
               <p>
-                You can find all threads through Liaison thread-based chat that are
-                contained in the Repo Customer Portal.
+                You can find all threads through Liaison thread-based chat that
+                are contained in the Repo Customer Portal.
               </p>
               <p class="before-signup-note">EASY TO TRY</p>
-              <p>All results included to think before you reply before you copy.</p>
+              <p>
+                All results included to think before you reply before you copy.
+              </p>
               <p class="before-signup-note">CURRENT RELEASE</p>
               <p>Almost copy and paste, reply in the quick web app today.</p>
               <div class="before-signup-tags">
@@ -499,7 +603,8 @@
             <p class="section-kicker">FAQ</p>
             <h2>Questions before you commit.</h2>
             <p>
-              We believe in transparency. Here's what you need to know before getting started.
+              We believe in transparency. Here's what you need to know before
+              getting started.
             </p>
           </div>
 
@@ -507,48 +612,55 @@
             <article class="faq-card">
               <h3>What exactly is Liaison?</h3>
               <p>
-                Liaison is a Communication Prosthetic—a tactical intelligence layer between your brain and the send button. 
-                It analyzes incoming messages, understands the social dynamics, and generates calibrated response options 
-                so you can communicate with confidence.
+                Liaison is a Communication Prosthetic—a tactical intelligence
+                layer between your brain and the send button. It analyzes
+                incoming messages, understands the social dynamics, and
+                generates calibrated response options so you can communicate
+                with confidence.
               </p>
             </article>
 
             <article class="faq-card">
               <h3>Does anything auto-send?</h3>
               <p>
-                Never. You review every generated response before copying. You can edit it, discard it, or use it as-is. 
-                Only what you explicitly save is stored.
+                Never. You review every generated response before copying. You
+                can edit it, discard it, or use it as-is. Only what you
+                explicitly save is stored.
               </p>
             </article>
 
             <article class="faq-card">
               <h3>What do I get with the free tier?</h3>
               <p>
-                15 generations to test the full workflow. That's enough to understand how Liaison works and decide if it 
-                fits your communication style before committing.
+                15 generations to test the full workflow. That's enough to
+                understand how Liaison works and decide if it fits your
+                communication style before committing.
               </p>
             </article>
 
             <article class="faq-card">
               <h3>What's in the Pro upgrade?</h3>
               <p>
-                Unlimited generations, all premium personas, full conversation memory across threads, and priority support. 
-                It's designed for those who rely on strategic communication daily.
+                Unlimited generations, all premium personas, full conversation
+                memory across threads, and priority support. It's designed for
+                those who rely on strategic communication daily.
               </p>
             </article>
 
             <article class="faq-card">
               <h3>How is billing handled?</h3>
               <p>
-                Checkout and subscription management via Stripe portal. Installing
-                billing, invoices, receipts, and subscription management.
+                Checkout and subscription management via Stripe portal.
+                Installing billing, invoices, receipts, and subscription
+                management.
               </p>
             </article>
 
             <article class="faq-card">
               <h3>Can I cancel Pro later?</h3>
               <p>
-                Yes. You can manage or cancel your subscription through the Stripe Customer Portal at any time.
+                Yes. You can manage or cancel your subscription through the
+                Stripe Customer Portal at any time.
               </p>
             </article>
 
@@ -565,9 +677,13 @@
       <!-- FINAL CTA -->
       <section class="section section-final-cta">
         <div class="shell final-cta-inner">
-          <h2>Start free for quick replies.<br>Upgrade when the conversation needs more nuance.</h2>
+          <h2>
+            Start free for quick replies.<br>Upgrade when the conversation needs
+            more nuance.
+          </h2>
           <p>
-            Liaison helps you find the right words before the moment passes, so you can reply.
+            Liaison helps you find the right words before the moment passes, so
+            you can reply.
           </p>
           <div class="cta-row">
             <a
@@ -578,13 +694,11 @@
               data-session-text="Back to Dashboard"
               data-auth-path="/auth/register"
               data-session-path="/chat"
-              >Start Free</a
-            >
+            >Start Free</a>
             <a
               class="button button-outline"
               href="#plans"
-              >Compare Plans</a
-            >
+            >Compare Plans</a>
           </div>
         </div>
       </section>
