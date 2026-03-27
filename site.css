@@ -1,5 +1,5 @@
 /* Google Fonts - Premium Serif for Headings */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
 
 :root {
   --bg: #0b0f1e;
@@ -25,7 +25,7 @@
   --radius-sm: 8px;
   --shell: max(1280px, calc(100% - 64px));
   --shell-pad: 64px;
-  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
 }
 
 @media (max-width: 768px) {
@@ -55,13 +55,8 @@ body {
   margin: 0;
   color: var(--ink);
   font-family:
-    "SF Pro Display",
-    "SF Pro Text",
-    "Segoe UI",
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
+    "SF Pro Display", "SF Pro Text", "Segoe UI", system-ui, -apple-system,
+    BlinkMacSystemFont, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   background: var(--bg);
@@ -145,17 +140,21 @@ h3 {
   top: 0;
   z-index: 40;
   background: rgba(11, 15, 30, 0.95);
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
   padding: 14px 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .topbar {
-    backdrop-filter: none;
     -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
+}
+
+.cta-row-spaced {
+  margin-top: 2rem;
 }
 
 .topbar-inner {
@@ -187,7 +186,7 @@ h3 {
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -309,15 +308,15 @@ h3 {
   .nav-desktop {
     display: none;
   }
-  
+
   .menu-toggle {
     display: block;
   }
-  
+
   .nav-mobile {
     display: flex;
   }
-  
+
   .topbar-actions .button-ghost-nav,
   .topbar-actions .button-primary-nav {
     display: none;
@@ -339,7 +338,11 @@ h3 {
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: background 150ms ease, opacity 150ms ease, transform 100ms ease, border-color 150ms ease;
+  transition:
+    background 150ms ease,
+    opacity 150ms ease,
+    transform 100ms ease,
+    border-color 150ms ease;
   text-decoration: none;
   border: none;
   white-space: nowrap;
@@ -361,7 +364,7 @@ h3 {
   border: 1px solid var(--line);
 }
 .button-ghost-nav:hover {
-  border-color: rgba(255,255,255,0.2);
+  border-color: rgba(255, 255, 255, 0.2);
   color: var(--ink);
 }
 
@@ -388,11 +391,11 @@ h3 {
   padding: 13px 28px;
   background: transparent;
   color: var(--ink);
-  border: 1.5px solid rgba(255,255,255,0.25);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
   font-size: 0.95rem;
 }
 .button-outline:hover {
-  border-color: rgba(255,255,255,0.5);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .button-cta-pro {
@@ -428,11 +431,11 @@ h3 {
     gap: 48px;
     text-align: center;
   }
-  
+
   .hero-copy {
     order: 1;
   }
-  
+
   .hero-visual {
     order: 0;
     justify-content: center;
@@ -457,8 +460,6 @@ h3 {
   color: var(--accent-cyan);
   margin-bottom: 1.25rem;
 }
-
-
 
 .hero-subcopy {
   font-size: 1.05rem;
@@ -511,11 +512,11 @@ h3 {
 
 .phone-mockup {
   width: 260px;
-  background: #FDFBF7;
+  background: #fdfbf7;
   border-radius: 36px;
-  border: 2px solid rgba(0,0,0,0.1);
+  border: 2px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  box-shadow: 0 24px 48px rgba(0,0,0,0.15), 0 0 0 6px rgba(0,0,0,0.03);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15), 0 0 0 6px rgba(0, 0, 0, 0.03);
   position: relative;
 }
 
@@ -525,7 +526,7 @@ h3 {
 }
 
 .phone-mockup-demo {
-  background: #FDFBF7;
+  background: #fdfbf7;
 }
 
 .phone-mockup-demo {
@@ -541,7 +542,7 @@ h3 {
 
 .phone-status-bar {
   height: 28px;
-  background: #E8E4DF;
+  background: #e8e4df;
   flex-shrink: 0;
 }
 
@@ -550,8 +551,8 @@ h3 {
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  background: #FDFBF7;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  background: #fdfbf7;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   flex-shrink: 0;
 }
 
@@ -596,7 +597,7 @@ h3 {
 }
 
 .phone-bubble-in {
-  background: #E8E4DF;
+  background: #e8e4df;
   border-radius: 12px 12px 12px 4px;
   padding: 10px 14px;
   font-size: 0.78rem;
@@ -627,8 +628,8 @@ h3 {
 }
 
 .phone-reply-card {
-  background: #E8E4DF;
-  border: 1px solid rgba(0,0,0,0.08);
+  background: #e8e4df;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 10px;
   padding: 8px 12px;
   font-size: 0.72rem;
@@ -693,11 +694,11 @@ h3 {
   .social-proof-inner {
     gap: 1.5rem;
   }
-  
+
   .social-proof-divider {
     display: none;
   }
-  
+
   .social-proof-number {
     font-size: 1.5rem;
   }
@@ -772,11 +773,11 @@ h3 {
     grid-template-columns: 1fr;
     gap: 48px;
   }
-  
+
   .demo-copy {
     text-align: center;
   }
-  
+
   .demo-copy .cta-row {
     justify-content: center;
   }
@@ -840,7 +841,7 @@ h3 {
 }
 
 .upgrade-card:hover {
-  border-color: rgba(255,255,255,0.15);
+  border-color: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
 }
 
@@ -926,11 +927,11 @@ h3 {
     grid-template-columns: 1fr;
     gap: 48px;
   }
-  
+
   .steps-copy {
     text-align: center;
   }
-  
+
   .steps-copy .steps-list {
     align-items: center;
   }
@@ -1031,7 +1032,7 @@ h3 {
 }
 
 .app-mockup-input {
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: 12px;
@@ -1070,8 +1071,8 @@ h3 {
 .app-mockup-card-short {
   font-size: 0.72rem;
   color: var(--accent);
-  border-color: rgba(34,211,165,0.2);
-  background: rgba(34,211,165,0.06);
+  border-color: rgba(34, 211, 165, 0.2);
+  background: rgba(34, 211, 165, 0.06);
 }
 
 .app-mockup-aside {
@@ -1173,7 +1174,7 @@ h3 {
 }
 
 .pricing-card:hover {
-  border-color: rgba(255,255,255,0.15);
+  border-color: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
 }
 
@@ -1353,7 +1354,7 @@ h3 {
 .before-tag {
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--line);
   font-size: 0.72rem;
   color: var(--ink-muted);
@@ -1380,7 +1381,7 @@ h3 {
 }
 
 .faq-card:hover {
-  border-color: rgba(255,255,255,0.12);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 @media (prefers-reduced-motion: reduce) {
