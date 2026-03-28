@@ -249,74 +249,180 @@
       <section class="section section-demo" id="how-it-works">
         <div class="shell demo-grid">
           <div class="demo-copy">
-            <p class="section-kicker-dark">HOW IT WORKS</p>
-            <h2>From uncertain to confident in three simple steps.</h2>
+            <p class="section-kicker-dark">SEE LIAISON IN ACTION</p>
+            <h2>Turn one tricky message into three send-ready replies.</h2>
+            <p class="demo-lead">
+              Paste the message, choose the tone, and get reply options you can
+              review, edit, and copy back on your terms.
+            </p>
+            <p class="demo-trust">
+              Nothing sends automatically. You choose what gets copied back.
+            </p>
 
-            <div class="demo-feature">
-              <div class="demo-feature-label">1. PASTE</div>
-              <p>
-                Drop in the message you received—any conversation, from dating
-                apps to demanding bosses. Add context about your relationship
-                and goals.
-              </p>
-            </div>
-
-            <div class="demo-feature">
-              <div class="demo-feature-label">2. ANALYZE</div>
-              <p>
-                Liaison reads the tone, dynamics, and social cues. It
-                understands what you're working with before suggesting anything.
-              </p>
-            </div>
-
-            <div class="demo-feature">
-              <div class="demo-feature-label">3. CHOOSE</div>
-              <p>
-                Pick from Natural, Keep it going, or Short. Edit if needed. Copy
-                the one that feels right. You control every word.
-              </p>
-            </div>
+            <ol class="demo-tour-steps" aria-label="Liaison product walkthrough">
+              <li class="demo-tour-step">
+                <button
+                  class="demo-step-button is-active"
+                  type="button"
+                  id="demo-step-trigger-0"
+                  data-demo-step-trigger="0"
+                  aria-pressed="true"
+                >
+                  <span class="demo-step-index">01</span>
+                  <span class="demo-step-copy">
+                    <span class="demo-step-title">See the real incoming text</span>
+                    <span class="demo-step-body">
+                      A live app capture shows the exact message and the moment
+                      you need help replying.
+                    </span>
+                  </span>
+                </button>
+              </li>
+              <li class="demo-tour-step">
+                <button
+                  class="demo-step-button"
+                  type="button"
+                  id="demo-step-trigger-1"
+                  data-demo-step-trigger="1"
+                  aria-pressed="false"
+                >
+                  <span class="demo-step-index">02</span>
+                  <span class="demo-step-copy">
+                    <span class="demo-step-title">Compare three reply directions</span>
+                    <span class="demo-step-body">
+                      Liaison lays out Natural, Keep it going, and Short so you
+                      can choose the right energy fast.
+                    </span>
+                  </span>
+                </button>
+              </li>
+              <li class="demo-tour-step">
+                <button
+                  class="demo-step-button"
+                  type="button"
+                  id="demo-step-trigger-2"
+                  data-demo-step-trigger="2"
+                  aria-pressed="false"
+                >
+                  <span class="demo-step-index">03</span>
+                  <span class="demo-step-copy">
+                    <span class="demo-step-title">Keep the thread ready</span>
+                    <span class="demo-step-body">
+                      Saved conversation context stays organized, so you can come
+                      back, refine the reply, and move without losing the thread.
+                    </span>
+                  </span>
+                </button>
+              </li>
+            </ol>
 
             <div class="cta-row cta-row-spaced">
               <a
                 class="button button-primary"
                 href="https://app.liaisonkeyboard.com/auth/register"
-              >Try It Free</a>
-              <a class="button button-outline" href="#plans">View Plans</a>
+                data-session-primary
+                data-auth-text="Start Free"
+                data-session-text="Back to Dashboard"
+                data-auth-path="/auth/register"
+                data-session-path="/chat"
+                data-section="landing-demo"
+                data-cta="primary"
+              >Start Free</a>
+              <a
+                class="button button-outline"
+                href="#plans"
+                data-section="landing-demo"
+                data-cta="secondary"
+              >See pricing</a>
             </div>
             <p class="demo-note">15 free generations included</p>
           </div>
 
-          <div
-            class="demo-visual"
-            aria-label="Reply demo showing The demanding boss scenario"
-          >
-            <div class="phone-mockup phone-mockup-demo">
-              <div class="phone-screen">
-                <div class="phone-status-bar"></div>
-                <div class="phone-app-header">
-                  <span class="phone-app-name">Liaison</span>
-                </div>
-                <div class="scenario-chip-row">
-                  <span class="scenario-chip">The demanding boss</span>
-                </div>
-                <div class="phone-message-in">
-                  <div class="phone-bubble-in">
-                    Thanks for hitting the deadline but next time I need earlier
-                    notice to do this properly.
-                  </div>
-                </div>
-                <div class="phone-triage">
-                  <p class="phone-triage-label">Reply options</p>
-                  <div class="phone-reply-card">
-                    Understood. I can get this done tonight, but I need you to
-                    know Friday-night requests should stay exceptional.
-                  </div>
-                  <div class="phone-reply-card phone-reply-short">Copy</div>
-                </div>
-              </div>
+          <figure class="demo-tour" data-demo-tour>
+            <div class="demo-tour-topbar">
+              <p class="demo-tour-kicker">Guided app walkthrough</p>
+              <button
+                class="demo-replay"
+                type="button"
+                data-action="replay-demo"
+                aria-label="Replay the Liaison walkthrough"
+              >Replay demo</button>
             </div>
-          </div>
+
+            <div class="demo-tour-stage">
+              <article
+                class="demo-panel is-active"
+                id="demo-panel-0"
+                data-demo-panel="0"
+                aria-labelledby="demo-step-trigger-0"
+              >
+                <div class="demo-panel-shell demo-panel-shell-phone">
+                  <div class="demo-panel-meta">
+                    <span class="demo-panel-chip">Actual mobile capture</span>
+                    <span class="demo-panel-chip demo-panel-chip-muted">
+                      Incoming message in view
+                    </span>
+                  </div>
+                  <img
+                    class="demo-panel-image demo-panel-image-phone"
+                    src="assets/previews/demo-mobile-stage.png"
+                    alt="Mobile Liaison screen showing Jordan's text message asking for the revised agenda before a meeting."
+                  >
+                </div>
+              </article>
+
+              <article
+                class="demo-panel"
+                id="demo-panel-1"
+                data-demo-panel="1"
+                aria-labelledby="demo-step-trigger-1"
+                hidden
+              >
+                <div class="demo-panel-shell">
+                  <div class="demo-panel-meta">
+                    <span class="demo-panel-chip">Three reply options</span>
+                    <span class="demo-panel-chip demo-panel-chip-muted">
+                      Natural, Keep it going, Short
+                    </span>
+                  </div>
+                  <img
+                    class="demo-panel-image"
+                    src="assets/previews/hero-reply-studio.svg"
+                    alt="Liaison workspace preview showing one incoming message and three distinct response options."
+                    loading="lazy"
+                  >
+                </div>
+              </article>
+
+              <article
+                class="demo-panel"
+                id="demo-panel-2"
+                data-demo-panel="2"
+                aria-labelledby="demo-step-trigger-2"
+                hidden
+              >
+                <div class="demo-panel-shell">
+                  <div class="demo-panel-meta">
+                    <span class="demo-panel-chip">Thread memory</span>
+                    <span class="demo-panel-chip demo-panel-chip-muted">
+                      Pick the reply and return later
+                    </span>
+                  </div>
+                  <img
+                    class="demo-panel-image"
+                    src="assets/previews/threads-history.svg"
+                    alt="Liaison threads preview showing saved conversations and a reply workspace."
+                    loading="lazy"
+                  >
+                </div>
+              </article>
+            </div>
+
+            <figcaption class="demo-tour-caption" id="demo-tour-caption">
+              Demo showing how Liaison turns one incoming message into multiple
+              tone-aware replies you can review, edit, and copy manually.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
