@@ -211,7 +211,7 @@ h3 {
 .brand-logo {
   width: 32px;
   height: 32px;
-  filter: brightness(0) invert(1);
+  flex-shrink: 0;
 }
 
 .brand-name {
