@@ -183,9 +183,78 @@
     });
   }
 
+  function initDemoTour() {
+    const demoTour = document.querySelector("[data-demo-tour]");
+    if (!demoTour) {
+      return;
+    }
+
+    const triggers = Array.from(demoTour.querySelectorAll("[data-demo-step-trigger]"));
+    const panels = Array.from(demoTour.querySelectorAll("[data-demo-panel]"));
+    const replayButton = demoTour.querySelector("[data-action='replay-demo']");
+
+    if (triggers.length === 0 || panels.length === 0) {
+      return;
+    }
+
+    let activeIndex = 0;
+    let autoplayId = null;
+
+    function stopAutoplay() {
+      if (autoplayId !== null) {
+        window.clearTimeout(autoplayId);
+        autoplayId = null;
+      }
+    }
+
+    function setActive(nextIndex) {
+      activeIndex = nextIndex;
+
+      triggers.forEach((trigger, index) => {
+        const isActive = index === nextIndex;
+        trigger.classList.toggle("is-active", isActive);
+        trigger.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      panels.forEach((panel, index) => {
+        const isActive = index === nextIndex;
+        panel.hidden = !isActive;
+        panel.classList.toggle("is-active", isActive);
+      });
+    }
+
+    function scheduleNextStep() {
+      if (reducedMotion.matches || panels.length < 2) {
+        return;
+      }
+
+      stopAutoplay();
+      autoplayId = window.setTimeout(() => {
+        setActive((activeIndex + 1) % panels.length);
+        scheduleNextStep();
+      }, 3600);
+    }
+
+    triggers.forEach((trigger, index) => {
+      trigger.addEventListener("click", () => {
+        stopAutoplay();
+        setActive(index);
+      });
+    });
+
+    replayButton?.addEventListener("click", () => {
+      setActive(0);
+      scheduleNextStep();
+    });
+
+    setActive(0);
+    scheduleNextStep();
+  }
+
   captureAttribution();
   hydrateSessionButtons();
   hydrateAppPathLinks();
+  initDemoTour();
   startSimulator();
   wireCopyButtons();
 
