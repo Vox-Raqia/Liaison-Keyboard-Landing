@@ -47,7 +47,8 @@
   }
 
   function deleteCookie(name) {
-    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=${ROOT_COOKIE_DOMAIN}; SameSite=Lax; secure`;
+    document.cookie =
+      `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=${ROOT_COOKIE_DOMAIN}; SameSite=Lax; secure`;
   }
 
   function readConsent() {
@@ -248,13 +249,17 @@
       banner.hidden = false;
     }
 
-    document.querySelectorAll('[data-cookie-action="accept-all"]').forEach((control) => {
-      control.addEventListener("click", () => applyCookieConsent(true));
-    });
+    document.querySelectorAll('[data-cookie-action="accept-all"]').forEach(
+      (control) => {
+        control.addEventListener("click", () => applyCookieConsent(true));
+      },
+    );
 
-    document.querySelectorAll('[data-cookie-action="necessary-only"]').forEach((control) => {
-      control.addEventListener("click", () => applyCookieConsent(false));
-    });
+    document.querySelectorAll('[data-cookie-action="necessary-only"]').forEach(
+      (control) => {
+        control.addEventListener("click", () => applyCookieConsent(false));
+      },
+    );
 
     updateCookiePreferenceStatus();
   }
