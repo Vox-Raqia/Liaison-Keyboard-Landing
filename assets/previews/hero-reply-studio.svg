@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" role="img" aria-labelledby="t d">
-  <title id="t">Liaison hero product preview</title>
+  <title id="t">Liaison Keyboard hero product preview</title>
   <desc id="d">Readable product preview showing a just-in-time reply workflow with an incoming message, persona selection, and three clear response options.</desc>
   <defs>
     <linearGradient id="bg" x1="120" y1="80" x2="1480" y2="1020">
@@ -26,7 +26,7 @@
   <circle cx="198" cy="182" r="8" fill="#2dd4f0"/>
   <circle cx="222" cy="182" r="8" fill="#60a5fa"/>
   <circle cx="246" cy="182" r="8" fill="#334155"/>
-  <text x="280" y="189" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" font-weight="800">Liaison</text>
+  <text x="280" y="189" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" font-weight="800">Liaison Keyboard</text>
   <rect x="1148" y="164" width="248" height="34" rx="17" fill="#122033" stroke="#2dd4f0" stroke-opacity=".22"/>
   <text x="1272" y="186" fill="#d5f7fc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="700" text-anchor="middle">Fast free help | Upgrade for Pro</text>
 
