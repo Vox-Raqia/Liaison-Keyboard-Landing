@@ -220,24 +220,581 @@
           </div>
 
           <div class="hero-visual" aria-hidden="true">
-            <div class="phone-mockup" id="hero-phone-mockup">
-              <div class="phone-screen">
-                <div class="phone-status-bar"></div>
-                <div class="phone-app-header">
-                  <span class="phone-app-name">Liaison Keyboard</span>
-                  <span class="phone-app-dot"></span>
-                </div>
-                <div class="phone-message-in">
-                  <div class="phone-bubble-in">
-                    Hey, I need this done by 9pm. It's Friday evening.
+            <div
+              class="phone-mockup phone-mockup-demo"
+              id="hero-phone-mockup"
+              data-hero-phone-demo
+            >
+              <div class="phone-shell">
+                <div class="phone-screen-viewport">
+                  <div
+                    class="phone-screen hero-phone-screen is-active"
+                    data-hero-step="incoming"
+                    aria-hidden="false"
+                  >
+                    <div class="phone-status-mini">
+                      <span class="phone-status-mini-time">9:12</span>
+                      <div class="phone-status-mini-icons">
+                        <span class="phone-status-dot"></span>
+                        <span class="phone-status-bar"></span>
+                        <span class="phone-status-pill">55</span>
+                      </div>
+                    </div>
+                    <div class="phone-messages-header">
+                      <span class="phone-header-arrow">←</span>
+                      <img
+                        src="./assets/illustrations/hero-contact-jordan.svg"
+                        alt=""
+                        class="phone-contact-avatar phone-contact-avatar-portrait"
+                      />
+                      <div class="phone-contact-meta">
+                        <span class="phone-contact-name">Jordan P.</span>
+                        <span class="phone-contact-subtitle"
+                        >RCS chat · now</span>
+                      </div>
+                      <div class="phone-header-actions">
+                        <span class="phone-header-action" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <path
+                              d="M4 7.5a2.5 2.5 0 0 1 2.5-2.5h7A2.5 2.5 0 0 1 16 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 4 16.5v-9Zm13.5 2.3 2.9-1.9c.8-.5 1.6.1 1.6 1v6.2c0 .9-.8 1.5-1.6 1l-2.9-1.9V9.8Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
+                        <span class="phone-header-action" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <path
+                              d="M6.6 4.8c.4-.4 1-.5 1.5-.2l2.3 1.3c.6.3.8 1 .6 1.6l-.8 2.2a1 1 0 0 0 .2 1c1.1 1.4 2.4 2.6 3.8 3.8a1 1 0 0 0 1 .2l2.2-.8c.6-.2 1.3 0 1.6.6l1.3 2.3c.3.5.2 1.1-.2 1.5l-1.5 1.5c-.8.8-2 1.1-3.1.8-2.5-.7-4.9-2.2-7.2-4.4-2.2-2.2-3.7-4.6-4.4-7.2-.3-1.1 0-2.3.8-3.1l1.5-1.5Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
+                        <span class="phone-header-action" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <circle
+                              cx="12"
+                              cy="5"
+                              r="1.9"
+                              fill="currentColor"
+                            />
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="1.9"
+                              fill="currentColor"
+                            />
+                            <circle
+                              cx="12"
+                              cy="19"
+                              r="1.9"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="phone-thread">
+                      <span class="phone-thread-date">Now</span>
+                      <div
+                        class="phone-bubble-in phone-bubble-google-in phone-bubble-google-in-secondary"
+                      >
+                        Hey, do you have the revised agenda?
+                      </div>
+                      <div class="phone-bubble-in phone-bubble-google-in">
+                        Need it before I walk into the meeting in 10.
+                      </div>
+                    </div>
+                    <div class="phone-composer-shell">
+                      <span class="phone-composer-plus">+</span>
+                      <div class="phone-composer-field">
+                        <span class="phone-composer-placeholder"
+                        >Text message</span>
+                      </div>
+                      <div class="phone-composer-trailing">
+                        <span class="phone-composer-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <rect
+                              x="3.5"
+                              y="5"
+                              width="17"
+                              height="14"
+                              rx="3"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                            />
+                            <circle
+                              cx="9"
+                              cy="10"
+                              r="1.4"
+                              fill="currentColor"
+                            />
+                            <path
+                              d="M6.5 16.5 10.6 12.2a1 1 0 0 1 1.4-.1l2.3 2 2.1-1.9a1 1 0 0 1 1.4.1l2.2 2.2"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+                        <span class="phone-composer-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="8.2"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                            />
+                            <circle
+                              cx="9.2"
+                              cy="10.2"
+                              r="1.1"
+                              fill="currentColor"
+                            />
+                            <circle
+                              cx="14.8"
+                              cy="10.2"
+                              r="1.1"
+                              fill="currentColor"
+                            />
+                            <path
+                              d="M8.5 14.2c.9 1.3 2.1 1.9 3.5 1.9s2.6-.6 3.5-1.9"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linecap="round"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="phone-send-button phone-send-idle"
+                          aria-hidden="true"
+                        >
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <path
+                              d="M5 12 18 6.5v11L5 12Zm2.8 0 8.2 3.1V8.9L7.8 12Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  <span class="phone-sender">Boss · 6:12 PM</span>
-                </div>
-                <div class="phone-triage">
-                  <p class="phone-triage-label">3 replies ready</p>
-                  <div class="phone-reply-card">Natural</div>
-                  <div class="phone-reply-card">Keep it going</div>
-                  <div class="phone-reply-card phone-reply-short">Short</div>
+                  <div
+                    class="phone-screen hero-phone-screen phone-screen-switch"
+                    data-hero-step="switch"
+                    aria-hidden="true"
+                  >
+                    <div class="phone-recents-scene">
+                      <div class="phone-recents-topbar">
+                        <span class="phone-recents-top-action">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <rect
+                              x="4"
+                              y="6"
+                              width="7"
+                              height="12"
+                              rx="1.8"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                            />
+                            <rect
+                              x="13"
+                              y="6"
+                              width="7"
+                              height="12"
+                              rx="1.8"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                            />
+                          </svg>
+                          <span>Split</span>
+                        </span>
+                        <span class="phone-recents-top-action">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <rect
+                              x="5"
+                              y="5"
+                              width="14"
+                              height="14"
+                              rx="2.4"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                            />
+                            <path
+                              d="M8 16h8"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linecap="round"
+                            />
+                          </svg>
+                          <span>Screenshot</span>
+                        </span>
+                      </div>
+                      <div class="phone-recents-stack">
+                        <article
+                          class="phone-recent-app phone-recent-app-ghost"
+                          aria-hidden="true"
+                        >
+                          <div
+                            class="phone-recent-preview phone-recent-preview-ghost"
+                          >
+                          </div>
+                        </article>
+                        <article
+                          class="phone-recent-app phone-recent-app-secondary"
+                        >
+                          <div class="phone-recent-app-bar">
+                            <span
+                              class="phone-recent-app-icon phone-recent-app-icon-messages"
+                              aria-hidden="true"
+                            >
+                              <svg viewBox="0 0 24 24" focusable="false">
+                                <path
+                                  d="M12 4C7 4 3 7.4 3 11.7c0 2.3 1.1 4.4 3.1 5.8L5 21l4.1-2.1c.9.2 1.9.4 2.9.4 5 0 9-3.4 9-7.6S17 4 12 4Z"
+                                  fill="currentColor"
+                                />
+                              </svg>
+                            </span>
+                            <span class="phone-recent-app-name">Messages</span>
+                          </div>
+                          <div
+                            class="phone-recent-preview phone-recent-preview-messages"
+                          >
+                            <span class="phone-recent-thread">Jordan P.</span>
+                            <div class="phone-recent-bubble">
+                              Need it before I walk into the meeting in 10.
+                            </div>
+                            <div
+                              class="phone-recent-bubble phone-recent-bubble-reply"
+                            >
+                              Send the latest draft and I’ll turn it around
+                              fast.
+                            </div>
+                          </div>
+                          <span class="phone-recent-app-caption">Messages</span>
+                        </article>
+                        <article
+                          class="phone-recent-app phone-recent-app-primary"
+                        >
+                          <div class="phone-recent-app-bar">
+                            <img
+                              src="./assets/liaison-icon.svg"
+                              alt=""
+                              class="phone-recent-app-logo"
+                            />
+                            <span
+                              class="phone-recent-app-name phone-recent-app-name-active"
+                            >Liaison Keyboard</span>
+                          </div>
+                          <div
+                            class="phone-recent-preview phone-recent-preview-liaison"
+                          >
+                            <span class="phone-recent-tag">Reply board</span>
+                            <div class="phone-recent-preview-message">
+                              Need it before I walk into the meeting in 10.
+                            </div>
+                            <div class="phone-recent-replies">
+                              <span>Natural</span>
+                              <span>Keep it going</span>
+                              <span>Short</span>
+                            </div>
+                          </div>
+                          <span
+                            class="phone-recent-app-caption phone-recent-app-caption-active"
+                          >Liaison Keyboard</span>
+                        </article>
+                      </div>
+                      <div class="phone-recents-nav">
+                        <span class="phone-recents-nav-pill"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="phone-screen hero-phone-screen"
+                    data-hero-step="triage"
+                    aria-hidden="true"
+                  >
+                    <div class="phone-liaison-shell">
+                      <div class="phone-liaison-topbar">
+                        <div class="phone-liaison-branding">
+                          <img
+                            src="./assets/liaison-icon.svg"
+                            alt=""
+                            class="phone-liaison-logo"
+                          />
+                          <div class="phone-liaison-brand-copy">
+                            <span class="phone-liaison-title"
+                            >Liaison Keyboard</span>
+                            <span class="phone-liaison-plan"
+                            >Free plan · 8 of 15 left</span>
+                          </div>
+                        </div>
+                        <span class="phone-liaison-dot"></span>
+                      </div>
+                      <div class="phone-liaison-prompt-card">
+                        <span class="phone-liaison-kicker"
+                        >Paste incoming message</span>
+                        <div class="phone-liaison-message">
+                          Need it before I walk into the meeting in 10.
+                        </div>
+                      </div>
+                      <div class="phone-hero-status phone-hero-status-dark">
+                        <span class="phone-hero-pill">Hold Ground</span>
+                        <span class="phone-triage-label">3 replies ready</span>
+                      </div>
+                      <div
+                        class="phone-triage phone-triage-dense phone-triage-dark"
+                      >
+                        <div
+                          class="phone-reply-card phone-reply-card-dark phone-reply-card-dark-active"
+                        >
+                          <strong>Natural</strong>
+                          <span>Send the latest draft and I’ll turn it around
+                            fast.</span>
+                        </div>
+                        <div class="phone-reply-card phone-reply-card-dark">
+                          <strong>Keep it going</strong>
+                          <span>I can get it over today, but I need the current
+                            version first.</span>
+                        </div>
+                        <div class="phone-reply-card phone-reply-card-dark">
+                          <strong>Short</strong>
+                          <span>Send the draft. I’ll handle it.</span>
+                        </div>
+                      </div>
+                      <div class="phone-liaison-input-row">
+                        <span class="phone-liaison-input"
+                        >Paste your message here...</span>
+                        <span class="phone-liaison-generate">Get reply</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="phone-screen hero-phone-screen"
+                    data-hero-step="copy"
+                    aria-hidden="true"
+                  >
+                    <div class="phone-liaison-shell">
+                      <div class="phone-liaison-topbar">
+                        <div class="phone-liaison-branding">
+                          <img
+                            src="./assets/liaison-icon.svg"
+                            alt=""
+                            class="phone-liaison-logo"
+                          />
+                          <div class="phone-liaison-brand-copy">
+                            <span class="phone-liaison-title"
+                            >Liaison Keyboard</span>
+                            <span class="phone-liaison-plan"
+                            >Selected reply</span>
+                          </div>
+                        </div>
+                        <span class="phone-liaison-dot"></span>
+                      </div>
+                      <div
+                        class="phone-triage phone-triage-dense phone-triage-dark"
+                      >
+                        <div
+                          class="phone-reply-card phone-reply-card-dark phone-reply-card-dark-active"
+                        >
+                          <div class="phone-reply-card-head">
+                            <strong>Natural</strong>
+                            <span>Matches pasted reply</span>
+                          </div>
+                          <span>Send the latest draft and I’ll turn it around
+                            fast.</span>
+                        </div>
+                        <div class="phone-reply-card phone-reply-card-dark">
+                          <strong>Keep it going</strong>
+                          <span>Send the latest draft and I’ll get it back to
+                            you fast.</span>
+                        </div>
+                        <div class="phone-reply-card phone-reply-card-dark">
+                          <strong>Short</strong>
+                          <span>Send the draft and I’ll turn it around.</span>
+                        </div>
+                      </div>
+                      <div class="phone-copy-bar">
+                        <span class="phone-copy-title"
+                        >Copied strongest reply</span>
+                        <span class="phone-copy-subtitle">Ready to paste</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="phone-screen hero-phone-screen"
+                    data-hero-step="paste"
+                    aria-hidden="true"
+                  >
+                    <div class="phone-status-mini">
+                      <span class="phone-status-mini-time">9:12</span>
+                      <div class="phone-status-mini-icons">
+                        <span class="phone-status-dot"></span>
+                        <span class="phone-status-bar"></span>
+                        <span class="phone-status-pill">55</span>
+                      </div>
+                    </div>
+                    <div class="phone-messages-header">
+                      <span class="phone-header-arrow">←</span>
+                      <img
+                        src="./assets/illustrations/hero-contact-jordan.svg"
+                        alt=""
+                        class="phone-contact-avatar phone-contact-avatar-portrait"
+                      />
+                      <div class="phone-contact-meta">
+                        <span class="phone-contact-name">Jordan P.</span>
+                        <span class="phone-contact-subtitle"
+                        >RCS chat · now</span>
+                      </div>
+                      <div class="phone-header-actions">
+                        <span class="phone-header-action" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <path
+                              d="M4 7.5a2.5 2.5 0 0 1 2.5-2.5h7A2.5 2.5 0 0 1 16 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 4 16.5v-9Zm13.5 2.3 2.9-1.9c.8-.5 1.6.1 1.6 1v6.2c0 .9-.8 1.5-1.6 1l-2.9-1.9V9.8Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
+                        <span class="phone-header-action" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <path
+                              d="M6.6 4.8c.4-.4 1-.5 1.5-.2l2.3 1.3c.6.3.8 1 .6 1.6l-.8 2.2a1 1 0 0 0 .2 1c1.1 1.4 2.4 2.6 3.8 3.8a1 1 0 0 0 1 .2l2.2-.8c.6-.2 1.3 0 1.6.6l1.3 2.3c.3.5.2 1.1-.2 1.5l-1.5 1.5c-.8.8-2 1.1-3.1.8-2.5-.7-4.9-2.2-7.2-4.4-2.2-2.2-3.7-4.6-4.4-7.2-.3-1.1 0-2.3.8-3.1l1.5-1.5Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
+                        <span class="phone-header-action" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <circle
+                              cx="12"
+                              cy="5"
+                              r="1.9"
+                              fill="currentColor"
+                            />
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="1.9"
+                              fill="currentColor"
+                            />
+                            <circle
+                              cx="12"
+                              cy="19"
+                              r="1.9"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="phone-thread">
+                      <span class="phone-thread-date">Now</span>
+                      <div
+                        class="phone-bubble-in phone-bubble-google-in phone-bubble-google-in-secondary"
+                      >
+                        Hey, do you have the revised agenda?
+                      </div>
+                      <div class="phone-bubble-in phone-bubble-google-in">
+                        Need it before I walk into the meeting in 10.
+                      </div>
+                      <div class="phone-bubble-out phone-bubble-google-out">
+                        Send the latest draft and I’ll turn it around fast.
+                      </div>
+                    </div>
+                    <div
+                      class="phone-composer-shell phone-composer-shell-active"
+                    >
+                      <span class="phone-composer-plus">+</span>
+                      <div
+                        class="phone-composer-field phone-composer-field-active"
+                      >
+                        <span
+                          class="phone-composer-placeholder phone-composer-placeholder-active"
+                        >Reply pasted and ready</span>
+                      </div>
+                      <div class="phone-composer-trailing">
+                        <span class="phone-composer-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <rect
+                              x="3.5"
+                              y="5"
+                              width="17"
+                              height="14"
+                              rx="3"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                            />
+                            <circle
+                              cx="9"
+                              cy="10"
+                              r="1.4"
+                              fill="currentColor"
+                            />
+                            <path
+                              d="M6.5 16.5 10.6 12.2a1 1 0 0 1 1.4-.1l2.3 2 2.1-1.9a1 1 0 0 1 1.4.1l2.2 2.2"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+                        <span class="phone-composer-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="8.2"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                            />
+                            <circle
+                              cx="9.2"
+                              cy="10.2"
+                              r="1.1"
+                              fill="currentColor"
+                            />
+                            <circle
+                              cx="14.8"
+                              cy="10.2"
+                              r="1.1"
+                              fill="currentColor"
+                            />
+                            <path
+                              d="M8.5 14.2c.9 1.3 2.1 1.9 3.5 1.9s2.6-.6 3.5-1.9"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linecap="round"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="phone-send-button phone-send-active"
+                          aria-hidden="true"
+                        >
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <path
+                              d="M5 12 18 6.5v11L5 12Zm2.8 0 8.2 3.1V8.9L7.8 12Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -374,7 +931,7 @@
                   <img
                     class="demo-panel-image demo-panel-image-phone"
                     src="assets/previews/demo-mobile-stage.png"
-                    alt="Mobile Liaison Keyboard screen showing Jordan's text message asking for the revised agenda before a meeting."
+                    alt="Mobile Liaison Keyboard screen showing Jordan P. asking for the latest agenda draft before walking into a meeting."
                   >
                 </div>
               </article>

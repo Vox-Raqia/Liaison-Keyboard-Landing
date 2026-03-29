@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 844" role="img" aria-labelledby="title desc">
+  <title id="title">Android phone frame</title>
+  <desc id="desc">A realistic dark phone frame with side buttons and top speaker details for product mockups.</desc>
+  <defs>
+    <linearGradient id="frameStroke" x1="20" y1="10" x2="370" y2="834" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3e4654"/>
+      <stop offset="0.28" stop-color="#0f141d"/>
+      <stop offset="0.62" stop-color="#242c39"/>
+      <stop offset="1" stop-color="#0b1018"/>
+    </linearGradient>
+    <linearGradient id="frameGlow" x1="70" y1="26" x2="316" y2="790" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="0.22" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="0.72" stop-color="#000000" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.28"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#030712" flood-opacity="0.44"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <rect x="12" y="12" width="366" height="820" rx="56" fill="none" stroke="url(#frameStroke)" stroke-width="24"/>
+    <rect x="25" y="25" width="340" height="794" rx="44" fill="none" stroke="url(#frameGlow)" stroke-width="2"/>
+  </g>
+
+  <rect x="151" y="28" width="88" height="8" rx="4" fill="#0b1119" opacity="0.92"/>
+  <circle cx="255" cy="32" r="4" fill="#0b1119" opacity="0.9"/>
+  <circle cx="255" cy="32" r="2.4" fill="#1c2632" opacity="0.85"/>
+
+  <rect x="380" y="148" width="5" height="104" rx="2.5" fill="#4d5665"/>
+  <rect x="380" y="270" width="5" height="72" rx="2.5" fill="#4d5665"/>
+  <rect x="5" y="182" width="5" height="118" rx="2.5" fill="#4d5665"/>
+
+  <path d="M39 110c0-36 29-65 65-65h182c36 0 65 29 65 65" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1.5"/>
+</svg>

@@ -390,10 +390,121 @@
     scheduleNextStep();
   }
 
+  function initHeroPhoneDemo() {
+    const demo = document.querySelector("[data-hero-phone-demo]");
+    if (!demo) {
+      return;
+    }
+
+    const screens = Array.from(demo.querySelectorAll("[data-hero-step]"));
+
+    const steps = [
+      { key: "incoming", duration: 1750 },
+      { key: "switch", duration: 1900 },
+      { key: "triage", duration: 2250 },
+      { key: "copy", duration: 900 },
+      { key: "paste", duration: 2550 },
+    ];
+
+    let activeIndex = 0;
+    let timerId = null;
+    let lastIndex = 0;
+    let isInView = true;
+
+    function clearQueuedStep() {
+      if (timerId !== null) {
+        window.clearTimeout(timerId);
+        timerId = null;
+      }
+    }
+
+    function shouldAnimate() {
+      return !reducedMotion.matches && steps.length >= 2 && isInView &&
+        !document.hidden;
+    }
+
+    function render(index) {
+      const step = steps[index];
+      const previousStep = steps[lastIndex];
+      activeIndex = index;
+      demo.setAttribute("data-active-step", step.key);
+
+      screens.forEach((screen) => {
+        const screenStep = screen.getAttribute("data-hero-step");
+        const isActive = screenStep === step.key;
+        const wasActive = screenStep === previousStep.key &&
+          previousStep.key !== step.key;
+
+        screen.classList.remove("is-exiting-left", "is-exiting-right");
+        screen.classList.toggle("is-active", isActive);
+        screen.setAttribute("aria-hidden", isActive ? "false" : "true");
+
+        if (wasActive) {
+          screen.classList.add(
+            index > lastIndex ? "is-exiting-left" : "is-exiting-right",
+          );
+        }
+      });
+
+      lastIndex = index;
+    }
+
+    function queueNextStep() {
+      clearQueuedStep();
+
+      if (!shouldAnimate()) {
+        return;
+      }
+
+      timerId = window.setTimeout(() => {
+        const nextIndex = (activeIndex + 1) % steps.length;
+        render(nextIndex);
+        queueNextStep();
+      }, steps[activeIndex].duration);
+    }
+
+    function start() {
+      clearQueuedStep();
+
+      if (reducedMotion.matches || steps.length < 2) {
+        render(0);
+        return;
+      }
+
+      lastIndex = 0;
+      render(0);
+      queueNextStep();
+    }
+
+    function syncPlaybackState() {
+      if (shouldAnimate()) {
+        queueNextStep();
+        return;
+      }
+
+      clearQueuedStep();
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        isInView = entries.some((entry) => entry.isIntersecting);
+        syncPlaybackState();
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(demo);
+
+    document.addEventListener("visibilitychange", syncPlaybackState);
+
+    start();
+  }
+
   initCookieControls();
   captureAttribution();
   hydrateSessionButtons();
   hydrateAppPathLinks();
+  initHeroPhoneDemo();
   initDemoTour();
   startSimulator();
   wireCopyButtons();
