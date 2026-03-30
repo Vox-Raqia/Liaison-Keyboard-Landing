@@ -1,5 +1,7 @@
 # Liaison Keyboard Landing Reconciliation Execution Plan
 
+> Historical note: this is an execution plan captured on 2026-03-19. It describes a reconciliation effort, not the current source of truth for the shipped landing site.
+
 **Date:** 2026-03-19  
 **Owner:** Landing repo  
 **Source of truth:** app repo plus `AI_ONBOARDING_BRIEF.md`

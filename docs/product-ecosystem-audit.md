@@ -1,5 +1,7 @@
 # Liaison Keyboard Product Ecosystem Audit
 
+> Historical note: this audit is a dated reconciliation snapshot from 2026-03-19. Use the current landing code, current app repo, and the repo READMEs as source of truth for present-day behavior.
+
 **Date:** 2026-03-19  
 **Source of truth:** `C:\Users\Brand\OneDrive\Desktop\App\Liaison-Keyboard\AI_ONBOARDING_BRIEF.md` plus the live app repo at `C:\Users\Brand\OneDrive\Desktop\App\Liaison-Keyboard`  
 **Scope:** Landing site accuracy, brand alignment, and product message reconciliation only
@@ -33,7 +35,7 @@ The highest-risk issues are commercial and trust-related: the landing annual pri
 ## Discrepancy Matrix
 
 | Area | Landing Claim | App/Brief Truth | Evidence | Severity | Recommended Fix | Owner | Dependency |
-|---|---|---|---|---|---|---|---|
+| ---- | ------------- | --------------- | -------- | -------- | --------------- | ----- | ---------- |
 | Pricing | Annual plan shown as `$79.99/year` | App and terms reflect `$70.99/year` | `index.html`, `terms.html`, `lib/appConfig.ts`, `lib/stripe/config.ts` | Critical | Update the annual price everywhere on the landing site to `$70.99/year` and remove any savings badge that assumes the stale price | Landing | None |
 | Header CTA | No login CTA in the top-right header | App has real auth at `/auth/login` | `index.html`, `app/auth/login.tsx` | High | Add `Login` beside `Start 15 Free Generations` and link to the login route | Landing | None |
 | Hero preview | `APP INTERFACE PREVIEW` placeholder block | The app has real surfaces that can be previewed | `index.html`, `app/chat.tsx`, `app/(tabs)/settings.tsx`, `app/(tabs)/marketplace.tsx`, `app/auth/login.tsx`, `app/auth/register.tsx` | High | Replace with a real app screenshot/composite and support it with branded framing | Landing | Asset capture from app |
