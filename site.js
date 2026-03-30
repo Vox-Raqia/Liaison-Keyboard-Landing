@@ -4,7 +4,6 @@
   const AUTH_HINT_KEY = "liaison_auth_hint";
   const COOKIE_CONSENT_KEY = "liaison_cookie_consent";
   const ROOT_COOKIE_DOMAIN = ".liaisonkeyboard.com";
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   function safeGet(key) {
     try {
@@ -120,7 +119,6 @@
     }
 
     const next = { ...currentAttribution() };
-
     if (Object.keys(next).length > 0) {
       const serialized = JSON.stringify(next);
       safeSet(ATTR_STORAGE_KEY, serialized);
@@ -170,52 +168,14 @@
     const active = hasSessionHint();
 
     document.querySelectorAll("[data-session-primary]").forEach((link) => {
-      const authText = link.getAttribute("data-auth-text") ||
-        "Start Free Generation";
-      const sessionText = link.getAttribute("data-session-text") ||
-        "Back to Dashboard";
+      const authText = link.getAttribute("data-auth-text") || "Start Free";
+      const sessionText = link.getAttribute("data-session-text") || "Dashboard";
       const authPath = link.getAttribute("data-auth-path") || "/auth/register";
       const sessionPath = link.getAttribute("data-session-path") || "/chat";
+
       link.textContent = active ? sessionText : authText;
       link.setAttribute("href", buildAppUrl(active ? sessionPath : authPath));
     });
-
-    document.querySelectorAll("[data-session-secondary]").forEach((link) => {
-      if (active) {
-        const sessionPath = link.getAttribute("data-session-path") ||
-          "/chat?new_thread=1";
-        link.classList.remove("is-hidden");
-        link.setAttribute("href", buildAppUrl(sessionPath));
-      } else {
-        link.classList.add("is-hidden");
-      }
-    });
-  }
-
-  function hydrateAppPathLinks() {
-    document.querySelectorAll("[data-app-path]").forEach((link) => {
-      const path = link.getAttribute("data-app-path");
-      if (path) {
-        link.setAttribute("href", buildAppUrl(path));
-      }
-    });
-  }
-
-  function updateCookiePreferenceStatus() {
-    const status = document.querySelector("[data-cookie-preference-status]");
-    if (!status) {
-      return;
-    }
-
-    if (allowsContinuityCookies()) {
-      status.textContent = "Current setting: continuity cookies are enabled.";
-      return;
-    }
-
-    const consent = readConsent();
-    status.textContent = consent
-      ? "Current setting: necessary storage only."
-      : "Current setting: no optional cookies chosen yet.";
   }
 
   function applyCookieConsent(continuityEnabled) {
@@ -237,8 +197,6 @@
     }
 
     hydrateSessionButtons();
-    hydrateAppPathLinks();
-    updateCookiePreferenceStatus();
   }
 
   function initCookieControls() {
@@ -260,293 +218,150 @@
         control.addEventListener("click", () => applyCookieConsent(false));
       },
     );
-
-    updateCookiePreferenceStatus();
   }
 
-  function startSimulator() {
-    const simulator = document.querySelector(".triage-simulator");
-    if (!simulator) {
+  function initFaqAccordion() {
+    const faqItems = Array.from(document.querySelectorAll("details.faq-card"));
+    if (faqItems.length === 0) {
       return;
     }
 
-    const cards = Array.from(simulator.querySelectorAll(".reveal-card"));
-
-    if (reducedMotion.matches) {
-      simulator.classList.add("is-revealed");
-      cards.forEach((card) => card.classList.add("is-visible"));
-      return;
-    }
-
-    window.setTimeout(() => {
-      simulator.classList.add("is-thinking");
-    }, 900);
-
-    window.setTimeout(() => {
-      simulator.classList.remove("is-thinking");
-      simulator.classList.add("is-revealed");
-      cards.forEach((card, index) => {
-        window.setTimeout(() => {
-          card.classList.add("is-visible");
-        }, index * 140);
-      });
-    }, 2200);
-  }
-
-  function wireCopyButtons() {
-    document.querySelectorAll(".copy-button").forEach((button) => {
-      button.addEventListener("click", async () => {
-        const targetId = button.getAttribute("data-copy-target");
-        const target = targetId ? document.getElementById(targetId) : null;
-        const text = target?.textContent?.trim();
-
-        if (!text) {
+    faqItems.forEach((item) => {
+      item.addEventListener("toggle", () => {
+        if (!item.open) {
           return;
         }
 
-        try {
-          await navigator.clipboard.writeText(text);
-          const previous = button.textContent;
-          button.textContent = "Copied";
-          button.classList.add("is-copied");
-          window.setTimeout(() => {
-            button.textContent = previous || "Copy to Clipboard";
-            button.classList.remove("is-copied");
-          }, 1400);
-        } catch {
-          // Clipboard can fail in some browsers or contexts.
-        }
+        faqItems.forEach((otherItem) => {
+          if (otherItem !== item) {
+            otherItem.open = false;
+          }
+        });
       });
     });
   }
 
-  function initDemoTour() {
-    const demoTour = document.querySelector("[data-demo-tour]");
-    if (!demoTour) {
-      return;
-    }
-
-    const triggers = Array.from(
-      demoTour.querySelectorAll("[data-demo-step-trigger]"),
+  function initHeroExamples() {
+    const triggerButtons = Array.from(
+      document.querySelectorAll("[data-hero-example-trigger]"),
     );
-    const panels = Array.from(demoTour.querySelectorAll("[data-demo-panel]"));
-    const replayButton = demoTour.querySelector("[data-action='replay-demo']");
-
-    if (triggers.length === 0 || panels.length === 0) {
+    if (triggerButtons.length === 0) {
       return;
     }
 
-    let activeIndex = 0;
-    let autoplayId = null;
+    const kicker = document.querySelector("[data-hero-example-kicker]");
+    const message = document.querySelector("[data-hero-example-message]");
+    const natural = document.querySelector("[data-hero-example-natural]");
+    const proactive = document.querySelector("[data-hero-example-proactive]");
+    const short = document.querySelector("[data-hero-example-short]");
 
-    function stopAutoplay() {
-      if (autoplayId !== null) {
-        window.clearTimeout(autoplayId);
-        autoplayId = null;
-      }
-    }
-
-    function setActive(nextIndex) {
-      activeIndex = nextIndex;
-
-      triggers.forEach((trigger, index) => {
-        const isActive = index === nextIndex;
-        trigger.classList.toggle("is-active", isActive);
-        trigger.setAttribute("aria-pressed", isActive ? "true" : "false");
-      });
-
-      panels.forEach((panel, index) => {
-        const isActive = index === nextIndex;
-        panel.hidden = !isActive;
-        panel.classList.toggle("is-active", isActive);
-      });
-    }
-
-    function scheduleNextStep() {
-      if (reducedMotion.matches || panels.length < 2) {
-        return;
-      }
-
-      stopAutoplay();
-      autoplayId = window.setTimeout(() => {
-        setActive((activeIndex + 1) % panels.length);
-        scheduleNextStep();
-      }, 3600);
-    }
-
-    triggers.forEach((trigger, index) => {
-      trigger.addEventListener("click", () => {
-        stopAutoplay();
-        setActive(index);
-      });
-    });
-
-    replayButton?.addEventListener("click", () => {
-      setActive(0);
-      scheduleNextStep();
-    });
-
-    setActive(0);
-    scheduleNextStep();
-  }
-
-  function initHeroPhoneDemo() {
-    const demo = document.querySelector("[data-hero-phone-demo]");
-    if (!demo) {
-      return;
-    }
-
-    const screens = Array.from(demo.querySelectorAll("[data-hero-step]"));
-
-    const steps = [
-      { key: "incoming", duration: 1750 },
-      { key: "switch", duration: 1900 },
-      { key: "triage", duration: 2250 },
-      { key: "copy", duration: 900 },
-      { key: "paste", duration: 2550 },
-    ];
-
-    let activeIndex = 0;
-    let timerId = null;
-    let lastIndex = 0;
-    let isInView = true;
-
-    function clearQueuedStep() {
-      if (timerId !== null) {
-        window.clearTimeout(timerId);
-        timerId = null;
-      }
-    }
-
-    function shouldAnimate() {
-      return !reducedMotion.matches && steps.length >= 2 && isInView &&
-        !document.hidden;
-    }
-
-    function render(index) {
-      const step = steps[index];
-      const previousStep = steps[lastIndex];
-      activeIndex = index;
-      demo.setAttribute("data-active-step", step.key);
-
-      screens.forEach((screen) => {
-        const screenStep = screen.getAttribute("data-hero-step");
-        const isActive = screenStep === step.key;
-        const wasActive = screenStep === previousStep.key &&
-          previousStep.key !== step.key;
-
-        screen.classList.remove("is-exiting-left", "is-exiting-right");
-        screen.classList.toggle("is-active", isActive);
-        screen.setAttribute("aria-hidden", isActive ? "false" : "true");
-
-        if (wasActive) {
-          screen.classList.add(
-            index > lastIndex ? "is-exiting-left" : "is-exiting-right",
-          );
-        }
-      });
-
-      lastIndex = index;
-    }
-
-    function queueNextStep() {
-      clearQueuedStep();
-
-      if (!shouldAnimate()) {
-        return;
-      }
-
-      timerId = window.setTimeout(() => {
-        const nextIndex = (activeIndex + 1) % steps.length;
-        render(nextIndex);
-        queueNextStep();
-      }, steps[activeIndex].duration);
-    }
-
-    function start() {
-      clearQueuedStep();
-
-      if (reducedMotion.matches || steps.length < 2) {
-        render(0);
-        return;
-      }
-
-      lastIndex = 0;
-      render(0);
-      queueNextStep();
-    }
-
-    function syncPlaybackState() {
-      if (shouldAnimate()) {
-        queueNextStep();
-        return;
-      }
-
-      clearQueuedStep();
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        isInView = entries.some((entry) => entry.isIntersecting);
-        syncPlaybackState();
+    const examples = {
+      work: {
+        kicker: "Work conflict example",
+        message: '"I need this done by 9pm on a Friday."',
+        natural:
+          "I can get this done tonight, but I need to reset the expectation that Friday-night requests should stay exceptional.",
+        proactive:
+          "I can get this done by 9 tonight. Going forward, earlier notice will help me protect quality and turnaround.",
+        short:
+          "I can deliver it by 9 tonight. Next time I need earlier notice.",
       },
-      { threshold: 0.35 },
-    );
+      dating: {
+        kicker: "Dating example",
+        message:
+          '"Sorry I disappeared. This week has been wild. We should hang soon though."',
+        natural:
+          "No worries. If you want to make a plan, send a day that actually works and we can lock it in.",
+        proactive:
+          'I get that weeks get messy. If you do want to see each other, pick a time and I am open. I just prefer clarity over "soon."',
+        short:
+          "All good. If you want to meet up, send a real day and time.",
+      },
+      family: {
+        kicker: "Family boundary example",
+        message:
+          '"I was just trying to help. You are too sensitive about this."',
+        natural:
+          "I know you were trying to help. I still need you to stop bringing this up after I have already answered it.",
+        proactive:
+          "I am not trying to fight about intent. I am being clear about the impact. Please stop raising this unless I ask for input.",
+        short:
+          "I have already answered this. Please stop bringing it up.",
+      },
+    };
 
-    observer.observe(demo);
+    function applyExample(exampleKey) {
+      const example = examples[exampleKey];
+      if (!example || !kicker || !message || !natural || !proactive || !short) {
+        return;
+      }
 
-    document.addEventListener("visibilitychange", syncPlaybackState);
+      kicker.textContent = example.kicker;
+      message.textContent = example.message;
+      natural.textContent = example.natural;
+      proactive.textContent = example.proactive;
+      short.textContent = example.short;
 
-    start();
+      triggerButtons.forEach((button) => {
+        const isActive = button.getAttribute("data-hero-example-trigger") === exampleKey;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-selected", String(isActive));
+      });
+    }
+
+    triggerButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        applyExample(button.getAttribute("data-hero-example-trigger") || "work");
+      });
+    });
+
+    applyExample("work");
   }
 
-  initCookieControls();
-  captureAttribution();
-  hydrateSessionButtons();
-  hydrateAppPathLinks();
-  initHeroPhoneDemo();
-  initDemoTour();
-  startSimulator();
-  wireCopyButtons();
-
-  // Mobile menu toggle
   const menuToggle = document.querySelector(".menu-toggle");
   const mobileMenu = document.querySelector(".nav-mobile");
   const mobileClose = document.querySelector(".nav-mobile-close");
 
+  function closeMobileMenu() {
+    if (!mobileMenu) {
+      return;
+    }
+
+    mobileMenu.classList.remove("is-open");
+    document.body.style.overflow = "";
+    menuToggle?.setAttribute("aria-expanded", "false");
+  }
+
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener("click", () => {
       mobileMenu.classList.add("is-open");
-      menuToggle.setAttribute("aria-expanded", "true");
       document.body.style.overflow = "hidden";
+      menuToggle.setAttribute("aria-expanded", "true");
       mobileClose?.focus();
     });
   }
 
-  if (mobileClose && mobileMenu) {
-    mobileClose.addEventListener("click", () => {
-      mobileMenu.classList.remove("is-open");
-      menuToggle?.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
-      menuToggle?.focus();
-    });
-  }
+  mobileClose?.addEventListener("click", () => {
+    closeMobileMenu();
+    menuToggle?.focus();
+  });
 
-  // Close mobile menu function for use by onclick handlers
-  // Exposed to global scope for inline onclick attributes
-  window.closeMobileMenu = function () {
-    if (mobileMenu && mobileMenu.classList.contains("is-open")) {
-      mobileMenu.classList.remove("is-open");
-      menuToggle?.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
-      menuToggle?.focus();
-    }
-  };
-
-  // Close mobile menu on escape key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && mobileMenu?.classList.contains("is-open")) {
+  mobileMenu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
       closeMobileMenu();
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && mobileMenu?.classList.contains("is-open")) {
+      closeMobileMenu();
+      menuToggle?.focus();
     }
   });
+
+  initCookieControls();
+  initFaqAccordion();
+  initHeroExamples();
+  captureAttribution();
+  hydrateSessionButtons();
 })();
