@@ -69,6 +69,23 @@
     writeCookie(COOKIE_CONSENT_KEY, serialized, 180);
   }
 
+  function toGoogleConsentState(continuityEnabled) {
+    return {
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      analytics_storage: continuityEnabled ? "granted" : "denied",
+    };
+  }
+
+  function updateGoogleConsent(continuityEnabled) {
+    if (typeof window.gtag !== "function") {
+      return;
+    }
+
+    window.gtag("consent", "update", toGoogleConsentState(continuityEnabled));
+  }
+
   function allowsContinuityCookies(consent = readConsent()) {
     return Boolean(consent?.continuity);
   }
@@ -185,6 +202,8 @@
       updatedAt: new Date().toISOString(),
     });
 
+    updateGoogleConsent(continuityEnabled);
+
     if (continuityEnabled) {
       captureAttribution();
     } else {
@@ -202,6 +221,10 @@
   function initCookieControls() {
     const banner = document.querySelector("[data-cookie-banner]");
     const consent = readConsent();
+
+    if (consent) {
+      updateGoogleConsent(Boolean(consent.continuity));
+    }
 
     if (banner && !consent) {
       banner.hidden = false;
@@ -274,8 +297,7 @@
           "No worries. If you want to make a plan, send a day that actually works and we can lock it in.",
         proactive:
           'I get that weeks get messy. If you do want to see each other, pick a time and I am open. I just prefer clarity over "soon."',
-        short:
-          "All good. If you want to meet up, send a real day and time.",
+        short: "All good. If you want to meet up, send a real day and time.",
       },
       family: {
         kicker: "Family boundary example",
@@ -285,8 +307,7 @@
           "I know you were trying to help. I still need you to stop bringing this up after I have already answered it.",
         proactive:
           "I am not trying to fight about intent. I am being clear about the impact. Please stop raising this unless I ask for input.",
-        short:
-          "I have already answered this. Please stop bringing it up.",
+        short: "I have already answered this. Please stop bringing it up.",
       },
     };
 
@@ -303,7 +324,8 @@
       short.textContent = example.short;
 
       triggerButtons.forEach((button) => {
-        const isActive = button.getAttribute("data-hero-example-trigger") === exampleKey;
+        const isActive =
+          button.getAttribute("data-hero-example-trigger") === exampleKey;
         button.classList.toggle("is-active", isActive);
         button.setAttribute("aria-selected", String(isActive));
       });
@@ -311,7 +333,9 @@
 
     triggerButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        applyExample(button.getAttribute("data-hero-example-trigger") || "work");
+        applyExample(
+          button.getAttribute("data-hero-example-trigger") || "work",
+        );
       });
     });
 
