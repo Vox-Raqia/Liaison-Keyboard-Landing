@@ -20,6 +20,7 @@ messaging that currently overstates or misstates functionality.
 - Correct all pricing and Pro feature copy.
 - Replace placeholder visuals with app-derived previews.
 - Reword roadmap and privacy/support claims to match the live product.
+- Use the full product name `Liaison Keyboard` in visible copy, metadata, and docs; reserve `liaison` only for technical identifiers that cannot change.
 - Keep all work inside the landing repo, with docs, HTML, and static assets
   only.
 
@@ -49,6 +50,12 @@ messaging that currently overstates or misstates functionality.
 
 ### 3. Product Messaging
 
+- Use `Liaison Keyboard` everywhere the product is named in homepage copy,
+  metadata, legal pages, and supporting docs.
+- Do not shorten the product name to `Liaison` in user-facing content.
+- Preserve legacy lowercase `liaison` only where a technical identifier must
+  stay stable, such as domains, asset filenames, CSS hooks, storage keys, or
+  mailboxes.
 - Keep Phase 1 centered on manual copy/paste reply generation.
 - Move keyboard-extension language into clearly labeled roadmap content.
 - Remove or soften any copy that sounds like the native keyboard pivot is
@@ -185,3 +192,16 @@ delivery and remain visually consistent with the landing palette.
   - deploy the updated landing repo
   - mirror the same topbar lockup treatment to `privacy.html`, `terms.html`, and
     `support.html` if visual consistency across static pages is desired
+
+### 2026-03-30
+
+- Reworked the homepage FAQ into tap-to-reveal drawers so the section stays
+  more compact on desktop and mobile.
+- Added accordion behavior so opening one homepage FAQ item closes the others.
+- Replaced homepage product references that used `Liaison` alone with the full
+  `Liaison Keyboard` name.
+- Added an explicit naming rule so future landing updates keep the full product
+  name in user-facing copy and metadata.
+- Audited `privacy.html`, `terms.html`, `support.html`, `cookies.html`, and
+  the scenario pages; no additional visible-copy short-name fixes were needed
+  outside technical identifiers such as domains and asset filenames.
