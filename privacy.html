@@ -69,29 +69,119 @@
           <span class="legal-kicker">Privacy</span>
           <h1>How Liaison Keyboard handles user data.</h1>
           <p>
-            Last updated: March 25, 2026. This policy covers both the marketing
-            site and the app experience.
+            Last updated: March 30, 2026. This policy covers both
+            <strong>liaisonkeyboard.com</strong> and
+            <strong>app.liaisonkeyboard.com</strong>.
           </p>
         </div>
 
         <div class="legal-grid">
           <section class="legal-section">
-            <h2>What we process</h2>
+            <h2>What we collect and process</h2>
             <p>
-              Liaison Keyboard processes account details, billing metadata,
-              submitted message context, and product telemetry necessary to
-              operate the service. Generated replies are assistive output, not
-              automated sending behavior.
+              Liaison Keyboard collects account details (email, authentication
+              credentials), billing metadata, submitted message context entered
+              during generation sessions, and product telemetry necessary to
+              operate and improve the service. Generated replies are assistive
+              output that you review and copy yourself — nothing is sent on your
+              behalf.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>Analytics and usage tracking</h2>
+            <p>
+              This site and the connected app use
+              <strong>Google Analytics 4</strong> (measurement ID
+              <code>G-FMVPQNPPDD</code>) to collect aggregated page-view data,
+              session duration, referral sources, and device-type information.
+              This data is processed by Google and is subject to
+              <a
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Google's Privacy Policy</a>. Google Analytics sets its own
+              cookies (prefixed
+              <code>_ga</code>) scoped to the current domain.
+            </p>
+            <p>
+              You can opt out of Google Analytics measurement across all
+              websites by installing the
+              <a
+                href="https://tools.google.com/dlpage/gaoptout"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Google Analytics Opt-out Browser Add-on</a>.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>Cookies and local storage</h2>
+            <p>
+              Liaison Keyboard uses a small number of first-party cookies and
+              <code>localStorage</code> entries to operate the site. The
+              following keys are in use:
+            </p>
+            <ul>
+              <li>
+                <strong><code>liaison_cookie_consent</code></strong> — stores
+                your cookie preference (necessary-only or all). Persisted in
+                both <code>localStorage</code> and as a cookie on
+                <code>.liaisonkeyboard.com</code> for up to 180 days. Set
+                immediately on first consent interaction.
+              </li>
+              <li>
+                <strong><code>lk_deeplink</code></strong> — stores attribution
+                parameters (<code>utm_source</code>, <code>ref_id</code>,
+                <code>scenario_id</code>, <code>prefill</code>) so they survive
+                the handoff from the marketing site into the app. Stored in
+                <code>localStorage</code> and as a cookie on
+                <code>.liaisonkeyboard.com</code> for up to 30 days.
+                <strong>Only written if you accept optional continuity
+                  cookies.</strong>
+              </li>
+              <li>
+                <strong><code>liaison_auth_hint</code></strong> — a lightweight
+                flag that lets the marketing site detect whether a session is
+                active so the navigation buttons can reflect your current state
+                (e.g., "Back to Dashboard" instead of "Start Free"). Stored in
+                <code>localStorage</code> and as a cookie on
+                <code>.liaisonkeyboard.com</code> for up to 14 days.
+                <strong>Only written if you accept optional continuity
+                  cookies.</strong>
+              </li>
+            </ul>
+            <p>
+              All optional cookies are gated behind your explicit choice in the
+              cookie banner or the
+              <a href="./cookies.html#cookie-settings">cookie settings page</a>.
+              Selecting "Necessary only" prevents all continuity cookies from
+              being written and clears any that were previously stored.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>Attribution and referral tracking</h2>
+            <p>
+              When you arrive on <strong>liaisonkeyboard.com</strong> with URL
+              parameters such as <code>utm_source</code>, <code>ref_id</code>,
+              or <code>scenario_id</code>, Liaison Keyboard may store those
+              values locally so they can be passed into the app during the same
+              visit or a return visit. This attribution data is used only for
+              continuity and internal analytics — it is never sold or shared
+              with advertising platforms outside of the Google Analytics
+              integration described above.
             </p>
           </section>
 
           <section class="legal-section">
             <h2>Full Memory is opt-in</h2>
             <p>
-              Full Memory is a privacy-first opt-in feature. When enabled, it
-              lets Liaison Keyboard retain conversational context inside
-              isolated memory containers so the user can maintain continuity
-              across threads.
+              Full Memory is a privacy-first opt-in feature available on Pro
+              plans. When enabled, it lets Liaison Keyboard retain
+              conversational context inside isolated memory containers so you
+              can maintain continuity across threads. Full Memory is not active
+              by default and requires explicit consent inside the app.
             </p>
           </section>
 
@@ -105,11 +195,78 @@
           </section>
 
           <section class="legal-section">
-            <h2>Billing and infrastructure</h2>
+            <h2>Billing and payments</h2>
             <p>
-              Stripe handles checkout, invoices, payment methods, and
-              subscription management. The app stack handles authentication,
-              user-scoped data access, and generation workflows.
+              Payment processing, subscription management, invoice delivery, and
+              the customer billing portal are handled by
+              <strong>Stripe</strong>. Liaison Keyboard does not store raw
+              payment card data. Stripe's handling of payment information is
+              governed by
+              <a
+                href="https://stripe.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Stripe's Privacy Policy</a>.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>Authentication and data storage</h2>
+            <p>
+              Account authentication and user-scoped data storage for the app
+              experience are handled through a managed backend service.
+              User-submitted content is stored in isolated, user-scoped
+              containers and is not used to train or improve AI models without
+              explicit opt-in.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>Interactive site features</h2>
+            <p>
+              The FAQ accordion and the hero example switcher (Work / Dating /
+              Family) on the marketing site are fully client-side features. They
+              do not transmit data to any server and do not set cookies or
+              modify browser storage.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>Data retention</h2>
+            <p>
+              Attribution cookies and session hints expire on the schedules
+              noted in the Cookies section above. Google Analytics data is
+              retained according to the retention setting configured in the
+              associated Google Analytics property. Account and message data in
+              the app is retained while your account is active. You may request
+              deletion of your account and associated data by contacting
+              <a href="mailto:support@liaisonkeyboard.com"
+              >support@liaisonkeyboard.com</a>.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>Your choices</h2>
+            <p>
+              You can manage your cookie preferences at any time from the
+              <a href="./cookies.html#cookie-settings">cookie settings page</a>.
+              You can clear all site storage at any time through your browser
+              settings. You can opt out of Google Analytics as described in the
+              Analytics section above. You can disable Full Memory inside the
+              app at any time. To request account deletion or a copy of your
+              data, contact
+              <a href="mailto:support@liaisonkeyboard.com"
+              >support@liaisonkeyboard.com</a>.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>Contact</h2>
+            <p>
+              Privacy questions, data requests, or concerns about this policy
+              can be sent to
+              <a href="mailto:support@liaisonkeyboard.com"
+              >support@liaisonkeyboard.com</a>.
             </p>
           </section>
         </div>
