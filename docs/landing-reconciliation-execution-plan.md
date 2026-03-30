@@ -1,14 +1,18 @@
 # Liaison Keyboard Landing Reconciliation Execution Plan
 
-> Historical note: this is an execution plan captured on 2026-03-19. It describes a reconciliation effort, not the current source of truth for the shipped landing site.
+> Historical note: this is an execution plan captured on 2026-03-19. It
+> describes a reconciliation effort, not the current source of truth for the
+> shipped landing site.
 
-**Date:** 2026-03-19  
-**Owner:** Landing repo  
+**Date:** 2026-03-19\
+**Owner:** Landing repo\
 **Source of truth:** app repo plus `AI_ONBOARDING_BRIEF.md`
 
 ## Objective
 
-Bring the landing site into tight alignment with the shipped product by correcting pricing, auth CTAs, visual previews, legal/support links, and messaging that currently overstates or misstates functionality.
+Bring the landing site into tight alignment with the shipped product by
+correcting pricing, auth CTAs, visual previews, legal/support links, and
+messaging that currently overstates or misstates functionality.
 
 ## Implementation Scope
 
@@ -16,7 +20,8 @@ Bring the landing site into tight alignment with the shipped product by correcti
 - Correct all pricing and Pro feature copy.
 - Replace placeholder visuals with app-derived previews.
 - Reword roadmap and privacy/support claims to match the live product.
-- Keep all work inside the landing repo, with docs, HTML, and static assets only.
+- Keep all work inside the landing repo, with docs, HTML, and static assets
+  only.
 
 ## Required Changes
 
@@ -24,8 +29,10 @@ Bring the landing site into tight alignment with the shipped product by correcti
 
 - Add a `Login` button immediately next to `Start 15 Free Generations`.
 - Link `Login` to `https://app.liaisonkeyboard.com/auth/login`.
-- Keep `Start 15 Free Generations` pointing to `https://app.liaisonkeyboard.com/auth/register`.
-- Replace the hero placeholder `APP INTERFACE PREVIEW` with a real app composite.
+- Keep `Start 15 Free Generations` pointing to
+  `https://app.liaisonkeyboard.com/auth/register`.
+- Replace the hero placeholder `APP INTERFACE PREVIEW` with a real app
+  composite.
 - Make the hero section the strongest proof point on the page.
 
 ### 2. Pricing And Pro Copy
@@ -37,28 +44,35 @@ Bring the landing site into tight alignment with the shipped product by correcti
   - All premium personas unlocked
   - Full/deep conversation memory
   - Priority support
-- Remove the repeated `Start 15 Free Generations` button from paid tiers and use more accurate paid-plan language if needed.
+- Remove the repeated `Start 15 Free Generations` button from paid tiers and use
+  more accurate paid-plan language if needed.
 
 ### 3. Product Messaging
 
 - Keep Phase 1 centered on manual copy/paste reply generation.
 - Move keyboard-extension language into clearly labeled roadmap content.
-- Remove or soften any copy that sounds like the native keyboard pivot is already active.
-- Remove version-specific model branding unless it is intentionally maintained as a live claim.
+- Remove or soften any copy that sounds like the native keyboard pivot is
+  already active.
+- Remove version-specific model branding unless it is intentionally maintained
+  as a live claim.
 
 ### 4. Legal And Support
 
-- Update `support.html` so the Stripe billing portal link matches the app's configured billing portal destination.
+- Update `support.html` so the Stripe billing portal link matches the app's
+  configured billing portal destination.
 - Replace privacy absolutes with implementation-backed wording.
-- Keep legal copy consistent with the current app state around account data, thread history, and billing.
+- Keep legal copy consistent with the current app state around account data,
+  thread history, and billing.
 
 ### 5. Visual Refresh
 
 - Build a hybrid asset set:
   - real UI previews for app screens
   - branded framing for hero/feature blocks
-  - compact preview graphics for auth, chat, personas, threads, marketplace, and settings
-- Align the landing palette to the app's teal-led theme and layered dark surfaces.
+  - compact preview graphics for auth, chat, personas, threads, marketplace, and
+    settings
+- Align the landing palette to the app's teal-led theme and layered dark
+  surfaces.
 - Reduce purple dominance to a secondary accent role.
 - Avoid generic AI marketing blocks and placeholder panels.
 
@@ -76,7 +90,9 @@ Bring the landing site into tight alignment with the shipped product by correcti
 - `assets/illustrations/feature-explainer-history.svg`
 - `assets/illustrations/feature-explainer-billing.svg`
 
-If lightweight SVG construction is sufficient, keep the assets web-friendly and responsive. If raster exports are used, they should be optimized for web delivery and remain visually consistent with the landing palette.
+If lightweight SVG construction is sufficient, keep the assets web-friendly and
+responsive. If raster exports are used, they should be optimized for web
+delivery and remain visually consistent with the landing palette.
 
 ## Priority Order
 
@@ -90,18 +106,24 @@ If lightweight SVG construction is sufficient, keep the assets web-friendly and 
 ## Dependencies
 
 - Pricing copy depends on app truth from `lib/appConfig.ts` and `terms.html`.
-- Pro benefit copy depends on `components/ProPaywallCard.tsx`, `app/chat.tsx`, `app/(tabs)/marketplace.tsx`, and `app/(tabs)/settings.tsx`.
+- Pro benefit copy depends on `components/ProPaywallCard.tsx`, `app/chat.tsx`,
+  `app/(tabs)/marketplace.tsx`, and `app/(tabs)/settings.tsx`.
 - Visual assets depend on the app surfaces being represented accurately.
-- Support/legal copy depends on `lib/appConfig.ts`, `privacy.html`, `terms.html`, and `support.html`.
+- Support/legal copy depends on `lib/appConfig.ts`, `privacy.html`,
+  `terms.html`, and `support.html`.
 
 ## Test And Verification Plan
 
-- Confirm landing header shows both login and free-generation CTAs on desktop and mobile.
-- Confirm the login CTA goes to `/auth/login` and the free-generation CTA goes to `/auth/register`.
+- Confirm landing header shows both login and free-generation CTAs on desktop
+  and mobile.
+- Confirm the login CTA goes to `/auth/login` and the free-generation CTA goes
+  to `/auth/register`.
 - Confirm annual pricing reads `$70.99/year` everywhere on the landing site.
 - Confirm support portal and legal links route correctly.
-- Confirm hero and feature previews visually resemble the app surfaces they represent.
-- Confirm the landing no longer uses placeholder copy for the main product preview.
+- Confirm hero and feature previews visually resemble the app surfaces they
+  represent.
+- Confirm the landing no longer uses placeholder copy for the main product
+  preview.
 
 ## Timeline
 
@@ -130,25 +152,36 @@ If lightweight SVG construction is sufficient, keep the assets web-friendly and 
 
 ## Acceptance Criteria
 
-- The landing page matches the app truth on pricing, auth entry points, and Pro benefits.
+- The landing page matches the app truth on pricing, auth entry points, and Pro
+  benefits.
 - The hero uses a real app-derived preview instead of a placeholder.
 - The support page points to the correct billing portal destination.
 - Native keyboard support is represented as roadmap-only content.
-- The docs in this folder clearly explain what changed, why it changed, and what remains dependent on assets or visuals.
+- The docs in this folder clearly explain what changed, why it changed, and what
+  remains dependent on assets or visuals.
 
 ## Progress Update
 
 ### 2026-03-21
 
-- Header brand lockup was updated in `index.html` to add `LIAISON KEYBOARD` beside the existing topbar logo.
-- Shared topbar CSS in `site.css` was adjusted so the new brand label, supporting note, and `Login` / `Start Free` buttons coexist without crowding each other.
-- Removed the unofficial `Stripe Verified` storefront badge from the landing trust panel and replaced it with neutral Stripe Checkout billing copy.
+- Header brand lockup was updated in `index.html` to add `LIAISON KEYBOARD`
+  beside the existing topbar logo.
+- Shared topbar CSS in `site.css` was adjusted so the new brand label,
+  supporting note, and `Login` / `Start Free` buttons coexist without crowding
+  each other.
+- Removed the unofficial `Stripe Verified` storefront badge from the landing
+  trust panel and replaced it with neutral Stripe Checkout billing copy.
 - Deleted the fake badge asset so it cannot be reused accidentally.
-- Stripe brand guidance was reviewed before replacement work; no homepage badge was reintroduced because the official Stripe badge program is checkout-page oriented, not a general landing-page trust seal.
-- Desktop and mobile visual QA was completed locally against the landing repo using a static preview server.
+- Stripe brand guidance was reviewed before replacement work; no homepage badge
+  was reintroduced because the official Stripe badge program is checkout-page
+  oriented, not a general landing-page trust seal.
+- Desktop and mobile visual QA was completed locally against the landing repo
+  using a static preview server.
 - Verified locally:
-  - wide desktop topbar keeps the note readable without pushing into the CTA group
+  - wide desktop topbar keeps the note readable without pushing into the CTA
+    group
   - mobile topbar stacks the lockup and CTAs cleanly without overlap
 - Not yet done:
   - deploy the updated landing repo
-  - mirror the same topbar lockup treatment to `privacy.html`, `terms.html`, and `support.html` if visual consistency across static pages is desired
+  - mirror the same topbar lockup treatment to `privacy.html`, `terms.html`, and
+    `support.html` if visual consistency across static pages is desired

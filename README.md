@@ -18,8 +18,10 @@ The landing repo is intentionally simple:
 
 - `index.html`: main homepage
 - `site.css`: global visual system and responsive layout
-- `site.js`: interaction logic, cookie/attribution continuity, CTA hydration, hero demo behavior
-- `privacy.html`, `terms.html`, `support.html`, `cookies.html`: legal and support surfaces
+- `site.js`: interaction logic, cookie/attribution continuity, CTA hydration,
+  hero demo behavior
+- `privacy.html`, `terms.html`, `support.html`, `cookies.html`: legal and
+  support surfaces
 - `scenarios/`: static scenario landing pages
 - `assets/`: static imagery, illustrations, previews, icons
 
@@ -28,8 +30,10 @@ The landing repo is intentionally simple:
 The landing site should reflect the shipped product honestly:
 
 - Liaison Keyboard is a communication prosthetic for difficult messages
-- the core product is still the app-side triage flow, not a native keyboard extension shipping today
-- the public site should hand users into auth or chat cleanly without overstating future capabilities
+- the core product is still the app-side triage flow, not a native keyboard
+  extension shipping today
+- the public site should hand users into auth or chat cleanly without
+  overstating future capabilities
 
 ## Dynamic Client-Side Behavior
 
@@ -61,9 +65,13 @@ http://localhost:4173
 ## Relationship To The App Repo
 
 - marketing and legal content live here
-- auth, billing, drafting, threads, personas, and generation live in `Liaison-Keyboard`
-- CTA and continuity logic should always match the current routes and URLs defined by the live app
+- auth, billing, drafting, threads, personas, and generation live in
+  `Liaison-Keyboard`
+- CTA and continuity logic should always match the current routes and URLs
+  defined by the live app
 
 ## Documentation Notes
 
-The markdown files under `docs/` in this repo are planning and audit artifacts. They are useful historical context, but they should not be treated as the live product source of truth unless explicitly updated to say so.
+The markdown files under `docs/` in this repo are planning and audit artifacts.
+They are useful historical context, but they should not be treated as the live
+product source of truth unless explicitly updated to say so.
