@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Google tag (gtag.js) with Consent Mode v2 -->
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -66,8 +68,6 @@
       gtag("js", new Date());
       gtag("config", "G-FMVPQNPPDD");
     </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Support | Liaison Keyboard</title>
     <meta
       name="description"
@@ -79,7 +79,7 @@
     <link rel="apple-touch-icon" href="./assets/liaison-icon-180.png" />
     <link rel="stylesheet" href="./site.css" />
   </head>
-  <body>
+  <body class="utility-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="topbar">
       <div class="shell topbar-inner">
@@ -115,65 +115,112 @@
       </div>
     </header>
 
-    <main class="legal-main" id="main-content">
-      <div class="shell legal-shell">
-        <div class="legal-hero">
-          <span class="legal-kicker">Support</span>
-          <h1>Need help with access, billing, or the product?</h1>
-          <p>
-            Use the channels below for the landing site and the app. If you
-            already have an account, heading into the app first usually gives
-            you the fastest route to billing and plan management.
-          </p>
-        </div>
+    <main class="utility-main" id="main-content">
+      <div class="shell utility-shell">
+        <section class="utility-hero">
+          <div class="utility-hero-copy">
+            <span class="utility-kicker">Support</span>
+            <h1>Support that feels like a product team, not a dead-end policy page.</h1>
+            <p>
+              If you need help with access, billing, privacy settings, or where to start in the product, the fastest next move should be obvious from this page.
+            </p>
+          </div>
+        </section>
 
-        <div class="legal-grid">
-          <section class="legal-section">
-            <h2>Email support</h2>
-            <p>
-              Contact the team directly for account issues, billing questions,
-              or product help.
-            </p>
-            <p>
-              <a href="mailto:support@liaisonkeyboard.com"
-              >support@liaisonkeyboard.com</a>
-            </p>
-          </section>
+        <section class="utility-meta" aria-label="Support overview">
+          <article class="utility-meta-card">
+            <span class="utility-meta-label">Best for</span>
+            <p>Account access, billing questions, policy clarifications, and product help.</p>
+          </article>
+          <article class="utility-meta-card">
+            <span class="utility-meta-label">Primary channel</span>
+            <p>Email support plus direct billing self-serve through Stripe.</p>
+          </article>
+          <article class="utility-meta-card">
+            <span class="utility-meta-label">Fastest path</span>
+            <p>If you already have access, head into the app first for dashboard and billing continuity.</p>
+          </article>
+        </section>
 
-          <section class="legal-section">
-            <h2>Billing portal</h2>
-            <p>
-              Manage payment methods, invoices, cancellations, and subscription
-              status through Stripe.
-            </p>
-            <p>
-              <a
-                href="https://billing.stripe.com/p/login/28E7sL3uUgOp35GeVSbfO00"
-                target="_blank"
-                rel="noopener noreferrer"
-              >Open Stripe Billing Portal</a>
-            </p>
-          </section>
+        <section class="utility-grid">
+          <div class="utility-stack">
+            <article class="utility-card utility-card-accent">
+              <div class="utility-card-header">
+                <span class="utility-card-eyebrow">Primary help routes</span>
+                <h2>Choose the shortest route to resolution</h2>
+              </div>
+              <div class="utility-actions">
+                <div class="utility-card utility-action-card">
+                  <strong>Email support</strong>
+                  <p>Use direct support for product issues, access problems, privacy questions, or anything that is not a simple self-serve billing action.</p>
+                  <div class="cta-row cta-row-compact">
+                    <a class="button button-primary" href="mailto:support@liaisonkeyboard.com">Email support</a>
+                  </div>
+                </div>
+                <div class="utility-card utility-action-card">
+                  <strong>Billing portal</strong>
+                  <p>Manage payment methods, invoices, cancellations, and subscription status through Stripe without waiting for a reply.</p>
+                  <div class="cta-row cta-row-compact">
+                    <a
+                      class="button button-secondary"
+                      href="https://billing.stripe.com/p/login/28E7sL3uUgOp35GeVSbfO00"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >Open Stripe Billing Portal</a>
+                  </div>
+                </div>
+              </div>
+            </article>
 
-          <section class="legal-section">
-            <h2>Useful entry points</h2>
-            <ul>
-              <li>Log in if you already have an account.</li>
-              <li>Create an account to start with free generation.</li>
-              <li>Use scenario pages when you want a direct starting point.</li>
+            <div class="utility-card-columns">
+              <article class="utility-card">
+                <div class="utility-card-header">
+                  <span class="utility-card-eyebrow">Account entry points</span>
+                  <h2>Where to go next</h2>
+                </div>
+                <ul class="utility-action-list">
+                  <li>Log in if you already have an account and want to get back into a thread.</li>
+                  <li>Create an account if you want to start with free generation.</li>
+                  <li>Use scenario pages when you want a direct starting point with prefilled context.</li>
+                </ul>
+                <div class="cta-row cta-row-compact">
+                  <a class="button button-secondary" href="https://app.liaisonkeyboard.com/auth/login">Log in</a>
+                  <a class="button button-ghost" href="https://app.liaisonkeyboard.com/auth/register">Create account</a>
+                </div>
+              </article>
+
+              <article class="utility-card">
+                <div class="utility-card-header">
+                  <span class="utility-card-eyebrow">Policy routes</span>
+                  <h2>Privacy, terms, and cookies</h2>
+                </div>
+                <p>
+                  Questions about Full Memory, cookie consent, or privacy controls are covered in the policy pages below. Use them when you need the exact operating and consent model behind Liaison Keyboard.
+                </p>
+                <div class="cta-row cta-row-compact">
+                  <a class="button button-ghost" href="./privacy.html">Privacy</a>
+                  <a class="button button-ghost" href="./cookies.html">Cookies</a>
+                  <a class="button button-ghost" href="./terms.html">Terms</a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <aside class="utility-aside">
+            <div>
+              <span class="utility-aside-eyebrow">Support promise</span>
+              <h2>What this page is optimized for</h2>
+            </div>
+            <ul class="utility-stat-list">
+              <li>Get a visitor to the right action without forcing them through text walls.</li>
+              <li>Keep billing self-serve where possible and human support available where needed.</li>
+              <li>Keep policy and consent controls one click away from support.</li>
             </ul>
-          </section>
-
-          <section class="legal-section">
-            <h2>Memory and privacy questions</h2>
-            <p>
-              Questions about Full Memory, cookie consent, or privacy controls
-              are covered in the
-              <a href="./privacy.html">privacy policy</a> and
-              <a href="./cookies.html">cookie policy</a>.
+            <p class="utility-note">
+              For cookie-preference changes after your first visit, use the dedicated <a class="utility-link" href="./cookies.html#cookie-settings">cookie settings page</a>.
             </p>
-          </section>
-        </div>
+          </aside>
+        </section>
       </div>
     </main>
 

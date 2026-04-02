@@ -43,7 +43,7 @@ The landing site should reflect the shipped product honestly:
 - attribution persistence for allowed continuity cookies
 - auth/session-aware CTA hydration
 - app-path URL construction for links into `app.liaisonkeyboard.com`
-- interactive hero phone demo playback
+- screenshot-led hero story navigation
 - mobile navigation controls
 
 ## Local Development

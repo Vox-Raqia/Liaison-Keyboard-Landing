@@ -79,7 +79,7 @@
     <link rel="apple-touch-icon" href="./assets/liaison-icon-180.png" />
     <link rel="stylesheet" href="./site.css" />
   </head>
-  <body>
+  <body class="utility-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="topbar">
       <div class="shell topbar-inner">
@@ -115,95 +115,135 @@
       </div>
     </header>
 
-    <main class="legal-main" id="main-content">
-      <div class="shell legal-shell">
-        <div class="legal-hero">
-          <span class="legal-kicker">Cookies</span>
-          <h1>Cookie and persistence policy for Liaison Keyboard.</h1>
-          <p>
-            Last updated: March 25, 2026. This policy covers both
-            `liaisonkeyboard.com` and `app.liaisonkeyboard.com`.
-          </p>
-        </div>
-
-        <div class="legal-grid">
-          <section
-            class="legal-section legal-section-accent"
-            id="cookie-settings"
-          >
-            <h2>Cookie settings</h2>
+    <main class="utility-main" id="main-content">
+      <div class="shell utility-shell">
+        <section class="utility-hero">
+          <div class="utility-hero-copy">
+            <span class="utility-kicker">Cookies</span>
+            <h1>Cookie controls that look and behave like a real product setting.</h1>
             <p>
-              Choose whether Liaison Keyboard can use optional continuity
-              cookies to remember referral, scenario, and dashboard handoff
-              context between the landing site and the app.
+              This page is the later-management surface for visitors who want to
+              grant continuity consent after declining it, or revoke continuity
+              consent after enabling it earlier from the Liaison Keyboard banner.
             </p>
-            <p class="cookie-settings-status" data-cookie-preference-status>
-              Loading your current setting...
-            </p>
-            <div class="cookie-settings-actions">
-              <button
-                class="button button-primary"
-                type="button"
-                data-cookie-action="accept-all"
-              >
-                Allow continuity cookies
-              </button>
-              <button
-                class="button button-outline"
-                type="button"
-                data-cookie-action="necessary-only"
-              >
-                Use necessary only
-              </button>
+          </div>
+        </section>
+
+        <section class="utility-meta" aria-label="Cookie policy overview">
+          <article class="utility-meta-card">
+            <span class="utility-meta-label">Policy scope</span>
+            <p>Applies to <strong>liaisonkeyboard.com</strong> and <strong>app.liaisonkeyboard.com</strong>.</p>
+          </article>
+          <article class="utility-meta-card">
+            <span class="utility-meta-label">Default stance</span>
+            <p>Optional continuity storage remains off until you explicitly enable it.</p>
+          </article>
+          <article class="utility-meta-card">
+            <span class="utility-meta-label">Last updated</span>
+            <p>March 25, 2026.</p>
+          </article>
+        </section>
+
+        <section class="utility-grid">
+          <div class="utility-stack">
+            <article class="utility-card utility-card-accent" id="cookie-settings">
+              <div class="utility-card-header">
+                <span class="utility-card-eyebrow">Preference center</span>
+                <h2>Manage continuity consent</h2>
+                <p>
+                  Necessary storage stays on for core site behavior. Optional continuity storage only controls whether Liaison Keyboard remembers referral, scenario, and dashboard handoff context between the marketing site and the app.
+                </p>
+              </div>
+              <div class="preference-status-panel" aria-labelledby="cookie-pref-title">
+                <span class="preference-status-eyebrow">Current state</span>
+                <p class="preference-status-title" id="cookie-pref-title" data-cookie-preference-status>
+                  Loading your current setting...
+                </p>
+                <p class="preference-status-summary" data-cookie-preference-summary>
+                  Checking your saved preference.
+                </p>
+                <p class="preference-status-meta" data-cookie-preference-meta></p>
+              </div>
+              <div class="cookie-settings-actions" aria-label="Cookie preference actions">
+                <button
+                  class="button button-primary"
+                  type="button"
+                  data-cookie-action="accept-all"
+                >
+                  Allow continuity cookies
+                </button>
+                <button
+                  class="button button-outline"
+                  type="button"
+                  data-cookie-action="necessary-only"
+                >
+                  Use necessary only
+                </button>
+              </div>
+              <p
+                class="cookie-settings-result"
+                data-cookie-feedback
+                role="status"
+                aria-live="polite"
+                hidden
+              ></p>
+              <p class="cookie-settings-note">
+                Revoking continuity consent clears saved referral and session-handoff hints such as <code>lk_deeplink</code> and <code>liaison_auth_hint</code>.
+              </p>
+            </article>
+
+            <div class="utility-card-grid">
+              <article class="utility-card">
+                <div class="utility-card-header">
+                  <span class="utility-card-eyebrow">What changes</span>
+                  <h2>Continuity storage only</h2>
+                </div>
+                <ul class="utility-list">
+                  <li>Allows lightweight referral and scenario handoff context to persist across visits.</li>
+                  <li>Lets the site remember whether to show a dashboard return state for a known session hint.</li>
+                  <li>Does not expose conversation content on the marketing site.</li>
+                </ul>
+              </article>
+              <article class="utility-card">
+                <div class="utility-card-header">
+                  <span class="utility-card-eyebrow">What stays the same</span>
+                  <h2>Necessary storage remains active</h2>
+                </div>
+                <ul class="utility-list">
+                  <li>Core page rendering and basic navigation continue to work.</li>
+                  <li>The site still respects your most recent saved cookie decision.</li>
+                  <li>The homepage banner remains the first-choice consent surface for first-time visitors.</li>
+                </ul>
+              </article>
             </div>
-            <p class="cookie-settings-note">
-              Necessary storage stays on for core site functionality. Optional
-              continuity cookies only control whether Liaison Keyboard remembers
-              attribution and scenario handoff data across visits.
-            </p>
-          </section>
 
-          <section class="legal-section">
-            <h2>Attribution and continuity</h2>
-            <p>
-              Liaison Keyboard may store lightweight referral or scenario
-              identifiers so a user who starts on the landing site can continue
-              into the app without losing context. Examples include
-              `utm_source`, `ref_id`, and `scenario_id`.
-            </p>
-          </section>
+            <article class="utility-card">
+              <div class="utility-card-header">
+                <span class="utility-card-eyebrow">Stored context</span>
+                <h2>Attribution and session handoff</h2>
+              </div>
+              <p>
+                Liaison Keyboard may store lightweight referral or scenario identifiers so a visitor who starts on the landing site can continue into the app without losing context. Typical values include <code>utm_source</code>, <code>ref_id</code>, <code>scenario_id</code>, and <code>prefill</code>.
+              </p>
+            </article>
+          </div>
 
-          <section class="legal-section">
-            <h2>Privacy-first opt-in Full Memory</h2>
-            <p>
-              Full Memory is not treated as passive surveillance. It is framed
-              and marketed as a privacy-first opt-in feature. When enabled, it
-              allows Liaison Keyboard to maintain persistent conversational
-              context inside isolated memory containers under user control.
-            </p>
-          </section>
-
-          <section class="legal-section">
-            <h2>Session awareness</h2>
-            <p>
-              The landing site may use a root-domain cookie or local browser
-              storage to decide whether to show `Start Free Generation` or `Back
-              to Dashboard`. This is limited to navigation continuity and does
-              not expose conversation content on the marketing site.
-            </p>
-          </section>
-
-          <section class="legal-section">
-            <h2>How to revoke consent</h2>
-            <p>
-              Users can clear site storage in their browser and disable memory
-              features inside the app experience. Support requests can be sent
-              to
-              <a href="mailto:support@liaisonkeyboard.com"
-              >support@liaisonkeyboard.com</a>.
-            </p>
-          </section>
-        </div>
+          <aside class="utility-aside">
+            <div>
+              <span class="utility-aside-eyebrow">Related privacy controls</span>
+              <h2>What this page does not control</h2>
+            </div>
+            <ul class="utility-fact-list">
+              <li>Full Memory remains a privacy-first opt-in feature controlled inside the app.</li>
+              <li>Billing data and subscription management are handled through Stripe.</li>
+              <li>Support questions can still be sent to <a class="utility-link" href="mailto:support@liaisonkeyboard.com">support@liaisonkeyboard.com</a>.</li>
+            </ul>
+            <div class="cta-row cta-row-compact">
+              <a class="button button-secondary" href="./privacy.html">Read privacy policy</a>
+              <a class="button button-ghost" href="./support.html">Contact support</a>
+            </div>
+          </aside>
+        </section>
       </div>
     </main>
 

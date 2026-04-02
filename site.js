@@ -181,6 +181,77 @@
     return url.toString();
   }
 
+  function formatUpdatedAt(value) {
+    if (!value) {
+      return "";
+    }
+
+    const parsed = new Date(value);
+    if (Number.isNaN(parsed.getTime())) {
+      return "";
+    }
+
+    return parsed.toLocaleString(undefined, {
+      dateStyle: "medium",
+      timeStyle: "short",
+    });
+  }
+
+  function renderCookiePreferenceUI(consent = readConsent(), options = {}) {
+    const status = document.querySelector("[data-cookie-preference-status]");
+    const summary = document.querySelector("[data-cookie-preference-summary]");
+    const meta = document.querySelector("[data-cookie-preference-meta]");
+    const feedback = document.querySelector("[data-cookie-feedback]");
+    const hasSavedPreference = Boolean(consent);
+    const continuityEnabled = Boolean(consent?.continuity);
+    const updatedAt = formatUpdatedAt(consent?.updatedAt);
+
+    if (status) {
+      status.textContent = hasSavedPreference
+        ? continuityEnabled
+          ? "Continuity cookies are active."
+          : "Only necessary site storage is active."
+        : "No optional cookie preference has been saved yet.";
+    }
+
+    if (summary) {
+      summary.textContent = hasSavedPreference
+        ? continuityEnabled
+          ? "Liaison Keyboard can remember referral, scenario, and dashboard handoff context between the marketing site and the app."
+          : "Liaison Keyboard will not keep referral, scenario, or dashboard handoff context after you leave or return later."
+        : "Choose whether Liaison Keyboard should keep continuity context between visits or limit storage to necessary site behavior only.";
+    }
+
+    if (meta) {
+      meta.textContent = hasSavedPreference
+        ? updatedAt
+          ? `Last updated ${updatedAt}.`
+          : "Your preference is saved for this browser and mirrored to the liaisonkeyboard.com root domain when supported."
+        : "Until you choose, optional continuity storage remains off by default.";
+    }
+
+    document.querySelectorAll("[data-cookie-action]").forEach((control) => {
+      const action = control.getAttribute("data-cookie-action");
+      const selected = hasSavedPreference
+        ? (action === "accept-all" && continuityEnabled) ||
+          (action === "necessary-only" && !continuityEnabled)
+        : false;
+
+      control.setAttribute("aria-pressed", selected ? "true" : "false");
+      control.classList.toggle("is-selected", selected);
+    });
+
+    if (feedback && typeof options.feedback === "string") {
+      feedback.textContent = options.feedback;
+      feedback.hidden = options.feedback.length === 0;
+
+      if (options.focusFeedback && !feedback.hidden) {
+        feedback.setAttribute("tabindex", "-1");
+        feedback.focus();
+      }
+    }
+  }
+
   function hydrateSessionButtons() {
     const active = hasSessionHint();
 
@@ -193,14 +264,42 @@
       link.textContent = active ? sessionText : authText;
       link.setAttribute("href", buildAppUrl(active ? sessionPath : authPath));
     });
+
+    document.querySelectorAll("[data-session-secondary]").forEach((link) => {
+      const authText = link.getAttribute("data-auth-text") || "";
+      const sessionText = link.getAttribute("data-session-text") || link.textContent.trim() || "New Thread";
+      const authPath = link.getAttribute("data-auth-path") || "/auth/register";
+      const sessionPath = link.getAttribute("data-session-path") || "/chat?new_thread=1";
+
+      if (active) {
+        link.textContent = sessionText;
+        link.setAttribute("href", buildAppUrl(sessionPath));
+        link.hidden = false;
+        link.classList.remove("is-hidden");
+        return;
+      }
+
+      link.setAttribute("href", buildAppUrl(authPath));
+
+      if (authText) {
+        link.textContent = authText;
+        link.hidden = false;
+        link.classList.remove("is-hidden");
+      } else {
+        link.hidden = true;
+        link.classList.add("is-hidden");
+      }
+    });
   }
 
   function applyCookieConsent(continuityEnabled) {
-    writeConsent({
+    const nextConsent = {
       necessary: true,
       continuity: continuityEnabled,
       updatedAt: new Date().toISOString(),
-    });
+    };
+
+    writeConsent(nextConsent);
 
     updateGoogleConsent(continuityEnabled);
 
@@ -216,6 +315,12 @@
     }
 
     hydrateSessionButtons();
+    renderCookiePreferenceUI(nextConsent, {
+      feedback: continuityEnabled
+        ? "Continuity cookies are now enabled. Referral and session-handoff context can be remembered between the site and app."
+        : "Liaison Keyboard is now using necessary storage only. Saved referral and dashboard-handoff context has been cleared.",
+      focusFeedback: true,
+    });
   }
 
   function initCookieControls() {
@@ -229,6 +334,8 @@
     if (banner && !consent) {
       banner.hidden = false;
     }
+
+    renderCookiePreferenceUI(consent);
 
     document.querySelectorAll('[data-cookie-action="accept-all"]').forEach(
       (control) => {
@@ -264,82 +371,108 @@
     });
   }
 
-  function initHeroExamples() {
-    const triggerButtons = Array.from(
-      document.querySelectorAll("[data-hero-example-trigger]"),
-    );
-    if (triggerButtons.length === 0) {
+  function initHeroStory() {
+    const story = document.querySelector("[data-hero-story]");
+    if (!story) {
       return;
     }
 
-    const kicker = document.querySelector("[data-hero-example-kicker]");
-    const message = document.querySelector("[data-hero-example-message]");
-    const natural = document.querySelector("[data-hero-example-natural]");
-    const proactive = document.querySelector("[data-hero-example-proactive]");
-    const short = document.querySelector("[data-hero-example-short]");
+    const kicker = story.querySelector("[data-hero-story-kicker]");
+    const status = story.querySelector("[data-hero-story-status]");
+    const image = story.querySelector("[data-hero-story-image]");
+    const step = story.querySelector("[data-hero-story-step]");
+    const title = story.querySelector("[data-hero-story-title]");
+    const caption = story.querySelector("[data-hero-story-caption]");
+    const nav = story.querySelector("[data-hero-story-nav]");
+    const prev = story.querySelector("[data-hero-story-prev]");
+    const next = story.querySelector("[data-hero-story-next]");
 
-    const examples = {
-      work: {
-        kicker: "Work conflict example",
-        message: '"I need this done by 9pm on a Friday."',
-        natural:
-          "I can get this done tonight, but I need to reset the expectation that Friday-night requests should stay exceptional.",
-        proactive:
-          "I can get this done by 9 tonight. Going forward, earlier notice will help me protect quality and turnaround.",
-        short:
-          "I can deliver it by 9 tonight. Next time I need earlier notice.",
-      },
-      dating: {
-        kicker: "Dating example",
-        message:
-          '"Sorry I disappeared. This week has been wild. We should hang soon though."',
-        natural:
-          "No worries. If you want to make a plan, send a day that actually works and we can lock it in.",
-        proactive:
-          'I get that weeks get messy. If you do want to see each other, pick a time and I am open. I just prefer clarity over "soon."',
-        short: "All good. If you want to meet up, send a real day and time.",
-      },
-      family: {
-        kicker: "Family boundary example",
-        message:
-          '"I was just trying to help. You are too sensitive about this."',
-        natural:
-          "I know you were trying to help. I still need you to stop bringing this up after I have already answered it.",
-        proactive:
-          "I am not trying to fight about intent. I am being clear about the impact. Please stop raising this unless I ask for input.",
-        short: "I have already answered this. Please stop bringing it up.",
-      },
-    };
-
-    function applyExample(exampleKey) {
-      const example = examples[exampleKey];
-      if (!example || !kicker || !message || !natural || !proactive || !short) {
-        return;
-      }
-
-      kicker.textContent = example.kicker;
-      message.textContent = example.message;
-      natural.textContent = example.natural;
-      proactive.textContent = example.proactive;
-      short.textContent = example.short;
-
-      triggerButtons.forEach((button) => {
-        const isActive =
-          button.getAttribute("data-hero-example-trigger") === exampleKey;
-        button.classList.toggle("is-active", isActive);
-        button.setAttribute("aria-selected", String(isActive));
-      });
+    if (!kicker || !status || !image || !step || !title || !caption || !nav || !prev || !next) {
+      return;
     }
 
-    triggerButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        applyExample(
-          button.getAttribute("data-hero-example-trigger") || "work",
-        );
-      });
+    const slides = [
+      {
+        kicker: "Workflow story",
+        step: "Incoming pressure",
+        title: "See the pressure exactly where it starts.",
+        caption: "A real thread lands first, then Liaison Keyboard helps you decide what to send back.",
+        image: "./assets/previews/hero-story-01-incoming.png",
+        alt: "Google Messages screenshot showing Morgan Patel asking for the clean client recap by 9 PM.",
+      },
+      {
+        kicker: "Workflow story",
+        step: "Escalation lands",
+        title: "The follow-up makes the thread feel live, not staged.",
+        caption: "The second ask adds urgency before the user ever writes a reply.",
+        image: "./assets/previews/hero-story-02-follow-up.png",
+        alt: "Google Messages screenshot showing Morgan Patel sending a second urgent follow-up asking for the summary first if the full deck cannot be sent.",
+      },
+      {
+        kicker: "Workflow story",
+        step: "Private triage",
+        title: "Liaison Keyboard gives three calibrated directions.",
+        caption: "The pressure stays in the message thread, but the decision work moves into a private triage surface.",
+        image: "./assets/previews/hero-reply-studio.svg",
+        alt: "Liaison Keyboard product preview showing an incoming message and three reply directions inside the app.",
+      },
+      {
+        kicker: "Workflow story",
+        step: "Draft stays manual",
+        title: "The reply is still under the user’s control.",
+        caption: "The draft sits in the composer before sending so the user can still review, edit, or back out.",
+        image: "./assets/previews/hero-story-04-draft.png",
+        alt: "Google Messages screenshot showing a measured reply drafted in the message composer, ready for review before sending.",
+      },
+    ];
+
+    let currentIndex = 0;
+
+    const applySlide = (index) => {
+      currentIndex = (index + slides.length) % slides.length;
+      const slide = slides[currentIndex];
+
+      kicker.textContent = slide.kicker;
+      status.textContent = `Slide ${currentIndex + 1} of ${slides.length}`;
+      step.textContent = slide.step;
+      title.textContent = slide.title;
+      caption.textContent = slide.caption;
+      image.setAttribute("src", slide.image);
+      image.setAttribute("alt", slide.alt);
+
+      if (currentIndex === 0) {
+        image.setAttribute("loading", "eager");
+      } else {
+        image.setAttribute("loading", "lazy");
+      }
+    };
+
+    story.setAttribute("data-enhanced", "true");
+    nav.hidden = slides.length < 2;
+    prev.disabled = slides.length < 2;
+    next.disabled = slides.length < 2;
+
+    prev.addEventListener("click", () => {
+      applySlide(currentIndex - 1);
     });
 
-    applyExample("work");
+    next.addEventListener("click", () => {
+      applySlide(currentIndex + 1);
+    });
+
+    story.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        applySlide(currentIndex - 1);
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        applySlide(currentIndex + 1);
+      }
+    });
+
+    applySlide(0);
   }
 
   const menuToggle = document.querySelector(".menu-toggle");
@@ -385,7 +518,7 @@
 
   initCookieControls();
   initFaqAccordion();
-  initHeroExamples();
+  initHeroStory();
   captureAttribution();
   hydrateSessionButtons();
 })();
