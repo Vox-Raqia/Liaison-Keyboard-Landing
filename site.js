@@ -254,16 +254,16 @@
     if (summary) {
       summary.textContent = hasSavedPreference
         ? continuityEnabled
-          ? "Liaison Keyboard can remember referral, scenario, and dashboard handoff context between the marketing site and the app."
-          : "Liaison Keyboard will not keep referral, scenario, or dashboard handoff context after you leave or return later."
-        : "Choose whether Liaison Keyboard should keep continuity context between visits or limit storage to necessary site behavior only.";
+          ? "Liaison Keyboard can remember which scenario or link brought you here and help you pick up where you left off between the site and the app."
+          : "Liaison Keyboard will not keep scenario or referral details after you leave, so each visit starts fresh."
+        : "Choose whether Liaison Keyboard should remember the path into the app or keep storage limited to what the site needs to work.";
     }
 
     if (meta) {
       meta.textContent = hasSavedPreference
         ? updatedAt
           ? `Last updated ${updatedAt}.`
-          : "Your preference is saved for this browser and mirrored to the liaisonkeyboard.com root domain when supported."
+          : "Your preference is saved for this browser and shared across liaisonkeyboard.com when supported."
         : "Until you choose, optional continuity storage remains off by default.";
     }
 
@@ -294,7 +294,8 @@
 
     document.querySelectorAll("[data-session-primary]").forEach((link) => {
       const authText = link.getAttribute("data-auth-text") || "Start Free";
-      const sessionText = link.getAttribute("data-session-text") || "Dashboard";
+      const sessionText = link.getAttribute("data-session-text") ||
+        "Open Liaison Keyboard";
       const authPath = link.getAttribute("data-auth-path") || "/auth/register";
       const sessionPath = link.getAttribute("data-session-path") || "/chat";
       const extraParams = getLinkExtraParams(link);
@@ -453,8 +454,8 @@
     hydrateSessionButtons();
     renderCookiePreferenceUI(nextConsent, {
       feedback: continuityEnabled
-        ? "Continuity cookies are now enabled. Referral and session-handoff context can be remembered between the site and app."
-        : "Liaison Keyboard is now using necessary storage only. Saved referral and dashboard-handoff context has been cleared.",
+        ? "Liaison Keyboard can now remember the path between the site and the app, so picking back up feels smoother."
+        : "Liaison Keyboard will now use necessary storage only. Saved handoff details have been cleared.",
       focusFeedback: true,
     });
   }
@@ -533,10 +534,10 @@
     const slides = [
       {
         kicker: "Workflow story",
-        step: "Incoming pressure",
-        title: "See the pressure exactly where it starts.",
+        step: "The message lands",
+        title: "See the message before you decide how to answer.",
         caption:
-          "A real thread lands first, then Liaison Keyboard helps you decide what to send back.",
+          "The thread lands first, then Liaison Keyboard helps you figure out what to say back.",
         image: "./assets/previews/hero-story-01-incoming.png",
         alt:
           "Google Messages screenshot showing Morgan Patel asking for the clean client recap by 9 PM.",
@@ -544,9 +545,9 @@
       {
         kicker: "Workflow story",
         step: "Escalation lands",
-        title: "The follow-up makes the thread feel live, not staged.",
+        title: "The second message raises the stakes.",
         caption:
-          "The second ask adds urgency before the user ever writes a reply.",
+          "The urgency gets sharper before you write a single word back.",
         image: "./assets/previews/hero-story-02-follow-up.png",
         alt:
           "Google Messages screenshot showing Morgan Patel sending a second urgent follow-up asking for the summary first if the full deck cannot be sent.",
@@ -554,19 +555,19 @@
       {
         kicker: "Workflow story",
         step: "Private triage",
-        title: "Liaison Keyboard gives three calibrated directions.",
+        title: "Liaison Keyboard gives you three clear directions.",
         caption:
-          "The pressure stays in the message thread, but the decision work moves into a current Liaison Keyboard triage preview while the authenticated screenshot pass is still pending.",
+          "The thread stays intact, and Liaison Keyboard gives you three clear ways to answer before you send anything.",
         image: "./assets/previews/hero-reply-studio.svg",
         alt:
-          "Liaison Keyboard product preview showing an incoming message and three reply directions inside the app.",
+          "Liaison Keyboard screen showing one incoming message and three reply directions inside the app.",
       },
       {
         kicker: "Workflow story",
         step: "Draft stays manual",
-        title: "The reply is still under the user’s control.",
+        title: "The reply still stays in your hands.",
         caption:
-          "The draft sits in the composer before sending so the user can still review, edit, or back out.",
+          "The draft sits in the composer so you can still review it, edit it, or back out.",
         image: "./assets/previews/hero-story-04-draft.png",
         alt:
           "Google Messages screenshot showing a measured reply drafted in the message composer, ready for review before sending.",
@@ -576,7 +577,7 @@
         step: "Thread settles",
         title: "The exchange calms down instead of spiraling.",
         caption:
-          "A final acknowledgement shows the message sequence resolving cleanly after the user chooses what to send.",
+          "A final acknowledgement shows the exchange settling after you choose what to send.",
         image: "./assets/previews/hero-story-05-resolution.png",
         alt:
           "Google Messages screenshot showing Morgan agreeing to review the summary first after the calm reply.",

@@ -105,7 +105,7 @@
             href="https://app.liaisonkeyboard.com/auth/register"
             data-session-primary
             data-auth-text="Start Free"
-            data-session-text="Back to Dashboard"
+            data-session-text="Back to Liaison Keyboard"
             data-auth-path="/auth/register"
             data-session-path="/chat"
           >Start Free</a>
@@ -159,31 +159,31 @@
             >
               <div class="utility-card-header">
                 <span class="utility-card-eyebrow">Preference center</span>
-                <h2>Manage continuity consent</h2>
+                <h2>Choose what this site remembers</h2>
                 <p>
-                  Necessary storage stays on for core site behavior. Optional
-                  continuity storage only controls whether Liaison Keyboard
-                  remembers referral, scenario, and dashboard handoff context
-                  between the marketing site and the app.
+                  Necessary storage keeps the site working. Optional continuity
+                  storage lets Liaison Keyboard remember which scenario or link
+                  brought you here so the handoff into the app feels smoother.
                 </p>
               </div>
               <div
                 class="preference-status-panel"
                 aria-labelledby="cookie-pref-title"
               >
-                <span class="preference-status-eyebrow">Current state</span>
+                <span class="preference-status-eyebrow"
+                >What you are using now</span>
                 <p
                   class="preference-status-title"
                   id="cookie-pref-title"
                   data-cookie-preference-status
                 >
-                  Loading your current setting...
+                  Loading your saved choice...
                 </p>
                 <p
                   class="preference-status-summary"
                   data-cookie-preference-summary
                 >
-                  Checking your saved preference.
+                  Checking what you chose before.
                 </p>
                 <p class="preference-status-meta" data-cookie-preference-meta>
                 </p>
@@ -197,7 +197,7 @@
                   type="button"
                   data-cookie-action="accept-all"
                 >
-                  Allow continuity cookies
+                  Remember my path
                 </button>
                 <button
                   class="button button-outline"
@@ -216,9 +216,9 @@
               >
               </p>
               <p class="cookie-settings-note">
-                Revoking continuity consent clears saved referral and
-                session-handoff hints such as <code>lk_deeplink</code> and <code
-                >liaison_auth_hint</code>.
+                Turning this off clears saved handoff hints such as <code
+                >lk_deeplink</code>
+                and <code>liaison_auth_hint</code>.
               </p>
             </article>
 
@@ -230,12 +230,11 @@
                 </div>
                 <ul class="utility-list">
                   <li>
-                    Allows lightweight referral and scenario handoff context to
-                    persist across visits.
+                    Remembers lightweight scenario and referral context across
+                    visits.
                   </li>
                   <li>
-                    Lets the site remember whether to show a dashboard return
-                    state for a known session hint.
+                    Lets the site offer a smoother return into Liaison Keyboard.
                   </li>
                   <li>
                     Does not expose conversation content on the marketing site.
