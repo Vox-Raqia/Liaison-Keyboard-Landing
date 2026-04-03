@@ -365,9 +365,9 @@ h3 {
 .hero-grid,
 .steps-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-  gap: clamp(56px, 5vw, 92px);
-  align-items: center;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(40px, 4vw, 72px);
+  align-items: start;
 }
 
 .hero-copy {
@@ -378,6 +378,12 @@ h3 {
 .hero-copy,
 .hero-visual {
   min-width: 0;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .hero-eyebrow,
@@ -476,12 +482,14 @@ h3 {
 }
 
 .hero-proof-board {
-  padding: 1.65rem;
+  padding: 1.2rem;
   background: linear-gradient(
     180deg,
     rgba(20, 29, 46, 0.96),
     rgba(9, 16, 29, 0.98)
   );
+  width: min(100%, 700px);
+  margin-inline: 0;
 }
 
 .hero-story {
@@ -505,14 +513,16 @@ h3 {
 
 .hero-story-stage {
   display: grid;
-  grid-template-columns: minmax(300px, 0.92fr) minmax(260px, 0.8fr);
-  gap: 1.25rem;
-  align-items: center;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  align-items: start;
 }
 
 .hero-story-frame {
   margin: 0;
-  padding: 14px;
+  width: min(100%, 520px);
+  justify-self: start;
+  padding: 10px;
   border-radius: calc(var(--radius-xl) - 4px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   background:
@@ -526,7 +536,7 @@ h3 {
   height: auto;
   display: block;
   aspect-ratio: 430 / 880;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 26px;
   background: #08111e;
 }
@@ -536,6 +546,8 @@ h3 {
   display: grid;
   gap: 0.8rem;
   align-content: start;
+  width: min(100%, 520px);
+  justify-self: start;
 }
 
 .hero-story-step {
@@ -553,7 +565,7 @@ h3 {
 .hero-story-caption {
   color: var(--ink-soft);
   font-size: 1rem;
-  max-width: 32ch;
+  max-width: none;
 }
 
 .hero-story-nav {
@@ -1020,6 +1032,15 @@ h3 {
 
   .hero-story-stage {
     gap: 1.5rem;
+  }
+
+  .hero-proof-board {
+    width: min(100%, 760px);
+  }
+
+  .hero-story-frame,
+  .hero-story-copy {
+    width: min(100%, 560px);
   }
 
   .proof-stat-value {
@@ -1593,8 +1614,12 @@ h3 {
   }
 
   .hero-story-frame {
-    width: min(100%, 380px);
+    width: min(100%, 420px);
     justify-self: center;
+  }
+
+  .hero-proof-board {
+    margin-inline: auto;
   }
 
   .hero-story-caption {
