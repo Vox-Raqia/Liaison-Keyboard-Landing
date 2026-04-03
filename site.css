@@ -531,7 +531,7 @@ h3 {
 
 .hero-story-frame {
   margin: 0;
-  width: min(100%, 440px);
+  width: min(100%, clamp(230px, 19vw, 320px));
   justify-self: start;
   padding: 8px;
   border-radius: calc(var(--radius-xl) - 4px);
@@ -545,6 +545,7 @@ h3 {
 .hero-story-image {
   width: 100%;
   height: auto;
+  max-height: min(46vh, 640px);
   display: block;
   aspect-ratio: 430 / 880;
   object-fit: contain;
@@ -1051,7 +1052,7 @@ h3 {
 
   .hero-story-frame,
   .hero-story-copy {
-    width: min(100%, 480px);
+    width: min(100%, 360px);
   }
 
   .proof-stat-value {
@@ -1625,7 +1626,7 @@ h3 {
   }
 
   .hero-story-frame {
-    width: min(100%, 420px);
+    width: min(100%, clamp(220px, 42vw, 300px));
     justify-self: center;
   }
 
@@ -1691,6 +1692,12 @@ h3 {
     gap: 0.7rem;
   }
 
+  .hero-story-frame,
+  .hero-story-copy {
+    width: min(100%, 320px);
+    justify-self: center;
+  }
+
   .footer-inner,
   .cookie-banner {
     flex-direction: column;
@@ -1707,6 +1714,15 @@ h3 {
 }
 
 @media (max-width: 640px) {
+  .hero-story-frame,
+  .hero-story-copy {
+    width: min(100%, 280px);
+  }
+
+  .hero-story-image {
+    max-height: min(42vh, 520px);
+  }
+
   .utility-main,
   .scenario-main,
   .hero-section,
