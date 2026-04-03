@@ -41,7 +41,7 @@
   <text x="780" y="468" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21" font-weight="800">$7.99 / month</text>
   <rect x="756" y="498" width="364" height="76" rx="20" fill="#101826" stroke="#24364a"/>
   <text x="780" y="530" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">YEARLY</text>
-  <text x="780" y="558" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21" font-weight="800">$70.99 / year</text>
+  <text x="780" y="558" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21" font-weight="800">$79.99 / year</text>
   <rect x="756" y="588" width="364" height="56" rx="18" fill="#2dd4f0"/><text x="938" y="623" fill="#04111b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="800" text-anchor="middle">Manage Subscription</text>
 
   <rect x="220" y="686" width="928" height="120" rx="26" fill="#101826" stroke="#24364a"/>

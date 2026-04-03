@@ -2,7 +2,8 @@
 
 > Historical note: this is an execution plan captured on 2026-03-19. It
 > describes a reconciliation effort, not the current source of truth for the
-> shipped landing site.
+> shipped landing site. Price-specific March instructions are superseded by the
+> 2026-04-02 monetization plan and current repo truth.
 
 **Date:** 2026-03-19\
 **Owner:** Landing repo\
@@ -11,16 +12,20 @@
 ## Objective
 
 Bring the landing site into tight alignment with the shipped product by
-correcting pricing, auth CTAs, visual previews, legal/support links, and
-messaging that currently overstates or misstates functionality.
+preserving current pricing truth, tightening pricing-card intent capture,
+improving measurement, and continuing the remaining visual, legal, and support
+cleanup.
 
 ## Implementation Scope
 
 - Update landing header CTA structure.
 - Correct all pricing and Pro feature copy.
+- Make monthly and yearly pricing-card CTAs express explicit plan intent.
+- Measure pricing-surface exposure and interval selection, not only CTA clicks.
 - Replace placeholder visuals with app-derived previews.
 - Reword roadmap and privacy/support claims to match the live product.
-- Use the full product name `Liaison Keyboard` in visible copy, metadata, and docs; reserve `liaison` only for technical identifiers that cannot change.
+- Use the full product name `Liaison Keyboard` in visible copy, metadata, and
+  docs; reserve `liaison` only for technical identifiers that cannot change.
 - Keep all work inside the landing repo, with docs, HTML, and static assets
   only.
 
@@ -38,15 +43,18 @@ messaging that currently overstates or misstates functionality.
 
 ### 2. Pricing And Pro Copy
 
-- Change annual price to `$70.99/year`.
+- Keep annual price at `$79.99/year` with `save 17%`.
 - Keep monthly price at `$7.99/month`.
 - Update Pro benefits to include:
   - Unlimited generations
   - All premium personas unlocked
   - Full/deep conversation memory
   - Priority support
-- Remove the repeated `Start 15 Free Generations` button from paid tiers and use
-  more accurate paid-plan language if needed.
+- Replace generic paid-tier `Start Free` buttons with explicit monthly/yearly
+  selection language.
+- Preserve selected `billing_interval` through auth and the app handoff.
+- Emit `landing_pricing_viewed` and `landing_interval_selected` alongside the
+  existing CTA tracking so pricing experiments can be evaluated cleanly.
 
 ### 3. Product Messaging
 
@@ -125,7 +133,13 @@ delivery and remain visually consistent with the landing palette.
   and mobile.
 - Confirm the login CTA goes to `/auth/login` and the free-generation CTA goes
   to `/auth/register`.
-- Confirm annual pricing reads `$70.99/year` everywhere on the landing site.
+- Confirm annual pricing reads `$79.99/year` everywhere on the landing site.
+- Confirm monthly and yearly pricing cards use explicit interval-intent CTA copy
+  rather than generic paid-tier `Start Free` language.
+- Confirm the selected `billing_interval` persists into auth or the app handoff
+  for monthly and yearly CTA clicks.
+- Confirm the landing emits `landing_cta_clicked`, `landing_pricing_viewed`, and
+  `landing_interval_selected` for pricing-funnel analysis.
 - Confirm support portal and legal links route correctly.
 - Confirm hero and feature previews visually resemble the app surfaces they
   represent.
@@ -195,13 +209,27 @@ delivery and remain visually consistent with the landing palette.
 
 ### 2026-03-30
 
-- Reworked the homepage FAQ into tap-to-reveal drawers so the section stays
-  more compact on desktop and mobile.
+- Reworked the homepage FAQ into tap-to-reveal drawers so the section stays more
+  compact on desktop and mobile.
 - Added accordion behavior so opening one homepage FAQ item closes the others.
 - Replaced homepage product references that used `Liaison` alone with the full
   `Liaison Keyboard` name.
 - Added an explicit naming rule so future landing updates keep the full product
   name in user-facing copy and metadata.
-- Audited `privacy.html`, `terms.html`, `support.html`, `cookies.html`, and
-  the scenario pages; no additional visible-copy short-name fixes were needed
+- Audited `privacy.html`, `terms.html`, `support.html`, `cookies.html`, and the
+  scenario pages; no additional visible-copy short-name fixes were needed
   outside technical identifiers such as domains and asset filenames.
+
+### 2026-04-02
+
+- Reconciled this March plan against the April monetization audit so it no
+  longer prescribes reverting the annual price to `$70.99/year`.
+- Updated the homepage pricing section so paid cards use explicit
+  `Choose Monthly` and `Choose Yearly` CTA language instead of generic
+  `Start Free` copy.
+- Added carry-through pricing notes so the landing now states that selected
+  interval intent remains attached through signup and checkout.
+- Added `landing_pricing_viewed` and `landing_interval_selected` to the landing
+  analytics layer in addition to the existing `landing_cta_clicked` event.
+- Remaining open work is live event verification, conversion-quality measurement
+  after repricing, and the non-pricing visual/legal cleanup items tracked above.

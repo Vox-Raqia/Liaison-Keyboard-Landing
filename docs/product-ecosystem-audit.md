@@ -1,8 +1,10 @@
 # Liaison Keyboard Product Ecosystem Audit
 
 > Historical note: this audit is a dated reconciliation snapshot from
-> 2026-03-19. Use the current landing code, current app repo, and the repo
-> READMEs as source of truth for present-day behavior.
+> 2026-03-19. Several March findings are now closed or superseded, especially
+> annual pricing parity, header CTA structure, and public pricing-card intent.
+> Use the current landing code, the 2026-04-02 monetization plan, current app
+> repo, and the repo READMEs as source of truth for present-day behavior.
 
 **Date:** 2026-03-19\
 **Source of truth:**
@@ -14,23 +16,37 @@ reconciliation only
 
 ## Executive Summary
 
-The landing site and the app are directionally aligned, but the landing page is
-still marketing a partially outdated product story. The most important gaps are
-pricing, billing language, feature promises, and visual representation of the
-real app.
+The landing site and the app were partially misaligned when this audit was
+captured. The largest commercial gap is no longer raw annual-price parity.
+Current repo truth now aligns on `$79.99/year` with `save 17%`, the header has a
+real `Login` CTA, and the landing pricing cards now express monthly versus
+yearly intent explicitly.
 
 The app now clearly supports a Phase 1 web/app workflow: auth, chat generation,
 persona selection, thread history, marketplace/paywall, settings/billing, and a
-Pro tier with unlimited generations and premium personas. The landing page still
-contains stale annual pricing, a placeholder hero preview, unsupported privacy
-absolutes, and roadmap language that makes native keyboard support sound closer
-to shipped than it is.
+Pro tier with unlimited generations and premium personas. The remaining landing
+monetization question is whether the new pricing-card structure and interval
+analytics actually improve live conversion after the annual repricing.
 
-The highest-risk issues are commercial and trust-related: the landing annual
-price is wrong, the support page points to the wrong portal target, and the
-pricing copy does not reflect the app's current Pro benefits. The visual system
-also needs work; the landing uses generic card patterns and purple-heavy accents
-that do not match the app's teal-led layered UI.
+The highest-risk issues are now commercial and trust-related in a narrower way:
+pricing-card qualification, support/portal accuracy, and continued alignment
+between landing promises and shipped paid value. The visual system also needs
+work; the landing uses generic card patterns and purple-heavy accents that do
+not match the app's teal-led layered UI.
+
+## April 2026 Status Bridge
+
+- Closed since March: annual price parity is now aligned at `$79.99/year` with
+  `save 17%` across repos.
+- Closed since March: the homepage header now includes `Login` beside the main
+  free-start CTA.
+- Closed since March: paid pricing cards now use explicit monthly and yearly CTA
+  labels while preserving `billing_interval` into the app handoff.
+- New current focus: validate `landing_pricing_viewed`,
+  `landing_interval_selected`, and downstream checkout behavior before making
+  another pricing or funnel change.
+- Still open from the broader March audit: visual proof assets, some legal and
+  support consistency work, and continued Phase 1 versus roadmap discipline.
 
 ## Source Set
 
@@ -68,27 +84,28 @@ that do not match the app's teal-led layered UI.
 
 ## Discrepancy Matrix
 
-| Area                | Landing Claim                                                            | App/Brief Truth                                                                                       | Evidence                                                                                                                                   | Severity | Recommended Fix                                                                                                                   | Owner   | Dependency                                                     |
-| ------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------- |
-| Pricing             | Annual plan shown as `$79.99/year`                                       | App and terms reflect `$70.99/year`                                                                   | `index.html`, `terms.html`, `lib/appConfig.ts`, `lib/stripe/config.ts`                                                                     | Critical | Update the annual price everywhere on the landing site to `$70.99/year` and remove any savings badge that assumes the stale price | Landing | None                                                           |
-| Header CTA          | No login CTA in the top-right header                                     | App has real auth at `/auth/login`                                                                    | `index.html`, `app/auth/login.tsx`                                                                                                         | High     | Add `Login` beside `Start 15 Free Generations` and link to the login route                                                        | Landing | None                                                           |
-| Hero preview        | `APP INTERFACE PREVIEW` placeholder block                                | The app has real surfaces that can be previewed                                                       | `index.html`, `app/chat.tsx`, `app/(tabs)/settings.tsx`, `app/(tabs)/marketplace.tsx`, `app/auth/login.tsx`, `app/auth/register.tsx`       | High     | Replace with a real app screenshot/composite and support it with branded framing                                                  | Landing | Asset capture from app                                         |
-| Pro pricing copy    | Pro cards only promise unlimited generations and all personas            | App copy includes Deep Memory and Priority support                                                    | `index.html`, `components/ProPaywallCard.tsx`, `lib/appConfig.ts`, `app/(tabs)/settings.tsx`, `app/(tabs)/marketplace.tsx`, `app/chat.tsx` | High     | Expand landing Pro bullets to reflect current paid value                                                                          | Landing | None                                                           |
-| Native roadmap copy | `iOS & Android extensions in active development`                         | Brief says native keyboard pivot is Phase 2 planned                                                   | `index.html`, `AI_ONBOARDING_BRIEF.md`                                                                                                     | High     | Reword as roadmap-only, not currently active product capability                                                                   | Landing | None                                                           |
-| Privacy claim       | `No data retention or third-party sharing`                               | App has chat threads, saved history, and account-backed persistence                                   | `index.html`, `app/chat.tsx`, `app/(tabs)/threads.tsx`, `lib/chatThreads.ts`, `privacy.html`                                               | Critical | Replace absolutes with conservative, implementation-backed privacy language                                                       | Landing | Review legal/privacy copy                                      |
-| Billing trust badge | Homepage showed a `Stripe Verified` storefront badge                     | Stripe branding guidance does not support using a `Stripe Verified` trust seal on this marketing page | `index.html`, `assets/stripe-verified-badge.svg`                                                                                           | Critical | Remove the badge immediately and use factual Stripe Checkout / customer portal copy instead of a fake seal                        | Landing | Confirm any future Stripe mark against official usage guidance |
-| Model claim         | Footer says `Powered by Claude 3.5`                                      | App backend uses Anthropic Claude Sonnet 4 in generation function                                     | `index.html`, `supabase/functions/generateLiaisonReplies/index.ts`, `app/+html.tsx`                                                        | Medium   | Remove version-specific branding from marketing copy unless it is meant to be maintained live                                     | Landing | None                                                           |
-| Support portal      | Support page portal button points to `https://liaisonkeyboard.com/chat`  | App uses Stripe billing portal URL in config                                                          | `support.html`, `lib/appConfig.ts`                                                                                                         | Critical | Update the support page link to the billing portal destination used by the app                                                    | Landing | None                                                           |
-| Visual language     | Purple-heavy cards and repeated generic layouts                          | App theme is teal-led with layered dark surfaces and controlled accent use                            | `index.html`, `lib/theme.ts`, `components\AppShell.tsx`                                                                                    | Medium   | Rework hero and supporting sections to match app palette and surface hierarchy                                                    | Landing | Visual assets                                                  |
-| Product framing     | Landing treats Phase 1 and Phase 2 as equally polished marketing pillars | App is still Phase 1 with Phase 2 only planned                                                        | `index.html`, `AI_ONBOARDING_BRIEF.md`                                                                                                     | High     | Make Phase 1 the hero story and visually de-emphasize roadmap content                                                             | Landing | None                                                           |
+| Area                | Landing Claim                                                                 | App/Brief Truth                                                                                                              | Evidence                                                                                                                                   | Severity   | Recommended Fix                                                                                                 | Owner   | Dependency                                                     |
+| ------------------- | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------------------------------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------- |
+| Pricing             | March snapshot captured landing at `$79.99/year` before the app had caught up | Current April truth across repos is `$79.99/year` with `save 17%`; this is no longer a mismatch to solve by reverting price  | `index.html`, `terms.html`, `lib/appConfig.ts`, `lib/stripe/config.ts`, `plans/monetization-profitability-audit-2026-04-02.md`             | Closed     | Keep `$79.99/year` parity in place and focus next landing remediation on CTA quality and conversion measurement | Landing | Live conversion validation                                     |
+| Header CTA          | March snapshot had no login CTA in the top-right header                       | Homepage now includes `Login` linked to `/auth/login` beside the free-start CTA                                              | `index.html`, `app/auth/login.tsx`                                                                                                         | Closed     | Preserve the dual-CTA pattern across desktop and mobile; no March rollback work remains here                    | Landing | Responsive QA                                                  |
+| Pricing CTA intent  | March snapshot deferred paid-plan choice behind generic `Start Free` buttons  | Landing pricing cards now use explicit monthly/yearly CTA labels and preserve `billing_interval` intent into the app handoff | `index.html`, `site.js`, `plans/monetization-profitability-audit-2026-04-02.md`                                                            | Monitoring | Validate pricing-view, interval-selection, signup, and checkout behavior before further funnel changes          | Landing | Live telemetry                                                 |
+| Hero preview        | `APP INTERFACE PREVIEW` placeholder block                                     | The app has real surfaces that can be previewed                                                                              | `index.html`, `app/chat.tsx`, `app/(tabs)/settings.tsx`, `app/(tabs)/marketplace.tsx`, `app/auth/login.tsx`, `app/auth/register.tsx`       | High       | Replace with a real app screenshot/composite and support it with branded framing                                | Landing | Asset capture from app                                         |
+| Pro pricing copy    | Pro cards only promise unlimited generations and all personas                 | App copy includes Deep Memory and Priority support                                                                           | `index.html`, `components/ProPaywallCard.tsx`, `lib/appConfig.ts`, `app/(tabs)/settings.tsx`, `app/(tabs)/marketplace.tsx`, `app/chat.tsx` | High       | Expand landing Pro bullets to reflect current paid value                                                        | Landing | None                                                           |
+| Native roadmap copy | `iOS & Android extensions in active development`                              | Brief says native keyboard pivot is Phase 2 planned                                                                          | `index.html`, `AI_ONBOARDING_BRIEF.md`                                                                                                     | High       | Reword as roadmap-only, not currently active product capability                                                 | Landing | None                                                           |
+| Privacy claim       | `No data retention or third-party sharing`                                    | App has chat threads, saved history, and account-backed persistence                                                          | `index.html`, `app/chat.tsx`, `app/(tabs)/threads.tsx`, `lib/chatThreads.ts`, `privacy.html`                                               | Critical   | Replace absolutes with conservative, implementation-backed privacy language                                     | Landing | Review legal/privacy copy                                      |
+| Billing trust badge | Homepage showed a `Stripe Verified` storefront badge                          | Stripe branding guidance does not support using a `Stripe Verified` trust seal on this marketing page                        | `index.html`, `assets/stripe-verified-badge.svg`                                                                                           | Critical   | Remove the badge immediately and use factual Stripe Checkout / customer portal copy instead of a fake seal      | Landing | Confirm any future Stripe mark against official usage guidance |
+| Model claim         | Footer says `Powered by Claude 3.5`                                           | App backend uses Anthropic Claude Sonnet 4 in generation function                                                            | `index.html`, `supabase/functions/generateLiaisonReplies/index.ts`, `app/+html.tsx`                                                        | Medium     | Remove version-specific branding from marketing copy unless it is meant to be maintained live                   | Landing | None                                                           |
+| Support portal      | Support page portal button points to `https://liaisonkeyboard.com/chat`       | App uses Stripe billing portal URL in config                                                                                 | `support.html`, `lib/appConfig.ts`                                                                                                         | Critical   | Update the support page link to the billing portal destination used by the app                                  | Landing | None                                                           |
+| Visual language     | Purple-heavy cards and repeated generic layouts                               | App theme is teal-led with layered dark surfaces and controlled accent use                                                   | `index.html`, `lib/theme.ts`, `components\AppShell.tsx`                                                                                    | Medium     | Rework hero and supporting sections to match app palette and surface hierarchy                                  | Landing | Visual assets                                                  |
+| Product framing     | Landing treats Phase 1 and Phase 2 as equally polished marketing pillars      | App is still Phase 1 with Phase 2 only planned                                                                               | `index.html`, `AI_ONBOARDING_BRIEF.md`                                                                                                     | High       | Make Phase 1 the hero story and visually de-emphasize roadmap content                                           | Landing | None                                                           |
 
 ## Gap Analysis
 
 ### Commercial Gaps
 
-The landing page currently undersells and misstates the paid tier by omitting
-key app benefits and showing the wrong yearly price. This creates friction at
-the point where user trust and billing confidence matter most.
+The historical annual-price mismatch is now closed. The commercial risk has
+shifted to proving that the new monthly/yearly CTA structure and interval
+telemetry actually improve signup and paid conversion after repricing.
 
 ### Product-Truth Gaps
 
@@ -138,7 +155,8 @@ colors, while the landing overuses purple and generic glassy cards.
 
 ## Recommendation Summary
 
-1. Correct pricing and support links first because they affect billing trust.
+1. Keep pricing parity and the explicit plan-intent CTAs in place, then verify
+   live pricing-funnel data before another pricing move.
 2. Replace placeholder hero content with real app-derived visuals.
 3. Reconcile all marketing claims to the shipped Phase 1 product.
 4. Keep Phase 2 visible only as roadmap language.

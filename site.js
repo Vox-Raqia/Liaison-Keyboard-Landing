@@ -4,6 +4,31 @@
   const AUTH_HINT_KEY = "liaison_auth_hint";
   const COOKIE_CONSENT_KEY = "liaison_cookie_consent";
   const ROOT_COOKIE_DOMAIN = ".liaisonkeyboard.com";
+  const LANDING_DEBUG_EVENT_KEY = "__liaisonLandingEvents";
+
+  function recordLandingEvent(eventName, payload = {}) {
+    const existing = Array.isArray(window[LANDING_DEBUG_EVENT_KEY])
+      ? window[LANDING_DEBUG_EVENT_KEY]
+      : [];
+
+    existing.push({
+      eventName,
+      payload,
+      timestamp: new Date().toISOString(),
+    });
+
+    window[LANDING_DEBUG_EVENT_KEY] = existing;
+  }
+
+  function trackLandingEvent(eventName, payload = {}) {
+    recordLandingEvent(eventName, payload);
+
+    if (typeof window.gtag !== "function") {
+      return;
+    }
+
+    window.gtag("event", eventName, payload);
+  }
 
   function safeGet(key) {
     try {
@@ -101,12 +126,13 @@
     const params = new URLSearchParams(window.location.search);
     const next = {};
 
-    ["utm_source", "ref_id", "scenario_id", "prefill"].forEach((key) => {
-      const value = params.get(key);
-      if (value) {
-        next[key] = value;
-      }
-    });
+    ["utm_source", "ref_id", "scenario_id", "prefill", "billing_interval"]
+      .forEach((key) => {
+        const value = params.get(key);
+        if (value) {
+          next[key] = value;
+        }
+      });
 
     return next;
   }
@@ -130,12 +156,12 @@
     }
   }
 
-  function captureAttribution() {
+  function captureAttribution(extra = {}) {
     if (!allowsContinuityCookies()) {
       return;
     }
 
-    const next = { ...currentAttribution() };
+    const next = { ...currentAttribution(), ...extra };
     if (Object.keys(next).length > 0) {
       const serialized = JSON.stringify(next);
       safeSet(ATTR_STORAGE_KEY, serialized);
@@ -179,6 +205,17 @@
       }
     });
     return url.toString();
+  }
+
+  function getLinkExtraParams(link) {
+    const billingInterval = link.getAttribute("data-billing-interval");
+    const extraParams = {};
+
+    if (billingInterval === "month" || billingInterval === "year") {
+      extraParams.billing_interval = billingInterval;
+    }
+
+    return extraParams;
   }
 
   function formatUpdatedAt(value) {
@@ -260,26 +297,33 @@
       const sessionText = link.getAttribute("data-session-text") || "Dashboard";
       const authPath = link.getAttribute("data-auth-path") || "/auth/register";
       const sessionPath = link.getAttribute("data-session-path") || "/chat";
+      const extraParams = getLinkExtraParams(link);
 
       link.textContent = active ? sessionText : authText;
-      link.setAttribute("href", buildAppUrl(active ? sessionPath : authPath));
+      link.setAttribute(
+        "href",
+        buildAppUrl(active ? sessionPath : authPath, extraParams),
+      );
     });
 
     document.querySelectorAll("[data-session-secondary]").forEach((link) => {
       const authText = link.getAttribute("data-auth-text") || "";
-      const sessionText = link.getAttribute("data-session-text") || link.textContent.trim() || "New Thread";
+      const sessionText = link.getAttribute("data-session-text") ||
+        link.textContent.trim() || "New Thread";
       const authPath = link.getAttribute("data-auth-path") || "/auth/register";
-      const sessionPath = link.getAttribute("data-session-path") || "/chat?new_thread=1";
+      const sessionPath = link.getAttribute("data-session-path") ||
+        "/chat?new_thread=1";
+      const extraParams = getLinkExtraParams(link);
 
       if (active) {
         link.textContent = sessionText;
-        link.setAttribute("href", buildAppUrl(sessionPath));
+        link.setAttribute("href", buildAppUrl(sessionPath, extraParams));
         link.hidden = false;
         link.classList.remove("is-hidden");
         return;
       }
 
-      link.setAttribute("href", buildAppUrl(authPath));
+      link.setAttribute("href", buildAppUrl(authPath, extraParams));
 
       if (authText) {
         link.textContent = authText;
@@ -289,6 +333,98 @@
         link.hidden = true;
         link.classList.add("is-hidden");
       }
+    });
+  }
+
+  function hydrateAppLinks() {
+    const active = hasSessionHint();
+
+    document.querySelectorAll("[data-app-link]").forEach((link) => {
+      const authPath = link.getAttribute("data-auth-path") || "/auth/register";
+      const sessionPath = link.getAttribute("data-session-path") || "/chat";
+      const extraParams = getLinkExtraParams(link);
+
+      link.setAttribute(
+        "href",
+        buildAppUrl(active ? sessionPath : authPath, extraParams),
+      );
+    });
+  }
+
+  function initPricingSectionTracking() {
+    const pricingSection = document.querySelector("[data-pricing-section]");
+    if (!pricingSection || pricingSection.dataset.pricingTracked === "true") {
+      return;
+    }
+
+    pricingSection.dataset.pricingTracked = "true";
+
+    const emitPricingViewed = () => {
+      trackLandingEvent("landing_pricing_viewed", {
+        cta_surface: "pricing-section",
+        session_state: hasSessionHint() ? "active" : "anonymous",
+      });
+    };
+
+    if (typeof window.IntersectionObserver !== "function") {
+      emitPricingViewed();
+      return;
+    }
+
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          emitPricingViewed();
+          observer.disconnect();
+        });
+      },
+      {
+        threshold: 0.35,
+      },
+    );
+
+    observer.observe(pricingSection);
+  }
+
+  function initCtaTracking() {
+    document.querySelectorAll("[data-cta-surface]").forEach((link) => {
+      if (link.dataset.ctaTracked === "true") {
+        return;
+      }
+
+      link.dataset.ctaTracked = "true";
+      link.addEventListener("click", () => {
+        const href = link.getAttribute("href") || "";
+        const billingInterval = link.getAttribute("data-billing-interval") ||
+          undefined;
+        const ctaSurface = link.getAttribute("data-cta-surface") || "unknown";
+        const ctaLabel = link.getAttribute("data-cta-label") ||
+          link.textContent.trim() || "cta";
+
+        if (billingInterval === "month" || billingInterval === "year") {
+          captureAttribution({ billing_interval: billingInterval });
+
+          trackLandingEvent("landing_interval_selected", {
+            cta_surface: ctaSurface,
+            cta_label: ctaLabel,
+            billing_interval: billingInterval,
+            destination_path: href,
+            session_state: hasSessionHint() ? "active" : "anonymous",
+          });
+        }
+
+        trackLandingEvent("landing_cta_clicked", {
+          cta_surface: ctaSurface,
+          cta_label: ctaLabel,
+          billing_interval: billingInterval,
+          destination_path: href,
+          session_state: hasSessionHint() ? "active" : "anonymous",
+        });
+      });
     });
   }
 
@@ -387,7 +523,10 @@
     const prev = story.querySelector("[data-hero-story-prev]");
     const next = story.querySelector("[data-hero-story-next]");
 
-    if (!kicker || !status || !image || !step || !title || !caption || !nav || !prev || !next) {
+    if (
+      !kicker || !status || !image || !step || !title || !caption || !nav ||
+      !prev || !next
+    ) {
       return;
     }
 
@@ -396,33 +535,51 @@
         kicker: "Workflow story",
         step: "Incoming pressure",
         title: "See the pressure exactly where it starts.",
-        caption: "A real thread lands first, then Liaison Keyboard helps you decide what to send back.",
+        caption:
+          "A real thread lands first, then Liaison Keyboard helps you decide what to send back.",
         image: "./assets/previews/hero-story-01-incoming.png",
-        alt: "Google Messages screenshot showing Morgan Patel asking for the clean client recap by 9 PM.",
+        alt:
+          "Google Messages screenshot showing Morgan Patel asking for the clean client recap by 9 PM.",
       },
       {
         kicker: "Workflow story",
         step: "Escalation lands",
         title: "The follow-up makes the thread feel live, not staged.",
-        caption: "The second ask adds urgency before the user ever writes a reply.",
+        caption:
+          "The second ask adds urgency before the user ever writes a reply.",
         image: "./assets/previews/hero-story-02-follow-up.png",
-        alt: "Google Messages screenshot showing Morgan Patel sending a second urgent follow-up asking for the summary first if the full deck cannot be sent.",
+        alt:
+          "Google Messages screenshot showing Morgan Patel sending a second urgent follow-up asking for the summary first if the full deck cannot be sent.",
       },
       {
         kicker: "Workflow story",
         step: "Private triage",
         title: "Liaison Keyboard gives three calibrated directions.",
-        caption: "The pressure stays in the message thread, but the decision work moves into a private triage surface.",
+        caption:
+          "The pressure stays in the message thread, but the decision work moves into a current Liaison Keyboard triage preview while the authenticated screenshot pass is still pending.",
         image: "./assets/previews/hero-reply-studio.svg",
-        alt: "Liaison Keyboard product preview showing an incoming message and three reply directions inside the app.",
+        alt:
+          "Liaison Keyboard product preview showing an incoming message and three reply directions inside the app.",
       },
       {
         kicker: "Workflow story",
         step: "Draft stays manual",
         title: "The reply is still under the user’s control.",
-        caption: "The draft sits in the composer before sending so the user can still review, edit, or back out.",
+        caption:
+          "The draft sits in the composer before sending so the user can still review, edit, or back out.",
         image: "./assets/previews/hero-story-04-draft.png",
-        alt: "Google Messages screenshot showing a measured reply drafted in the message composer, ready for review before sending.",
+        alt:
+          "Google Messages screenshot showing a measured reply drafted in the message composer, ready for review before sending.",
+      },
+      {
+        kicker: "Workflow story",
+        step: "Thread settles",
+        title: "The exchange calms down instead of spiraling.",
+        caption:
+          "A final acknowledgement shows the message sequence resolving cleanly after the user chooses what to send.",
+        image: "./assets/previews/hero-story-05-resolution.png",
+        alt:
+          "Google Messages screenshot showing Morgan agreeing to review the summary first after the calm reply.",
       },
     ];
 
@@ -521,4 +678,7 @@
   initHeroStory();
   captureAttribution();
   hydrateSessionButtons();
+  hydrateAppLinks();
+  initPricingSectionTracking();
+  initCtaTracking();
 })();

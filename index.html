@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <!-- Google tag (gtag.js) with Consent Mode v2 -->
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -66,7 +67,6 @@
       gtag("js", new Date());
       gtag("config", "G-FMVPQNPPDD");
     </script>
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
       Paste Difficult Texts. Get 3 Calibrated Replies | Liaison Keyboard
@@ -171,6 +171,8 @@
             class="button button-primary-nav"
             href="https://app.liaisonkeyboard.com/auth/register"
             data-session-primary
+            data-cta-surface="topbar-primary"
+            data-cta-label="Start Free"
             data-auth-text="Start Free"
             data-session-text="Dashboard"
             data-auth-path="/auth/register"
@@ -225,6 +227,11 @@
         <a
           class="button button-primary"
           href="https://app.liaisonkeyboard.com/auth/register"
+          data-app-link
+          data-cta-surface="mobile-menu-primary"
+          data-cta-label="Start Free"
+          data-auth-path="/auth/register"
+          data-session-path="/chat"
         >Start Free</a>
         <a class="button button-outline" href="#workflow">See How It Works</a>
       </div>
@@ -271,6 +278,8 @@
                 class="button button-primary"
                 href="https://app.liaisonkeyboard.com/auth/register"
                 data-session-primary
+                data-cta-surface="hero-primary"
+                data-cta-label="Start Free"
                 data-auth-text="Start Free"
                 data-session-text="Back to Dashboard"
                 data-auth-path="/auth/register"
@@ -288,11 +297,21 @@
           </div>
 
           <div class="hero-visual">
-            <div class="hero-proof-board hero-story" data-hero-story aria-label="Liaison Keyboard workflow story">
+            <div
+              class="hero-proof-board hero-story"
+              data-hero-story
+              aria-label="Liaison Keyboard workflow story"
+            >
               <div class="hero-story-topline">
-                <span class="hero-proof-kicker hero-story-kicker" data-hero-story-kicker
+                <span
+                  class="hero-proof-kicker hero-story-kicker"
+                  data-hero-story-kicker
                 >Workflow story</span>
-                <p class="hero-story-status" data-hero-story-status aria-live="polite">
+                <p
+                  class="hero-story-status"
+                  data-hero-story-status
+                  aria-live="polite"
+                >
                   Slide 1 of 4
                 </p>
               </div>
@@ -312,10 +331,15 @@
                 </figure>
 
                 <div class="hero-story-copy">
-                  <p class="hero-story-step" data-hero-story-step>Incoming pressure</p>
-                  <h3 data-hero-story-title>See the pressure exactly where it starts.</h3>
+                  <p class="hero-story-step" data-hero-story-step>
+                    Incoming pressure
+                  </p>
+                  <h3 data-hero-story-title>
+                    See the pressure exactly where it starts.
+                  </h3>
                   <p class="hero-story-caption" data-hero-story-caption>
-                    A real thread lands first, then Liaison Keyboard helps you decide what to send back.
+                    A real thread lands first, then Liaison Keyboard helps you
+                    decide what to send back.
                   </p>
 
                   <div class="hero-story-nav" data-hero-story-nav hidden>
@@ -342,10 +366,16 @@
               </div>
 
               <div class="hero-proof-footer hero-story-footer">
-                <span>Real thread pressure</span>
-                <span>Private triage in Liaison Keyboard</span>
-                <span>You still choose what gets pasted</span>
+                <span>Real message captures</span>
+                <span>Current Liaison Keyboard triage</span>
+                <span>Manual paste, not auto-send</span>
               </div>
+
+              <p class="hero-story-proof-note">
+                The workflow story now uses four real message-state captures
+                plus one current Liaison Keyboard triage preview while the
+                authenticated app-capture pass is still pending.
+              </p>
             </div>
           </div>
         </div>
@@ -406,9 +436,9 @@
                 wording matters most.
               </p>
               <p class="proof-card-attribution">
-                No testimonials yet, so Liaison Keyboard leads with transparent
-                proof: real scenario walkthroughs, explicit controls, and a free
-                start before any upgrade.
+                Liaison Keyboard leads with transparent proof: real scenario
+                walkthroughs, explicit controls, grounded workflow captures, and
+                a free start before any upgrade.
               </p>
             </article>
           </div>
@@ -433,6 +463,14 @@
               <p class="trust-strip-copy">
                 Only what you choose to save remains in your account. Threads,
                 billing, and support links stay visible in the footer.
+              </p>
+            </article>
+            <article class="trust-strip-card">
+              <p class="trust-strip-title">Proof is grounded</p>
+              <p class="trust-strip-copy">
+                The workflow story uses real message-state captures and the
+                current Liaison Keyboard triage surface instead of decorative
+                placeholder mockups.
               </p>
             </article>
           </div>
@@ -576,7 +614,7 @@
         </div>
       </section>
 
-      <section class="section section-plans" id="plans">
+      <section class="section section-plans" id="plans" data-pricing-section>
         <div class="shell">
           <div class="section-header">
             <p class="section-kicker">TRANSPARENT PRICING</p>
@@ -586,8 +624,9 @@
             </h2>
             <p>
               Start with 15 free generations to test the workflow. If Liaison
-              Keyboard becomes part of your routine, choose the billing interval
-              that fits you inside the app.
+              Keyboard becomes part of your routine, choose monthly or yearly
+              here and Liaison Keyboard will carry that billing preference into
+              signup and checkout.
             </p>
           </div>
 
@@ -606,6 +645,11 @@
               <a
                 class="button button-primary pricing-cta"
                 href="https://app.liaisonkeyboard.com/auth/register"
+                data-app-link
+                data-cta-surface="pricing-free"
+                data-cta-label="Start Free"
+                data-auth-path="/auth/register"
+                data-session-path="/chat"
               >Start Free</a>
             </article>
 
@@ -628,17 +672,25 @@
               <a
                 class="button button-outline pricing-cta"
                 href="https://app.liaisonkeyboard.com/auth/register"
-              >Start Free</a>
-              <p class="pricing-note">Choose monthly after signup.</p>
+                data-app-link
+                data-billing-interval="month"
+                data-cta-surface="pricing-monthly"
+                data-cta-label="Choose Monthly"
+                data-auth-path="/auth/register"
+                data-session-path="/chat"
+              >Choose Monthly</a>
+              <p class="pricing-note">
+                We will keep monthly selected through signup and checkout.
+              </p>
             </article>
 
             <article class="pricing-card pricing-card-pro">
               <p class="pricing-tier">PRO YEARLY</p>
               <div class="pricing-price-row">
-                <span class="pricing-amount">$70.99</span>
+                <span class="pricing-amount">$79.99</span>
                 <span class="pricing-period">/yr</span>
               </div>
-              <p class="pricing-save">$5.92/month effective, save 26%</p>
+              <p class="pricing-save">$6.67/month effective, save 17%</p>
               <p class="pricing-tagline">
                 Best for people who rely on Liaison Keyboard regularly
               </p>
@@ -650,8 +702,16 @@
               <a
                 class="button button-cta-pro pricing-cta"
                 href="https://app.liaisonkeyboard.com/auth/register"
-              >Start Free</a>
-              <p class="pricing-note">Choose yearly after signup.</p>
+                data-app-link
+                data-billing-interval="year"
+                data-cta-surface="pricing-yearly"
+                data-cta-label="Choose Yearly"
+                data-auth-path="/auth/register"
+                data-session-path="/chat"
+              >Choose Yearly</a>
+              <p class="pricing-note">
+                We will keep yearly selected through signup and checkout.
+              </p>
             </article>
           </div>
         </div>
@@ -795,6 +855,8 @@
               class="button button-primary"
               href="https://app.liaisonkeyboard.com/auth/register"
               data-session-primary
+              data-cta-surface="final-cta-primary"
+              data-cta-label="Start Free"
               data-auth-text="Start Free"
               data-session-text="Back to Dashboard"
               data-auth-path="/auth/register"
