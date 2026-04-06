@@ -35,7 +35,8 @@
   <rect x="728" y="250" width="420" height="412" rx="28" fill="#0f1a2a" stroke="#2dd4f0" stroke-opacity=".24"/>
   <text x="756" y="290" fill="#2dd4f0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">SUBSCRIPTION</text>
   <text x="756" y="336" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="28" font-weight="800">Liaison Keyboard Pro</text>
-  <text x="756" y="368" fill="#c6d2e1" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">Unlimited generations, Deep Memory, and every premium persona.</text>
+  <text x="756" y="368" fill="#c6d2e1" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">Unlimited for normal use, Deep Memory,</text>
+  <text x="756" y="392" fill="#c6d2e1" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16">every premium persona, and fair-use guardrails.</text>
   <rect x="756" y="408" width="364" height="76" rx="20" fill="#101826" stroke="#24364a"/>
   <text x="780" y="440" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">MONTHLY</text>
   <text x="780" y="468" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21" font-weight="800">$7.99 / month</text>

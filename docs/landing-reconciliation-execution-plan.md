@@ -46,7 +46,8 @@ cleanup.
 - Keep annual price at `$79.99/year` with `save 17%`.
 - Keep monthly price at `$7.99/month`.
 - Update Pro benefits to include:
-  - Unlimited generations
+  - Unlimited generations for normal use
+  - Fair-use abuse guardrail disclosure
   - All premium personas unlocked
   - Full/deep conversation memory
   - Priority support

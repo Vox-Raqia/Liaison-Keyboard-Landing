@@ -51,7 +51,8 @@
 
   <rect x="898" y="622" width="228" height="162" rx="24" fill="url(#pro)"/>
   <text x="924" y="666" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="800">Liaison Keyboard Pro</text>
-  <text x="924" y="696" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">Unlimited generations</text>
-  <text x="924" y="722" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">Deep Memory</text>
-  <text x="924" y="748" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">Priority support</text>
+  <text x="924" y="696" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">Unlimited for normal use</text>
+  <text x="924" y="718" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12">Fair-use guardrails apply</text>
+  <text x="924" y="742" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">Deep Memory</text>
+  <text x="924" y="766" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">Priority support</text>
 </svg>
