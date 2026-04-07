@@ -27,7 +27,10 @@
       return;
     }
 
-    window.gtag("event", eventName, payload);
+    window.gtag("event", eventName, {
+      ...payload,
+      transport_type: "beacon",
+    });
   }
 
   function safeGet(key) {
