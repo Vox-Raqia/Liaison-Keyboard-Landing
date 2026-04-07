@@ -536,54 +536,53 @@
 
     const slides = [
       {
-        kicker: "Workflow story",
+        kicker: "Message walkthrough",
         step: "The message lands",
         title: "See the message before you decide how to answer.",
         caption:
-          "The thread lands first, then Liaison Keyboard helps you figure out what to say back.",
+          "See the incoming text first, then compare your reply options before anything gets sent.",
         image: "./assets/previews/hero-story-01-incoming.png",
         alt:
-          "Google Messages screenshot showing Morgan Patel asking for the clean client recap by 9 PM.",
+          "Preview of a stressful incoming text before comparing reply options inside Liaison Keyboard.",
       },
       {
-        kicker: "Workflow story",
+        kicker: "Message walkthrough",
         step: "Escalation lands",
         title: "The second message raises the stakes.",
         caption:
           "The urgency gets sharper before you write a single word back.",
         image: "./assets/previews/hero-story-02-follow-up.png",
         alt:
-          "Google Messages screenshot showing Morgan Patel sending a second urgent follow-up asking for the summary first if the full deck cannot be sent.",
+          "Preview of the same conversation getting more urgent before you write back.",
       },
       {
-        kicker: "Workflow story",
+        kicker: "Message walkthrough",
         step: "Private triage",
         title: "Liaison Keyboard gives you three clear directions.",
         caption:
           "The thread stays intact, and Liaison Keyboard gives you three clear ways to answer before you send anything.",
         image: "./assets/previews/hero-reply-studio.svg",
         alt:
-          "Liaison Keyboard screen showing one incoming message and three reply directions inside the app.",
+          "Liaison Keyboard showing one incoming message and three reply options inside the app.",
       },
       {
-        kicker: "Workflow story",
+        kicker: "Message walkthrough",
         step: "Draft stays manual",
         title: "The reply still stays in your hands.",
         caption:
           "The draft sits in the composer so you can still review it, edit it, or back out.",
         image: "./assets/previews/hero-story-04-draft.png",
         alt:
-          "Google Messages screenshot showing a measured reply drafted in the message composer, ready for review before sending.",
+          "Preview of a drafted reply waiting for review before anything is sent.",
       },
       {
-        kicker: "Workflow story",
+        kicker: "Message walkthrough",
         step: "Thread settles",
         title: "The exchange calms down instead of spiraling.",
         caption:
           "A final acknowledgement shows the exchange settling after you choose what to send.",
         image: "./assets/previews/hero-story-05-resolution.png",
-        alt:
-          "Google Messages screenshot showing Morgan agreeing to review the summary first after the calm reply.",
+        alt: "Preview of the conversation calming down after a measured reply.",
       },
     ];
 
