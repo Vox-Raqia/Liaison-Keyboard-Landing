@@ -5,116 +5,244 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Temporary Site Error | Liaison Reply</title>
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap");
+
       :root {
-        --bg: #eef2f6;
-        --ink: #10233d;
-        --ink-soft: #53657d;
-        --line: rgba(16, 35, 61, 0.12);
-        --panel: #ffffff;
-        --brand: #0d4a97;
-        --accent: #10b7d8;
+        --bg: #0b0f1e;
+        --bg-section: #0f1628;
+        --surface: rgba(20, 29, 46, 0.84);
+        --surface-strong: rgba(24, 36, 59, 0.96);
+        --ink: #f0f4ff;
+        --ink-soft: #b8c4d7;
+        --ink-muted: #7d8ca4;
+        --line: rgba(255, 255, 255, 0.1);
+        --accent: #2dd4f0;
+        --accent-hover: #14b8d4;
+        --shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+        --radius-xl: 28px;
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        min-height: 100%;
+        background:
+          radial-gradient(circle at 18% 18%, rgba(45, 212, 240, 0.18), transparent 24%),
+          radial-gradient(circle at 82% 16%, rgba(125, 140, 164, 0.12), transparent 20%),
+          linear-gradient(180deg, #0b0f1e 0%, #0f1628 52%, #0b0f1e 100%);
+      }
+
       body {
         margin: 0;
         min-height: 100vh;
-        background: var(--bg);
         color: var(--ink);
-        font-family: "Segoe UI", Arial, sans-serif;
+        font-family: "SF Pro Display", "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+        background: transparent;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .shell {
+        width: min(1240px, calc(100% - 40px));
+        margin: 0 auto;
       }
 
       .topbar {
-        background: var(--brand);
-        color: #ffffff;
-      }
-
-      .topbar-inner,
-      .page,
-      .footer {
-        width: min(1120px, calc(100% - 40px));
-        margin: 0 auto;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid var(--line);
+        background: rgba(11, 15, 30, 0.88);
+        backdrop-filter: blur(12px);
       }
 
       .topbar-inner {
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
         gap: 12px;
-        padding: 18px 0;
-        font-size: 1.55rem;
         font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+        font-size: 1.05rem;
       }
 
       .brand-mark {
-        width: 18px;
-        height: 18px;
-        border: 2px solid rgba(255, 255, 255, 0.95);
-        border-radius: 4px;
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        border: 1px solid rgba(45, 212, 240, 0.38);
+        background:
+          linear-gradient(180deg, rgba(45, 212, 240, 0.2), rgba(45, 212, 240, 0.08)),
+          rgba(20, 29, 46, 0.92);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
       }
 
-      .page {
-        padding: 56px 0 80px;
+      .brand-accent {
+        color: var(--accent);
+      }
+
+      .nav-link {
+        color: var(--ink-soft);
+        font-size: 0.94rem;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+        gap: 34px;
+        align-items: stretch;
+        padding: 54px 0 32px;
+      }
+
+      .hero-copy {
+        padding-top: 10px;
       }
 
       .eyebrow {
-        margin-bottom: 14px;
-        color: var(--ink-soft);
-        font-size: 0.82rem;
+        margin: 0 0 18px;
+        color: var(--accent);
+        font-size: 0.84rem;
         font-weight: 700;
-        letter-spacing: 0.16em;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
       }
 
       h1 {
-        margin: 0 0 14px;
-        font-size: clamp(2rem, 4vw, 2.75rem);
-        line-height: 1.15;
+        max-width: 12ch;
+        margin: 0 0 20px;
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(3rem, 5.6vw, 5.3rem);
+        font-weight: 600;
+        line-height: 0.98;
+        letter-spacing: -0.04em;
       }
 
       .lede {
-        max-width: 860px;
-        margin: 0 0 34px;
+        max-width: 62ch;
+        margin: 0 0 26px;
         color: var(--ink-soft);
-        font-size: 1.04rem;
+        font-size: 1.08rem;
+        line-height: 1.72;
+      }
+
+      .assurance {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 20px;
+        color: var(--ink-muted);
+        font-size: 0.95rem;
+      }
+
+      .assurance span::before {
+        content: "";
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        margin-right: 10px;
+        border-radius: 999px;
+        background: var(--accent);
+        vertical-align: middle;
+        box-shadow: 0 0 0 5px rgba(45, 212, 240, 0.08);
+      }
+
+      .message-panel {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        background:
+          linear-gradient(180deg, rgba(24, 36, 59, 0.96), rgba(15, 22, 40, 0.96));
+        box-shadow: var(--shadow);
+      }
+
+      .message-panel::before {
+        content: "";
+        position: absolute;
+        inset: -20% auto auto 56%;
+        width: 220px;
+        height: 220px;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(45, 212, 240, 0.2), transparent 68%);
+        pointer-events: none;
+      }
+
+      .message-inner {
+        position: relative;
+        padding: 30px 28px;
+      }
+
+      .panel-kicker {
+        margin: 0 0 16px;
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .panel-title {
+        margin: 0 0 14px;
+        font-size: 2rem;
+        line-height: 1.08;
+      }
+
+      .panel-body {
+        margin: 0 0 20px;
+        color: var(--ink-soft);
         line-height: 1.7;
       }
 
-      .cards {
+      .panel-note {
+        padding: 14px 16px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(11, 15, 30, 0.48);
+        color: var(--ink-soft);
+        line-height: 1.7;
+      }
+
+      .actions {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 28px;
-      }
-
-      .card {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-        min-height: 248px;
-        padding: 30px 24px;
-        background: var(--panel);
+        gap: 0;
+        margin: 18px 0 54px;
         border: 1px solid var(--line);
-        box-shadow: 0 16px 42px rgba(15, 23, 42, 0.06);
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(12px);
       }
 
-      .card h2 {
-        margin: 0;
-        font-size: 1.55rem;
+      .action {
+        padding: 28px 26px 30px;
+      }
+
+      .action + .action {
+        border-left: 1px solid var(--line);
+      }
+
+      .action h2 {
+        margin: 0 0 12px;
+        font-size: 1.36rem;
         line-height: 1.2;
       }
 
-      .card p {
-        margin: 0;
+      .action p {
+        margin: 0 0 22px;
         color: var(--ink-soft);
         line-height: 1.7;
-      }
-
-      .spacer {
-        flex: 1;
       }
 
       .button {
@@ -123,55 +251,90 @@
         justify-content: center;
         min-height: 48px;
         padding: 0 18px;
-        border: 1px solid var(--accent);
-        color: var(--brand);
-        background: #ffffff;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #08111e;
+        font-size: 0.95rem;
         font-weight: 700;
-        text-align: center;
-        text-decoration: none;
+        transition:
+          transform 100ms ease,
+          background 150ms ease;
       }
 
       .button:hover {
-        background: #ecfeff;
+        background: var(--accent-hover);
+      }
+
+      .button:active {
+        transform: scale(0.98);
+      }
+
+      .button-secondary {
+        background: transparent;
+        color: var(--ink);
+        border: 1px solid rgba(45, 212, 240, 0.45);
+      }
+
+      .button-secondary:hover {
+        background: rgba(45, 212, 240, 0.1);
       }
 
       .footer {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 20px;
-        padding: 22px 0 28px;
-        border-top: 1px solid rgba(16, 35, 61, 0.08);
-        color: var(--ink-soft);
+        gap: 18px;
+        padding: 0 0 28px;
+        color: var(--ink-muted);
         font-size: 0.94rem;
       }
 
       .footer-links {
         display: flex;
-        gap: 18px;
         flex-wrap: wrap;
+        gap: 18px;
       }
 
-      .status {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .status-dot {
-        width: 11px;
-        height: 11px;
-        border-radius: 999px;
-        background: #22c55e;
-      }
-
-      @media (max-width: 900px) {
-        .cards {
+      @media (max-width: 960px) {
+        .hero {
           grid-template-columns: 1fr;
         }
 
-        .card {
-          min-height: 0;
+        h1 {
+          max-width: 14ch;
+        }
+
+        .actions {
+          grid-template-columns: 1fr;
+        }
+
+        .action + .action {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .shell {
+          width: min(100% - 28px, 100%);
+        }
+
+        .topbar-inner {
+          padding: 14px 0;
+        }
+
+        .hero {
+          padding-top: 34px;
+        }
+
+        h1 {
+          font-size: clamp(2.6rem, 13vw, 3.8rem);
+        }
+
+        .message-inner,
+        .action {
+          padding-left: 20px;
+          padding-right: 20px;
         }
 
         .footer {
@@ -183,60 +346,77 @@
   </head>
   <body>
     <header class="topbar">
-      <div class="topbar-inner">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span>Liaison Reply</span>
+      <div class="shell topbar-inner">
+        <a class="brand" href="https://liaisonreply.com/" aria-label="Liaison Reply home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Liaison <span class="brand-accent">Reply</span></span>
+        </a>
+        <a class="nav-link" href="mailto:support@liaisonreply.com">support@liaisonreply.com</a>
       </div>
     </header>
 
-    <main class="page">
-      <p class="eyebrow">Temporary Site Error</p>
-      <h1>Sorry, Liaison Reply cannot be reached right now (Error 500)</h1>
-      <p class="lede">
-        An internal error interrupted the page before it could finish loading. Please retry in a
-        few minutes. If the site still does not come back, use the support link below and we will
-        investigate quickly.
-      </p>
-
-      <section class="cards" aria-label="Recovery actions">
-        <article class="card">
-          <h2>Try The Homepage Again</h2>
-          <p>
-            Return to the main marketing site and reload from the start.
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Error 500</p>
+          <h1>The site is down for a minute.</h1>
+          <p class="lede">
+            The page broke before it could finish loading. If you were just trying to get back to
+            the product, the app may still be fine. If not, support can take it from here.
           </p>
-          <div class="spacer"></div>
-          <a class="button" href="https://liaisonreply.com/">Go To Homepage</a>
+          <div class="assurance" aria-label="Key reassurance">
+            <span>App access may still be available</span>
+            <span>No action is required on your account</span>
+            <span>Support is the fastest fallback</span>
+          </div>
+        </div>
+
+        <aside class="message-panel" aria-label="Recovery note">
+          <div class="message-inner">
+            <p class="panel-kicker">What This Means</p>
+            <h2 class="panel-title">This is a temporary interruption, not a dead end.</h2>
+            <p class="panel-body">
+              Retry the homepage in a minute or jump straight into the app if you already know where
+              you need to go. If the same page keeps failing, email support with the URL you were
+              opening and we will investigate it directly.
+            </p>
+            <div class="panel-note">
+              Best support note: tell us the page you were opening, roughly when it failed, and
+              whether the app login still worked.
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="actions" aria-label="Recovery actions">
+        <article class="action">
+          <h2>Reload the homepage</h2>
+          <p>Start over from the main site once the page settles.</p>
+          <a class="button" href="https://liaisonreply.com/">Go to homepage</a>
         </article>
 
-        <article class="card">
-          <h2>Open The App</h2>
-          <p>
-            If the website is down but the app is healthy, you can still sign in directly.
-          </p>
-          <div class="spacer"></div>
-          <a class="button" href="https://app.liaisonreply.com/auth/login">Open Login</a>
+        <article class="action">
+          <h2>Open the app</h2>
+          <p>If the marketing site is down but the product is healthy, sign in directly.</p>
+          <a class="button button-secondary" href="https://app.liaisonreply.com/auth/login"
+            >Open login</a
+          >
         </article>
 
-        <article class="card">
-          <h2>Contact Support</h2>
-          <p>
-            Tell us what you were trying to open and we will use that to trace the failure path.
-          </p>
-          <div class="spacer"></div>
+        <article class="action">
+          <h2>Contact support</h2>
+          <p>If the issue keeps happening, send the failing page URL and we will trace it.</p>
           <a
-            class="button"
+            class="button button-secondary"
             href="mailto:support@liaisonreply.com?subject=Liaison%20Reply%20site%20500%20error"
-            >Email Support</a
+            >Email support</a
           >
         </article>
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="status">
-        <span class="status-dot" aria-hidden="true"></span>
-        <span>Need help now? support@liaisonreply.com</span>
-      </div>
+    <footer class="shell footer">
+      <span>Liaison Reply helps you review before you reply.</span>
       <div class="footer-links">
         <a href="/privacy.html">Privacy Policy</a>
         <a href="/terms.html">Terms</a>
