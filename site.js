@@ -1,9 +1,9 @@
 (() => {
-  const APP_ORIGIN = "https://app.liaisonkeyboard.com";
+  const APP_ORIGIN = "https://app.liaisonreply.com";
   const ATTR_STORAGE_KEY = "lk_deeplink";
   const AUTH_HINT_KEY = "liaison_auth_hint";
   const COOKIE_CONSENT_KEY = "liaison_cookie_consent";
-  const ROOT_COOKIE_DOMAIN = ".liaisonkeyboard.com";
+  const ROOT_COOKIE_DOMAIN = ".liaisonreply.com";
   const LANDING_DEBUG_EVENT_KEY = "__liaisonLandingEvents";
 
   function recordLandingEvent(eventName, payload = {}) {

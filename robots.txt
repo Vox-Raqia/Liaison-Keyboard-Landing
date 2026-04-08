@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://liaisonkeyboard.com/sitemap.xml
+Sitemap: https://liaisonreply.com/sitemap.xml
