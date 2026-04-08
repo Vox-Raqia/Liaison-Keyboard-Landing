@@ -22,6 +22,6 @@
   <path d="M410 462H790" stroke="#2dd4f0" stroke-opacity=".32" stroke-width="4"/><path d="M382 668L818 404" stroke="#8b5cf6" stroke-opacity=".24" stroke-width="4"/><path d="M382 404L818 668" stroke="#2dd4f0" stroke-opacity=".2" stroke-width="4"/>
   <circle cx="600" cy="300" r="10" fill="#2dd4f0"/><circle cx="873" cy="472" r="10" fill="#8b5cf6"/><circle cx="786" cy="806" r="10" fill="#2dd4f0"/><circle cx="414" cy="806" r="10" fill="#8b5cf6"/><circle cx="327" cy="472" r="10" fill="#2dd4f0"/>
   <rect x="458" y="548" width="284" height="104" rx="26" fill="#101826" stroke="#28405b"/>
-  <text x="600" y="590" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="24" font-weight="800" text-anchor="middle">Liaison Keyboard</text>
+  <text x="600" y="590" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="24" font-weight="800" text-anchor="middle">Liaison Reply</text>
   <text x="600" y="622" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" text-anchor="middle">Connected communication geometry</text>
 </svg>

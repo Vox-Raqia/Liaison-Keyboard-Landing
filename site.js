@@ -257,9 +257,9 @@
     if (summary) {
       summary.textContent = hasSavedPreference
         ? continuityEnabled
-          ? "Liaison Keyboard can remember which scenario or link brought you here and help you pick up where you left off between the site and the app."
-          : "Liaison Keyboard will not keep scenario or referral details after you leave, so each visit starts fresh."
-        : "Choose whether Liaison Keyboard should remember the path into the app or keep storage limited to what the site needs to work.";
+          ? "Liaison Reply can remember which scenario or link brought you here and help you pick up where you left off between the site and the app."
+          : "Liaison Reply will not keep scenario or referral details after you leave, so each visit starts fresh."
+        : "Choose whether Liaison Reply should remember the path into the app or keep storage limited to what the site needs to work.";
     }
 
     if (meta) {
@@ -298,7 +298,7 @@
     document.querySelectorAll("[data-session-primary]").forEach((link) => {
       const authText = link.getAttribute("data-auth-text") || "Start Free";
       const sessionText = link.getAttribute("data-session-text") ||
-        "Open Liaison Keyboard";
+        "Open Liaison Reply";
       const authPath = link.getAttribute("data-auth-path") || "/auth/register";
       const sessionPath = link.getAttribute("data-session-path") || "/chat";
       const extraParams = getLinkExtraParams(link);
@@ -457,8 +457,8 @@
     hydrateSessionButtons();
     renderCookiePreferenceUI(nextConsent, {
       feedback: continuityEnabled
-        ? "Liaison Keyboard can now remember the path between the site and the app, so picking back up feels smoother."
-        : "Liaison Keyboard will now use necessary storage only. Saved handoff details have been cleared.",
+        ? "Liaison Reply can now remember the path between the site and the app, so picking back up feels smoother."
+        : "Liaison Reply will now use necessary storage only. Saved handoff details have been cleared.",
       focusFeedback: true,
     });
   }
@@ -543,7 +543,7 @@
           "See the incoming text first, then compare your reply options before anything gets sent.",
         image: "./assets/previews/hero-story-01-incoming.png",
         alt:
-          "Preview of a stressful incoming text before comparing reply options inside Liaison Keyboard.",
+          "Preview of a stressful incoming text before comparing reply options inside Liaison Reply.",
       },
       {
         kicker: "Message walkthrough",
@@ -558,12 +558,12 @@
       {
         kicker: "Message walkthrough",
         step: "Private triage",
-        title: "Liaison Keyboard gives you three clear directions.",
+        title: "Liaison Reply gives you three clear directions.",
         caption:
-          "The thread stays intact, and Liaison Keyboard gives you three clear ways to answer before you send anything.",
+          "The thread stays intact, and Liaison Reply gives you three clear ways to answer before you send anything.",
         image: "./assets/previews/hero-reply-studio.svg",
         alt:
-          "Liaison Keyboard showing one incoming message and three reply options inside the app.",
+          "Liaison Reply showing one incoming message and three reply options inside the app.",
       },
       {
         kicker: "Message walkthrough",
