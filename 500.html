@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Site Error Recovery | Liaison Reply</title>
+    <link rel="icon" type="image/png" href="./assets/liaison-icon-16.png" />
+    <link rel="apple-touch-icon" href="./assets/liaison-icon-180.png" />
+    <title>Recovery Steps | Liaison Reply</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap");
 
@@ -77,15 +79,10 @@
         font-size: 1.05rem;
       }
 
-      .brand-mark {
+      .brand-icon {
         width: 34px;
         height: 34px;
         border-radius: 10px;
-        border: 1px solid rgba(45, 212, 240, 0.38);
-        background:
-          linear-gradient(180deg, rgba(45, 212, 240, 0.2), rgba(45, 212, 240, 0.08)),
-          rgba(20, 29, 46, 0.92);
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
       }
 
       .brand-accent {
@@ -348,7 +345,7 @@
     <header class="topbar">
       <div class="shell topbar-inner">
         <a class="brand" href="https://liaisonreply.com/" aria-label="Liaison Reply home">
-          <span class="brand-mark" aria-hidden="true"></span>
+          <img class="brand-icon" src="./assets/liaison-icon.svg" alt="" aria-hidden="true" />
           <span>Liaison <span class="brand-accent">Reply</span></span>
         </a>
         <a class="nav-link" href="mailto:support@liaisonreply.com">support@liaisonreply.com</a>
@@ -359,30 +356,28 @@
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Site Error 500</p>
-          <h1>This page could not load.</h1>
+          <h1>This page could not finish loading.</h1>
           <p class="lede">
-            Start with a refresh. If the same page fails again, go directly to the app if that was
-            your destination. If the error keeps repeating on this page, email support with the page
-            URL.
+            Follow the steps below in order. Start with a refresh. If you were only passing through
+            this page on the way to the app, try going straight to sign in instead.
           </p>
           <div class="assurance" aria-label="Key reassurance">
-            <span>A single refresh usually clears one-off page failures</span>
+            <span>Start with a clean refresh first</span>
             <span>The app may still be available even if this page is not</span>
-            <span>Repeated failures should be reported with the failing URL</span>
+            <span>Repeated failures should be reported with the page URL</span>
           </div>
         </div>
 
         <aside class="message-panel" aria-label="Recovery note">
           <div class="message-inner">
-            <p class="panel-kicker">If You Contact Support</p>
-            <h2 class="panel-title">Send the page URL and roughly when it failed.</h2>
+            <p class="panel-kicker">Support Details</p>
+            <h2 class="panel-title">If it repeats, send the failing page URL.</h2>
             <p class="panel-body">
-              That is usually enough for us to trace the broken route. If app sign in still works,
-              mention that too. It helps narrow the problem down faster.
+              Also mention roughly when it failed. If app sign in still works, include that too. In
+              most cases, that is enough for us to trace the route that broke.
             </p>
             <div class="panel-note">
-              Helpful support note: include the page you were opening, roughly when it failed, and
-              whether app sign in still worked.
+              Example: the page URL, the time it failed, and whether sign in still worked.
             </div>
           </div>
         </aside>
@@ -405,7 +400,7 @@
 
         <article class="action">
           <h2>3. Contact support if it repeats</h2>
-          <p>If the same page keeps failing, send the page URL and we will trace that route.</p>
+          <p>If the same page keeps failing, send the page URL and roughly when it happened.</p>
           <a
             class="button button-secondary"
             href="mailto:support@liaisonreply.com?subject=Liaison%20Reply%20site%20500%20error"
@@ -416,7 +411,7 @@
     </main>
 
     <footer class="shell footer">
-      <span>Liaison Reply error recovery</span>
+      <span>Liaison Reply recovery guide</span>
       <div class="footer-links">
         <a href="/privacy.html">Privacy Policy</a>
         <a href="/terms.html">Terms</a>
