@@ -8,7 +8,7 @@ It is a plain HTML, CSS, and JavaScript site that handles:
 - pricing and CTA handoff into the app
 - scenario-based previews and supporting landing content
 - legal and support pages
-- continuity-aware routing into `app.liaisonkeyboard.com`
+- continuity-aware routing into `app.liaisonreply.com`
 
 The actual product experience lives in the separate `Liaison-Keyboard` repo.
 
@@ -42,7 +42,7 @@ The landing site should reflect the shipped product honestly:
 - cookie-consent state
 - attribution persistence for allowed continuity cookies
 - auth/session-aware CTA hydration
-- app-path URL construction for links into `app.liaisonkeyboard.com`
+- app-path URL construction for links into `app.liaisonreply.com`
 - screenshot-led hero story navigation
 - mobile navigation controls
 
