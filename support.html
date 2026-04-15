@@ -129,11 +129,11 @@
             class="button button-secondary"
             href="https://app.liaisonreply.com/auth/register"
             data-session-primary
-            data-auth-text="Start Free"
-            data-session-text="Back to Liaison Reply"
+            data-auth-text="Start Free & Try a Reply"
+            data-session-text="Open Liaison Reply"
             data-auth-path="/auth/register"
             data-session-path="/chat"
-          >Start Free</a>
+          >Start Free &amp; Try a Reply</a>
         </div>
       </div>
     </header>
@@ -171,7 +171,8 @@
             <span class="utility-meta-label">Fastest path</span>
             <p>
               If you already have an account, open Liaison Reply first so
-              your account context is easier to verify.
+              you can continue the right thread or start a new one before
+              contacting support.
             </p>
           </article>
         </section>
@@ -225,14 +226,15 @@
                 <ul class="utility-action-list">
                   <li>
                     Log in if you already have an account and want to get back
-                    into a thread.
+                    into an existing thread.
                   </li>
                   <li>
-                    Create an account if you want to start with free generation.
+                    Start free if you want to test one loaded message before
+                    you contact support.
                   </li>
                   <li>
-                    Use scenario pages when you want a direct starting point
-                    with prefilled context.
+                    If you are already signed in, jump back into Liaison Reply
+                    or start a fresh thread with one click.
                   </li>
                 </ul>
                 <div class="cta-row cta-row-compact">
@@ -241,9 +243,21 @@
                     href="https://app.liaisonreply.com/auth/login"
                   >Log in</a>
                   <a
-                    class="button button-ghost"
+                    class="button button-primary"
                     href="https://app.liaisonreply.com/auth/register"
-                  >Create account</a>
+                    data-session-primary
+                    data-auth-text="Start Free & Try a Reply"
+                    data-session-text="Back to Liaison Reply"
+                    data-auth-path="/auth/register"
+                    data-session-path="/chat"
+                  >Start Free &amp; Try a Reply</a>
+                  <a
+                    class="button button-ghost is-hidden"
+                    href="https://app.liaisonreply.com/chat?new_thread=1"
+                    data-session-secondary
+                    data-session-text="Start a New Thread"
+                    data-session-path="/chat?new_thread=1"
+                  >Start a New Thread</a>
                 </div>
               </article>
 
