@@ -33,6 +33,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--bg);
+  overflow-x: hidden;
 }
 
 body {
@@ -43,6 +44,7 @@ body {
     "SF Pro Display", "SF Pro Text", "Segoe UI", system-ui, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 a {
@@ -370,6 +372,7 @@ h3 {
 .hero-section,
 .section {
   padding: clamp(76px, 7vw, 112px) 0;
+  overflow-x: clip;
 }
 
 .hero-section {
@@ -927,12 +930,14 @@ h3 {
 }
 
 .section-proof,
+.section-demo,
 .section-use-cases,
 .section-final-cta {
   background: var(--bg-section);
 }
 
 .section-steps,
+.section-difference,
 .section-faq {
   background: var(--bg);
 }
@@ -994,6 +999,7 @@ h3 {
 }
 
 .proof-grid,
+.difference-grid,
 .use-case-grid,
 .faq-grid {
   display: grid;
@@ -1051,6 +1057,57 @@ h3 {
 
 .steps-grid {
   align-items: start;
+}
+
+.demo-layout {
+  display: grid;
+  gap: 2rem;
+}
+
+.demo-stage {
+  margin-inline: auto;
+  width: min(100%, 980px);
+}
+
+.difference-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.difference-card {
+  padding: 1.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(
+    180deg,
+    rgba(20, 29, 46, 0.96),
+    rgba(10, 17, 31, 0.98)
+  );
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 0.85rem;
+}
+
+.difference-card-accent {
+  border-color: rgba(45, 212, 240, 0.28);
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(45, 212, 240, 0.12),
+      transparent 24%
+    ),
+    linear-gradient(180deg, rgba(21, 34, 54, 0.98), rgba(8, 15, 28, 0.98));
+}
+
+.difference-label {
+  color: var(--accent-cyan);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.difference-card p:last-child {
+  color: var(--ink-soft);
 }
 
 .steps-copy {
@@ -1469,6 +1526,23 @@ h3 {
   box-shadow: var(--shadow);
   overflow-y: auto;
   overscroll-behavior: contain;
+}
+
+.sticky-mobile-cta {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: max(10px, env(safe-area-inset-bottom));
+  z-index: 110;
+}
+
+.sticky-mobile-cta[hidden] {
+  display: none !important;
+}
+
+.sticky-mobile-cta .button {
+  width: 100%;
+  box-shadow: 0 20px 44px rgba(2, 8, 18, 0.36);
 }
 
 .cookie-banner[hidden] {
@@ -1980,6 +2054,7 @@ h3 {
   }
 
   .proof-grid,
+  .difference-grid,
   .pricing-grid-three {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2004,6 +2079,7 @@ h3 {
   .utility-actions,
   .hero-grid,
   .steps-grid,
+  .difference-grid,
   .use-case-grid,
   .faq-grid,
   .pricing-grid-three,
@@ -2088,6 +2164,10 @@ h3 {
     bottom: max(12px, env(safe-area-inset-bottom));
     max-height: calc(100svh - 20px - env(safe-area-inset-top));
   }
+
+  .sticky-mobile-cta {
+    display: none;
+  }
 }
 
 @media (max-width: 640px) {
@@ -2138,7 +2218,16 @@ h3 {
   }
 
   .hero-copy h1 {
-    font-size: clamp(2.35rem, 11.8vw, 3.7rem);
+    font-size: clamp(2rem, 10.2vw, 3.2rem);
+    line-height: 1.03;
+  }
+
+  .hero-copy h1,
+  .hero-subcopy,
+  .hero-checkmarks li,
+  .hero-proof-line {
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 
   .utility-page .shell,
@@ -2160,6 +2249,10 @@ h3 {
     font-size: 0.9rem;
   }
 
+  .topbar-actions .button-primary-nav {
+    display: none;
+  }
+
   .cta-row,
   .cta-row-compact,
   .hero-assurance-row,
@@ -2174,6 +2267,8 @@ h3 {
   .utility-action-card .button,
   .scenario-cta .button {
     width: 100%;
+    white-space: normal;
+    line-height: 1.25;
   }
 
   .utility-hero,
@@ -2229,5 +2324,9 @@ h3 {
 
   .cookie-banner__text {
     font-size: 0.95rem;
+  }
+
+  .sticky-mobile-cta[data-visible="true"] {
+    display: block;
   }
 }

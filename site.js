@@ -635,6 +635,64 @@
     applySlide(0);
   }
 
+  function initStickyMobileCta() {
+    const stickyCta = document.querySelector("[data-sticky-mobile-cta]");
+    const hero = document.querySelector(".hero-section");
+
+    if (!stickyCta || !hero) {
+      return;
+    }
+
+    const mobileQuery = window.matchMedia("(max-width: 640px)");
+    const cookieBanner = document.querySelector("[data-cookie-banner]");
+    let heroVisible = true;
+
+    const syncStickyState = () => {
+      const showSticky = mobileQuery.matches &&
+        !heroVisible &&
+        !(cookieBanner && !cookieBanner.hidden);
+
+      stickyCta.hidden = !showSticky;
+      stickyCta.dataset.visible = showSticky ? "true" : "false";
+    };
+
+    if (typeof window.IntersectionObserver !== "function") {
+      heroVisible = false;
+      syncStickyState();
+      return;
+    }
+
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          heroVisible = entry.isIntersecting;
+          syncStickyState();
+        });
+      },
+      {
+        threshold: 0.1,
+      },
+    );
+
+    observer.observe(hero);
+
+    if (typeof mobileQuery.addEventListener === "function") {
+      mobileQuery.addEventListener("change", syncStickyState);
+    } else if (typeof mobileQuery.addListener === "function") {
+      mobileQuery.addListener(syncStickyState);
+    }
+
+    if (cookieBanner && typeof MutationObserver === "function") {
+      const mutationObserver = new MutationObserver(syncStickyState);
+      mutationObserver.observe(cookieBanner, {
+        attributes: true,
+        attributeFilter: ["hidden"],
+      });
+    }
+
+    syncStickyState();
+  }
+
   const menuToggle = document.querySelector(".menu-toggle");
   const mobileMenu = document.querySelector(".nav-mobile");
   const mobileClose = document.querySelector(".nav-mobile-close");
@@ -679,6 +737,7 @@
   initCookieControls();
   initFaqAccordion();
   initHeroStory();
+  initStickyMobileCta();
   captureAttribution();
   hydrateSessionButtons();
   hydrateAppLinks();
