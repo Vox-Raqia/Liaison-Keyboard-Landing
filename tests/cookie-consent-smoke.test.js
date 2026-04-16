@@ -161,6 +161,12 @@ test(
     );
     assert.match((await status.textContent()) || "", /Continuity cookies are active\./);
 
+    await page.evaluate(() => {
+      document.cookie = "_ga=GA1.1.local-consent-smoke; path=/; SameSite=Lax";
+      document.cookie =
+        "_ga_FMVPQNPPDD=GS2.1.local-consent-smoke; path=/; SameSite=Lax";
+    });
+
     await page.locator('[data-cookie-action="necessary-only"]').click();
 
     await page.waitForFunction(
@@ -170,7 +176,10 @@ test(
     );
 
     const feedback = await page.locator("[data-cookie-feedback]").textContent();
-    assert.match(feedback || "", /Saved handoff details have been cleared\./);
+    assert.match(
+      feedback || "",
+      /Saved handoff details and optional analytics cookies have been cleared where supported\./,
+    );
 
     const declinedConsent = await readLocalStorageJson(
       page,
@@ -180,6 +189,10 @@ test(
 
     await page.waitForFunction(() => !window.localStorage.getItem("lk_deeplink"));
     await page.waitForFunction(() => !window.localStorage.getItem("liaison_auth_hint"));
+    await page.waitForFunction(() => !document.cookie.includes("_ga="));
+    await page.waitForFunction(
+      () => !document.cookie.includes("_ga_FMVPQNPPDD="),
+    );
 
     await page.goto(`${baseUrl}/support.html`, { waitUntil: "networkidle" });
 

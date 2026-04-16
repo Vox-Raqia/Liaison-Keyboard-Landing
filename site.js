@@ -5,6 +5,12 @@
   const COOKIE_CONSENT_KEY = "liaison_cookie_consent";
   const ROOT_COOKIE_DOMAIN = ".liaisonreply.com";
   const LANDING_DEBUG_EVENT_KEY = "__liaisonLandingEvents";
+  const ANALYTICS_COOKIE_NAMES = [
+    "_ga",
+    "_ga_FMVPQNPPDD",
+    "_gid",
+    "_gat",
+  ];
 
   function recordLandingEvent(eventName, payload = {}) {
     const existing = Array.isArray(window[LANDING_DEBUG_EVENT_KEY])
@@ -74,8 +80,17 @@
   }
 
   function deleteCookie(name) {
-    document.cookie =
-      `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=${ROOT_COOKIE_DOMAIN}; SameSite=Lax; secure`;
+    const expired = "Thu, 01 Jan 1970 00:00:00 GMT";
+    const variants = [
+      `expires=${expired}; path=/; domain=${ROOT_COOKIE_DOMAIN}; SameSite=Lax; secure`,
+      `expires=${expired}; path=/; domain=${ROOT_COOKIE_DOMAIN}; SameSite=Lax`,
+      `expires=${expired}; path=/; SameSite=Lax; secure`,
+      `expires=${expired}; path=/; SameSite=Lax`,
+    ];
+
+    variants.forEach((attributes) => {
+      document.cookie = `${name}=; ${attributes}`;
+    });
   }
 
   function readConsent() {
@@ -123,6 +138,7 @@
     safeRemove(AUTH_HINT_KEY);
     deleteCookie(ATTR_STORAGE_KEY);
     deleteCookie(AUTH_HINT_KEY);
+    ANALYTICS_COOKIE_NAMES.forEach(deleteCookie);
   }
 
   function currentQueryAttribution() {
@@ -458,7 +474,7 @@
     renderCookiePreferenceUI(nextConsent, {
       feedback: continuityEnabled
         ? "Liaison Reply can now remember the path between the site and the app, so picking back up feels smoother."
-        : "Liaison Reply will now use necessary storage only. Saved handoff details have been cleared.",
+        : "Liaison Reply will now use necessary storage only. Saved handoff details and optional analytics cookies have been cleared where supported.",
       focusFeedback: true,
     });
   }
