@@ -680,6 +680,13 @@ h3 {
   align-items: start;
 }
 
+.hero-story-visual {
+    grid-area: visual;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
 .hero-story-frame {
   margin: 0;
   width: min(100%, clamp(230px, 19vw, 320px));
@@ -735,6 +742,22 @@ h3 {
   display: flex;
   align-items: center;
   gap: 0.55rem;
+  margin-top: 0.25rem;
+}
+
+.hero-story-counter {
+  display: none;
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-width: 40px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .hero-story-counter {
+    display: inline-block;
+  }
 }
 
 .hero-story-arrow {
@@ -824,15 +847,14 @@ h3 {
     margin-top: 0;
   }
 
-  .hero-story {
+.hero-story {
     grid-template-columns: minmax(0, clamp(250px, 20vw, 320px)) minmax(0, 1fr);
     grid-template-areas:
       "topline topline"
-      "frame title"
-      "frame caption"
-      "frame footer"
+      "visual title"
+      "visual caption"
+      "visual footer"
       "step footer"
-      "nav footer"
       "note note";
     column-gap: clamp(24px, 2.4vw, 40px);
     row-gap: 0.6rem;
@@ -848,11 +870,22 @@ h3 {
     display: contents;
   }
 
+  .hero-story-visual {
+    grid-area: visual;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
   .hero-story-frame {
-    grid-area: frame;
     width: min(100%, clamp(250px, 20vw, 320px));
     justify-self: start;
     align-self: start;
+  }
+
+  .hero-story-nav {
+    justify-self: start;
+    margin-top: 0;
   }
 
   [data-hero-story-title] {
@@ -884,17 +917,10 @@ h3 {
     max-width: 210px;
   }
 
-  .hero-story-step {
+.hero-story-step {
     grid-area: step;
     align-self: end;
     margin-top: 0.2rem;
-  }
-
-  .hero-story-nav {
-    grid-area: nav;
-    justify-self: start;
-    align-self: start;
-    margin-top: 0;
   }
 
   .hero-story-proof-note {
@@ -2198,13 +2224,19 @@ h3 {
     object-fit: contain;
   }
 
-  .hero-story-frame,
+.hero-story-frame,
   .hero-story-copy {
     width: min(100%, 280px);
   }
 
   .hero-story-image {
     max-height: min(42vh, 520px);
+  }
+
+  .hero-story-arrow {
+    width: 48px;
+    height: 48px;
+    font-size: 1.65rem;
   }
 
   .utility-main,

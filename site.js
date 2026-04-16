@@ -553,52 +553,66 @@
     const slides = [
       {
         kicker: "Message walkthrough",
-        step: "The message lands",
-        title: "See the message before you decide how to answer.",
+        step: "Step 1: The message lands",
+        title: "Your boss sends something loaded.",
         caption:
-          "See the incoming text first, then compare your reply options before anything gets sent.",
+          "Friday night. 'We need to talk about your performance. Call me tonight.' The weight of that message hits different when you're not expecting it.",
         image: "./assets/previews/hero-story-01-incoming.png",
-        alt:
-          "Preview of a stressful incoming text before comparing reply options inside Liaison Reply.",
+        alt: "Incoming text from a boss saying 'We need to talk about your performance. Call me tonight.'",
       },
       {
         kicker: "Message walkthrough",
-        step: "Escalation lands",
-        title: "The second message raises the stakes.",
+        step: "Step 2: The follow-up",
+        title: "Now it's getting tense.",
         caption:
-          "The urgency gets sharper before you write a single word back.",
+          "Twenty minutes later: 'Well? Are you going to pick up?' The pressure mounts, your mind races, and the urge to react kicks in.",
         image: "./assets/previews/hero-story-02-follow-up.png",
-        alt:
-          "Preview of the same conversation getting more urgent before you write back.",
+        alt: "Follow-up text showing escalating urgency from the same person.",
       },
       {
         kicker: "Message walkthrough",
-        step: "Private triage",
-        title: "Liaison Reply gives you three clear directions.",
+        step: "Step 3: Paste it in",
+        title: "Drop the exact message into Liaison Reply.",
         caption:
-          "The thread stays intact, and Liaison Reply gives you three clear ways to answer before you send anything.",
+          "Paste both texts, add context like 'I have a review next week' or 'This is about a project deadline.' The engine reads the subtext.",
+        image: "./assets/previews/hero-mobile-compose-real.png",
+        alt: "Liaison Reply input screen showing pasted messages and context field.",
+      },
+      {
+        kicker: "Message walkthrough",
+        step: "Step 4: Get three reply options",
+        title: "Three clear directions, not generic AI.",
+        caption:
+          "Natural: 'I saw your message. I'm free this weekend to chat.' Keep it going: 'Let's schedule time to discuss.' Short: 'I'll call tomorrow morning.'",
         image: "./assets/previews/hero-reply-studio.svg",
-        alt:
-          "Liaison Reply showing one incoming message and three reply options inside the app.",
+        alt: "Liaison Reply showing three reply options: Natural, Keep it going, and Short.",
       },
       {
         kicker: "Message walkthrough",
-        step: "Draft stays manual",
-        title: "The reply still stays in your hands.",
+        step: "Step 5: Choose and edit",
+        title: "Pick the one that fits your style.",
         caption:
-          "The draft sits in the composer so you can still review it, edit it, or back out.",
+          "The Short option lands a boundary. But you add 'before 10am' to make it concrete. The draft stays yours.",
         image: "./assets/previews/hero-story-04-draft.png",
-        alt:
-          "Preview of a drafted reply waiting for review before anything is sent.",
+        alt: "Edited draft reply ready in the composer.",
       },
       {
         kicker: "Message walkthrough",
-        step: "Thread settles",
-        title: "The exchange calms down instead of spiraling.",
+        step: "Step 6: Copy and send",
+        title: "You send it. On your terms.",
         caption:
-          "A final acknowledgement shows the exchange settling after you choose what to send.",
+          "Copy the edited reply into your actual text thread. Send it from your phone, your words, your timing.",
+        image: "./assets/previews/demo-mobile-stage.png",
+        alt: "Reply sent in the actual text conversation.",
+      },
+      {
+        kicker: "Message walkthrough",
+        step: "Step 7: Thread settles",
+        title: "The conversation calms down.",
+        caption:
+          "'Sounds good, talk then.' The spiral stops before it starts. You kept your boundary without burning the bridge.",
         image: "./assets/previews/hero-story-05-resolution.png",
-        alt: "Preview of the conversation calming down after a measured reply.",
+        alt: "The conversation settling after a measured response.",
       },
     ];
 
@@ -615,6 +629,11 @@
       caption.textContent = slide.caption;
       image.setAttribute("src", slide.image);
       image.setAttribute("alt", slide.alt);
+
+      const counter = story.querySelector("[data-hero-story-counter]");
+      if (counter) {
+        counter.textContent = `${currentIndex + 1} / ${slides.length}`;
+      }
 
       if (currentIndex === 0) {
         image.setAttribute("loading", "eager");
@@ -647,6 +666,27 @@
         applySlide(currentIndex + 1);
       }
     });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const minSwipeDistance = 50;
+
+    story.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    story.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const swipeDistance = touchEndX - touchStartX;
+
+      if (Math.abs(swipeDistance) > minSwipeDistance) {
+        if (swipeDistance > 0) {
+          applySlide(currentIndex - 1);
+        } else {
+          applySlide(currentIndex + 1);
+        }
+      }
+    }, { passive: true });
 
     applySlide(0);
   }
