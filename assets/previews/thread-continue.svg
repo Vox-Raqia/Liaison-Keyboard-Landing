@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 960" role="img" aria-labelledby="t d">
+  <title id="t">Liaison Reply thread continuation</title>
+  <desc id="d">Continuing a thread with prior context loaded, showing message history and new reply options.</desc>
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1280" y2="880">
+      <stop offset="0" stop-color="#07111d"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="card" x1="250" y1="110" x2="1150" y2="840">
+      <stop offset="0" stop-color="#122033"/>
+      <stop offset="1" stop-color="#0b1422"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="960" rx="42" fill="url(#bg)"/>
+  <circle cx="280" cy="180" r="160" fill="#2dd4f0" fill-opacity=".07"/>
+  <circle cx="1120" cy="220" r="140" fill="#8b5cf6" fill-opacity=".08"/>
+
+  <rect x="170" y="102" width="1060" height="756" rx="34" fill="url(#card)" stroke="#28405b" stroke-width="2"/>
+  <text x="210" y="165" fill="#f8fafc" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="32" font-weight="800">Reply to Jordan</text>
+  <text x="210" y="198" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">The Diplomat · 4 responses</text>
+
+  <rect x="210" y="232" width="980" height="560" rx="24" fill="#0f1a2a" stroke="#24364a"/>
+
+  <rect x="246" y="260" width="440" height="90" rx="20" fill="#101826" stroke="#24364a"/>
+  <text x="270" y="296" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">ORIGINAL MESSAGE</text>
+  <text x="270" y="322" fill="#cbd5e1" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">Hey, can you send the updated proposal?</text>
+
+  <rect x="710" y="260" width="440" height="90" rx="20" fill="#101826" stroke="#2dd4f0" stroke-opacity=".3"/>
+  <text x="734" y="296" fill="#2dd4f0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">YOUR REPLY (SENT)</text>
+  <text x="734" y="322" fill="#e2e8f0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">I saw your message. I'm free this weekend.</text>
+
+  <rect x="246" y="370" width="440" height="90" rx="20" fill="#101826" stroke="#24364a"/>
+  <text x="270" y="406" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">FOLLOW-UP</text>
+  <text x="270" y="432" fill="#cbd5e1" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">Well? Did you send it yet?</text>
+
+  <rect x="246" y="480" width="904" height="80" rx="22" fill="#111b2b" stroke="#24364a"/>
+  <text x="270" y="518" fill="#2dd4f0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="700">Natural</text>
+  <text x="350" y="518" fill="#94a3b8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">"Sent it this morning. Check your email."</text>
+  <text x="270" y="540" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12">Based on thread history ↑</text>
+
+  <rect x="246" y="580" width="904" height="80" rx="22" fill="#111b2b" stroke="#24364a"/>
+  <text x="270" y="618" fill="#2dd4f0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="700">Keep it going</text>
+  <text x="380" y="618" fill="#94a3b8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">"Just sent it. Happy to jump on a call to walk through."</text>
+
+  <rect x="246" y="680" width="904" height="80" rx="22" fill="#111b2b" stroke="#24364a"/>
+  <text x="270" y="718" fill="#2dd4f0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="700">Short</text>
+  <text x="330" y="718" fill="#94a3b8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">"On its way."</text>
+
+  <rect x="210" y="812" width="280" height="46" rx="23" fill="#101826" stroke="#2dd4f0" stroke-opacity=".2"/>
+  <text x="240" y="842" fill="#8fa0b5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">Thread context loaded →</text>
+</svg>
