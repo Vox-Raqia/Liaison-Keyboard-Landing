@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/auth/reset-password",
+      "destination": "/",
+      "permanent": false,
+      "has": [
+        {
+          "type": "query",
+          "key": "code"
+        }
+      ]
+    }
+  ]
+}
