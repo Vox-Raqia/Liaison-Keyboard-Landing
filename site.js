@@ -552,52 +552,52 @@
 
     const slides = [
       {
-        kicker: "Message walkthrough",
+        kicker: "The workflow",
         step: "Step 1: The message lands",
         title: "Your boss sends something loaded.",
         caption:
-          "Friday night. 'We need to talk about your performance. Call me tonight.' The weight of that message hits different when you're not expecting it.",
+          "After hours. 'We need to talk about your performance. Call me tonight.' The message lands when you're not expecting it.",
         image: "./assets/previews/hero-story-01-incoming.png",
         alt: "Incoming text from a boss saying 'We need to talk about your performance. Call me tonight.'",
       },
       {
-        kicker: "Message walkthrough",
+        kicker: "The workflow",
         step: "Step 2: The follow-up",
-        title: "Now it's getting tense.",
+        title: "The follow-up arrives.",
         caption:
-          "Twenty minutes later: 'Well? Are you going to pick up?' The pressure mounts, your mind races, and the urge to react kicks in.",
+          "Twenty minutes later: 'Well? Are you going to pick up?' The urgency sharpens before you write back.",
         image: "./assets/previews/hero-story-02-follow-up.png",
         alt: "Follow-up text showing escalating urgency from the same person.",
       },
       {
-        kicker: "Message walkthrough",
+        kicker: "The workflow",
         step: "Step 3: Paste it in",
         title: "Drop the exact message into Liaison Reply.",
         caption:
-          "Paste both texts, add context like 'I have a review next week' or 'This is about a project deadline.' The engine reads the subtext.",
+          "Paste both texts, add context like 'I have a review next week' or 'This is about a project deadline.' Context helps Liaison Reply understand nuance and intent.",
         image: "./assets/previews/hero-mobile-compose-real.png",
         alt: "Liaison Reply input screen showing pasted messages and context field.",
       },
       {
-        kicker: "Message walkthrough",
+        kicker: "The workflow",
         step: "Step 4: Get three reply options",
-        title: "Three clear directions, not generic AI.",
+        title: "Three clear directions tailored to your goal.",
         caption:
           "Natural: 'I saw your message. I'm free this weekend to chat.' Keep it going: 'Let's schedule time to discuss.' Short: 'I'll call tomorrow morning.'",
         image: "./assets/previews/hero-reply-studio.svg",
-        alt: "Liaison Reply showing three reply options: Natural, Keep it going, and Short.",
+        alt: "Liaison Reply showing three reply options: Natural, Keep it going, and Short with preview text.",
       },
       {
-        kicker: "Message walkthrough",
+        kicker: "The workflow",
         step: "Step 5: Choose and edit",
         title: "Pick the one that fits your style.",
         caption:
-          "The Short option lands a boundary. But you add 'before 10am' to make it concrete. The draft stays yours.",
+          "Tap any option to edit before copying. Add 'before 10am' to make it concrete. You remain in full control.",
         image: "./assets/previews/hero-story-04-draft.png",
         alt: "Edited draft reply ready in the composer.",
       },
       {
-        kicker: "Message walkthrough",
+        kicker: "The workflow",
         step: "Step 6: Copy and send",
         title: "You send it. On your terms.",
         caption:
@@ -606,13 +606,58 @@
         alt: "Reply sent in the actual text conversation.",
       },
       {
-        kicker: "Message walkthrough",
+        kicker: "The workflow",
         step: "Step 7: Thread settles",
         title: "The conversation calms down.",
         caption:
-          "'Sounds good, talk then.' The spiral stops before it starts. You kept your boundary without burning the bridge.",
+          "The reply lands: 'Sounds good, talk then.' Thread saved automatically. You kept your boundary without burning the bridge.",
         image: "./assets/previews/hero-story-05-resolution.png",
-        alt: "The conversation settling after a measured response.",
+        alt: "The conversation settling after a measured response, thread saved.",
+      },
+      {
+        kicker: "Thread memory",
+        step: "Step 8: Thread auto-saves",
+        title: "Your conversation lives in a thread.",
+        caption:
+          "Each reply creates a thread automatically. Threads appear in your sidebar—tap any to continue where you left off.",
+        image: "./assets/previews/threads-history.svg",
+        alt: "Thread list in sidebar showing saved conversations with context preserved.",
+      },
+      {
+        kicker: "Thread memory",
+        step: "Step 9: Continue the thread",
+        title: "Continue the conversation with full context.",
+        caption:
+          "Open a thread and continue the chat. Context loads automatically—the assistant reads the thread history, no re-pasting needed.",
+        image: "./assets/previews/thread-continue.svg",
+        alt: "Continuing a thread with prior context loaded automatically.",
+      },
+      {
+        kicker: "Thread memory",
+        step: "Step 10: Switch threads",
+        title: "Jump between conversations instantly.",
+        caption:
+          "Switch threads instantly—each maintains its own context. No mixing, no confusion. The active thread is highlighted.",
+        image: "./assets/previews/thread-switch.svg",
+        alt: "Switching between different thread contexts with active thread highlighted.",
+      },
+      {
+        kicker: "Thread memory",
+        step: "Step 11: New thread",
+        title: "Start a new thread anytime.",
+        caption:
+          "Tap 'new thread' for a different conversation. Each thread stays independent—fresh context, no carryover.",
+        image: "./assets/previews/thread-new.svg",
+        alt: "Creating a new thread with clean, independent context.",
+      },
+      {
+        kicker: "Thread memory",
+        step: "Step 12: Syncs everywhere",
+        title: "Your threads follow you.",
+        caption:
+          "Sign in on any device—your threads are ready. Close the browser, come back later: everything stays.",
+        image: "./assets/previews/thread-sync.svg",
+        alt: "Threads persisting across devices and sessions, synced when signed in.",
       },
     ];
 
@@ -639,6 +684,13 @@
         image.setAttribute("loading", "eager");
       } else {
         image.setAttribute("loading", "lazy");
+      }
+
+      // Update kicker for section transitions
+      if (currentIndex >= 7) {
+        kicker.textContent = "Thread memory";
+      } else {
+        kicker.textContent = "The workflow";
       }
     };
 
