@@ -5,12 +5,17 @@
   const COOKIE_CONSENT_KEY = "liaison_cookie_consent";
   const ROOT_COOKIE_DOMAIN = ".liaisonreply.com";
   const LANDING_DEBUG_EVENT_KEY = "__liaisonLandingEvents";
+  const DEMO_COPY_EXPERIMENT_ID = "landing_demo_copy_v1";
+  const DEMO_COPY_STORAGE_KEY = "lk_exp_demo_copy_v1";
+  const DEMO_COPY_QUERY_PARAM = "exp_demo_copy";
+  const DEMO_COPY_VARIANTS = ["premium_leaning", "conversion_leaning"];
   const ANALYTICS_COOKIE_NAMES = [
     "_ga",
     "_ga_FMVPQNPPDD",
     "_gid",
     "_gat",
   ];
+  let activeDemoCopyVariant = null;
 
   function recordLandingEvent(eventName, payload = {}) {
     const existing = Array.isArray(window[LANDING_DEBUG_EVENT_KEY])
@@ -61,6 +66,80 @@
     } catch {
       // Ignore storage failures.
     }
+  }
+
+  function normalizeDemoCopyVariant(value) {
+    const normalized = String(value || "").trim().toLowerCase();
+    return DEMO_COPY_VARIANTS.includes(normalized) ? normalized : null;
+  }
+
+  function readPersistedValue(key) {
+    return safeGet(key) || readCookie(key);
+  }
+
+  function rememberPersistedValue(key, value, days = 30) {
+    if (!allowsContinuityCookies()) {
+      return;
+    }
+
+    safeSet(key, value);
+    writeCookie(key, value, days);
+  }
+
+  function readDemoCopyVariantFromQuery() {
+    const params = new URLSearchParams(window.location.search);
+    return normalizeDemoCopyVariant(params.get(DEMO_COPY_QUERY_PARAM));
+  }
+
+  function resolveDemoCopyVariant() {
+    const queryVariant = readDemoCopyVariantFromQuery();
+    if (queryVariant) {
+      return {
+        variant: queryVariant,
+        source: "query",
+      };
+    }
+
+    const storedVariant = normalizeDemoCopyVariant(
+      readPersistedValue(DEMO_COPY_STORAGE_KEY),
+    );
+    if (storedVariant) {
+      return {
+        variant: storedVariant,
+        source: "stored",
+      };
+    }
+
+    const randomVariant = Math.random() < 0.5
+      ? DEMO_COPY_VARIANTS[0]
+      : DEMO_COPY_VARIANTS[1];
+
+    rememberPersistedValue(DEMO_COPY_STORAGE_KEY, randomVariant, 60);
+
+    return {
+      variant: randomVariant,
+      source: "random",
+    };
+  }
+
+  function rememberDemoCopyVariant(variant) {
+    const normalized = normalizeDemoCopyVariant(variant);
+    if (!normalized) {
+      return;
+    }
+
+    rememberPersistedValue(DEMO_COPY_STORAGE_KEY, normalized, 60);
+  }
+
+  function buildExperimentAnalyticsPayload() {
+    if (!activeDemoCopyVariant) {
+      return {};
+    }
+
+    return {
+      demo_copy_experiment_id: DEMO_COPY_EXPERIMENT_ID,
+      demo_copy_variant: activeDemoCopyVariant,
+    };
   }
 
   function readCookie(name) {
@@ -136,8 +215,10 @@
   function clearContinuityStorage() {
     safeRemove(ATTR_STORAGE_KEY);
     safeRemove(AUTH_HINT_KEY);
+    safeRemove(DEMO_COPY_STORAGE_KEY);
     deleteCookie(ATTR_STORAGE_KEY);
     deleteCookie(AUTH_HINT_KEY);
+    deleteCookie(DEMO_COPY_STORAGE_KEY);
     ANALYTICS_COOKIE_NAMES.forEach(deleteCookie);
   }
 
@@ -381,6 +462,7 @@
 
     const emitPricingViewed = () => {
       trackLandingEvent("landing_pricing_viewed", {
+        ...buildExperimentAnalyticsPayload(),
         cta_surface: "pricing-section",
         session_state: hasSessionHint() ? "active" : "anonymous",
       });
@@ -429,6 +511,7 @@
           captureAttribution({ billing_interval: billingInterval });
 
           trackLandingEvent("landing_interval_selected", {
+            ...buildExperimentAnalyticsPayload(),
             cta_surface: ctaSurface,
             cta_label: ctaLabel,
             billing_interval: billingInterval,
@@ -438,6 +521,7 @@
         }
 
         trackLandingEvent("landing_cta_clicked", {
+          ...buildExperimentAnalyticsPayload(),
           cta_surface: ctaSurface,
           cta_label: ctaLabel,
           billing_interval: billingInterval,
@@ -461,6 +545,7 @@
 
     if (continuityEnabled) {
       captureAttribution();
+      rememberDemoCopyVariant(activeDemoCopyVariant);
     } else {
       clearContinuityStorage();
     }
@@ -527,12 +612,223 @@
     });
   }
 
+  function getDemoCopyExperimentConfig(variant) {
+    const visuals = [
+      {
+        image: "./assets/previews/reply-flow-step-01-heated-message.png",
+        alt: "Compose screen with a heated incoming message pasted into Liaison Reply.",
+      },
+      {
+        image: "./assets/previews/reply-flow-step-02-context-and-intent.png",
+        alt: "Intent and tone controls selected in Liaison Reply before generating responses.",
+      },
+      {
+        image: "./assets/previews/reply-flow-step-03-persona-selected.png",
+        alt: "Compose screen showing the Diplomat persona selected for a difficult conversation.",
+      },
+      {
+        image: "./assets/previews/reply-flow-step-04-generating.png",
+        alt: "Generating state in Liaison Reply while creating three response options.",
+      },
+      {
+        image: "./assets/previews/reply-flow-step-05-generated-replies.png",
+        alt: "Generated replies with strategic coaching guidance visible in the same screen.",
+      },
+      {
+        image: "./assets/previews/reply-flow-step-06-polish-in-progress.png",
+        alt: "Polish action running on a selected generated reply card in Liaison Reply.",
+      },
+      {
+        image: "./assets/previews/reply-flow-step-07-polished-reply.png",
+        alt: "Polished response options ready to copy in the Liaison Reply compose flow.",
+      },
+      {
+        image: "./assets/previews/reply-flow-step-08-live-coaching.png",
+        alt: "Live coaching warning highlighting escalation risk in an edited reply.",
+      },
+    ];
+
+    const variants = {
+      premium_leaning: {
+        headline:
+          "Respond with clarity when the conversation gets heated.",
+        description:
+          "A calm, guided flow for high-stakes threads: capture context, compare strategic drafts, and keep control of every word.",
+        proof:
+          "Nothing auto-sends. Coaching stays visible until you finalize your message.",
+        chips: [
+          "Capture exact message",
+          "Set tone and intent",
+          "Select a persona",
+          "Generate three drafts",
+          "Review tactical coaching",
+          "Polish phrasing",
+          "Finalize and copy",
+          "Check escalation risk",
+        ],
+        slides: [
+          {
+            kicker: "Reply builder",
+            step: "Step 1: Capture the message",
+            title: "Start from the exact message.",
+            caption:
+              "Paste the text verbatim so nuance and pressure stay intact.",
+          },
+          {
+            kicker: "Reply builder",
+            step: "Step 2: Set tone and intent",
+            title: "Define your tactical posture.",
+            caption:
+              "Choose tone and intent first to guide the draft toward your outcome.",
+          },
+          {
+            kicker: "Reply builder",
+            step: "Step 3: Select persona",
+            title: "Choose the right delivery style.",
+            caption:
+              "Persona shapes expression while preserving your core boundary.",
+          },
+          {
+            kicker: "Reply builder",
+            step: "Step 4: Generate options",
+            title: "Build three strategic replies.",
+            caption:
+              "Get multiple approaches rooted in your context and chosen intent.",
+          },
+          {
+            kicker: "Reply builder",
+            step: "Step 5: Compare with coaching",
+            title: "Review drafts with tactical notes.",
+            caption:
+              "See the strategic tradeoffs before committing to a final line.",
+          },
+          {
+            kicker: "Live coaching",
+            step: "Step 6: Polish wording",
+            title: "Refine without losing control.",
+            caption:
+              "Polish for warmth or directness while keeping your position intact.",
+          },
+          {
+            kicker: "Live coaching",
+            step: "Step 7: Finalize and copy",
+            title: "Lock the final version.",
+            caption:
+              "Make final edits, then copy when the message sounds like you.",
+          },
+          {
+            kicker: "Live coaching",
+            step: "Step 8: Validate escalation risk",
+            title: "Catch escalation before send.",
+            caption:
+              "Live coaching flags reactive edits so you can de-escalate in time.",
+          },
+        ],
+      },
+      conversion_leaning: {
+        headline:
+          "Generate 3 better replies before you hit send.",
+        description:
+          "Real app flow: paste the message, pick intent, compare drafts, polish one, and catch tone issues live in under a minute.",
+        proof:
+          "Real UI. Real outputs. Start free and send a calmer reply faster.",
+        chips: [
+          "Paste message",
+          "Pick intent",
+          "Choose persona",
+          "Get 3 replies",
+          "See coaching",
+          "Polish fast",
+          "Copy final draft",
+          "Avoid escalation",
+        ],
+        slides: [
+          {
+            kicker: "Reply builder",
+            step: "Step 1: Paste the message",
+            title: "Paste the exact message.",
+            caption:
+              "No summary needed. Start from the real message in seconds.",
+          },
+          {
+            kicker: "Reply builder",
+            step: "Step 2: Pick tone and intent",
+            title: "Tell the app what outcome you want.",
+            caption:
+              "Set boundary, buy time, or calm it down before generating replies.",
+          },
+          {
+            kicker: "Reply builder",
+            step: "Step 3: Choose persona",
+            title: "Pick the voice that fits.",
+            caption:
+              "Use persona controls to match the response style to the moment.",
+          },
+          {
+            kicker: "Reply builder",
+            step: "Step 4: Generate 3 replies",
+            title: "Get three options instantly.",
+            caption:
+              "Compare angles fast instead of rewriting the same message repeatedly.",
+          },
+          {
+            kicker: "Reply builder",
+            step: "Step 5: Compare and coach",
+            title: "See tactical guidance with each draft.",
+            caption:
+              "Coaching explains why each option works before you copy.",
+          },
+          {
+            kicker: "Live coaching",
+            step: "Step 6: Polish",
+            title: "Polish in one tap.",
+            caption:
+              "Make it warmer, cleaner, or more direct without starting over.",
+          },
+          {
+            kicker: "Live coaching",
+            step: "Step 7: Finalize and copy",
+            title: "Finalize your best draft.",
+            caption:
+              "Make quick edits and copy the reply when it is ready to send.",
+          },
+          {
+            kicker: "Live coaching",
+            step: "Step 8: Live warning",
+            title: "Stop escalation before it leaves your phone.",
+            caption:
+              "If an edit gets reactive, live coaching warns you immediately.",
+          },
+        ],
+      },
+    };
+
+    const normalizedVariant = normalizeDemoCopyVariant(variant) ||
+      DEMO_COPY_VARIANTS[0];
+    const config = variants[normalizedVariant] || variants[DEMO_COPY_VARIANTS[0]];
+
+    return {
+      variant: normalizedVariant,
+      headline: config.headline,
+      description: config.description,
+      proof: config.proof,
+      chips: config.chips,
+      slides: config.slides.map((slide, index) => ({
+        ...slide,
+        ...visuals[index],
+      })),
+    };
+  }
+
   function initHeroStory() {
     const story = document.querySelector("[data-hero-story]");
     if (!story) {
       return;
     }
 
+    const section = story.closest("[data-demo-copy-experiment-section]");
+    const headline = section?.querySelector("[data-demo-copy-headline]");
+    const description = section?.querySelector("[data-demo-copy-description]");
     const kicker = story.querySelector("[data-hero-story-kicker]");
     const status = story.querySelector("[data-hero-story-status]");
     const image = story.querySelector("[data-hero-story-image]");
@@ -542,6 +838,8 @@
     const nav = story.querySelector("[data-hero-story-nav]");
     const prev = story.querySelector("[data-hero-story-prev]");
     const next = story.querySelector("[data-hero-story-next]");
+    const footer = story.querySelector("[data-demo-copy-footer]");
+    const proofNote = story.querySelector("[data-demo-copy-proof-note]");
 
     if (
       !kicker || !status || !image || !step || !title || !caption || !nav ||
@@ -550,117 +848,33 @@
       return;
     }
 
-    const slides = [
-      {
-        kicker: "The workflow",
-        step: "Step 1: The message lands",
-        title: "Your boss sends something loaded.",
-        caption:
-          "After hours. 'We need to talk about your performance. Call me tonight.' The message lands when you're not expecting it.",
-        image: "./assets/previews/hero-story-01-incoming.png",
-        alt: "Incoming text from a boss saying 'We need to talk about your performance. Call me tonight.'",
-      },
-      {
-        kicker: "The workflow",
-        step: "Step 2: The follow-up",
-        title: "The follow-up arrives.",
-        caption:
-          "Twenty minutes later: 'Well? Are you going to pick up?' The urgency sharpens before you write back.",
-        image: "./assets/previews/hero-story-02-follow-up.png",
-        alt: "Follow-up text showing escalating urgency from the same person.",
-      },
-      {
-        kicker: "The workflow",
-        step: "Step 3: Paste it in",
-        title: "Drop the exact message into Liaison Reply.",
-        caption:
-          "Paste both texts, add context like 'I have a review next week' or 'This is about a project deadline.' Context helps Liaison Reply understand nuance and intent.",
-        image: "./assets/previews/hero-mobile-compose-real.png",
-        alt: "Liaison Reply input screen showing pasted messages and context field.",
-      },
-      {
-        kicker: "The workflow",
-        step: "Step 4: Get three reply options",
-        title: "Three clear directions tailored to your goal.",
-        caption:
-          "Natural: 'I saw your message. I'm free this weekend to chat.' Keep it going: 'Let's schedule time to discuss.' Short: 'I'll call tomorrow morning.'",
-        image: "./assets/previews/hero-reply-studio.svg",
-        alt: "Liaison Reply showing three reply options: Natural, Keep it going, and Short with preview text.",
-      },
-      {
-        kicker: "The workflow",
-        step: "Step 5: Choose and edit",
-        title: "Pick the one that fits your style.",
-        caption:
-          "Tap any option to edit before copying. Add 'before 10am' to make it concrete. You remain in full control.",
-        image: "./assets/previews/hero-story-04-draft.png",
-        alt: "Edited draft reply ready in the composer.",
-      },
-      {
-        kicker: "The workflow",
-        step: "Step 6: Copy and send",
-        title: "You send it. On your terms.",
-        caption:
-          "Copy the edited reply into your actual text thread. Send it from your phone, your words, your timing.",
-        image: "./assets/previews/demo-mobile-stage.png",
-        alt: "Reply sent in the actual text conversation.",
-      },
-      {
-        kicker: "The workflow",
-        step: "Step 7: Thread settles",
-        title: "The conversation calms down.",
-        caption:
-          "The reply lands: 'Sounds good, talk then.' Thread saved automatically. You kept your boundary without burning the bridge.",
-        image: "./assets/previews/hero-story-05-resolution.png",
-        alt: "The conversation settling after a measured response, thread saved.",
-      },
-      {
-        kicker: "Thread memory",
-        step: "Step 8: Thread auto-saves",
-        title: "Your conversation lives in a thread.",
-        caption:
-          "Each reply creates a thread automatically. Threads appear in your sidebar—tap any to continue where you left off.",
-        image: "./assets/previews/threads-history.svg",
-        alt: "Thread list in sidebar showing saved conversations with context preserved.",
-      },
-      {
-        kicker: "Thread memory",
-        step: "Step 9: Continue the thread",
-        title: "Continue the conversation with full context.",
-        caption:
-          "Open a thread and continue the chat. Context loads automatically—the assistant reads the thread history, no re-pasting needed.",
-        image: "./assets/previews/thread-continue.svg",
-        alt: "Continuing a thread with prior context loaded automatically.",
-      },
-      {
-        kicker: "Thread memory",
-        step: "Step 10: Switch threads",
-        title: "Jump between conversations instantly.",
-        caption:
-          "Switch threads instantly—each maintains its own context. No mixing, no confusion. The active thread is highlighted.",
-        image: "./assets/previews/thread-switch.svg",
-        alt: "Switching between different thread contexts with active thread highlighted.",
-      },
-      {
-        kicker: "Thread memory",
-        step: "Step 11: New thread",
-        title: "Start a new thread anytime.",
-        caption:
-          "Tap 'new thread' for a different conversation. Each thread stays independent—fresh context, no carryover.",
-        image: "./assets/previews/thread-new.svg",
-        alt: "Creating a new thread with clean, independent context.",
-      },
-      {
-        kicker: "Thread memory",
-        step: "Step 12: Syncs everywhere",
-        title: "Your threads follow you.",
-        caption:
-          "Sign in on any device—your threads are ready. Close the browser, come back later: everything stays.",
-        image: "./assets/previews/thread-sync.svg",
-        alt: "Threads persisting across devices and sessions, synced when signed in.",
-      },
-    ];
+    const assignment = resolveDemoCopyVariant();
+    const config = getDemoCopyExperimentConfig(assignment.variant);
+    activeDemoCopyVariant = config.variant;
+    story.setAttribute("data-demo-copy-variant", activeDemoCopyVariant);
 
+    if (headline) {
+      headline.textContent = config.headline;
+    }
+
+    if (description) {
+      description.textContent = config.description;
+    }
+
+    if (proofNote) {
+      proofNote.textContent = config.proof;
+    }
+
+    if (footer) {
+      footer.replaceChildren();
+      config.chips.forEach((chip) => {
+        const node = document.createElement("span");
+        node.textContent = chip;
+        footer.append(node);
+      });
+    }
+
+    const slides = config.slides;
     let currentIndex = 0;
 
     const applySlide = (index) => {
@@ -685,14 +899,44 @@
       } else {
         image.setAttribute("loading", "lazy");
       }
-
-      // Update kicker for section transitions
-      if (currentIndex >= 7) {
-        kicker.textContent = "Thread memory";
-      } else {
-        kicker.textContent = "The workflow";
-      }
     };
+
+    const emitExposure = () => {
+      if (story.dataset.experimentExposed === "true") {
+        return;
+      }
+
+      story.dataset.experimentExposed = "true";
+      trackLandingEvent("landing_experiment_exposed", {
+        ...buildExperimentAnalyticsPayload(),
+        experiment_surface: "demo-section",
+        assignment_source: assignment.source,
+        session_state: hasSessionHint() ? "active" : "anonymous",
+      });
+    };
+
+    const exposureTarget = section || story;
+    if (typeof window.IntersectionObserver !== "function") {
+      emitExposure();
+    } else {
+      const observer = new window.IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            emitExposure();
+            observer.disconnect();
+          });
+        },
+        {
+          threshold: 0.35,
+        },
+      );
+
+      observer.observe(exposureTarget);
+    }
 
     story.setAttribute("data-enhanced", "true");
     nav.hidden = slides.length < 2;
