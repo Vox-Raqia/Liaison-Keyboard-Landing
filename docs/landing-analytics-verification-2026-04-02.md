@@ -16,6 +16,7 @@ event arrival in production without Google Analytics access.
 - `landing_pricing_viewed`
 - `landing_interval_selected`
 - `landing_cta_clicked`
+- `landing_experiment_exposed`
 
 ## Expected Payload Shape
 
@@ -39,6 +40,16 @@ event arrival in production without Google Analytics access.
 - `billing_interval`: `month`, `year`, or omitted for non-interval CTAs
 - `destination_path`: outbound target
 - `session_state`: `anonymous` or `active`
+- `demo_copy_experiment_id`: `landing_demo_copy_v1` when assigned
+- `demo_copy_variant`: `premium_leaning` or `conversion_leaning` when assigned
+
+### `landing_experiment_exposed`
+
+- `demo_copy_experiment_id`: `landing_demo_copy_v1`
+- `demo_copy_variant`: `premium_leaning` or `conversion_leaning`
+- `experiment_surface`: `demo-section`
+- `assignment_source`: `query`, `stored`, or `random`
+- `session_state`: `anonymous` or `active`
 
 ## Consent Requirement
 
@@ -54,6 +65,8 @@ before attempting to call `gtag`.
 Local steps:
 
 1. Load the landing page locally.
+   - Optional QA override: append `?exp_demo_copy=premium_leaning` or
+     `?exp_demo_copy=conversion_leaning`.
 2. Enable continuity cookies if you want to mirror production analytics state.
 3. Scroll the pricing section into view.
 4. Click `Choose Monthly` and `Choose Yearly`.
@@ -61,9 +74,10 @@ Local steps:
 
 Expected local sequence:
 
-1. `landing_pricing_viewed`
-2. `landing_interval_selected`
-3. `landing_cta_clicked`
+1. `landing_experiment_exposed` (after demo section enters view)
+2. `landing_pricing_viewed`
+3. `landing_interval_selected`
+4. `landing_cta_clicked`
 
 For each interval CTA click, the last two events should include the same
 `billing_interval` and destination URL.
