@@ -1,0 +1,70 @@
+# Anthropic Service Level Agreement (SLA)
+
+## Overview
+This document outlines the Service Level Agreement between Liaison Keyboard and Anthropic for access to Claude AI models used in reply generation.
+
+## Service Description
+Anthropic provides access to:
+- Claude AI models (including Claude Sonnet 4) via API
+- Model inference and text generation
+- Safety and alignment features
+- Usage monitoring and reporting
+
+## Service Commitments
+
+### Uptime/Availability
+- **Monthly Uptime Percentage:** 99.9% for API availability
+- **Measurement:** Calculated monthly as (Total Minutes - Downtime Minutes) / Total Minutes
+- **Downtime Definition:** Inability to successfully invoke the API for >5 consecutive minutes
+
+### Performance
+- **API Response Time:** 95% of requests processed within 3 seconds (time to first token)
+- **Generation Speed:** Variable based on model and prompt complexity
+- **Success Rate:** 99.5% of valid API requests return successful responses
+
+### Support
+- **Response Times:**
+  - Critical (Production down): 30 minutes
+  - High (Major feature impaired): 2 business hours
+  - Normal (General inquiry): 8 business hours
+- **Availability:** 24/7 support via email and ticket system
+- **Documentation:** Comprehensive API documentation available
+
+## Remedies
+### Service Credits
+If Anthropic fails to meet the Monthly Uptime Percentage:
+- 95.0% ≤ Uptime < 99.0%: 10% credit of monthly fees
+- 90.0% ≤ Uptime < 95.0%: 25% credit of monthly fees
+- Uptime < 90.0%: 100% credit of monthly fees
+
+### Claim Procedure
+1. Customer must submit credit claim within 30 days of the end of the month in which the SLA violation occurred
+2. Claims submitted via: https://anthropic.com/contact
+3. Anthropic will respond within 5 business days
+4. Approved credits applied to next invoice
+
+## Exclusions
+SLA does not apply to:
+- Issues caused by Customer's equipment, software, or third-party services
+- Scheduled maintenance (with ≥ 24 hours notice)
+- Force majeure events
+- Issues arising from Customer's violation of terms
+- Rate limiting due to Customer exceeding API limits
+- Invalid requests or malformed prompts
+- Network issues outside of Anthropic's control
+
+## Contact Information
+- **Anthropic Support:** https://anthropic.com/contact
+- **Emergency:** Priority email support for Critical issues
+- **Account Manager:** [To be assigned]
+- **Legal/Contracts:** legal@anthropic.com
+
+## Review and Amendment
+This SLA shall be reviewed annually or upon significant service changes. Amendments require written agreement from both parties.
+
+**Effective Date:** TBD
+**Last Reviewed:** [Date]
+**Version:** 1.0
+
+**Liaison Keyboard Representative:** ___________________ Date: _________
+**Anthropic Representative:** ___________________________ Date: _________

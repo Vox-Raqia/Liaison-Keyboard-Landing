@@ -3,7 +3,8 @@
     "build:css": "tailwindcss -i ./tailwind.input.css -o ./output.css --content ./index.html --minify",
     "watch:css": "tailwindcss -i ./tailwind.input.css -o ./output.css --content ./index.html --watch",
     "test:analytics": "node --test ./tests/pricing-analytics-contract.test.js",
-    "test:smoke": "node --test ./tests/cookie-consent-smoke.test.js"
+    "test:smoke": "node --test ./tests/cookie-consent-smoke.test.js",
+    "images": "node scripts/convert-images.js"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
@@ -11,6 +12,8 @@
     "posthog-js": "^1.363.5"
   },
   "devDependencies": {
+    "imagemin": "^8.0.0",
+    "imagemin-webp": "^8.0.0",
     "playwright": "^1.59.1",
     "tailwindcss": "^3.4.17"
   }

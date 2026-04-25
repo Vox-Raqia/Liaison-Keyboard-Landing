@@ -1,29 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 :root {
-  --bg: #0b0f1e;
+  --bg: #0A0A0B;
   --bg-section: #0f1628;
-  --surface: #141d2e;
+  --surface: #161618;
   --surface-mid: #18243b;
   --surface-light: #1e2d48;
   --ink: #f0f4ff;
   --ink-soft: #b8c4d7;
   --ink-muted: #7d8ca4;
-  --line: rgba(255, 255, 255, 0.1);
-  --accent: #2dd4f0;
-  --accent-hover: #14b8d4;
-  --accent-cyan: #2dd4f0;
+  --line: #1F1F22;
+  --accent: #3B82F6;
+  --accent-hover: #2563EB;
   --amber: #f59e0b;
   --amber-hover: #d97706;
-  --radius-xl: 28px;
-  --radius-lg: 20px;
-  --radius-md: 16px;
-  --radius-sm: 12px;
+  --radius-xl: 6px;
+  --radius-lg: 6px;
+  --radius-md: 4px;
+  --radius-sm: 4px;
   --shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
   --shell: min(1440px, calc(100% - clamp(28px, 4vw, 96px)));
   --utility-shell: min(1600px, calc(100% - clamp(20px, 2.5vw, 56px)));
-  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", "SF Pro Display", "SF Pro Text", "Segoe UI", system-ui, sans-serif;
 }
 
 * {
@@ -76,25 +75,22 @@ h1,
 h2,
 h3 {
   margin: 0;
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
+  font-weight: 600;
   line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 h1 {
   font-size: clamp(2.9rem, 5vw, 5rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
 }
 
 h2 {
   font-size: clamp(2.2rem, 3.8vw, 3.5rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
 }
 
 h3 {
   font-size: clamp(1.2rem, 2.1vw, 1.55rem);
-  font-weight: 600;
 }
 
 .skip-link {
@@ -455,7 +451,7 @@ h3 {
 .hero-eyebrow,
 .section-kicker,
 .hero-proof-kicker {
-  color: var(--accent-cyan);
+  color: var(--accent);
 }
 
 .section-kicker-dark,
@@ -600,7 +596,7 @@ h3 {
 }
 
 .hero-real-step {
-  color: var(--accent-cyan);
+  color: var(--accent);
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -721,7 +717,7 @@ h3 {
 }
 
 .hero-story-step {
-  color: var(--accent-cyan);
+  color: var(--accent);
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -1138,7 +1134,7 @@ h3 {
 }
 
 .difference-label {
-  color: var(--accent-cyan);
+  color: var(--accent);
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -1282,7 +1278,7 @@ h3 {
 }
 
 .use-case-link {
-  color: var(--accent-cyan);
+  color: var(--accent);
   font-weight: 800;
 }
 
@@ -1414,7 +1410,7 @@ h3 {
   width: 18px;
   height: 2px;
   border-radius: 999px;
-  background: var(--accent-cyan);
+  background: var(--accent);
   transform: translate(-50%, -50%);
   transition: transform 150ms ease, opacity 150ms ease;
 }
@@ -1595,7 +1591,7 @@ h3 {
 }
 
 .cookie-banner__eyebrow {
-  color: var(--accent-cyan);
+  color: var(--accent);
   font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -1716,7 +1712,7 @@ h3 {
 .utility-card-eyebrow,
 .utility-aside-eyebrow,
 .preference-status-eyebrow {
-  color: var(--accent-cyan);
+  color: var(--accent);
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -1936,7 +1932,7 @@ h3 {
 }
 
 .utility-link {
-  color: var(--accent-cyan);
+  color: var(--accent);
   font-weight: 700;
 }
 
