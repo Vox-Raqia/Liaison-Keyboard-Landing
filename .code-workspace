@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"name": "Liaison-Keyboard-Landing",
+			"path": "."
+		},
+		{
+			"name": "Liaison-Keyboard (App)",
+			"path": "Liaison-Keyboard"
+		}
+	],
+	"settings": {
+		"git.autoRepositoryDetection": true,
+		"git.openRepositoryInParentFolders": "never",
+		"files.exclude": {
+			"**/.git": true,
+			"**/node_modules": true,
+			"**/.expo": true,
+			"**/output-web.log": true,
+			"**/output-web.err.log": true,
+			"**/.playwright-mcp": true,
+			"**/ENGINEERING_WAVE1_REPORT.md": true,
+			"**/audit_results.json": true,
+			"**/freshdesk-login-before.png": true,
+			"**/test-delete-me.txt": true
+		}
+	}
+}

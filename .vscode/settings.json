@@ -3,11 +3,15 @@
     "editor.defaultFormatter": "denoland.vscode-deno",
     "editor.mouseWheelZoom": true,
     "editor.formatOnPaste": true,
-    "python-envs.pythonProjects": [
-        {
-            "path": ".",
-            "envManager": "ms-python.python:venv",
-            "packageManager": "ms-python.python:pip"
-        }
-    ]
+    "git.openRepositoryInParentFolders": "never",
+    "git.autoRepositoryDetection": true,
+    "files.exclude": {
+        "**/output-web.log": true,
+        "**/output-web.err.log": true,
+        "**/.playwright-mcp": true,
+        "**/ENGINEERING_WAVE1_REPORT.md": true,
+        "**/audit_results.json": true,
+        "**/freshdesk-login-before.png": true,
+        "**/test-delete-me.txt": true
+    }
 }
