@@ -1,8 +1,8 @@
 # Liaison Keyboard Service Provider Disclosure
 
-**Effective Date:** TBD (upon legal review)
-**Last Updated:** 2026-04-23
-**Version:** 1.0
+**Effective Date:** Not effective for production sign-off until legal/privacy review
+**Last Updated:** 2026-04-26
+**Version:** 1.1
 
 This document discloses the third-party service providers that may receive or process personal data on behalf of Liaison Keyboard, as required by GDPR Article 13/14 and CCPA/CPRA.
 
@@ -43,12 +43,12 @@ This document discloses the third-party service providers that may receive or pr
 
 ### 4. Google Gemini
 - **Purpose:** AI model access for reply generation (Gemini 2.5 Flash)
-- **Data Shared:** Message content and user-provided context (pseudonymized) for AI processing
-- **Data Categories:** Conversation content (pseudonymized), contextual information
-- **Legal Basis:** Performance of contract
-- **Retention:** As per our retention schedule (inputs/outputs deleted after 24 hours for debugging; saved conversations retained until user deletion)
-- **International Transfers:** Data may be transferred to the United States where Google operates
-- **Safeguards:** Pseudonymization before transmission, encryption in transit, Data Processing Agreement, Standard Contractual Clauses
+- **Data Shared:** Message content and user-provided context for AI processing; account identifiers are not intentionally included, but message content can contain personal data or special-category data
+- **Data Categories:** Conversation content, contextual information, generated output
+- **Legal Basis:** Performance of contract for requested generation; explicit consent required where user-submitted content reveals special-category data
+- **Retention:** Liaison does not intentionally retain raw prompts after request completion unless saved in thread history. Google Gemini API documentation states prompts, contextual information, and outputs are retained for 55 days for abuse monitoring; optional Gemini API logs expire after 55 days by default if enabled.
+- **International Transfers:** Data may be transferred to the United States or other countries where Google processes data
+- **Safeguards:** Data minimization, no account identifiers intentionally included in prompts, encryption in transit, Data Processing Agreement/Cloud Data Processing Addendum or applicable Google terms, Standard Contractual Clauses and/or Data Privacy Framework where applicable
 - **Contact:** https://support.google.com/cloud/
 - **Privacy Policy:** https://policies.google.com/privacy
 - **SLA:** https://cloud.google.com/products/gemini/sla
@@ -68,8 +68,10 @@ This document discloses the third-party service providers that may receive or pr
 Where personal data is transferred outside the European Economic Area (EEA) or United Kingdom, we rely on:
 - Standard Contractual Clauses (SCCs) with subprocessors
 - Binding Corporate Rules where applicable
-- Privacy Shield Framework (where still valid) or equivalent protections
-- Individual user consent for specific transfers
+- EU-US Data Privacy Framework where the vendor is certified and the transfer is covered
+- UK International Data Transfer Addendum / UK-approved transfer mechanisms where applicable
+- Supplementary measures, data minimization, and regional configuration where appropriate
+- Explicit user consent only where consent is the legally appropriate basis for the specific processing or transfer
 
 ## User Rights
 Users may exercise their rights regarding data shared with service providers by:
@@ -87,4 +89,4 @@ This disclosure will be updated:
 **Approved By:**
 _____________________ (Data Protection Officer) Date: ___________
 _____________________ (Legal Counsel) Date: ___________
-_____________________ (Product Lead) Date: ___________
+_____________________ (Product Lead / Founder) Date: ___________
