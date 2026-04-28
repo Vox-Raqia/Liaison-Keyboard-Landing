@@ -1,4 +1,4 @@
-node_modules
+﻿node_modules
 .gemini/settings.json
 kilo.json
 .kilo/
@@ -6,3 +6,10 @@ kilo.json
 *.log
 .playwright-mcp/
 output/
+.vercel
+
+# Scratch / working files
+*.txt
+tmp/
+*.png
+!assets/previews/*.png
