@@ -17,24 +17,24 @@
 - **P3 Low** (feedback, suggestions): Log and review during product planning.
 
 ## Common Issues & Routing
-- **"Pro access missing after payment"**: Check Stripe webhook status → if payment confirmed but no entitlement, route to Engineering with transaction ID (P1).
-- **"Refund request"**: Direct to Stripe customer portal; if user cannot access, create billing ticket and escalate to Founder (P1).
+- **"Pro access missing after payment"**: Check Stripe webhook status -> if payment confirmed but no entitlement, route to Engineering with transaction ID (P1).
+- **"Refund request"**: Explain that paid amounts are non-refundable except where required by law or where Liaison Reply expressly offers otherwise in writing. Offer cancellation guidance, and escalate any claimed legal exception, duplicate charge, or billing error to Founder (P1).
 - **"Generation returns blank"**: Ask for message screenshot; if confirmed, route to Engineering as P1 (critical path).
-- **"Cannot delete account/data"**: Route to Founder (GDPR compliance, P1).
+- **"Cannot delete account/data"**: Route privacy-rights and full account deletion requests to `privacy@liaisonreply.com`, with Founder escalation for complex GDPR/CCPA cases (P1).
 - **"Thread linking not working"**: Route to Engineering (technical bug, P2).
 - **"App crashes on mobile"**: Route to Engineering with device/os details (P2).
 
 ## Refund Policy
-- 14-day money-back guarantee for any Pro subscription.
-- Refunds processed via Stripe portal or manual intervention if portal inaccessible.
-- No refunds after 14 days; exceptions require Founder approval only.
+- Paid subscriptions are non-refundable except where required by law or where Liaison Reply expressly offers otherwise in writing.
+- Stripe customer portal supports cancellation, invoice access, and payment-method updates; it does not self-serve refunds.
+- When a user asks for a refund, provide the no-refunds policy and offer cancellation help. Escalate only if there is a legal requirement, duplicate charge, or suspected billing error.
 
 ## Workflow
 1. Ticket received via Freshdesk (email or widget).
 2. Auto-triage category assigned based on subject keywords; manual override if needed.
 3. Apply SLA timer based on user tier (Pro = 24h, Free = 48h).
-4. If P0 critical → escalate to Founder + Engineer immediately (SMS/phone).
-5. If P1 high → escalate to Engineer within 4h.
+4. If P0 critical -> escalate to Founder + Engineer immediately (SMS/phone).
+5. If P1 high -> escalate to Engineer within 4h.
 6. Respond within SLA; if resolved, close ticket with resolution notes.
 7. If requiring escalation, update ticket with escalation notes and notify escalatee.
 8. Follow up with user until resolution.
@@ -42,8 +42,9 @@
 ## Tools
 - **Ticketing system**: Freshdesk (free tier)
   - Dashboard: [FRESHDESK_URL_PENDING]
-  - Email routing: support@liaisonreply.com → Freshdesk inbox
+  - Email routing: support@liaisonreply.com -> Freshdesk inbox
 - **Email**: support@liaisonreply.com
+- **Privacy requests**: privacy@liaisonreply.com
 - **Billing portal**: https://billing.stripe.com/p/login/28E7sL3uUgOp35GeVSbfO00
 - **Knowledge base**: FAQ in support.html and docs/faq.md
 - **Monitoring**: Supabase logs, PostHog error tracking
@@ -55,11 +56,11 @@
 4. Configure ticket creation rules (see "Triage Rules" below).
 
 ## Triage Rules (Freshdesk Automation)
-- Subject contains "payment" OR "pro" OR "subscription" → Category: Billing, Priority: P1
-- Subject contains "bug" OR "error" OR "broken" OR "blank" → Category: Bug, Priority: P2
-- Subject contains "delete" OR "privacy" OR "gdpr" → Category: Technical, Priority: P1 (escalate to Founder)
-- Subject contains "feature" OR "suggestion" → Category: Feature Request, Priority: P3
-- Default → Category: Technical, Priority: P3, SLA: 48h
+- Subject contains "payment" OR "pro" OR "subscription" -> Category: Billing, Priority: P1
+- Subject contains "bug" OR "error" OR "broken" OR "blank" -> Category: Bug, Priority: P2
+- Subject contains "delete" OR "privacy" OR "gdpr" -> Category: Technical, Priority: P1 (escalate to Founder)
+- Subject contains "feature" OR "suggestion" -> Category: Feature Request, Priority: P3
+- Default -> Category: Technical, Priority: P3, SLA: 48h
 
 ## Widget Installation
 - Add Freshdesk widget code to support.html footer (before closing `</body>` tag).

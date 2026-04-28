@@ -59,7 +59,7 @@ Right now, Liaison Reply runs on the web. Nothing auto-sends, and only the conte
 No. We do not sell or share your personal data or conversation content with third parties for marketing purposes.
 
 ### How does cookie consent work?
-Full Memory (unlimited conversation history) requires user-approved Cookie Consent. You can manage your cookie preferences at any time via the cookie settings page.
+Cookie consent controls optional analytics and limited site-memory features on the landing site. You can manage those preferences at any time via the cookie settings page.
 
 ## Technical Support
 
@@ -86,7 +86,7 @@ This is a webhook sync issue. Your payment may have gone through but Pro access 
 In the app, you can link threads by selecting the "Link Threads" option in the thread menu. This allows the engine to understand context across different conversations.
 
 ### How do I delete my data?
-You can delete individual threads or conversations from the app interface via thread settings. For complete account deletion (GDPR/CCPA), contact support at support@liaisonreply.com. Account deletion is processed within 30 days.
+You can delete individual threads or conversations from the app interface via thread settings. For complete account deletion or privacy-rights requests, contact privacy@liaisonreply.com. Account deletion is processed within 30 days.
 
 ### Why can't I edit my thread?
 Threads become read-only 24 hours after your last activity to maintain context integrity. You can still view but not edit past messages in closed threads.
@@ -98,6 +98,9 @@ Sessions expire after 30 days of inactivity for security. Simply log back in to 
 You can cancel your Pro subscription at any time through the Stripe billing portal:
 https://billing.stripe.com/p/login/28E7sL3uUgOp35GeVSbfO00
 Cancellation takes effect at the end of your current billing cycle.
+
+### Do you offer refunds?
+No. Paid subscription charges are non-refundable except where required by law or where Liaison Reply expressly states otherwise. If you do not want the subscription to renew, cancel before the next billing cycle in the Stripe billing portal.
 
 ### Why can't I access my account?
 Common causes:
@@ -119,11 +122,11 @@ We prioritize bugs that break core functionality (blank generations, crashes, da
 ### What happens to my data when I delete the app?
 Deleting the app does not delete your account data. To delete your data, either use the in-app delete option or email privacy@liaisonreply.com with a deletion request. Data is permanently removed within 30 days.
 
-### Why do I need cookies for Full Memory?
-Full Memory (unlimited conversation history) requires storing conversation context locally via cookies. You can enable this in cookie settings. Without cookie consent, only ephemeral memory is available.
+### Why do I need cookies on the site?
+The landing-site cookie controls manage optional analytics and limited site-memory features. They do not change your core account, billing, or in-app subscription settings.
 
 ### How do I enable/disable cookie consent?
-Use the cookie settings page at /cookies.html or the cookie banner on first visit. You can update preferences at any time. Full Memory requires continuity cookies to be granted.
+Use the cookie settings page at /cookies.html or the cookie banner on first visit. You can update preferences at any time.
 
 ### What browsers are supported?
 Liaison Reply works on all modern browsers including Chrome, Firefox, Safari, and Edge. Mobile browsers are supported via the web app (no native app required).

@@ -66,11 +66,15 @@ SLA does not apply to:
 - **Service Status:** https://status.cloud.google.com/
 
 ## Review and Amendment
-This SLA is governed by the Google Cloud Agreement and may be modified per its terms. Reviewed annually or upon significant service changes.
+This SLA is governed by the Google Cloud Agreement and related Google Cloud
+legal terms. The Wave 3 launch-readiness archive now stores the public Cloud
+Data Processing Addendum at:
 
-**Effective Date:** TBD (as per Google Cloud Agreement)
-**Last Reviewed:** 2026-04-25
-**Version:** 1.0 (derived from public SLA at https://cloud.google.com/products/gemini/sla)
+- `docs/compliance/vendor-dpas/google-cloud-data-processing-addendum-2026-04-27.pdf`
+
+**Effective Date:** Per active Google Cloud agreement and addendum acceptance
+**Last Reviewed:** 2026-04-27
+**Version:** 1.1
 
 **Liaison Keyboard Representative:** ___________________ Date: _________
 **Google Cloud Representative:** ___________________________ Date: _________
