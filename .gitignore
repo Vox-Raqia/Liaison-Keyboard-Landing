@@ -13,3 +13,14 @@ output/
 tmp/
 *.png
 !assets/previews/*.png
+
+# Nested repos and build artifacts
+Liaison-Keyboard/
+.vercel/
+
+# Draft / scratch HTML
+public/
+retention-schedule.html
+service-provider-disclosure.html
+*.json
+!package-lock.json
