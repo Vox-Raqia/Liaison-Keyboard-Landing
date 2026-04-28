@@ -1,8 +1,3 @@
-# AI Index and Glossary
-
-## Routing Directive
-When tasked with updating documentation, refer to the most relevant file below based on the nature of the change.
-
 ## Documentation Map
 
 ### Architecture and Runtime
@@ -19,6 +14,10 @@ When tasked with updating documentation, refer to the most relevant file below b
 - **records-of-processing-template.md**: Template for Records of Processing Activities under GDPR Article 30.
 - **ccpa-notice-at-collection.md**: Notice at collection for California residents under CCPA/CPRA.
 - **service-provider-disclosure.md**: Disclosure of third-party service providers that process personal data.
+
+### Audit Documentation
+- **docs/audit/wave-3-execution-report.md**: Execution report for Wave 3 (critical path closure, smoke test results)
+- **docs/audit/WAVE3_SUMMARY.md**: Summary of Wave 3 deliverables and completion status
 
 ### Vendor SLAs
 - **docs/vendor-slas/stripe-sla.md**: SLA with Stripe for payment processing.
