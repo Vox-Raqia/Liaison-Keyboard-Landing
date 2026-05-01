@@ -1,0 +1,323 @@
+# Terms of Service — Liaison Reply
+
+**Last updated:** April 30, 2026  
+**Effective date:** Upon publication  
+
+These Terms of Service govern your use of Liaison Reply ("Service"), including the mobile application, web interface, and all related features operated by Liaison Reply.
+
+By creating an account or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service.
+
+---
+
+## 1. Acceptance of Terms
+
+By accessing or using Liaison Reply, you confirm that you are at least 16 years of age and have the legal capacity to enter into a binding agreement. If you are under 18, you represent that you have parental or guardian consent to use the Service.
+
+Your continued use of the Service constitutes acceptance of these Terms and our Privacy Policy. We may update these Terms periodically; continued use after changes constitutes acceptance of the revised terms.
+
+---
+
+## 2. Service Description
+
+Liaison Reply is a **communication prosthetic tool** that assists users in drafting reply suggestions for high-stakes digital conversations. The Service generates AI-assisted message options for your manual review. You retain full editorial control and are solely responsible for what you choose to send.
+
+**Key workflow:**
+1. You paste an incoming message and its conversation history
+2. You optionally add off-screen context and intended response goals
+3. The AI engine generates multiple reply suggestions
+4. You review, edit, copy, or send the selected reply
+
+Liaison Reply is **not** an autonomous chatbot and does not send messages on your behalf. We are a drafting tool for human-in-the-loop communication.
+
+---
+
+## 3. Account Registration and Eligibility
+
+To use the Service, you must:
+- Provide accurate, current account information
+- Maintain the security of your password and authentication credentials
+- Be at least 16 years of age
+- Not be barred from using the Service under applicable law
+
+You are responsible for all activity occurring under your account. Notify us immediately at [support@liaisonreply.com](mailto:support@liaisonreply.com) of any unauthorized access.
+
+---
+
+## 4. User Conduct and Prohibited Uses
+
+You agree **not** to use the Service to:
+- Generate content that is illegal, harassing, defamatory, fraudulent, or abusive
+- Infringe intellectual property rights of others
+- Transmit malware, spyware, or malicious code
+- Attempt to reverse-engineer, hack, or abuse the Service
+- Use the Service for spamming, phishing, or social engineering
+- Process sensitive personal data of third parties without their explicit consent and a lawful basis
+- Circumvent rate limits, billing controls, or abuse guardrails
+
+We reserve the right to suspend or terminate accounts that violate these Terms or abuse the Service.
+
+---
+
+## 5. Subscription, Billing, and Payment
+
+### 5.1 Pricing
+
+Liaison Reply offers both free and paid subscription tiers. Current pricing is displayed in the app and on our website.
+
+### 5.2 Payments
+
+All payments are processed through Stripe. By providing payment information, you represent that you are authorized to use the selected payment method. We may suspend or cancel your subscription for non-payment.
+
+### 5.3 Refunds
+
+Refunds are issued at our discretion based on circumstances. Contact [support@liaisonreply.com](mailto:support@liaisonreply.com) with billing inquiries.
+
+### 5.4 Price Changes
+
+We may change prices with at least 30 days' notice via in-app announcement or email. Continued use after the price change constitutes acceptance of the new price.
+
+---
+
+## 6. Intellectual Property
+
+### 6.1 Our IP
+
+Liaison Reply and its original branding, UI/UX design, software code, and documentation are our intellectual property, protected by copyright and other laws. You may not copy, modify, distribute, or create derivative works without our permission.
+
+### 6.2 Your Content
+
+You retain full ownership of the messages, conversation history, and contextual input you submit ("Your Content"). By using the Service, you grant us a limited, non-exclusive, revocable license to process Your Content solely to provide the Service to you—that is, to generate reply drafts based on your input.
+
+You are solely responsible for the accuracy, legality, and appropriateness of Your Content.
+
+### 6.3 AI-Generated Outputs
+
+Reply suggestions produced by the AI ("Outputs") are provided for your review and use. While we do not claim ownership of Outputs, you acknowledge that Outputs are machine-generated and may lack originality or creative authorship. You are free to use, edit, or discard Outputs as you see fit at your discretion.
+
+---
+
+## 7. AI Model Training Guarantee — No Use of Your Data for Foundational Model Training
+
+**Section 7 is a material term of these Terms of Service and the Privacy Policy.**
+
+### 7.1 Explicit Prohibition
+
+Liaison Reply **guarantees** that **your user-submitted messages, conversation history, and contextual input will NEVER be used to train, fine-tune, or improve any foundational AI model.**
+
+This is a firm commitment:
+- Your inputs are processed in isolated inference contexts with no persistent linkage to model training datasets
+- We maintain technical safeguards to prevent data repurposing
+- Our third-party AI providers (currently Google Gemini) are contractually bound to honor the same restriction
+
+### 7.2 Google Gemini API Data Usage
+
+Gemini API's standard terms permit Google to retain API data for up to 55 days for abuse monitoring. **However, Google is contractually prohibited from using your API prompts and outputs to train or improve foundational AI models without obtaining your separate, explicit opt-in consent outside the standard API terms.**
+
+Liaison Reply does **not** enable such opt-in. We run with model training disabled by default. You can therefore rely on your data remaining solely within the inference pipeline.
+
+### 7.3 Future Provider Changes
+
+If we change AI providers or modify processing such that your data could be used for model training, we will:
+- Update this policy with clear, prominent notice
+- Obtain your explicit opt-in consent before any data transfer
+- Allow you to continue using the Service under legacy terms if you decline the new arrangement
+
+Your continued use after such a change constitutes acceptance of any material modification only if you affirmatively accept it.
+
+---
+
+## 8. User Liability for AI-Generated Content — Hallucination Disclaimer
+
+**Section 8 is a critical risk allocation provision. Read carefully.**
+
+### 8.1 You Bear 100% Liability for Review and Sending Decisions
+
+All AI-generated reply suggestions are **drafts for your independent human review**. You assume **sole and total liability** for:
+- **Reviewing** every AI-generated suggestion for factual accuracy, completeness, and appropriateness
+- **Editing** content to correct errors, add missing information, or align tone with your intent
+- **Verifying** that the final message you send does not contain false statements, discriminatory language, legal misrepresentations, or harmful content
+- **Sending** any message—by your act of sending, you legally adopt that content as your own communication
+
+Liaison Reply provides a communication prosthetic—a tool to assist in drafting. We are **not** the author of your messages. You are the final author and sender, and you bear **100% responsibility** for everything you choose to send.
+
+### 8.2 Hallucinations and Inaccuracies
+
+AI language models can generate **plausible-sounding but false, fabricated, or misleading content** ("hallucinations"). You acknowledge and agree that:
+- Outputs may contain factual errors, incorrect dates, invented details, or misstated facts
+- The AI does not possess independent knowledge, intent, or liability
+- You must independently verify all substantive claims before sending
+- High-stakes communications (legal, medical, financial, contractual) require independent professional verification
+
+By using Liaison Reply, you acknowledge that AI-generated content is inherently probabilistic and may contain errors. You accept full responsibility for your final communications.
+
+### 8.3 No Professional Advice Disclaimer
+
+The Service is **not** a substitute for legal, medical, financial, or professional advice. Do not rely on AI-generated content for decisions requiring licensed professional expertise. Consult appropriate qualified advisors.
+
+---
+
+## 9. Account Deletion and Data Purge Protocol
+
+You may delete your account and all associated data at any time. No cancellation fee applies.
+
+### 9.1 In-App Instant Deletion
+
+1. Open **Settings → Account → Delete Account**
+2. Confirm your identity
+3. Tap **"Permanently Delete Account and All Data"**
+4. Your request is processed immediately
+
+### 9.2 Email-Initiated Deletion
+
+Email [privacy@liaisonreply.com](mailto:privacy@liaisonreply.com) with subject **"ACCOUNT DELETION REQUEST"** and your registered email. We verify and process within 24 hours.
+
+### 9.3 Purge Timeline and Scope
+
+Deletion proceeds in the following stages:
+
+| Stage | Timeline | What Is Removed |
+|-------|----------|-----------------|
+| Immediate deletion | At request | Account, threads, AI drafts, profile, settings, auth tokens |
+| Third-party data deletion | Within 72 hours | Forwarded deletion requests to Gemini, Stripe, and other processors |
+| Backup expiration | Within 90 days | Marked backup snapshots purged on natural lifecycle |
+| Full confirmation | Within 30 days | Email confirmation sent |
+
+Some data (billing records, security logs) may be retained longer if required by law (e.g., tax records kept 7 years). Such data is securely isolated and never used for AI training or marketing. Deletion is final and irreversible.
+
+---
+
+## 10. Data Privacy and Security
+
+Your privacy is fundamental to our design. We limit data collection to what is strictly necessary to deliver the Service. For complete details, see our [Privacy Policy](./privacy.html).
+
+Security measures include:
+- TLS 1.3 encryption for data in transit
+- Role-based access controls and authentication (Supabase Auth)
+- Audit logging and anomaly detection
+- Secure, SOC 2-compliant third-party infrastructure
+
+No method of electronic transmission is 100% secure. You use the Service at your own risk regarding potential security incidents.
+
+---
+
+## 11. Third-Party Service Providers
+
+We share personal data **only** as reasonably necessary to operate the Service:
+
+| Provider | Service | Data Shared |
+|----------|---------|-------------|
+| Supabase | Hosting, database, authentication | User accounts, messages, settings |
+| Google Gemini | AI inference engine | Message text and context (generation only) |
+| Stripe | Payment processing | Billing info, subscription status |
+| PostHog | Analytics | Anonymous usage events |
+| Resend | Email delivery | Support communications |
+
+We do **not** sell your personal data to third parties.
+
+---
+
+## 12. Disclaimer of Warranties and Limitation of Liability
+
+### 12.1 Service Provided "As Is"
+
+THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+WE DO NOT WARRANT THAT:
+- THE SERVICE WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE
+- AI-GENERATED OUTPUTS WILL BE ACCURATE, COMPLETE, OR ERROR-FREE
+- DEFECTS WILL BE CORRECTED
+- THE SERVICE WILL MEET YOUR SPECIFIC REQUIREMENTS
+
+### 12.2 Limitation of Liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, LIAISON REPLY AND ITS AFFILIATES, LICENSORS, AND SERVICE PROVIDERS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM:
+
+- YOUR USE OF OR INABILITY TO USE THE SERVICE
+- AI-GENERATED CONTENT, INCLUDING HALLUCINATIONS OR INACCURACIES
+- UNAUTHORIZED ACCESS TO OR ALTERATION OF YOUR DATA
+- ANY CONTENT OR COMMUNICATIONS YOU SEND USING THE SERVICE
+- ANY DISPUTE OR DAMAGE BETWEEN YOU AND ANY THIRD PARTY
+
+OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS IS LIMITED TO THE GREATER OF:
+- THE AMOUNT YOU PAID IN THE PAST 12 MONTHS (PAID SUBSCRIBERS)
+- $100 USD (FREE USERS)
+
+SOME JURISDICTIONS DO NOT ALLOW CERTAIN WARRANTY EXCLUSIONS OR LIABILITY LIMITATIONS, SO SOME PROVISIONS MAY NOT APPLY.
+
+---
+
+## 13. Indemnification
+
+You agree to defend, indemnify, and hold harmless Liaison Reply and its officers, employees, and agents from any claim, liability, damage, loss, or expense (including reasonable attorneys' fees) arising from:
+- Your use of the Service
+- Your violation of these Terms or applicable law
+- Your transmission of AI-generated content that causes harm or legal liability
+- Your infringement of third-party rights
+
+We reserve the right, at our own expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us. You will cooperate with us in asserting available defenses.
+
+---
+
+## 14. Third-Party AI Provider Disclaimers
+
+### 14.1 Google Gemini
+
+The Service uses Google's Gemini API. Google is **not** a party to these Terms. Google's own terms and privacy policies apply. You acknowledge Google may retain API data for up to 55 days for abuse monitoring and may comply with lawful legal requests. Google does **not** guarantee AI inference availability, accuracy, or quality. Outages or quality degradation at Google's end may affect Service functionality without liability to Liaison Reply.
+
+### 14.2 No Third-Party Beneficiaries
+
+Except as expressly stated, these Terms confer no rights or remedies on any person other than you and Liaison Reply.
+
+---
+
+## 15. Termination
+
+We may suspend or terminate your account at any time, with or without notice, if we believe you have violated these Terms or are abusing the Service.
+
+You may terminate your account at any time via the account deletion procedure above. Termination does not affect accrued rights or liabilities prior to termination.
+
+Upon termination, your right to use the Service ceases immediately. All provisions that should survive termination remain in effect.
+
+---
+
+## 16. Governing Law and Dispute Resolution
+
+These Terms are governed by the laws of the jurisdiction in which Liaison Reply operates, without regard to conflict of law principles.
+
+Any dispute shall be resolved through binding arbitration in English, unless prohibited by applicable consumer protection law in which case the courts of appropriate jurisdiction have exclusive authority. You waive any right to participate in a class action lawsuit.
+
+---
+
+## 17. Severability
+
+If any provision is found unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions remain in full force and effect.
+
+---
+
+## 18. Entire Agreement
+
+These Terms, together with the Privacy Policy and any additional terms you explicitly agree to, constitute the entire agreement between you and Liaison Reply regarding the Service, superseding all prior agreements or understandings.
+
+---
+
+## 19. Contact Information
+- **Support:** [support@liaisonreply.com](mailto:support@liaisonreply.com)
+- **Privacy / Data Protection:** [privacy@liaisonreply.com](mailto:privacy@liaisonreply.com)
+- **Legal Notices:** Sent via in-app notification or email to your registered address
+
+---
+
+## 20. User Acknowledgment
+
+By using Liaison Reply, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service and the Privacy Policy.
+
+You further acknowledge:
+- You are solely responsible for reviewing, editing, and verifying all AI-generated content before sending
+- AI-generated suggestions may contain errors, inaccuracies, or hallucinations
+- You bear **100% liability** for any content you choose to send using the Service
+- Your user data is never used to train foundational AI models
+- You can delete your account and all associated data instantly via Settings or by emailing privacy@liaisonreply.com
+
+---
+
+*Thank you for using Liaison Reply.*

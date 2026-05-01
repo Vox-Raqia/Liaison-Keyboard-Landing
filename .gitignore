@@ -1,4 +1,4 @@
-﻿node_modules
+node_modules
 .gemini/settings.json
 kilo.json
 .kilo/
@@ -19,7 +19,13 @@ Liaison-Keyboard/
 .vercel/
 
 # Draft / scratch HTML
-public/
+# Keep these legal documents versioned
+!public/privacy.html
+!public/terms.html
+!public/cookies.html
+# Ignore all other files in public/
+public/*
+
 retention-schedule.html
 service-provider-disclosure.html
 *.json
