@@ -13,6 +13,7 @@ output/
 tmp/
 *.png
 !assets/previews/*.png
+!public/demo/generate-results.png
 
 # Nested repos and build artifacts
 Liaison-Keyboard/
@@ -23,6 +24,9 @@ Liaison-Keyboard/
 !public/privacy.html
 !public/terms.html
 !public/cookies.html
+# Demo assets
+!public/demo
+!public/demo/*
 # Ignore all other files in public/
 public/*
 
