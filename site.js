@@ -4,45 +4,12 @@
   const AUTH_HINT_KEY = "liaison_auth_hint";
   const COOKIE_CONSENT_KEY = "liaison_cookie_consent";
   const ROOT_COOKIE_DOMAIN = ".liaisonreply.com";
-  const LANDING_DEBUG_EVENT_KEY = "__liaisonLandingEvents";
-  const DEMO_COPY_EXPERIMENT_ID = "landing_demo_copy_v1";
-  const DEMO_COPY_STORAGE_KEY = "lk_exp_demo_copy_v1";
-  const DEMO_COPY_QUERY_PARAM = "exp_demo_copy";
-  const DEMO_COPY_VARIANTS = ["premium_leaning", "conversion_leaning"];
   const ANALYTICS_COOKIE_NAMES = [
     "_ga",
     "_ga_FMVPQNPPDD",
     "_gid",
     "_gat",
   ];
-  let activeDemoCopyVariant = null;
-
-  function recordLandingEvent(eventName, payload = {}) {
-    const existing = Array.isArray(window[LANDING_DEBUG_EVENT_KEY])
-      ? window[LANDING_DEBUG_EVENT_KEY]
-      : [];
-
-    existing.push({
-      eventName,
-      payload,
-      timestamp: new Date().toISOString(),
-    });
-
-    window[LANDING_DEBUG_EVENT_KEY] = existing;
-  }
-
-  function trackLandingEvent(eventName, payload = {}) {
-    recordLandingEvent(eventName, payload);
-
-    if (typeof window.gtag !== "function") {
-      return;
-    }
-
-    window.gtag("event", eventName, {
-      ...payload,
-      transport_type: "beacon",
-    });
-  }
 
   function safeGet(key) {
     try {
@@ -68,78 +35,15 @@
     }
   }
 
-  function normalizeDemoCopyVariant(value) {
-    const normalized = String(value || "").trim().toLowerCase();
-    return DEMO_COPY_VARIANTS.includes(normalized) ? normalized : null;
-  }
-
-  function readPersistedValue(key) {
-    return safeGet(key) || readCookie(key);
-  }
-
-  function rememberPersistedValue(key, value, days = 30) {
-    if (!allowsContinuityCookies()) {
+  function trackLandingEvent(eventName, payload = {}) {
+    if (typeof window.gtag !== "function") {
       return;
     }
 
-    safeSet(key, value);
-    writeCookie(key, value, days);
-  }
-
-  function readDemoCopyVariantFromQuery() {
-    const params = new URLSearchParams(window.location.search);
-    return normalizeDemoCopyVariant(params.get(DEMO_COPY_QUERY_PARAM));
-  }
-
-  function resolveDemoCopyVariant() {
-    const queryVariant = readDemoCopyVariantFromQuery();
-    if (queryVariant) {
-      return {
-        variant: queryVariant,
-        source: "query",
-      };
-    }
-
-    const storedVariant = normalizeDemoCopyVariant(
-      readPersistedValue(DEMO_COPY_STORAGE_KEY),
-    );
-    if (storedVariant) {
-      return {
-        variant: storedVariant,
-        source: "stored",
-      };
-    }
-
-    const randomVariant = Math.random() < 0.5
-      ? DEMO_COPY_VARIANTS[0]
-      : DEMO_COPY_VARIANTS[1];
-
-    rememberPersistedValue(DEMO_COPY_STORAGE_KEY, randomVariant, 60);
-
-    return {
-      variant: randomVariant,
-      source: "random",
-    };
-  }
-
-  function rememberDemoCopyVariant(variant) {
-    const normalized = normalizeDemoCopyVariant(variant);
-    if (!normalized) {
-      return;
-    }
-
-    rememberPersistedValue(DEMO_COPY_STORAGE_KEY, normalized, 60);
-  }
-
-  function buildExperimentAnalyticsPayload() {
-    if (!activeDemoCopyVariant) {
-      return {};
-    }
-
-    return {
-      demo_copy_experiment_id: DEMO_COPY_EXPERIMENT_ID,
-      demo_copy_variant: activeDemoCopyVariant,
-    };
+    window.gtag("event", eventName, {
+      ...payload,
+      transport_type: "beacon",
+    });
   }
 
   function readCookie(name) {
@@ -215,10 +119,6 @@
   function clearContinuityStorage() {
     safeRemove(ATTR_STORAGE_KEY);
     safeRemove(AUTH_HINT_KEY);
-    safeRemove(DEMO_COPY_STORAGE_KEY);
-    deleteCookie(ATTR_STORAGE_KEY);
-    deleteCookie(AUTH_HINT_KEY);
-    deleteCookie(DEMO_COPY_STORAGE_KEY);
     ANALYTICS_COOKIE_NAMES.forEach(deleteCookie);
   }
 
@@ -460,11 +360,12 @@
 
     pricingSection.dataset.pricingTracked = "true";
 
+    const sessionState = hasSessionHint() ? "active" : "anonymous";
+
     const emitPricingViewed = () => {
       trackLandingEvent("landing_pricing_viewed", {
-        ...buildExperimentAnalyticsPayload(),
         cta_surface: "pricing-section",
-        session_state: hasSessionHint() ? "active" : "anonymous",
+        session_state: sessionState,
       });
     };
 
@@ -511,7 +412,6 @@
           captureAttribution({ billing_interval: billingInterval });
 
           trackLandingEvent("landing_interval_selected", {
-            ...buildExperimentAnalyticsPayload(),
             cta_surface: ctaSurface,
             cta_label: ctaLabel,
             billing_interval: billingInterval,
@@ -521,7 +421,6 @@
         }
 
         trackLandingEvent("landing_cta_clicked", {
-          ...buildExperimentAnalyticsPayload(),
           cta_surface: ctaSurface,
           cta_label: ctaLabel,
           billing_interval: billingInterval,
@@ -545,7 +444,6 @@
 
     if (continuityEnabled) {
       captureAttribution();
-      rememberDemoCopyVariant(activeDemoCopyVariant);
     } else {
       clearContinuityStorage();
     }
@@ -592,504 +490,43 @@
   }
 
   function initFaqAccordion() {
-    const faqItems = Array.from(document.querySelectorAll("details.faq-card"));
-    if (faqItems.length === 0) {
+    const toggles = document.querySelectorAll(".faq-toggle");
+    if (toggles.length === 0) {
       return;
     }
 
-    faqItems.forEach((item) => {
-      item.addEventListener("toggle", () => {
-        if (!item.open) {
+    toggles.forEach((toggle) => {
+      toggle.addEventListener("click", () => {
+        const item = toggle.closest(".faq-item");
+        if (!item) {
           return;
         }
 
-        faqItems.forEach((otherItem) => {
-          if (otherItem !== item) {
-            otherItem.open = false;
+        const panel = item.querySelector(".faq-panel");
+        const icon = item.querySelector(".faq-icon");
+        const isOpen = toggle.getAttribute("aria-expanded") === "true";
+
+        if (isOpen) {
+          toggle.setAttribute("aria-expanded", "false");
+          panel.style.maxHeight = "0";
+          panel.style.opacity = "0";
+          if (icon) {
+            icon.style.transform = "";
           }
-        });
-      });
-    });
-  }
-
-  function getDemoCopyExperimentConfig(variant) {
-    const visuals = [
-      {
-        image: "./assets/previews/reply-flow-step-01-heated-message.png",
-        alt: "Compose screen with a heated incoming message pasted into Liaison Reply.",
-      },
-      {
-        image: "./assets/previews/reply-flow-step-02-context-and-intent.png",
-        alt: "Intent and tone controls selected in Liaison Reply before generating responses.",
-      },
-      {
-        image: "./assets/previews/reply-flow-step-03-persona-selected.png",
-        alt: "Compose screen showing the Diplomat persona selected for a difficult conversation.",
-      },
-      {
-        image: "./assets/previews/reply-flow-step-04-generating.png",
-        alt: "Generating state in Liaison Reply while creating three response options.",
-      },
-      {
-        image: "./assets/previews/reply-flow-step-05-generated-replies.png",
-        alt: "Generated replies with strategic coaching guidance visible in the same screen.",
-      },
-      {
-        image: "./assets/previews/reply-flow-step-06-polish-in-progress.png",
-        alt: "Polish action running on a selected generated reply card in Liaison Reply.",
-      },
-      {
-        image: "./assets/previews/reply-flow-step-07-polished-reply.png",
-        alt: "Polished response options ready to copy in the Liaison Reply compose flow.",
-      },
-      {
-        image: "./assets/previews/reply-flow-step-08-live-coaching.png",
-        alt: "Live coaching warning highlighting escalation risk in an edited reply.",
-      },
-    ];
-
-    const variants = {
-      premium_leaning: {
-        headline:
-          "Respond with clarity when the conversation gets heated.",
-        description:
-          "A calm, guided flow for high-stakes threads: capture context, compare strategic drafts, and keep control of every word.",
-        proof:
-          "Nothing auto-sends. Coaching stays visible until you finalize your message.",
-        chips: [
-          "Capture exact message",
-          "Set tone and intent",
-          "Select a persona",
-          "Generate three drafts",
-          "Review tactical coaching",
-          "Polish phrasing",
-          "Finalize and copy",
-          "Check escalation risk",
-        ],
-        slides: [
-          {
-            kicker: "Reply builder",
-            step: "Step 1: Capture the message",
-            title: "Start from the exact message.",
-            caption:
-              "Paste the text verbatim so nuance and pressure stay intact.",
-          },
-          {
-            kicker: "Reply builder",
-            step: "Step 2: Set tone and intent",
-            title: "Define your tactical posture.",
-            caption:
-              "Choose tone and intent first to guide the draft toward your outcome.",
-          },
-          {
-            kicker: "Reply builder",
-            step: "Step 3: Select persona",
-            title: "Choose the right delivery style.",
-            caption:
-              "Persona shapes expression while preserving your core boundary.",
-          },
-          {
-            kicker: "Reply builder",
-            step: "Step 4: Generate options",
-            title: "Build three strategic replies.",
-            caption:
-              "Get multiple approaches rooted in your context and chosen intent.",
-          },
-          {
-            kicker: "Reply builder",
-            step: "Step 5: Compare with coaching",
-            title: "Review drafts with tactical notes.",
-            caption:
-              "See the strategic tradeoffs before committing to a final line.",
-          },
-          {
-            kicker: "Live coaching",
-            step: "Step 6: Polish wording",
-            title: "Refine without losing control.",
-            caption:
-              "Polish for warmth or directness while keeping your position intact.",
-          },
-          {
-            kicker: "Live coaching",
-            step: "Step 7: Finalize and copy",
-            title: "Lock the final version.",
-            caption:
-              "Make final edits, then copy when the message sounds like you.",
-          },
-          {
-            kicker: "Live coaching",
-            step: "Step 8: Validate escalation risk",
-            title: "Catch escalation before send.",
-            caption:
-              "Live coaching flags reactive edits so you can de-escalate in time.",
-          },
-        ],
-      },
-      conversion_leaning: {
-        headline:
-          "Generate 3 better replies before you hit send.",
-        description:
-          "Real app flow: paste the message, pick intent, compare drafts, polish one, and catch tone issues live in under a minute.",
-        proof:
-          "Real UI. Real outputs. Start free and send a calmer reply faster.",
-        chips: [
-          "Paste message",
-          "Pick intent",
-          "Choose persona",
-          "Get 3 replies",
-          "See coaching",
-          "Polish fast",
-          "Copy final draft",
-          "Avoid escalation",
-        ],
-        slides: [
-          {
-            kicker: "Reply builder",
-            step: "Step 1: Paste the message",
-            title: "Paste the exact message.",
-            caption:
-              "No summary needed. Start from the real message in seconds.",
-          },
-          {
-            kicker: "Reply builder",
-            step: "Step 2: Pick tone and intent",
-            title: "Tell the app what outcome you want.",
-            caption:
-              "Set boundary, buy time, or calm it down before generating replies.",
-          },
-          {
-            kicker: "Reply builder",
-            step: "Step 3: Choose persona",
-            title: "Pick the voice that fits.",
-            caption:
-              "Use persona controls to match the response style to the moment.",
-          },
-          {
-            kicker: "Reply builder",
-            step: "Step 4: Generate 3 replies",
-            title: "Get three options instantly.",
-            caption:
-              "Compare angles fast instead of rewriting the same message repeatedly.",
-          },
-          {
-            kicker: "Reply builder",
-            step: "Step 5: Compare and coach",
-            title: "See tactical guidance with each draft.",
-            caption:
-              "Coaching explains why each option works before you copy.",
-          },
-          {
-            kicker: "Live coaching",
-            step: "Step 6: Polish",
-            title: "Polish in one tap.",
-            caption:
-              "Make it warmer, cleaner, or more direct without starting over.",
-          },
-          {
-            kicker: "Live coaching",
-            step: "Step 7: Finalize and copy",
-            title: "Finalize your best draft.",
-            caption:
-              "Make quick edits and copy the reply when it is ready to send.",
-          },
-          {
-            kicker: "Live coaching",
-            step: "Step 8: Live warning",
-            title: "Stop escalation before it leaves your phone.",
-            caption:
-              "If an edit gets reactive, live coaching warns you immediately.",
-          },
-        ],
-      },
-    };
-
-    const normalizedVariant = normalizeDemoCopyVariant(variant) ||
-      DEMO_COPY_VARIANTS[0];
-    const config = variants[normalizedVariant] || variants[DEMO_COPY_VARIANTS[0]];
-
-    return {
-      variant: normalizedVariant,
-      headline: config.headline,
-      description: config.description,
-      proof: config.proof,
-      chips: config.chips,
-      slides: config.slides.map((slide, index) => ({
-        ...slide,
-        ...visuals[index],
-      })),
-    };
-  }
-
-  function initHeroStory() {
-    const story = document.querySelector("[data-hero-story]");
-    if (!story) {
-      return;
-    }
-
-    const section = story.closest("[data-demo-copy-experiment-section]");
-    const headline = section?.querySelector("[data-demo-copy-headline]");
-    const description = section?.querySelector("[data-demo-copy-description]");
-    const kicker = story.querySelector("[data-hero-story-kicker]");
-    const status = story.querySelector("[data-hero-story-status]");
-    const image = story.querySelector("[data-hero-story-image]");
-    const step = story.querySelector("[data-hero-story-step]");
-    const title = story.querySelector("[data-hero-story-title]");
-    const caption = story.querySelector("[data-hero-story-caption]");
-    const nav = story.querySelector("[data-hero-story-nav]");
-    const prev = story.querySelector("[data-hero-story-prev]");
-    const next = story.querySelector("[data-hero-story-next]");
-    const footer = story.querySelector("[data-demo-copy-footer]");
-    const proofNote = story.querySelector("[data-demo-copy-proof-note]");
-
-    if (
-      !kicker || !status || !image || !step || !title || !caption || !nav ||
-      !prev || !next
-    ) {
-      return;
-    }
-
-    const assignment = resolveDemoCopyVariant();
-    const config = getDemoCopyExperimentConfig(assignment.variant);
-    activeDemoCopyVariant = config.variant;
-    story.setAttribute("data-demo-copy-variant", activeDemoCopyVariant);
-
-    if (headline) {
-      headline.textContent = config.headline;
-    }
-
-    if (description) {
-      description.textContent = config.description;
-    }
-
-    if (proofNote) {
-      proofNote.textContent = config.proof;
-    }
-
-    if (footer) {
-      footer.replaceChildren();
-      config.chips.forEach((chip) => {
-        const node = document.createElement("span");
-        node.textContent = chip;
-        footer.append(node);
-      });
-    }
-
-    const slides = config.slides;
-    let currentIndex = 0;
-
-    const applySlide = (index) => {
-      currentIndex = (index + slides.length) % slides.length;
-      const slide = slides[currentIndex];
-
-      kicker.textContent = slide.kicker;
-      status.textContent = `Slide ${currentIndex + 1} of ${slides.length}`;
-      step.textContent = slide.step;
-      title.textContent = slide.title;
-      caption.textContent = slide.caption;
-      image.setAttribute("src", slide.image);
-      image.setAttribute("alt", slide.alt);
-
-      const counter = story.querySelector("[data-hero-story-counter]");
-      if (counter) {
-        counter.textContent = `${currentIndex + 1} / ${slides.length}`;
-      }
-
-      if (currentIndex === 0) {
-        image.setAttribute("loading", "eager");
-      } else {
-        image.setAttribute("loading", "lazy");
-      }
-    };
-
-    const emitExposure = () => {
-      if (story.dataset.experimentExposed === "true") {
-        return;
-      }
-
-      story.dataset.experimentExposed = "true";
-      trackLandingEvent("landing_experiment_exposed", {
-        ...buildExperimentAnalyticsPayload(),
-        experiment_surface: "demo-section",
-        assignment_source: assignment.source,
-        session_state: hasSessionHint() ? "active" : "anonymous",
-      });
-    };
-
-    const exposureTarget = section || story;
-    if (typeof window.IntersectionObserver !== "function") {
-      emitExposure();
-    } else {
-      const observer = new window.IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
-              return;
-            }
-
-            emitExposure();
-            observer.disconnect();
-          });
-        },
-        {
-          threshold: 0.35,
-        },
-      );
-
-      observer.observe(exposureTarget);
-    }
-
-    story.setAttribute("data-enhanced", "true");
-    nav.hidden = slides.length < 2;
-    prev.disabled = slides.length < 2;
-    next.disabled = slides.length < 2;
-
-    prev.addEventListener("click", () => {
-      applySlide(currentIndex - 1);
-    });
-
-    next.addEventListener("click", () => {
-      applySlide(currentIndex + 1);
-    });
-
-    story.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        applySlide(currentIndex - 1);
-      }
-
-      if (event.key === "ArrowRight") {
-        event.preventDefault();
-        applySlide(currentIndex + 1);
-      }
-    });
-
-    let touchStartX = 0;
-    let touchEndX = 0;
-    const minSwipeDistance = 50;
-
-    story.addEventListener("touchstart", (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    story.addEventListener("touchend", (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      const swipeDistance = touchEndX - touchStartX;
-
-      if (Math.abs(swipeDistance) > minSwipeDistance) {
-        if (swipeDistance > 0) {
-          applySlide(currentIndex - 1);
         } else {
-          applySlide(currentIndex + 1);
+          toggle.setAttribute("aria-expanded", "true");
+          panel.style.maxHeight = panel.scrollHeight + "px";
+          panel.style.opacity = "1";
+          if (icon) {
+            icon.style.transform = "rotate(45deg)";
+          }
         }
-      }
-    }, { passive: true });
-
-    applySlide(0);
-  }
-
-  function initStickyMobileCta() {
-    const stickyCta = document.querySelector("[data-sticky-mobile-cta]");
-    const hero = document.querySelector(".hero-section");
-
-    if (!stickyCta || !hero) {
-      return;
-    }
-
-    const mobileQuery = window.matchMedia("(max-width: 640px)");
-    const cookieBanner = document.querySelector("[data-cookie-banner]");
-    let heroVisible = true;
-
-    const syncStickyState = () => {
-      const showSticky = mobileQuery.matches &&
-        !heroVisible &&
-        !(cookieBanner && !cookieBanner.hidden);
-
-      stickyCta.hidden = !showSticky;
-      stickyCta.dataset.visible = showSticky ? "true" : "false";
-    };
-
-    if (typeof window.IntersectionObserver !== "function") {
-      heroVisible = false;
-      syncStickyState();
-      return;
-    }
-
-    const observer = new window.IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          heroVisible = entry.isIntersecting;
-          syncStickyState();
-        });
-      },
-      {
-        threshold: 0.1,
-      },
-    );
-
-    observer.observe(hero);
-
-    if (typeof mobileQuery.addEventListener === "function") {
-      mobileQuery.addEventListener("change", syncStickyState);
-    } else if (typeof mobileQuery.addListener === "function") {
-      mobileQuery.addListener(syncStickyState);
-    }
-
-    if (cookieBanner && typeof MutationObserver === "function") {
-      const mutationObserver = new MutationObserver(syncStickyState);
-      mutationObserver.observe(cookieBanner, {
-        attributes: true,
-        attributeFilter: ["hidden"],
       });
-    }
-
-    syncStickyState();
-  }
-
-  const menuToggle = document.querySelector(".menu-toggle");
-  const mobileMenu = document.querySelector(".nav-mobile");
-  const mobileClose = document.querySelector(".nav-mobile-close");
-
-  function closeMobileMenu() {
-    if (!mobileMenu) {
-      return;
-    }
-
-    mobileMenu.classList.remove("is-open");
-    document.body.style.overflow = "";
-    menuToggle?.setAttribute("aria-expanded", "false");
-  }
-
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", () => {
-      mobileMenu.classList.add("is-open");
-      document.body.style.overflow = "hidden";
-      menuToggle.setAttribute("aria-expanded", "true");
-      mobileClose?.focus();
     });
   }
-
-  mobileClose?.addEventListener("click", () => {
-    closeMobileMenu();
-    menuToggle?.focus();
-  });
-
-  mobileMenu?.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      closeMobileMenu();
-    });
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && mobileMenu?.classList.contains("is-open")) {
-      closeMobileMenu();
-      menuToggle?.focus();
-    }
-  });
 
   initCookieControls();
   initFaqAccordion();
-  initHeroStory();
-  initStickyMobileCta();
   captureAttribution();
   hydrateSessionButtons();
   hydrateAppLinks();
