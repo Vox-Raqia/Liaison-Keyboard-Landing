@@ -451,6 +451,7 @@
     const banner = document.querySelector("[data-cookie-banner]");
     if (banner) {
       banner.hidden = true;
+      banner.style.display = "none";
     }
 
     hydrateSessionButtons();
@@ -470,8 +471,14 @@
       updateGoogleConsent(Boolean(consent.continuity));
     }
 
-    if (banner && !consent) {
-      banner.hidden = false;
+    if (banner) {
+      if (consent) {
+        banner.hidden = true;
+        banner.style.display = "none";
+      } else {
+        banner.hidden = false;
+        banner.style.display = "";
+      }
     }
 
     renderCookiePreferenceUI(consent);
