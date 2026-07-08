@@ -134,6 +134,8 @@
       content="https://liaisonreply.com/assets/og-image.png"
     />
     <link rel="stylesheet" href="./output.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script type="module" src="./components/funnel-forms.js"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -177,17 +179,6 @@
       <!-- NAV -->
       <nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-y-3 px-6 py-6">
         <span class="text-lg font-black tracking-tight">Liaison Reply</span>
-        <a
-          href="https://app.liaisonreply.com/auth/login"
-          data-session-primary
-          data-cta-surface="topbar-signin"
-          data-cta-label="Sign In"
-          data-auth-text="Sign In"
-          data-session-text="Open App"
-          data-auth-path="/auth/login"
-          data-session-path="/chat"
-          class="rounded-full bg-sky-500 px-5 py-2 text-sm font-semibold text-black hover:bg-sky-400 transition-colors"
-        >Sign In</a>
       </nav>
 
       <!-- HERO -->
@@ -196,27 +187,27 @@
           <div class="relative grid grid-cols-1 gap-16 md:grid-cols-2 md:items-center">
           <div class="min-w-0">
             <h1 class="text-5xl font-black leading-[1.05] tracking-tight md:text-7xl">
-              Turn Their Text
-              <br />
-              <span class="bg-gradient-to-r from-sky-400 to-amber-300 bg-clip-text text-transparent">
-                Into Your Advantage.
-              </span>
+              Join the Future of AI Communication
             </h1>
             <p class="mt-6 max-w-lg text-lg leading-relaxed text-white/60">
-              Liaison Reply is the AI reply generator for high-stakes messages. Paste the text that rattled you, and Liaison reads the room and generates three tactically calibrated replies tailored to your exact situation &mdash; then you send the one that lands.
+              Two paths. One frontier. Choose your level of involvement.
             </p>
-            <a
-              href="https://app.liaisonreply.com/auth/register"
-              data-session-primary
-              data-cta-surface="hero-primary"
-              data-cta-label="Claim 15 Free Replies Now"
-              data-auth-text="Claim 15 Free Replies Now"
-              data-session-text="Back to Liaison Reply"
-              data-auth-path="/auth/register"
-              data-session-path="/chat"
-              class="mt-10 block w-full text-center rounded-2xl bg-sky-500 px-10 py-5 text-lg font-bold text-black shadow-[0_0_40px_rgba(56,189,248,0.35)] hover:bg-sky-400 hover:shadow-[0_0_60px_rgba(56,189,248,0.5)] active:scale-[0.98] transition-all duration-200 sm:inline-block sm:w-auto"
-            >Claim 15 Free Replies Now</a>
-            <p class="mt-4 text-sm text-white/50">15 credits reloaded every 48 hours. Unlimited free credits via referrals.</p>
+            <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+              <button
+                type="button"
+                data-scroll-to="beta-waitlist"
+                class="inline-flex items-center justify-center rounded-2xl bg-sky-500 px-8 py-4 text-lg font-bold text-black shadow-[0_0_40px_rgba(56,189,248,0.35)] hover:bg-sky-400 hover:shadow-[0_0_60px_rgba(56,189,248,0.5)] active:scale-[0.98] transition-all duration-200"
+              >
+                Join the Beta Waitlist
+              </button>
+              <button
+                type="button"
+                data-scroll-to="founding-vanguard"
+                class="inline-flex items-center justify-center rounded-2xl bg-amber-400 px-8 py-4 text-lg font-bold text-black shadow-[0_0_40px_rgba(251,191,36,0.35)] hover:bg-amber-300 hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] active:scale-[0.98] transition-all duration-200"
+              >
+                Apply for the Vanguard
+              </button>
+            </div>
           </div>
 
           <!-- Real app screenshot -->
@@ -287,6 +278,35 @@
         </div>
       </section>
 
+      <!-- BETA WAITLIST -->
+      <section id="beta-waitlist" class="mx-auto max-w-3xl px-6 py-24">
+        <div class="text-center">
+          <h2 class="text-3xl font-black md:text-4xl">Beta Waitlist</h2>
+          <p class="mx-auto mt-4 max-w-xl text-white/60">Get early access to Liaison Reply and help shape the future of AI-powered communication.</p>
+        </div>
+        <div id="beta-waitlist-form" class="mx-auto mt-12 max-w-xl"></div>
+      </section>
+
+      <!-- FOUNDING VANGUARD -->
+      <section id="founding-vanguard" class="mx-auto max-w-5xl px-6 py-24">
+        <div class="text-center">
+          <h2 class="text-3xl font-black md:text-4xl">Founding Vanguard</h2>
+          <p class="mx-auto mt-4 max-w-xl text-white/60">Two ways to join the inner circle. Pre-sign up for early access, or submit a full application for the founding cohort.</p>
+        </div>
+        <div class="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
+          <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+            <h3 class="text-xl font-bold text-sky-300">Pre-Sign Up</h3>
+            <p class="mt-2 text-sm text-white/60">Quick sign-up to get on the early access list and receive the full Vanguard application when it opens.</p>
+            <div id="vanguard-presignup-form" class="mt-6"></div>
+          </div>
+          <div class="rounded-2xl border border-amber-400/30 bg-gradient-to-b from-[#0f1b33] to-[#0a0f1c] p-8">
+            <h3 class="text-xl font-bold text-amber-300">Full Application</h3>
+            <p class="mt-2 text-sm text-white/60">Tell us about yourself and why you belong in the founding cohort. We review applications in the order received.</p>
+            <div id="vanguard-application-form" class="mt-6"></div>
+          </div>
+        </div>
+      </section>
+
       <!-- PRICING -->
       <section id="plans" class="mx-auto max-w-5xl px-6 py-24" data-pricing-section>
         <h2 class="text-center text-3xl font-black md:text-4xl">Start free. Upgrade when it matters.</h2>
@@ -317,17 +337,7 @@
                 <span class="text-sm">Standard personas</span>
               </li>
             </ul>
-            <a
-              href="https://app.liaisonreply.com/auth/register"
-              data-session-primary
-              data-cta-surface="pricing-free"
-              data-cta-label="Start Free"
-              data-auth-text="Start Free"
-              data-session-text="Open Liaison Reply"
-              data-auth-path="/auth/register"
-              data-session-path="/chat"
-              class="mt-8 block w-full rounded-xl py-4 text-center font-bold border border-white/15 bg-white/5 text-white hover:bg-white/10 active:scale-[0.98] transition-all duration-200"
-            >Start Free</a>
+            <p class="mt-8 text-sm text-white/50 text-center">Access is currently by waitlist and Vanguard application only.</p>
           </div>
 
           <!-- Pro -->
@@ -372,18 +382,7 @@
                 <span class="text-sm">Every premium persona unlocked</span>
               </li>
             </ul>
-            <a
-              href="https://app.liaisonreply.com/auth/register"
-              data-session-primary
-              data-billing-interval="month"
-              data-cta-surface="pricing-pro"
-              data-cta-label="Unlock Pro"
-              data-auth-text="Unlock Pro"
-              data-session-text="Open Liaison Reply"
-              data-auth-path="/auth/register"
-              data-session-path="/chat"
-              class="mt-8 block w-full rounded-xl py-4 text-center font-bold bg-amber-400 text-black hover:bg-amber-300 hover:shadow-[0_0_30px_rgba(251,191,36,0.5)] active:scale-[0.98] transition-all duration-200"
-            >Unlock Pro</a>
+            <p class="mt-8 text-sm text-white/50 text-center">Pro access will open to the Vanguard first.</p>
           </div>
         </div>
       </section>
@@ -444,20 +443,16 @@
 
       <!-- FINAL CTA -->
       <section class="mx-auto max-w-4xl px-6 py-24 text-center">
-        <h2 class="text-4xl font-black md:text-5xl">Paste one loaded message.</h2>
-        <p class="mt-4 text-white/50">See three better ways to reply.</p>
-        <a
-          href="https://app.liaisonreply.com/auth/register"
-          data-session-primary
-          data-cta-surface="final-cta-primary"
-          data-cta-label="Claim 15 Free Replies Now"
-          data-auth-text="Claim 15 Free Replies Now"
-          data-session-text="Back to Liaison Reply"
-          data-auth-path="/auth/register"
-          data-session-path="/chat"
-          class="mt-10 block w-full text-center rounded-2xl bg-sky-500 px-10 py-5 text-lg font-bold text-black shadow-[0_0_40px_rgba(56,189,248,0.35)] hover:bg-sky-400 hover:shadow-[0_0_60px_rgba(56,189,248,0.5)] active:scale-[0.98] transition-all duration-200 sm:inline-block sm:w-auto"
-        >Claim 15 Free Replies Now</a>
-        <p class="mt-4 text-sm text-white/50">15 credits reloaded every 48 hours. Unlimited free credits via referrals.</p>
+        <h2 class="text-4xl font-black md:text-5xl">Join the waitlist or apply for the Vanguard.</h2>
+        <p class="mt-4 text-white/50">Early access is opening soon. Choose your path above.</p>
+        <button
+          type="button"
+          data-scroll-to="beta-waitlist"
+          class="mt-10 inline-flex items-center justify-center rounded-2xl bg-sky-500 px-10 py-5 text-lg font-bold text-black shadow-[0_0_40px_rgba(56,189,248,0.35)] hover:bg-sky-400 hover:shadow-[0_0_60px_rgba(56,189,248,0.5)] active:scale-[0.98] transition-all duration-200"
+        >
+          Join the Beta Waitlist
+        </button>
+        <p class="mt-4 text-sm text-white/50">15 credits reloaded every 48 hours once the app is live.</p>
       </section>
 
       <footer class="border-t border-white/5 py-10 text-center text-xs text-white/30">
@@ -467,6 +462,7 @@
           <a href="./terms.html" class="hover:text-white/50 transition-colors">Terms</a>
           <a href="./cookies.html" class="hover:text-white/50 transition-colors">Cookies</a>
           <a href="./support.html" class="hover:text-white/50 transition-colors">Support</a>
+          <a href="https://app.liaisonreply.com/auth/login" class="text-white/10 hover:text-white/40 transition-colors">Dev</a>
         </nav>
       </footer>
     </main>
