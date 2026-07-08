@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build:css": "tailwindcss -i ./tailwind.input.css -o ./output.css --content ./index.html --minify",
+    "build:css": "tailwindcss -c ./tailwind.config.js -i ./tailwind.input.css -o ./output.css --minify",
     "watch:css": "tailwindcss -i ./tailwind.input.css -o ./output.css --content ./index.html --watch",
     "test:analytics": "node --test ./tests/pricing-analytics-contract.test.js",
     "test:smoke": "node --test ./tests/cookie-consent-smoke.test.js",
