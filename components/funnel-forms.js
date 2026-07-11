@@ -7,7 +7,6 @@
 
 import { initBetaWaitlistForm } from './beta-waitlist-form.js';
 import { initVanguardPreSignupForm } from './vanguard-presignup-form.js';
-import { initVanguardApplicationForm } from './vanguard-application-form.js';
 
 function initSmoothScroll() {
   document.querySelectorAll('[data-scroll-to]').forEach((button) => {
@@ -29,7 +28,6 @@ function initAll() {
   initSmoothScroll();
   initBetaWaitlistForm('beta-waitlist-form');
   initVanguardPreSignupForm('vanguard-presignup-form');
-  initVanguardApplicationForm('vanguard-application-form');
 }
 
 if (document.readyState === 'loading') {
