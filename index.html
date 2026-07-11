@@ -179,6 +179,14 @@
       <!-- NAV -->
       <nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-y-3 px-6 py-6">
         <span class="text-lg font-black tracking-tight">Liaison Reply</span>
+        <button
+          type="button"
+          id="pricing-toggle"
+          class="inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold text-white/70 border border-white/10 hover:text-white hover:border-white/30 transition-colors"
+          aria-label="Toggle pricing section"
+        >
+          View Pricing
+        </button>
       </nav>
 
       <!-- HERO -->
@@ -289,7 +297,7 @@
       </section>
 
       <!-- PRICING -->
-      <section id="plans" class="mx-auto max-w-5xl px-6 py-24" data-pricing-section>
+      <section id="plans" class="mx-auto max-w-5xl px-6 py-24" data-pricing-section style="display: none;">
         <h2 class="text-center text-3xl font-black md:text-4xl">Start free. Upgrade when it matters.</h2>
         <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
           <!-- Free -->
@@ -370,53 +378,65 @@
 
       <!-- FAQ -->
       <section id="faq" class="mx-auto max-w-3xl px-6 py-24">
-        <h2 class="text-center text-3xl font-black md:text-4xl">Questions before you start</h2>
+        <h2 class="text-center text-3xl font-black md:text-4xl">Questions before you join</h2>
         <div class="mt-12">
           <div class="faq-item border-b border-white/10">
             <button class="faq-toggle flex w-full items-center justify-between py-5 text-left group" aria-expanded="false">
-              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">What happens to the messages I paste in?</span>
+              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">What&rsquo;s the difference between Beta Waitlist and the Founding Vanguard?</span>
               <svg class="faq-icon h-5 w-5 text-white/40 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
               </svg>
             </button>
             <div class="faq-panel overflow-hidden transition-all duration-300 ease-out" style="max-height:0;opacity:0">
-              <p class="text-sm leading-relaxed text-white/60 pb-5">Messages are processed to generate your replies and stored only in your isolated, owner-scoped thread memory. You control retention and can wipe threads any time.</p>
+              <p class="text-sm leading-relaxed text-white/60 pb-5"><strong>Beta Waitlist:</strong> Free access with daily credit reloads. Your feedback directly shapes the product. <strong>Founding Vanguard:</strong> A private, invite-only cohort that locks in lifetime pricing, gets direct dev access, and helps engineer the platform&rsquo;s future.</p>
             </div>
           </div>
 
           <div class="faq-item border-b border-white/10">
             <button class="faq-toggle flex w-full items-center justify-between py-5 text-left group" aria-expanded="false">
-              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">Is this a chatbot?</span>
+              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">When will Liaison Reply launch?</span>
               <svg class="faq-icon h-5 w-5 text-white/40 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
               </svg>
             </button>
             <div class="faq-panel overflow-hidden transition-all duration-300 ease-out" style="max-height:0;opacity:0">
-              <p class="text-sm leading-relaxed text-white/60 pb-5">No. Liaison Reply is a triage tool. You paste a message, get three calibrated replies, edit if needed, and copy the one you want back into your real conversation.</p>
+              <p class="text-sm leading-relaxed text-white/60 pb-5">Beta access is opening soon. Waitlist members will get early invites, and Vanguard applications are rolling. Once live, the app will be available on web, iOS, and Android with daily credit reloads for free users.</p>
             </div>
           </div>
 
           <div class="faq-item border-b border-white/10">
             <button class="faq-toggle flex w-full items-center justify-between py-5 text-left group" aria-expanded="false">
-              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">Can I cancel Pro anytime?</span>
+              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">Is my data private?</span>
               <svg class="faq-icon h-5 w-5 text-white/40 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
               </svg>
             </button>
             <div class="faq-panel overflow-hidden transition-all duration-300 ease-out" style="max-height:0;opacity:0">
-              <p class="text-sm leading-relaxed text-white/60 pb-5">Yes. Billing is self-serve through Stripe&rsquo;s customer portal. Cancel anytime, no retention calls, no games.</p>
+              <p class="text-sm leading-relaxed text-white/60 pb-5">Absolutely. Your messages are stored in owner-scoped thread memory with strict row-level security. Generation runs inside private edge functions, never client-side. You can delete any thread or wipe your entire history anytime.</p>
             </div>
           </div>
 
           <div class="faq-item border-b border-white/10">
             <button class="faq-toggle flex w-full items-center justify-between py-5 text-left group" aria-expanded="false">
-              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">Why not just use a generic AI chatbot?</span>
+              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">How do I get a Vanguard invite?</span>
               <svg class="faq-icon h-5 w-5 text-white/40 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
               </svg>
             </button>
             <div class="faq-panel overflow-hidden transition-all duration-300 ease-out" style="max-height:0;opacity:0">
-              <p class="text-sm leading-relaxed text-white/60 pb-5">Generic chatbots aren&rsquo;t calibrated for social outcomes. Liaison Reply is purpose-built to analyze tone, intent, and relationship context, then hand you three distinct strategic paths.</p>
+              <p class="text-sm leading-relaxed text-white/60 pb-5">Select pre-signups from the waitlist will receive a direct email invitation to apply. Vanguard applications are selective and designed to find deeply committed members who want to steer the product&rsquo;s evolution.</p>
+            </div>
+          </div>
+
+          <div class="faq-item border-b border-white/10">
+            <button class="faq-toggle flex w-full items-center justify-between py-5 text-left group" aria-expanded="false">
+              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">What devices will Liaison Reply work on?</span>
+              <svg class="faq-icon h-5 w-5 text-white/40 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+              </svg>
+            </button>
+            <div class="faq-panel overflow-hidden transition-all duration-300 ease-out" style="max-height:0;opacity:0">
+              <p class="text-sm leading-relaxed text-white/60 pb-5">Liaison Reply will launch on web (browser), iOS, and Android. The ultimate goal is a native keyboard extension, but we&rsquo;re starting with full cross-platform mobile and web support.</p>
             </div>
           </div>
         </div>
@@ -487,6 +507,29 @@
         >Cookie settings</a>
       </div>
     </aside>
+
+    <!-- Pricing Toggle Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const pricingToggle = document.getElementById('pricing-toggle');
+        const pricingSection = document.querySelector('[data-pricing-section]');
+        
+        if (pricingToggle && pricingSection) {
+          pricingToggle.addEventListener('click', function() {
+            const isHidden = pricingSection.style.display === 'none';
+            if (isHidden) {
+              pricingSection.style.display = 'block';
+              pricingToggle.textContent = 'Hide Pricing';
+              // Smooth scroll to pricing
+              pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+              pricingSection.style.display = 'none';
+              pricingToggle.textContent = 'View Pricing';
+            }
+          });
+        }
+      });
+    </script>
 
     <script src="./site.js"></script>
   </body>
