@@ -43,7 +43,7 @@ export function initBetaWaitlistForm(containerId) {
   }
 
   function isValidEmail(value) {
-    return /^[^\s@]+@[^@[:space:]]+\.[^@[:space:]]+$/.test(value);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   }
 
   /**

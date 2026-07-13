@@ -463,6 +463,19 @@
     });
   }
 
+  function initScrollToButtons() {
+    const buttons = document.querySelectorAll('[data-scroll-to]');
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-scroll-to');
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  }
+
   function initCookieControls() {
     const banner = document.querySelector("[data-cookie-banner]");
     const consent = readConsent();
@@ -533,6 +546,7 @@
   }
 
   initCookieControls();
+  initScrollToButtons();
   initFaqAccordion();
   captureAttribution();
   hydrateSessionButtons();
