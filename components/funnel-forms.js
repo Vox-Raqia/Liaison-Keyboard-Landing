@@ -5,7 +5,6 @@
  * Loaded as a module script so imports work correctly in the browser.
  */
 
-import { initBetaWaitlistForm } from './beta-waitlist-form.js';
 import { initVanguardPreSignupForm } from './vanguard-presignup-form.js';
 
 function initSmoothScroll() {
@@ -26,7 +25,6 @@ function initSmoothScroll() {
 
 function initAll() {
   initSmoothScroll();
-  initBetaWaitlistForm('beta-waitlist-form');
   initVanguardPreSignupForm('vanguard-presignup-form');
 }
 

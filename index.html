@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -91,13 +91,9 @@
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/svg+xml" href="/assets/liaison-icon.svg" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/liaison-icon-180.png" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <meta name="theme-color" content="#05070d" />
-    <meta name="msapplication-TileColor" content="#05070d" />
     <title>Liaison Reply — AI Reply Generator for Difficult Texts &amp; Tough Talks</title>
     <meta
       name="description"
@@ -138,8 +134,6 @@
       content="https://liaisonreply.com/assets/og-image.png"
     />
     <link rel="stylesheet" href="./output.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <script type="module" src="./components/funnel-forms.js"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -179,29 +173,21 @@
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <main class="min-h-screen bg-[#05070d] text-white antialiased selection:bg-sky-500/30 relative">
-      <!-- AURORA BACKDROP -->
-      <div class="aurora-backdrop" aria-hidden="true">
-        <div class="aurora-base-layer"></div>
-        <div class="aurora-orb aurora-orb-top"></div>
-        <div class="aurora-ring aurora-ring-top"></div>
-        <div class="aurora-orb aurora-orb-bottom"></div>
-        <div class="aurora-ring aurora-ring-bottom"></div>
-        <div class="aurora-haze"></div>
-        <div class="aurora-edge-shade"></div>
-      </div>
-      
+    <main class="min-h-screen bg-[#05070d] text-white antialiased selection:bg-sky-500/30">
       <!-- NAV -->
-      <nav class="sticky top-0 z-40 mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-y-3 px-6 py-6 border-b border-white/5 bg-[#05070d]/95 backdrop-blur">
+      <nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-y-3 px-6 py-6">
         <span class="text-lg font-black tracking-tight">Liaison Reply</span>
-        <button
-          type="button"
-          id="pricing-toggle"
-          class="inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold text-white/70 border border-white/10 hover:text-white hover:border-white/30 transition-colors"
-          aria-label="Toggle pricing section"
-        >
-          View Pricing
-        </button>
+        <a
+          href="https://app.liaisonreply.com/auth/login"
+          data-session-primary
+          data-cta-surface="topbar-signin"
+          data-cta-label="Sign In"
+          data-auth-text="Sign In"
+          data-session-text="Open App"
+          data-auth-path="/auth/login"
+          data-session-path="/chat"
+          class="rounded-full bg-sky-500 px-5 py-2 text-sm font-semibold text-black hover:bg-sky-400 transition-colors"
+        >Sign In</a>
       </nav>
 
       <!-- HERO -->
@@ -210,84 +196,69 @@
           <div class="relative grid grid-cols-1 gap-16 md:grid-cols-2 md:items-center">
           <div class="min-w-0">
             <h1 class="text-5xl font-black leading-[1.05] tracking-tight md:text-7xl">
-              Three Replies. One Perfect Answer.
+              Turn Their Text
+              <br />
+              <span class="bg-gradient-to-r from-sky-400 to-amber-300 bg-clip-text text-transparent">
+                Into Your Advantage.
+              </span>
             </h1>
             <p class="mt-6 max-w-lg text-lg leading-relaxed text-white/60">
-              Paste the difficult message. Get three calibrated replies (Safe, Warm, Direct). Copy the one that fits and own the outcome.
+              Liaison Reply is the AI reply generator for high-stakes messages. Paste the text that rattled you, and Liaison reads the room and generates three tactically calibrated replies tailored to your exact situation &mdash; then you send the one that lands.
             </p>
-            <div class="mt-8 grid grid-cols-2 gap-4 text-sm">
-              <div class="flex items-start gap-2">
-                <span class="text-emerald-400 font-bold">✓</span>
-                <span class="text-white/70"><strong>Free.</strong> 15 credits every 48 hours.</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-emerald-400 font-bold">✓</span>
-                <span class="text-white/70"><strong>Legit.</strong> Built by serious founders.</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-emerald-400 font-bold">✓</span>
-                <span class="text-white/70"><strong>Private.</strong> Your texts stay yours.</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-emerald-400 font-bold">✓</span>
-                <span class="text-white/70"><strong>Coming soon.</strong> Beta opens Q3 2026.</span>
-              </div>
-            </div>
-            <div class="mt-10 flex flex-col gap-4 sm:flex-row">
-              <button
-                type="button"
-                data-scroll-to="beta-waitlist"
-                class="inline-flex items-center justify-center rounded-2xl bg-sky-500 px-8 py-4 text-lg font-bold text-black shadow-[0_0_40px_rgba(56,189,248,0.35)] hover:bg-sky-400 hover:shadow-[0_0_60px_rgba(56,189,248,0.5)] active:scale-[0.98] transition-all duration-200"
-              >
-                Join the Beta Waitlist
-              </button>
-              <button
-                type="button"
-                data-scroll-to="founding-vanguard"
-                class="inline-flex items-center justify-center rounded-2xl bg-amber-400 px-8 py-4 text-lg font-bold text-black shadow-[0_0_40px_rgba(251,191,36,0.35)] hover:bg-amber-300 hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] active:scale-[0.98] transition-all duration-200"
-              >
-                Apply for the Vanguard
-              </button>
-            </div>
+            <a
+              href="https://app.liaisonreply.com/auth/register"
+              data-session-primary
+              data-cta-surface="hero-primary"
+              data-cta-label="Claim 15 Free Replies Now"
+              data-auth-text="Claim 15 Free Replies Now"
+              data-session-text="Back to Liaison Reply"
+              data-auth-path="/auth/register"
+              data-session-path="/chat"
+              class="mt-10 block w-full text-center rounded-2xl bg-sky-500 px-10 py-5 text-lg font-bold text-black shadow-[0_0_40px_rgba(56,189,248,0.35)] hover:bg-sky-400 hover:shadow-[0_0_60px_rgba(56,189,248,0.5)] active:scale-[0.98] transition-all duration-200 sm:inline-block sm:w-auto"
+            >Claim 15 Free Replies Now</a>
+            <p class="mt-4 text-sm text-white/50">15 credits reloaded every 48 hours. Unlimited free credits via referrals.</p>
           </div>
 
-          <!-- Demo Card -->
-          <div class="relative mx-auto w-full max-w-lg aspect-video bg-gradient-to-b from-sky-900/20 to-slate-900 border border-sky-500/20 rounded-2xl flex flex-col items-center justify-center overflow-hidden gap-3 p-6">
-            <div class="text-center">
-                <svg class="mx-auto h-16 w-16 text-sky-400/40 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <p class="text-white/60 text-sm font-medium">See how it works</p>
-                <p class="text-white/40 text-xs mt-2">Demo coming soon</p>
-              </div>
+          <!-- Real app screenshot -->
+          <div class="relative mx-auto w-full max-w-sm">
+            <div class="rounded-[2.5rem] border border-white/10 bg-gradient-to-b from-[#101828] to-[#060a12] p-3 shadow-2xl">
+              <img
+                src="assets/previews/reply-flow-step-05-generated-replies.png"
+                alt="Liaison Reply mobile app showing three AI-generated, context-specific reply options with the incoming message preloaded as context"
+                width="390"
+                height="844"
+                loading="eager"
+                decoding="async"
+                class="w-full aspect-[390/844] object-cover rounded-[1.75rem] border border-white/5"
+              />
             </div>
+          </div>
         </div>
       </section>
 
       <!-- HOW IT WORKS -->
       <section id="workflow" class="mx-auto max-w-6xl px-6 py-24">
-        <h2 class="text-center text-3xl font-black md:text-4xl">How It Works</h2>
-        <p class="mx-auto mt-4 text-center max-w-2xl text-white/60">Three simple steps. Two minutes. One message that changes everything.</p>
+        <h2 class="text-center text-3xl font-black md:text-4xl">How Liaison Reply Wins</h2>
         <div class="mt-16 grid gap-8 md:grid-cols-3">
           <!-- Step 1 -->
           <div class="relative rounded-2xl border border-white/10 bg-white/[0.02] p-8 hover:border-sky-500/30 hover:bg-white/[0.04] transition-all duration-300">
-            <span class="text-sm font-bold uppercase tracking-widest text-sky-400">1. Paste</span>
-            <h3 class="mt-3 text-2xl font-bold">Drop the Raw Message</h3>
-              <p class="mt-3 text-sm leading-relaxed text-white/60">Paste the text that hit you. Emails, DMs, Slack—anything. Liaison reads the emotional temperature and intent in seconds.</p>
+            <span class="text-sm font-bold uppercase tracking-widest text-sky-400">Step 1</span>
+            <h3 class="mt-3 text-2xl font-bold">The Vent</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/60">Offload the raw emotion in seconds. Voice it, don&rsquo;t send it &mdash; we catch the mess so your reply stays clean.</p>
             <div class="hidden md:block absolute top-1/2 -right-4 h-px w-8 bg-gradient-to-r from-white/20 to-transparent" aria-hidden="true"></div>
           </div>
           <!-- Step 2 -->
           <div class="relative rounded-2xl border border-white/10 bg-white/[0.02] p-8 hover:border-sky-500/30 hover:bg-white/[0.04] transition-all duration-300">
-            <span class="text-sm font-bold uppercase tracking-widest text-sky-400">2. Choose Your Stance</span>
-            <h3 class="mt-3 text-2xl font-bold">Pick Your Tone</h3>
-              <p class="mt-3 text-sm leading-relaxed text-white/60">Three cards appear: <strong>Safe</strong> (de-escalate), <strong>Warm</strong> (connect), or <strong>Direct</strong> (set a boundary). Pick the one that matches your goal.</p>
+            <span class="text-sm font-bold uppercase tracking-widest text-sky-400">Step 2</span>
+            <h3 class="mt-3 text-2xl font-bold">The Calibration</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/60">Our model maps the psychology of their message and your intent, then engineers the perfect counter-move while you breathe.</p>
             <div class="hidden md:block absolute top-1/2 -right-4 h-px w-8 bg-gradient-to-r from-white/20 to-transparent" aria-hidden="true"></div>
           </div>
           <!-- Step 3 -->
           <div class="relative rounded-2xl border border-white/10 bg-white/[0.02] p-8 hover:border-sky-500/30 hover:bg-white/[0.04] transition-all duration-300">
-            <span class="text-sm font-bold uppercase tracking-widest text-sky-400">3. Copy & Send</span>
-            <h3 class="mt-3 text-2xl font-bold">Own Your Reply</h3>
-              <p class="mt-3 text-sm leading-relaxed text-white/60">Edit the generated reply if you want. Then copy it back to the real conversation. No AI voice. Just you, better.</p>
+            <span class="text-sm font-bold uppercase tracking-widest text-sky-400">Step 3</span>
+            <h3 class="mt-3 text-2xl font-bold">Tactical Delineation</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/60">Walk away with three battle-tested replies &mdash; de-escalate, connect, or draw the line. Copy, paste, and own the outcome.</p>
           </div>
         </div>
       </section>
@@ -295,51 +266,30 @@
       <!-- TRUST SIGNALS -->
       <section class="border-y border-white/5 bg-white/[0.015] py-24">
         <div class="mx-auto max-w-6xl px-6">
-          <h2 class="text-center text-3xl font-black md:text-4xl">Enterprise-Grade Security for Private Conversations</h2>
+          <h2 class="text-center text-3xl font-black md:text-4xl">Built for High-Stakes Discretion</h2>
           <p class="mx-auto mt-4 max-w-xl text-center text-white/50">
-            Your messages never leave your device. Encryption, RLS, and edge-function isolation by default.
+            Your private drama does not leak. Full stop.
           </p>
           <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
             <div class="rounded-2xl border border-white/10 p-8">
-              <h3 class="text-lg font-bold text-sky-300">Input Filtering</h3>
-              <p class="mt-3 text-sm leading-relaxed text-white/55">Every message is scanned for adversarial patterns before AI processing. No prompt injections. No unintended data leaks.</p>
+              <h3 class="text-lg font-bold text-sky-300">Prompt Injection Armor</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/55">Every inbound message is pre-filtered against adversarial and injection patterns before it ever reaches the model.</p>
             </div>
             <div class="rounded-2xl border border-white/10 p-8">
-              <h3 class="text-lg font-bold text-sky-300">Private Computation</h3>
-              <p class="mt-3 text-sm leading-relaxed text-white/55">Reply generation runs in isolated, encrypted edge functions. Your message never touches shared infrastructure.</p>
+              <h3 class="text-lg font-bold text-sky-300">Private Edge-Function Architecture</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/55">Generation runs inside isolated, private edge functions &mdash; never client-side, never exposed.</p>
             </div>
             <div class="rounded-2xl border border-white/10 p-8">
-              <h3 class="text-lg font-bold text-sky-300">Owner-Scoped Data</h3>
-              <p class="mt-3 text-sm leading-relaxed text-white/55">Every thread is cryptographically tied to your account. Row-level security ensures no other user can ever read your threads.</p>
+              <h3 class="text-lg font-bold text-sky-300">Strict Row-Level Security</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/55">Every row in Postgres is owner-scoped. Your threads are cryptographically yours, and no one else&rsquo;s query can touch them.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- BETA WAITLIST -->
-      <section id="beta-waitlist" class="mx-auto max-w-3xl px-6 py-24">
-        <div class="text-center">
-          <h2 class="text-3xl font-black md:text-4xl">Join the Beta</h2>
-          <p class="mx-auto mt-4 max-w-xl text-white/60">Get early access and help shape the product. Free tier. 15 credits every 48 hours. Launching Q3 2026.</p>
-        </div>
-        <div id="beta-waitlist-form" class="mx-auto mt-12 max-w-xl"></div>
-      </section>
-
-      <!-- FOUNDING VANGUARD -->
-      <section id="founding-vanguard" class="mx-auto max-w-3xl px-6 py-24">
-        <div class="text-center">
-          <h2 class="text-3xl font-black md:text-4xl">For True Believers: The Vanguard</h2>
-          <p class="mx-auto mt-4 max-w-xl text-white/60">Apply for a private cohort of 100 founding members. Lock in lifetime pricing. Shape the product roadmap. Direct access to the dev team.</p>
-        </div>
-        <div class="mx-auto mt-12 max-w-xl">
-          <div id="vanguard-presignup-form"></div>
-        </div>
-      </section>
-
       <!-- PRICING -->
-      <section id="plans" class="mx-auto max-w-5xl px-6 py-24" data-pricing-section style="display: none;">
-        <h2 class="text-center text-3xl font-black md:text-4xl">Pricing Built for Everyone</h2>
-        <p class="mx-auto mt-4 text-center max-w-2xl text-white/60">Start free. Upgrade to Pro ($7.99/mo) when it matters. Vanguard members lock in lifetime rates on Pro.</p>
+      <section id="plans" class="mx-auto max-w-5xl px-6 py-24" data-pricing-section>
+        <h2 class="text-center text-3xl font-black md:text-4xl">Start free. Upgrade when it matters.</h2>
         <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
           <!-- Free -->
           <div class="relative rounded-2xl p-8 flex flex-col bg-[#0b0f19] border border-white/10">
@@ -367,7 +317,17 @@
                 <span class="text-sm">Standard personas</span>
               </li>
             </ul>
-            <p class="mt-8 text-sm text-white/50 text-center">Access is currently by waitlist and Vanguard application only.</p>
+            <a
+              href="https://app.liaisonreply.com/auth/register"
+              data-session-primary
+              data-cta-surface="pricing-free"
+              data-cta-label="Start Free"
+              data-auth-text="Start Free"
+              data-session-text="Open Liaison Reply"
+              data-auth-path="/auth/register"
+              data-session-path="/chat"
+              class="mt-8 block w-full rounded-xl py-4 text-center font-bold border border-white/15 bg-white/5 text-white hover:bg-white/10 active:scale-[0.98] transition-all duration-200"
+            >Start Free</a>
           </div>
 
           <!-- Pro -->
@@ -412,106 +372,92 @@
                 <span class="text-sm">Every premium persona unlocked</span>
               </li>
             </ul>
-            <p class="mt-8 text-sm text-white/50 text-center">Pro access will open to the Vanguard first.</p>
+            <a
+              href="https://app.liaisonreply.com/auth/register"
+              data-session-primary
+              data-billing-interval="month"
+              data-cta-surface="pricing-pro"
+              data-cta-label="Unlock Pro"
+              data-auth-text="Unlock Pro"
+              data-session-text="Open Liaison Reply"
+              data-auth-path="/auth/register"
+              data-session-path="/chat"
+              class="mt-8 block w-full rounded-xl py-4 text-center font-bold bg-amber-400 text-black hover:bg-amber-300 hover:shadow-[0_0_30px_rgba(251,191,36,0.5)] active:scale-[0.98] transition-all duration-200"
+            >Unlock Pro</a>
           </div>
         </div>
       </section>
 
-      <!-- FAQs -->
-      <section class="mx-auto max-w-5xl px-8 py-20">
+      <!-- FAQ -->
+      <section id="faq" class="mx-auto max-w-3xl px-6 py-24">
+        <h2 class="text-center text-3xl font-black md:text-4xl">Questions before you start</h2>
+        <div class="mt-12">
           <div class="faq-item border-b border-white/10">
             <button class="faq-toggle flex w-full items-center justify-between py-5 text-left group" aria-expanded="false">
-              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">Is Liaison Reply free?</span>
+              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">What happens to the messages I paste in?</span>
               <svg class="faq-icon h-5 w-5 text-white/40 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
               </svg>
             </button>
             <div class="faq-panel overflow-hidden transition-all duration-300 ease-out" style="max-height:0;opacity:0">
-              <p class="text-sm leading-relaxed text-white/60 pb-5"><strong>Yes.</strong> Free tier includes 15 credits every 48 hours. Pro ($7.99/mo) adds unlimited requests, advanced personas, and full conversation history.</p>
+              <p class="text-sm leading-relaxed text-white/60 pb-5">Messages are processed to generate your replies and stored only in your isolated, owner-scoped thread memory. You control retention and can wipe threads any time.</p>
             </div>
           </div>
 
           <div class="faq-item border-b border-white/10">
             <button class="faq-toggle flex w-full items-center justify-between py-5 text-left group" aria-expanded="false">
-              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">Is this legitimate?</span>
+              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">Is this a chatbot?</span>
               <svg class="faq-icon h-5 w-5 text-white/40 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
               </svg>
             </button>
             <div class="faq-panel overflow-hidden transition-all duration-300 ease-out" style="max-height:0;opacity:0">
-              <p class="text-sm leading-relaxed text-white/60 pb-5"><strong>Yes.</strong> Liaison Reply is built by experienced founders using enterprise-grade infrastructure (Supabase, Stripe, Expo). Private edge functions, row-level security, and cryptographic isolation by default.</p>
+              <p class="text-sm leading-relaxed text-white/60 pb-5">No. Liaison Reply is a triage tool. You paste a message, get three calibrated replies, edit if needed, and copy the one you want back into your real conversation.</p>
             </div>
           </div>
 
           <div class="faq-item border-b border-white/10">
             <button class="faq-toggle flex w-full items-center justify-between py-5 text-left group" aria-expanded="false">
-              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">When is it available?</span>
+              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">Can I cancel Pro anytime?</span>
               <svg class="faq-icon h-5 w-5 text-white/40 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
               </svg>
             </button>
             <div class="faq-panel overflow-hidden transition-all duration-300 ease-out" style="max-height:0;opacity:0">
-              <p class="text-sm leading-relaxed text-white/60 pb-5"><strong>Beta opens Q3 2026.</strong> Waitlist members get early invites. Vanguard applications are rolling now.</p>
+              <p class="text-sm leading-relaxed text-white/60 pb-5">Yes. Billing is self-serve through Stripe&rsquo;s customer portal. Cancel anytime, no retention calls, no games.</p>
             </div>
           </div>
 
           <div class="faq-item border-b border-white/10">
             <button class="faq-toggle flex w-full items-center justify-between py-5 text-left group" aria-expanded="false">
-              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">Is my data private?</span>
+              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">Why not just use a generic AI chatbot?</span>
               <svg class="faq-icon h-5 w-5 text-white/40 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
               </svg>
             </button>
             <div class="faq-panel overflow-hidden transition-all duration-300 ease-out" style="max-height:0;opacity:0">
-              <p class="text-sm leading-relaxed text-white/60 pb-5">Absolutely. Your messages are stored in owner-scoped thread memory with strict row-level security. Generation runs inside private edge functions, never client-side. You can delete any thread or wipe your entire history anytime.</p>
+              <p class="text-sm leading-relaxed text-white/60 pb-5">Generic chatbots aren&rsquo;t calibrated for social outcomes. Liaison Reply is purpose-built to analyze tone, intent, and relationship context, then hand you three distinct strategic paths.</p>
             </div>
           </div>
-
-          <div class="faq-item border-b border-white/10">
-            <button class="faq-toggle flex w-full items-center justify-between py-5 text-left group" aria-expanded="false">
-              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">How do I get a Vanguard invite?</span>
-              <svg class="faq-icon h-5 w-5 text-white/40 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-              </svg>
-            </button>
-            <div class="faq-panel overflow-hidden transition-all duration-300 ease-out" style="max-height:0;opacity:0">
-              <p class="text-sm leading-relaxed text-white/60 pb-5">Select pre-signups from the waitlist will receive a direct email invitation to apply. Vanguard applications are selective and designed to find deeply committed members who want to steer the product&rsquo;s evolution.</p>
-            </div>
-          </div>
-
-          <div class="faq-item border-b border-white/10">
-            <button class="faq-toggle flex w-full items-center justify-between py-5 text-left group" aria-expanded="false">
-              <span class="text-base font-medium text-white group-hover:text-sky-300 transition-colors">What devices will Liaison Reply work on?</span>
-              <svg class="faq-icon h-5 w-5 text-white/40 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-              </svg>
-            </button>
-            <div class="faq-panel overflow-hidden transition-all duration-300 ease-out" style="max-height:0;opacity:0">
-              <p class="text-sm leading-relaxed text-white/60 pb-5">Liaison Reply will launch on web (browser), iOS, and Android. The ultimate goal is a native keyboard extension, but we&rsquo;re starting with full cross-platform mobile and web support.</p>
-            </div>
-          </div>
+        </div>
       </section>
 
       <!-- FINAL CTA -->
       <section class="mx-auto max-w-4xl px-6 py-24 text-center">
-        <h2 class="text-4xl font-black md:text-5xl">Two Ways to Start</h2>
-        <p class="mt-4 text-white/60 text-lg">Free access or founding lifetime pricing. Join now.</p>
-        <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
-          <button
-            type="button"
-            data-scroll-to="beta-waitlist"
-            class="inline-flex items-center justify-center rounded-2xl bg-sky-500 px-10 py-5 text-lg font-bold text-black shadow-[0_0_40px_rgba(56,189,248,0.35)] hover:bg-sky-400 hover:shadow-[0_0_60px_rgba(56,189,248,0.5)] active:scale-[0.98] transition-all duration-200"
-          >
-            Join the Beta
-          </button>
-          <button
-            type="button"
-            data-scroll-to="founding-vanguard"
-            class="inline-flex items-center justify-center rounded-2xl bg-amber-400 px-10 py-5 text-lg font-bold text-black shadow-[0_0_40px_rgba(251,191,36,0.35)] hover:bg-amber-300 hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] active:scale-[0.98] transition-all duration-200"
-          >
-            Apply for Vanguard
-          </button>
-        </div>
+        <h2 class="text-4xl font-black md:text-5xl">Paste one loaded message.</h2>
+        <p class="mt-4 text-white/50">See three better ways to reply.</p>
+        <a
+          href="https://app.liaisonreply.com/auth/register"
+          data-session-primary
+          data-cta-surface="final-cta-primary"
+          data-cta-label="Claim 15 Free Replies Now"
+          data-auth-text="Claim 15 Free Replies Now"
+          data-session-text="Back to Liaison Reply"
+          data-auth-path="/auth/register"
+          data-session-path="/chat"
+          class="mt-10 block w-full text-center rounded-2xl bg-sky-500 px-10 py-5 text-lg font-bold text-black shadow-[0_0_40px_rgba(56,189,248,0.35)] hover:bg-sky-400 hover:shadow-[0_0_60px_rgba(56,189,248,0.5)] active:scale-[0.98] transition-all duration-200 sm:inline-block sm:w-auto"
+        >Claim 15 Free Replies Now</a>
+        <p class="mt-4 text-sm text-white/50">15 credits reloaded every 48 hours. Unlimited free credits via referrals.</p>
       </section>
 
       <footer class="border-t border-white/5 py-10 text-center text-xs text-white/30">
@@ -521,7 +467,6 @@
           <a href="./terms.html" class="hover:text-white/50 transition-colors">Terms</a>
           <a href="./cookies.html" class="hover:text-white/50 transition-colors">Cookies</a>
           <a href="./support.html" class="hover:text-white/50 transition-colors">Support</a>
-          <a href="https://app.liaisonreply.com/auth/login" class="text-white/10 hover:text-white/40 transition-colors">Dev</a>
         </nav>
       </footer>
     </main>
@@ -535,10 +480,13 @@
       aria-label="Cookie preferences"
     >
       <div class="max-w-[680px] flex flex-col gap-1">
-        <p class="text-sky-500 text-[0.72rem] font-extrabold uppercase tracking-[0.12em]">Privacy Control</p>
-        <p class="text-base font-extrabold">Choose your data preferences.</p>
+        <p class="text-sky-500 text-[0.72rem] font-extrabold uppercase tracking-[0.12em]">Cookie preferences</p>
+        <p class="text-base font-extrabold">Choose how Liaison Reply remembers your visit.</p>
         <p class="text-white/60 text-sm">
-          Essential cookies keep Liaison Reply functioning. Optional cookies let us understand how you found us and improve your experience. You control what we track. Full transparency, zero pressure.
+          We use a few essential cookies to keep the site working properly. If
+          you allow optional cookies, we can remember how you found Liaison
+          Reply and carry that context into the app so you don&rsquo;t have to
+          start over.
         </p>
       </div>
       <div class="flex gap-3 flex-wrap justify-end">
@@ -562,29 +510,6 @@
         >Cookie settings</a>
       </div>
     </aside>
-
-    <!-- Pricing Toggle Script -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const pricingToggle = document.getElementById('pricing-toggle');
-        const pricingSection = document.querySelector('[data-pricing-section]');
-        
-        if (pricingToggle && pricingSection) {
-          pricingToggle.addEventListener('click', function() {
-            const isHidden = pricingSection.style.display === 'none';
-            if (isHidden) {
-              pricingSection.style.display = 'block';
-              pricingToggle.textContent = 'Hide Pricing';
-              // Smooth scroll to pricing
-              pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else {
-              pricingSection.style.display = 'none';
-              pricingToggle.textContent = 'View Pricing';
-            }
-          });
-        }
-      });
-    </script>
 
     <script src="./site.js"></script>
   </body>
